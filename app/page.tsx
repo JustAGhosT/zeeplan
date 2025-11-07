@@ -179,7 +179,11 @@ export default function Home() {
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">Sekelbos Clearing</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">
+                      <Link href="/sekelbos" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                        Sekelbos Clearing
+                      </Link>
+                    </h4>
                     <p className="text-gray-600 dark:text-gray-400">260ha removal generates revenue + capacity expansion</p>
                   </div>
                 </div>
@@ -276,6 +280,13 @@ export default function Home() {
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
             >
               Full Proposal
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              href="/sekelbos"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              Sekelbos Plan
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <Link
