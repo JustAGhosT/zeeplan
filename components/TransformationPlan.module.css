@@ -1,0 +1,222 @@
+/* TransformationPlan Component Styles */
+
+.yearsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.yearCard {
+  border-left: 4px solid #16a34a;
+}
+
+.phaseHeader {
+  margin-bottom: 1rem;
+}
+
+.phaseBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #166534;
+  background-color: #dcfce7;
+  border-radius: 9999px;
+}
+
+:global(.dark) .phaseBadge {
+  color: #bbf7d0;
+  background-color: #14532d;
+}
+
+.equityText {
+  margin-left: 0.75rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+:global(.dark) .equityText {
+  color: #9ca3af;
+}
+
+.objectivesGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .objectivesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .sectionTitle {
+  color: #d1d5db;
+}
+
+.objectivesList {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.costsBox {
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+}
+
+:global(.dark) .costsBox {
+  background-color: #111827;
+}
+
+.costsText {
+  font-size: 0.875rem;
+}
+
+.coreStrategyCard {
+  margin-top: 1.5rem;
+}
+
+.strategyGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .strategyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .strategyGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.strategyBox {
+  padding: 1rem;
+  border-radius: 0.375rem;
+}
+
+.strategyBoxGreen {
+  background-color: #f0fdf4;
+}
+
+:global(.dark) .strategyBoxGreen {
+  background-color: rgba(20, 83, 45, 0.2);
+}
+
+.strategyBoxBlue {
+  background-color: #eff6ff;
+}
+
+:global(.dark) .strategyBoxBlue {
+  background-color: rgba(30, 58, 138, 0.2);
+}
+
+.strategyBoxPurple {
+  background-color: #faf5ff;
+}
+
+:global(.dark) .strategyBoxPurple {
+  background-color: rgba(88, 28, 135, 0.2);
+}
+
+.strategyBoxOrange {
+  background-color: #fff7ed;
+}
+
+:global(.dark) .strategyBoxOrange {
+  background-color: rgba(124, 45, 18, 0.2);
+}
+
+.strategyBoxRed {
+  background-color: #fef2f2;
+}
+
+:global(.dark) .strategyBoxRed {
+  background-color: rgba(127, 29, 29, 0.2);
+}
+
+.strategyBoxTeal {
+  background-color: #f0fdfa;
+}
+
+:global(.dark) .strategyBoxTeal {
+  background-color: rgba(19, 78, 74, 0.2);
+}
+
+.strategyTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.strategyTitleGreen {
+  color: #166534;
+}
+
+:global(.dark) .strategyTitleGreen {
+  color: #4ade80;
+}
+
+.strategyTitleBlue {
+  color: #1e3a8a;
+}
+
+:global(.dark) .strategyTitleBlue {
+  color: #60a5fa;
+}
+
+.strategyTitlePurple {
+  color: #581c87;
+}
+
+:global(.dark) .strategyTitlePurple {
+  color: #c084fc;
+}
+
+.strategyTitleOrange {
+  color: #7c2d12;
+}
+
+:global(.dark) .strategyTitleOrange {
+  color: #fb923c;
+}
+
+.strategyTitleRed {
+  color: #7f1d1d;
+}
+
+:global(.dark) .strategyTitleRed {
+  color: #f87171;
+}
+
+.strategyTitleTeal {
+  color: #134e4a;
+}
+
+:global(.dark) .strategyTitleTeal {
+  color: #2dd4bf;
+}
+
+.strategyText {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+:global(.dark) .strategyText {
+  color: #d1d5db;
+}

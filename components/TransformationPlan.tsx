@@ -4,6 +4,7 @@ import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import { formatCurrency } from '@/lib/calculations';
 import { Section, Card, Table } from './UIComponents';
+import styles from './TransformationPlan.module.css';
 
 interface TransformationPlanProps {
   data: PartnershipData;
@@ -23,26 +24,26 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
       title="5-Year Transformation Plan"
       subtitle="Phased approach to regenerative agriculture and capacity expansion"
     >
-      <div className="space-y-6">
+      <div className={styles.yearsContainer}>
         {years.map(({ key, title, phase }) => {
           const yearData = data.yearlyTargets[key];
           const equity = data.equityStructure[key];
           
           return (
-            <Card key={key} title={title} className="border-l-4 border-green-500">
-              <div className="mb-4">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-green-800 bg-green-100 dark:text-green-200 dark:bg-green-900 rounded-full">
+            <Card key={key} title={title} className={styles.yearCard}>
+              <div className={styles.phaseHeader}>
+                <span className={styles.phaseBadge}>
                   {phase}
                 </span>
-                <span className="ml-3 text-sm text-gray-600 dark:text-gray-400">
+                <span className={styles.equityText}>
                   Hans Equity: {equity.hans}%
                 </span>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className={styles.objectivesGrid}>
                 <div>
-                  <h5 className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-2">Key Objectives</h5>
-                  <ul className="text-sm space-y-1">
+                  <h5 className={styles.sectionTitle}>Key Objectives</h5>
+                  <ul className={styles.objectivesList}>
                     <li>• Clear {yearData.sekelbosCleared}ha sekelbos</li>
                     <li>• Target stocking: {yearData.targetLSU} LSU</li>
                     <li>• Sekelbos revenue: {formatCurrency(yearData.sekelbosRevenue[0])}-{formatCurrency(yearData.sekelbosRevenue[1])}</li>
@@ -50,8 +51,8 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                 </div>
                 
                 <div>
-                  <h5 className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-2">Revenue Streams</h5>
-                  <ul className="text-sm space-y-1">
+                  <h5 className={styles.sectionTitle}>Revenue Streams</h5>
+                  <ul className={styles.objectivesList}>
                     <li>• Cattle: {formatCurrency(yearData.cattleRevenue[0])}-{formatCurrency(yearData.cattleRevenue[1])}</li>
                     {'goatsRevenue' in yearData && (
                       <li>• Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}</li>
@@ -69,8 +70,8 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                 </div>
               </div>
               
-              <div className="bg-gray-50 dark:bg-gray-900 p-3 rounded">
-                <p className="text-sm">
+              <div className={styles.costsBox}>
+                <p className={styles.costsText}>
                   <strong>Costs:</strong> {formatCurrency(yearData.costs[0])}-{formatCurrency(yearData.costs[1])}
                 </p>
               </div>
@@ -79,46 +80,46 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
         })}
       </div>
 
-      <Card title="Core Strategy" className="mt-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded">
-            <h5 className="font-semibold text-green-800 dark:text-green-400 mb-2">🌿 Sekelbos Clearing</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+      <Card title="Core Strategy" className={styles.coreStrategyCard}>
+        <div className={styles.strategyGrid}>
+          <div className={`${styles.strategyBox} ${styles.strategyBoxGreen}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitleGreen}`}>🌿 Sekelbos Clearing</h5>
+            <p className={styles.strategyText}>
               50ha/year removal generates revenue + capacity expansion
             </p>
           </div>
           
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
-            <h5 className="font-semibold text-blue-800 dark:text-blue-400 mb-2">📊 Diversification</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className={`${styles.strategyBox} ${styles.strategyBoxBlue}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitleBlue}`}>📊 Diversification</h5>
+            <p className={styles.strategyText}>
               8+ revenue streams: cattle, goats (meat + dairy), pigs, chickens, crops, wood
             </p>
           </div>
           
-          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded">
-            <h5 className="font-semibold text-purple-800 dark:text-purple-400 mb-2">💼 Systems</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className={`${styles.strategyBox} ${styles.strategyBoxPurple}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitlePurple}`}>💼 Systems</h5>
+            <p className={styles.strategyText}>
               Financial tracking, production optimization, KPI management
             </p>
           </div>
           
-          <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded">
-            <h5 className="font-semibold text-orange-800 dark:text-orange-400 mb-2">🎯 Marketing</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className={`${styles.strategyBox} ${styles.strategyBoxOrange}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitleOrange}`}>🎯 Marketing</h5>
+            <p className={styles.strategyText}>
               Direct-to-consumer, premium pricing, farm shop, branding
             </p>
           </div>
           
-          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded">
-            <h5 className="font-semibold text-red-800 dark:text-red-400 mb-2">⚡ Efficiency</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className={`${styles.strategyBox} ${styles.strategyBoxRed}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitleRed}`}>⚡ Efficiency</h5>
+            <p className={styles.strategyText}>
               Process optimization, cost savings, strategic planning
             </p>
           </div>
           
-          <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded">
-            <h5 className="font-semibold text-teal-800 dark:text-teal-400 mb-2">🤝 Partnership</h5>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+          <div className={`${styles.strategyBox} ${styles.strategyBoxTeal}`}>
+            <h5 className={`${styles.strategyTitle} ${styles.strategyTitleTeal}`}>🤝 Partnership</h5>
+            <p className={styles.strategyText}>
               Performance-based milestones, family control maintained
             </p>
           </div>
