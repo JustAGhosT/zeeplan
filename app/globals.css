@@ -25,3 +25,39 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background: white !important;
+    color: #171717 !important;
+  }
+
+  header {
+    position: relative !important;
+    box-shadow: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* Prevent page breaks inside important elements */
+  table,
+  .recharts-wrapper {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+}
+
