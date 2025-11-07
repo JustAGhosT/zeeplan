@@ -1,18 +1,31 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Sun, Moon, Download, Share2, Menu, X } from 'lucide-react';
+import styles from './Header.module.css';
 
 interface HeaderProps {
-  onToggleControls: () => void;
-  showControls: boolean;
+  onToggleControls?: () => void;
+  showControls?: boolean;
   onExport?: () => void;
   onShare?: () => void;
+  showControlsButton?: boolean;
 }
 
-export function Header({ onToggleControls, showControls, onExport, onShare }: HeaderProps) {
+export function Header({ onToggleControls, showControls, onExport, onShare, showControlsButton = true }: HeaderProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/proposal', label: 'Proposal' },
+    { href: '/financials', label: 'Financials' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   useEffect(() => {
     // Check system preference
@@ -52,126 +65,158 @@ export function Header({ onToggleControls, showControls, onExport, onShare }: He
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40 print:relative print:shadow-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex justify-between items-center">
+    <header className={`${styles.header} ${darkMode ? styles.dark : ''}`}>
+      <div className={styles.container}>
+        <div className={styles.topBar}>
           {/* Logo and Title */}
-          <div className="flex items-center gap-4">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50 flex items-center gap-2">
-                <span className="text-3xl">🌱</span>
+          <div>
+            <Link href="/" className={styles.logo}>
+              <h1 className={`${styles.logoTitle} ${darkMode ? styles.dark : ''}`}>
+                <span className={styles.logoIcon}>🌱</span>
                 <span>Zeeplan</span>
               </h1>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                Zeerust Regenerative Agriculture Partnership
-              </p>
-            </div>
+            </Link>
           </div>
 
+          {/* Desktop Navigation */}
+          <nav className={styles.desktopNav}>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                  pathname === item.href ? styles.active : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className={styles.desktopActions}>
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className={`${styles.iconButton} ${darkMode ? styles.dark : ''}`}
               aria-label="Toggle dark mode"
             >
               {darkMode ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
+                <Sun style={{ width: '1.25rem', height: '1.25rem', color: '#eab308' }} />
               ) : (
-                <Moon className="w-5 h-5 text-gray-600" />
+                <Moon style={{ width: '1.25rem', height: '1.25rem', color: '#4b5563' }} />
               )}
             </button>
 
             <button
               onClick={handleExport}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors print:hidden"
+              className={`${styles.iconButton} ${darkMode ? styles.dark : ''}`}
               aria-label="Export to PDF"
               title="Print/Export to PDF"
             >
-              <Download className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <Download style={{ width: '1.25rem', height: '1.25rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
             </button>
 
             <button
               onClick={handleShare}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors print:hidden"
+              className={`${styles.iconButton} ${darkMode ? styles.dark : ''}`}
               aria-label="Share proposal"
               title="Share proposal"
             >
-              <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <Share2 style={{ width: '1.25rem', height: '1.25rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
             </button>
 
-            <button
-              onClick={onToggleControls}
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md print:hidden"
-            >
-              {showControls ? 'Hide Controls' : 'Adjust Values'}
-            </button>
+            {showControlsButton && onToggleControls && (
+              <button
+                onClick={onToggleControls}
+                className={styles.controlsButton}
+              >
+                {showControls ? 'Hide Controls' : 'Adjust Values'}
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-700"
+            className={`${styles.mobileMenuButton} ${darkMode ? styles.dark : ''}`}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              <X style={{ width: '1.5rem', height: '1.5rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
             ) : (
-              <Menu className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              <Menu style={{ width: '1.5rem', height: '1.5rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 border-t dark:border-gray-700 pt-4">
-            <button
-              onClick={() => {
-                toggleDarkMode();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-600" />
+          <div className={`${styles.mobileMenu} ${darkMode ? styles.dark : ''}`}>
+            <div className={styles.mobileMenuContent}>
+              {/* Mobile Navigation */}
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`${styles.mobileNavLink} ${darkMode ? styles.dark : ''} ${
+                    pathname === item.href ? styles.active : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              <button
+                onClick={() => {
+                  toggleDarkMode();
+                  setMobileMenuOpen(false);
+                }}
+                className={`${styles.mobileActionButton} ${darkMode ? styles.dark : ''}`}
+              >
+                {darkMode ? (
+                  <Sun style={{ width: '1.25rem', height: '1.25rem', color: '#eab308' }} />
+                ) : (
+                  <Moon style={{ width: '1.25rem', height: '1.25rem', color: '#4b5563' }} />
+                )}
+                <span>
+                  {darkMode ? 'Light Mode' : 'Dark Mode'}
+                </span>
+              </button>
+
+              <button
+                onClick={() => {
+                  handleExport();
+                  setMobileMenuOpen(false);
+                }}
+                className={`${styles.mobileActionButton} ${darkMode ? styles.dark : ''}`}
+              >
+                <Download style={{ width: '1.25rem', height: '1.25rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
+                <span>Export to PDF</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  handleShare();
+                  setMobileMenuOpen(false);
+                }}
+                className={`${styles.mobileActionButton} ${darkMode ? styles.dark : ''}`}
+              >
+                <Share2 style={{ width: '1.25rem', height: '1.25rem', color: darkMode ? '#d1d5db' : '#4b5563' }} />
+                <span>Share Proposal</span>
+              </button>
+
+              {showControlsButton && onToggleControls && (
+                <button
+                  onClick={() => {
+                    onToggleControls();
+                    setMobileMenuOpen(false);
+                  }}
+                  className={styles.mobileControlsButton}
+                >
+                  {showControls ? 'Hide Controls' : 'Adjust Values'}
+                </button>
               )}
-              <span className="text-gray-700 dark:text-gray-300">
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
-              </span>
-            </button>
-
-            <button
-              onClick={() => {
-                handleExport();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              <Download className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              <span className="text-gray-700 dark:text-gray-300">Export to PDF</span>
-            </button>
-
-            <button
-              onClick={() => {
-                handleShare();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              <span className="text-gray-700 dark:text-gray-300">Share Proposal</span>
-            </button>
-
-            <button
-              onClick={() => {
-                onToggleControls();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-            >
-              {showControls ? 'Hide Controls' : 'Adjust Values'}
-            </button>
+            </div>
           </div>
         )}
       </div>
