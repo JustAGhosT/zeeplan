@@ -1,0 +1,146 @@
+.navigation {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.navigation.dark {
+  background-color: #1f2937;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title.dark {
+  color: #d1d5db;
+}
+
+.linkSection {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.linkSection.dark {
+  border-color: #374151;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: #2563eb;
+  transition: background-color 0.2s;
+}
+
+.navLink.dark {
+  color: #60a5fa;
+}
+
+.navLink:hover {
+  background-color: #eff6ff;
+}
+
+.navLink.dark:hover {
+  background-color: rgba(30, 58, 138, 0.2);
+}
+
+.navLink.green {
+  color: #16a34a;
+}
+
+.navLink.green.dark {
+  color: #4ade80;
+}
+
+.navLink.green:hover {
+  background-color: #f0fdf4;
+}
+
+.navLink.green.dark:hover {
+  background-color: rgba(21, 128, 61, 0.2);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin-bottom: 0.25rem;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  transition: background-color 0.2s, color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.button.dark {
+  color: #9ca3af;
+}
+
+.button:hover {
+  background-color: #f3f4f6;
+}
+
+.button.dark:hover {
+  background-color: #374151;
+}
+
+.button.active {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.button.active.dark {
+  background-color: rgba(21, 128, 61, 0.3);
+  color: #4ade80;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 0.875rem;
+  flex: 1;
+}
+
+.chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media print {
+  .navigation {
+    display: none;
+  }
+}
