@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import styles from './UIComponents.module.css';
 
 interface CardProps {
   title?: string;
@@ -7,9 +10,24 @@ interface CardProps {
 }
 
 export function Card({ title, children, className = '' }: CardProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 ${className}`}>
-      {title && <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">{title}</h3>}
+    <div className={`${styles.card} ${isDark ? styles.dark : ''} ${className}`}>
+      {title && <h3 className={`${styles.cardTitle} ${isDark ? styles.dark : ''}`}>{title}</h3>}
       {children}
     </div>
   );
@@ -23,10 +41,25 @@ interface SectionProps {
 }
 
 export function Section({ title, subtitle, children, className = '' }: SectionProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={`mb-12 ${className}`}>
-      <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-50">{title}</h2>
-      {subtitle && <p className="text-gray-600 dark:text-gray-400 mb-6">{subtitle}</p>}
+    <section className={`${styles.section} ${className}`}>
+      <h2 className={`${styles.sectionTitle} ${isDark ? styles.dark : ''}`}>{title}</h2>
+      {subtitle && <p className={`${styles.sectionSubtitle} ${isDark ? styles.dark : ''}`}>{subtitle}</p>}
       {children}
     </section>
   );
@@ -39,26 +72,41 @@ interface TableProps {
 }
 
 export function Table({ headers, rows, className = '' }: TableProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={`overflow-x-auto ${className}`}>
-      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <thead className="bg-gray-50 dark:bg-gray-900">
+    <div className={`${styles.tableWrapper} ${className}`}>
+      <table className={styles.table}>
+        <thead className={`${styles.tableHead} ${isDark ? styles.dark : ''}`}>
           <tr>
             {headers.map((header, i) => (
               <th
                 key={i}
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                className={`${styles.tableHeader} ${isDark ? styles.dark : ''}`}
               >
                 {header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody className={`${styles.tableBody} ${isDark ? styles.dark : ''}`}>
           {rows.map((row, i) => (
-            <tr key={i}>
+            <tr key={i} className={`${styles.tableRow} ${isDark ? styles.dark : ''}`}>
               {row.map((cell, j) => (
-                <td key={j} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                <td key={j} className={`${styles.tableCell} ${isDark ? styles.dark : ''}`}>
                   {cell}
                 </td>
               ))}
@@ -78,12 +126,27 @@ interface MetricCardProps {
 }
 
 export function MetricCard({ label, value, change, className = '' }: MetricCardProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={`bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 rounded-lg p-4 ${className}`}>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">{label}</p>
-      <p className="text-2xl font-bold text-gray-900 dark:text-gray-50">{value}</p>
+    <div className={`${styles.metricCard} ${isDark ? styles.dark : ''} ${className}`}>
+      <p className={`${styles.metricLabel} ${isDark ? styles.dark : ''}`}>{label}</p>
+      <p className={`${styles.metricValue} ${isDark ? styles.dark : ''}`}>{value}</p>
       {change && (
-        <p className="text-xs text-green-600 dark:text-green-400 mt-1">{change}</p>
+        <p className={`${styles.metricChange} ${isDark ? styles.dark : ''}`}>{change}</p>
       )}
     </div>
   );
@@ -110,12 +173,27 @@ export function InputGroup({
   suffix,
   className = ''
 }: InputGroupProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={`mb-4 ${className}`}>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+    <div className={`${styles.inputGroup} ${className}`}>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
         {label}
       </label>
-      <div className="flex items-center gap-2">
+      <div className={styles.inputWrapper}>
         <input
           type="number"
           value={value}
@@ -123,10 +201,10 @@ export function InputGroup({
           min={min}
           max={max}
           step={step}
-          className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-gray-100"
+          className={`${styles.input} ${isDark ? styles.dark : ''}`}
         />
         {suffix && (
-          <span className="text-sm text-gray-600 dark:text-gray-400">{suffix}</span>
+          <span className={`${styles.inputSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>
         )}
       </div>
     </div>
@@ -154,31 +232,46 @@ export function RangeInputGroup({
   suffix,
   className = ''
 }: RangeInputGroupProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={`mb-4 ${className}`}>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+    <div className={`${styles.rangeInputGroup} ${className}`}>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
         {label}
       </label>
-      <div className="flex items-center gap-2">
+      <div className={styles.inputWrapper}>
         <input
           type="number"
           value={min}
           onChange={(e) => onChangeMin(Number(e.target.value))}
           step={step}
-          className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-gray-100"
+          className={`${styles.input} ${isDark ? styles.dark : ''}`}
           placeholder="Min"
         />
-        <span className="text-gray-500 dark:text-gray-400">-</span>
+        <span className={`${styles.rangeSeparator} ${isDark ? styles.dark : ''}`}>-</span>
         <input
           type="number"
           value={max}
           onChange={(e) => onChangeMax(Number(e.target.value))}
           step={step}
-          className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-gray-100"
+          className={`${styles.input} ${isDark ? styles.dark : ''}`}
           placeholder="Max"
         />
         {suffix && (
-          <span className="text-sm text-gray-600 dark:text-gray-400 min-w-fit">{suffix}</span>
+          <span className={`${styles.rangeSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>
         )}
       </div>
     </div>

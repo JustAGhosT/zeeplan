@@ -1,5 +1,8 @@
 @import './utilities.css';
 
+/* Zeeplan Common Styles - CSS Module Version */
+/* Import this file into components to use shared styles with proper dark mode support */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -114,4 +117,3 @@ a {
     margin-bottom: 2rem;
   }
 }
-

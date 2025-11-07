@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronRight, FileText, TrendingUp, Calendar, Settings, TreeDeciduous, Leaf, Package, Wrench, Target, BarChart3, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import styles from './Navigation.module.css';
 
 interface NavigationProps {
   className?: string;
@@ -11,6 +12,7 @@ interface NavigationProps {
 
 export function Navigation({ className = '', pageType = 'proposal' }: NavigationProps) {
   const [activeSection, setActiveSection] = useState('');
+  const [isDark, setIsDark] = useState(false);
 
   const proposalSections = [
     { id: 'executive-summary', label: 'Executive Summary', icon: FileText },
@@ -30,6 +32,19 @@ export function Navigation({ className = '', pageType = 'proposal' }: Navigation
   ];
 
   const sections = pageType === 'sekelbos' ? sekelbosSections : proposalSections;
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,51 +81,49 @@ export function Navigation({ className = '', pageType = 'proposal' }: Navigation
   };
 
   return (
-    <nav className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sticky top-24 print:hidden ${className}`}>
-      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+    <nav className={`${styles.navigation} ${isDark ? styles.dark : ''} ${className}`}>
+      <h3 className={`${styles.title} ${isDark ? styles.dark : ''}`}>
         Table of Contents
       </h3>
       
       {/* Link to other page */}
       {pageType === 'proposal' && (
-        <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+        <div className={`${styles.linkSection} ${isDark ? styles.dark : ''}`}>
           <Link
             href="/sekelbos"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
+            className={`${styles.navLink} ${styles.green} ${isDark ? styles.dark : ''}`}
           >
-            <TreeDeciduous className="w-4 h-4 flex-shrink-0" />
-            <span className="flex-1">Sekelbos Clearance Plan →</span>
+            <TreeDeciduous style={{ width: '1rem', height: '1rem' }} />
+            <span style={{ flex: 1 }}>Sekelbos Clearance Plan →</span>
           </Link>
         </div>
       )}
       
       {pageType === 'sekelbos' && (
-        <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+        <div className={`${styles.linkSection} ${isDark ? styles.dark : ''}`}>
           <Link
             href="/proposal"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+            className={`${styles.navLink} ${isDark ? styles.dark : ''}`}
           >
-            <FileText className="w-4 h-4 flex-shrink-0" />
-            <span className="flex-1">← Main Proposal</span>
+            <FileText style={{ width: '1rem', height: '1rem' }} />
+            <span style={{ flex: 1 }}>← Main Proposal</span>
           </Link>
         </div>
       )}
       
-      <ul className="space-y-1">
+      <ul className={styles.list}>
         {sections.map(({ id, label, icon: Icon }) => (
-          <li key={id}>
+          <li key={id} className={styles.listItem}>
             <button
               onClick={() => scrollToSection(id)}
-              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-colors ${
-                activeSection === id
-                  ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+              className={`${styles.button} ${isDark ? styles.dark : ''} ${
+                activeSection === id ? styles.active : ''
               }`}
             >
-              <Icon className="w-4 h-4 flex-shrink-0" />
-              <span className="text-sm flex-1">{label}</span>
+              <Icon style={{ width: '1rem', height: '1rem' }} />
+              <span style={{ fontSize: '0.875rem', flex: 1 }}>{label}</span>
               {activeSection === id && (
-                <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                <ChevronRight style={{ width: '1rem', height: '1rem' }} />
               )}
             </button>
           </li>
