@@ -355,7 +355,7 @@
 
 @media (min-width: 1024px) {
   .lg\:flex { display: flex; }
-  .lg\:hidden { display: hidden; }
+  .lg\:hidden { display: none; }
   .lg\:block { display: block; }
   .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
   .lg\:py-32 { padding-top: 8rem; padding-bottom: 8rem; }
