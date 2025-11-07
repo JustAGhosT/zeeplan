@@ -3,6 +3,7 @@
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import { Card, InputGroup, RangeInputGroup } from './UIComponents';
+import styles from './ControlsPanel.module.css';
 
 interface ControlsPanelProps {
   data: PartnershipData;
@@ -30,10 +31,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
   };
 
   return (
-    <Card title="⚙️ Adjustable Parameters" className="sticky top-4">
-      <div className="space-y-4 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
-        <div className="border-b pb-4 dark:border-gray-700">
-          <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Farm Basics</h4>
+    <Card title="⚙️ Adjustable Parameters" className={styles.stickyCard}>
+      <div className={styles.controlsContainer}>
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Farm Basics</h4>
           
           <InputGroup
             label="Land Size"
@@ -72,8 +73,8 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
           />
         </div>
 
-        <div className="border-b pb-4 dark:border-gray-700">
-          <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Hans's Investment</h4>
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Hans's Investment</h4>
           
           <RangeInputGroup
             label="Livestock Value"
@@ -96,8 +97,8 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
           />
         </div>
 
-        <div className="border-b pb-4 dark:border-gray-700">
-          <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Equity Structure - Year 1</h4>
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Equity Structure - Year 1</h4>
           
           <InputGroup
             label="Oom Willie Equity"
@@ -139,8 +140,8 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
           />
         </div>
 
-        <div className="border-b pb-4 dark:border-gray-700">
-          <h4 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Equity Structure - Year 5</h4>
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Equity Structure - Year 5</h4>
           
           <InputGroup
             label="Oom Willie Equity"

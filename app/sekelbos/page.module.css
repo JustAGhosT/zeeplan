@@ -1,0 +1,50 @@
+/* Sekelbos Page Styles */
+
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #eff6ff);
+}
+
+:global(.dark) .pageContainer {
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+}
+
+.mainContent {
+  max-width: 88rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .mainContent {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 2rem 2rem;
+  }
+}
+
+.layoutGrid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navigationSidebar {
+  display: none;
+  width: 16rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1280px) {
+  .navigationSidebar {
+    display: block;
+  }
+}
+
+.contentArea {
+  flex: 1 1 0%;
+  min-width: 0;
+}

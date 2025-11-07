@@ -1,0 +1,148 @@
+/* Proposal Page Styles */
+
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #eff6ff);
+}
+
+:global(.dark) .pageContainer {
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+}
+
+.mainContent {
+  max-width: 88rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .mainContent {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 2rem 2rem;
+  }
+}
+
+.layoutGrid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navigationSidebar {
+  display: none;
+  width: 16rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1280px) {
+  .navigationSidebar {
+    display: block;
+  }
+}
+
+.contentArea {
+  flex: 1 1 0%;
+  min-width: 0;
+  transition: all 0.3s;
+}
+
+.controlsSidebar {
+  display: none;
+  width: 20rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .controlsSidebar {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .controlsSidebar {
+    width: 24rem;
+  }
+}
+
+.chartsSection {
+  margin-top: 1.5rem;
+}
+
+/* Mobile Modal */
+.mobileModal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .mobileModal {
+    display: none;
+  }
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  max-width: 28rem;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+:global(.dark) .modalContent {
+  background-color: #1f2937;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+:global(.dark) .modalHeader {
+  border-color: #374151;
+}
+
+.modalTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  color: #6b7280;
+}
+
+.closeButton:hover {
+  color: #374151;
+}
+
+:global(.dark) .closeButton {
+  color: #9ca3af;
+}
+
+:global(.dark) .closeButton:hover {
+  color: #e5e7eb;
+}
+
+.closeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.modalBody {
+  padding: 1rem;
+}

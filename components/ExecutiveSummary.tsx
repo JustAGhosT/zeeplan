@@ -4,6 +4,7 @@ import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateBaseline, calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
 import { Section, Card, MetricCard, Table } from './UIComponents';
+import styles from './ExecutiveSummary.module.css';
 
 interface ExecutiveSummaryProps {
   data: PartnershipData;
@@ -21,7 +22,7 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
       title="Executive Summary"
       subtitle="Zero-cash entry, sweat equity partnership in 600ha regenerative agriculture venture"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className={styles.metricsGrid}>
         <MetricCard
           label="Land Size"
           value={`${data.landSize} ha`}
@@ -42,9 +43,9 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className={styles.cardsGrid}>
         <Card title="The Farm (Current State)">
-          <ul className="space-y-2 text-sm">
+          <ul className={styles.list}>
             <li><strong>Location:</strong> Zeerust, North West Province, South Africa</li>
             <li><strong>Size:</strong> {data.landSize} hectares Bushveld</li>
             <li><strong>Current owners:</strong> Oom Willie (50%) + Eben (50%) - Family farm</li>
@@ -55,7 +56,7 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
         </Card>
 
         <Card title="The Opportunity">
-          <ul className="space-y-2 text-sm">
+          <ul className={styles.list}>
             <li><strong>Hans's Investment:</strong> {formatRange(hansInvestment)} livestock + R0 cash</li>
             <li><strong>5-Year Returns:</strong> {formatRange(hansReturns)}</li>
             <li><strong>ROI:</strong> 1,870-3,400%</li>
@@ -96,14 +97,14 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
             ],
           ]}
         />
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+        <p className={styles.finalStructure}>
           <strong>Final Structure:</strong> Oom Willie {data.equityStructure.year5.oomWillie}%, 
           Eben {data.equityStructure.year5.eben}%, 
           Hans {data.equityStructure.year5.hans}%
         </p>
       </Card>
 
-      <Card title="5-Year Income Comparison" className="mt-6">
+      <Card title="5-Year Income Comparison" className={styles.comparisonCard}>
         <Table
           headers={['Partner', 'Current Income (5yr)', 'Future Income (5yr)', 'Growth']}
           rows={[

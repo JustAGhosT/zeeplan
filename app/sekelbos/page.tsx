@@ -14,12 +14,13 @@ import {
   SekelbosSection6, 
   SekelbosSection7 
 } from '@/components/SekelbosClearance';
+import styles from './page.module.css';
 
 export default function SekelbosPage() {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className={styles.pageContainer}>
       {/* Enhanced Header */}
       <Header 
         onToggleControls={() => setShowControls(!showControls)}
@@ -27,15 +28,15 @@ export default function SekelbosPage() {
       />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-6">
+      <main className={styles.mainContent}>
+        <div className={styles.layoutGrid}>
           {/* Left Sidebar - Navigation (Desktop only) */}
-          <aside className="hidden xl:block w-64 flex-shrink-0">
+          <aside className={styles.navigationSidebar}>
             <Navigation pageType="sekelbos" />
           </aside>
 
           {/* Content Area */}
-          <div className="flex-1 min-w-0">
+          <div className={styles.contentArea}>
             {/* Sekelbos Clearance Business Plan Sections */}
             <div id="sekelbos-executive">
               <SekelbosExecutiveSummary />
