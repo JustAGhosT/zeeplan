@@ -1,0 +1,397 @@
+/* Goats Page Styles */
+
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #eff6ff);
+}
+
+:global(.dark) .pageContainer {
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+}
+
+.mainContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .mainContent {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Hero Section */
+.heroSection {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.iconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(to bottom right, #3b82f6, #2563eb);
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+:global(.dark) .heroTitle {
+  color: #f9fafb;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+:global(.dark) .heroSubtitle {
+  color: #9ca3af;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+:global(.dark) .sectionTitle {
+  color: #f9fafb;
+}
+
+/* Grid Layouts */
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .twoColumnGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.threeColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .threeColumnGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card Styles */
+.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .card {
+  background: #1f2937;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+:global(.dark) .cardTitle {
+  color: #f9fafb;
+}
+
+.targetCard {
+  background: linear-gradient(to bottom right, #d1fae5, #dbeafe);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .targetCard {
+  background: linear-gradient(to bottom right, #374151, #1f2937);
+}
+
+/* Feature Items */
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.featureIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.featureIconGreen {
+  color: #059669;
+}
+
+:global(.dark) .featureIconGreen {
+  color: #34d399;
+}
+
+.featureIconBlue {
+  color: #2563eb;
+}
+
+:global(.dark) .featureIconBlue {
+  color: #60a5fa;
+}
+
+.featureTitle {
+  font-weight: 600;
+  color: #111827;
+}
+
+:global(.dark) .featureTitle {
+  color: #f9fafb;
+}
+
+.featureDescription {
+  color: #4b5563;
+}
+
+:global(.dark) .featureDescription {
+  color: #9ca3af;
+}
+
+/* Strategy Cards */
+.strategyCard {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .strategyCard {
+  background: #1f2937;
+}
+
+.strategyIconContainer {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.strategyIconGreen {
+  background: #d1fae5;
+}
+
+:global(.dark) .strategyIconGreen {
+  background: #064e3b;
+}
+
+.strategyIconBlue {
+  background: #dbeafe;
+}
+
+:global(.dark) .strategyIconBlue {
+  background: #1e3a8a;
+}
+
+.strategyIconYellow {
+  background: #fef3c7;
+}
+
+:global(.dark) .strategyIconYellow {
+  background: #78350f;
+}
+
+.strategyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+:global(.dark) .strategyTitle {
+  color: #f9fafb;
+}
+
+.strategyDescription {
+  color: #4b5563;
+}
+
+:global(.dark) .strategyDescription {
+  color: #9ca3af;
+}
+
+/* Timeline */
+.timelineContainer {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .timelineContainer {
+  background: #1f2937;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.timelineIconContainer {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timelineIconGreen {
+  background: #d1fae5;
+}
+
+:global(.dark) .timelineIconGreen {
+  background: #064e3b;
+}
+
+.timelineIconBlue {
+  background: #dbeafe;
+}
+
+:global(.dark) .timelineIconBlue {
+  background: #1e3a8a;
+}
+
+.timelineIconYellow {
+  background: #fef3c7;
+}
+
+:global(.dark) .timelineIconYellow {
+  background: #78350f;
+}
+
+.timelineContent {
+  flex: 1;
+}
+
+.timelineTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .timelineTitle {
+  color: #f9fafb;
+}
+
+.timelineDescription {
+  color: #4b5563;
+}
+
+:global(.dark) .timelineDescription {
+  color: #9ca3af;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  background: linear-gradient(to right, #059669, #2563eb);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .benefitsSection {
+    padding: 3rem;
+  }
+}
+
+:global(.dark) .benefitsSection {
+  background: linear-gradient(to right, #047857, #1d4ed8);
+}
+
+.benefitsTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.benefitTitle {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.benefitDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+}
