@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background: white !important;
+    color: #171717 !important;
+  }
+
+  header {
+    position: relative !important;
+    box-shadow: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* Prevent page breaks inside important elements */
+  table,
+  .recharts-wrapper {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+}
+
