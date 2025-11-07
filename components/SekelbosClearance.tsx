@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import styles from './SekelbosClearance.module.css';
 import { Section, Card, Table } from './UIComponents';
 
 export function SekelbosExecutiveSummary() {
@@ -9,34 +10,34 @@ export function SekelbosExecutiveSummary() {
       title="SEKELBOS CLEARANCE & WOOD SALES BUSINESS PLAN"
       subtitle="Zeerust 600ha Property - Biological Clearance System"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className={styles.grid4}>
         <Card title="Property">
-          <p className="text-sm">600 hectares, Zeerust, North West Province</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Rainfall: 315mm annually</p>
+          <p className={styles.textSm}>600 hectares, Zeerust, North West Province</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>Rainfall: 315mm annually</p>
         </Card>
         
         <Card title="Current Problem">
-          <p className="text-sm">40-60% sekelbos encroachment</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">240-360ha affected</p>
+          <p className={styles.textSm}>40-60% sekelbos encroachment</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>240-360ha affected</p>
         </Card>
         
         <Card title="Solution">
-          <p className="text-sm">Multi-species biological clearance</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">+ wood revenue</p>
+          <p className={styles.textSm}>Multi-species biological clearance</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>+ wood revenue</p>
         </Card>
         
         <Card title="Timeline">
-          <p className="text-sm">5 years to complete clearance</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Investment: R598K-954K</p>
+          <p className={styles.textSm}>5 years to complete clearance</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>Investment: R598K-954K</p>
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className={styles.grid2}>
         <Card title="The Problem">
-          <div className="space-y-4">
+          <div className={styles.spaceY4}>
             <div>
-              <h4 className="font-semibold text-sm mb-2">Sekelbos (Dichrostachys cinerea) Impact:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Sekelbos (Dichrostachys cinerea) Impact:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>240-360ha affected (40-60% of property)</li>
                 <li>Lost grazing capacity: 100-150 Large Stock Units</li>
                 <li>Annual revenue loss: R200K-400K</li>
@@ -45,14 +46,14 @@ export function SekelbosExecutiveSummary() {
             </div>
             
             <div>
-              <h4 className="font-semibold text-sm mb-2">Conventional Clearance Costs:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Conventional Clearance Costs:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Mechanical: R5,000-10,000 per hectare</li>
                 <li>Chemical: R3,000-5,000 per hectare</li>
                 <li>Total for 600ha: R1.8M-6M</li>
                 <li>Regrowth: 2-3 years (requires repeated treatment)</li>
               </ul>
-              <p className="text-sm font-semibold text-red-600 dark:text-red-400 mt-2">
+              <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.textRed} ${styles.mt2}`}>
                 Conclusion: Economically unfeasible
               </p>
             </div>
@@ -60,10 +61,10 @@ export function SekelbosExecutiveSummary() {
         </Card>
 
         <Card title="The Solution">
-          <div className="space-y-4">
+          <div className={styles.spaceY4}>
             <div>
-              <h4 className="font-semibold text-sm mb-2">Biological Clearance System:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Biological Clearance System:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Goat browsing (60-80% canopy reduction)</li>
                 <li>Mechanical cutting + wood harvesting (revenue generation)</li>
                 <li>Pig rooting (80-90% root destruction)</li>
@@ -73,14 +74,14 @@ export function SekelbosExecutiveSummary() {
             </div>
             
             <div>
-              <h4 className="font-semibold text-sm mb-2">Financial Advantage:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Financial Advantage:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Cost: R598K-954K (biological system)</li>
                 <li>Revenue: R1.08M-3M (wood sales)</li>
                 <li>Net positive: R486K-2.05M</li>
                 <li>Plus avoided cost: R1.8M-6M</li>
               </ul>
-              <p className="text-sm font-semibold text-green-600 dark:text-green-400 mt-2">
+              <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.textGreen} ${styles.mt2}`}>
                 Total value: R2.29M-8.05M
               </p>
             </div>
@@ -98,10 +99,10 @@ export function SekelbosSection1() {
       subtitle="Understanding the problem and the five-phase biological solution"
     >
       <Card title="1.1 Understanding Sekelbos">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div>
-            <h4 className="font-semibold text-sm mb-2">Dichrostachys cinerea Characteristics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Dichrostachys cinerea Characteristics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Growth: Thorny shrub/small tree, 2-7m height</li>
               <li>Root system: Extensive lateral spread (5-10m), deep taproot (3-5m)</li>
               <li>Reproduction: Seeds (viable 5-10 years) + root suckers</li>
@@ -111,8 +112,8 @@ export function SekelbosSection1() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Why Conventional Methods Fail:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Why Conventional Methods Fail:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Mechanical clearing: Cuts above-ground, roots resprout within months</li>
               <li>Chemical control: Expensive, environmental concerns, regrowth from seed bank</li>
               <li>Fire: Stimulates germination, doesn't kill established roots</li>
@@ -125,7 +126,7 @@ export function SekelbosSection1() {
       <Card title="1.2 Five-Phase Biological Clearance" className="mt-6">
         <div className="space-y-6">
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Phase 1: Goat Browsing (Weeks 1-4)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Phase 1: Goat Browsing (Weeks 1-4)</h4>
             <ul className="space-y-1 text-sm list-disc list-inside text-gray-700 dark:text-gray-300">
               <li><strong>Stocking:</strong> 30-50 goats per 10ha section</li>
               <li><strong>Duration:</strong> 2-4 weeks (intensive browsing)</li>
@@ -137,7 +138,7 @@ export function SekelbosSection1() {
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Phase 2: Mechanical Cutting + Wood Harvesting (Week 4-6)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Phase 2: Mechanical Cutting + Wood Harvesting (Week 4-6)</h4>
             <ul className="space-y-1 text-sm list-disc list-inside text-gray-700 dark:text-gray-300">
               <li><strong>Method:</strong> Chainsaw cutting at ground level</li>
               <li><strong>Sorting:</strong> By size for different markets</li>
@@ -150,7 +151,7 @@ export function SekelbosSection1() {
           </div>
 
           <div className="border-l-4 border-orange-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Phase 3: Pig Rooting (Weeks 6-14)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Phase 3: Pig Rooting (Weeks 6-14)</h4>
             <ul className="space-y-1 text-sm list-disc list-inside text-gray-700 dark:text-gray-300">
               <li><strong>Stocking:</strong> 10-15 pigs per 5ha section</li>
               <li><strong>Duration:</strong> 4-8 weeks (intensive rooting)</li>
@@ -162,7 +163,7 @@ export function SekelbosSection1() {
           </div>
 
           <div className="border-l-4 border-yellow-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Phase 4: Chicken Scratching (Weeks 14-16)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Phase 4: Chicken Scratching (Weeks 14-16)</h4>
             <ul className="space-y-1 text-sm list-disc list-inside text-gray-700 dark:text-gray-300">
               <li><strong>Stocking:</strong> 200-300 chickens per 10ha</li>
               <li><strong>Duration:</strong> 2-4 weeks (systematic coverage)</li>
@@ -174,7 +175,7 @@ export function SekelbosSection1() {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Phase 5: Cattle Maintenance (Ongoing)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Phase 5: Cattle Maintenance (Ongoing)</h4>
             <ul className="space-y-1 text-sm list-disc list-inside text-gray-700 dark:text-gray-300">
               <li><strong>Method:</strong> High-density mob grazing</li>
               <li><strong>Duration:</strong> 2-5 days per paddock, return every 40-60 days</li>
@@ -189,8 +190,8 @@ export function SekelbosSection1() {
       <Card title="1.3 Why This System Works" className="mt-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-sm mb-2">Addresses All Regeneration Pathways:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Addresses All Regeneration Pathways:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Above-ground biomass: Goats + mechanical cutting</li>
               <li>Root system: Pig rooting</li>
               <li>Seed bank: Chicken scratching</li>
@@ -199,8 +200,8 @@ export function SekelbosSection1() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Economic Advantages:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Economic Advantages:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Revenue generation (wood sales) vs pure cost</li>
               <li>Livestock productivity (meat, milk, eggs) while clearing</li>
               <li>Permanent solution (vs repeated treatments)</li>
@@ -209,8 +210,8 @@ export function SekelbosSection1() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Ecological Benefits:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Ecological Benefits:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Diverse manure inputs (4 species)</li>
               <li>Soil aeration and organic matter</li>
               <li>Grass species recovery</li>
@@ -232,8 +233,8 @@ export function SekelbosSection2() {
       <Card title="2.1 Sekelbos Wood Properties">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-sm mb-2">Physical Characteristics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Physical Characteristics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Density: 900-1,100 kg/m³ (very dense hardwood)</li>
               <li>Burning properties: High heat output, long burn time, minimal smoke</li>
               <li>Durability: Termite resistant, rot resistant</li>
@@ -243,8 +244,8 @@ export function SekelbosSection2() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Market Advantages:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Market Advantages:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Excellent firewood (comparable to mopane, kameeldoring)</li>
               <li>Premium braai wood (high heat, good flavor)</li>
               <li>Durable fence posts (10-15 year lifespan)</li>
@@ -392,7 +393,7 @@ export function SekelbosSection3() {
       subtitle="Infrastructure and tools required for efficient operations"
     >
       <Card title="3.1 Wood Harvesting Equipment">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div>
             <h4 className="font-semibold text-sm mb-3">Essential Equipment (Year 1):</h4>
             <Table
@@ -431,10 +432,10 @@ export function SekelbosSection3() {
       </Card>
 
       <Card title="3.2 Labor Requirements" className="mt-6">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div>
-            <h4 className="font-semibold text-sm mb-2">Clearing Crew (Per Hectare):</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Clearing Crew (Per Hectare):</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>2-3 laborers</li>
               <li>2-3 days per hectare (cutting, sorting, stacking)</li>
               <li>R200-300 per laborer per day</li>
@@ -459,10 +460,10 @@ export function SekelbosSection3() {
       </Card>
 
       <Card title="3.3 Operational Workflow" className="mt-6">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Month 1-2: Site Selection & Preparation</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Month 1-2: Site Selection & Preparation</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Identify 50ha target area (Year 1)</li>
               <li>Assess sekelbos density and accessibility</li>
               <li>Plan access routes for wood removal</li>
@@ -471,8 +472,8 @@ export function SekelbosSection3() {
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Month 2-3: Cutting & Primary Processing</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Month 2-3: Cutting & Primary Processing</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Chainsaw cutting (after goat browsing)</li>
               <li>Sort wood by size/quality</li>
               <li>Stack firewood (1m³ units)</li>
@@ -482,8 +483,8 @@ export function SekelbosSection3() {
           </div>
 
           <div className="border-l-4 border-orange-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Month 3-4: Seasoning & Storage</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Month 3-4: Seasoning & Storage</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Stack firewood for seasoning (6-12 months for premium pricing)</li>
               <li>Store poles under cover (prevent checking)</li>
               <li>Immediate sales: Fresh firewood, poles, posts</li>
@@ -491,8 +492,8 @@ export function SekelbosSection3() {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Month 4-6: Pig Rooting Phase</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Month 4-6: Pig Rooting Phase</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Deploy pigs to cleared sections (4-8 weeks)</li>
               <li>Monitor root destruction progress</li>
               <li>Plan next clearing section</li>
@@ -500,8 +501,8 @@ export function SekelbosSection3() {
           </div>
 
           <div className="border-l-4 border-yellow-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Ongoing: Sales & Marketing</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Ongoing: Sales & Marketing</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Farm gate sales (immediate cash flow)</li>
               <li>Delivery service (scheduled routes)</li>
               <li>Build bulk contracts (lodges, restaurants)</li>
@@ -524,8 +525,8 @@ export function SekelbosSection4() {
         <Card title="Year 1: Proof of Concept (50ha)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-sm mb-2">Target Areas:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Target Areas:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Easiest access (near roads, water points)</li>
                 <li>Moderate sekelbos density (not too thick)</li>
                 <li>Good soil potential (rapid grass recovery)</li>
@@ -534,8 +535,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Livestock Deployment:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Livestock Deployment:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Goats: 20-30 (purchase 15-25 + existing 6)</li>
                 <li>Pigs: 10-15 (breed from existing 4)</li>
                 <li>Chickens: 100-150 (purchase 87-137 + existing 13)</li>
@@ -543,8 +544,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Expected Results:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Expected Results:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>50ha cleared (8% of property)</li>
                 <li>150-250 m³ wood harvested</li>
                 <li>R90K-250K wood revenue</li>
@@ -554,8 +555,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Key Success Factors:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Key Success Factors:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Goat browsing effectiveness (60-80% canopy reduction)</li>
                 <li>Pig rooting thoroughness (80-90% root destruction)</li>
                 <li>Wood sales channels established</li>
@@ -568,8 +569,8 @@ export function SekelbosSection4() {
         <Card title="Year 2: Scaling (100ha)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-sm mb-2">Target Areas:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Target Areas:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Expand from Year 1 success zones</li>
                 <li>Moderate to heavy sekelbos density</li>
                 <li>Mix of easy and challenging terrain</li>
@@ -577,8 +578,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Expected Results:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Expected Results:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>100ha cleared (cumulative 150ha, 25% of property)</li>
                 <li>300-500 m³ wood harvested</li>
                 <li>R180K-500K wood revenue</li>
@@ -587,8 +588,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Key Milestones:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Key Milestones:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Purchase wood chipper (value-added products)</li>
                 <li>Establish bulk contracts (3-5 customers)</li>
                 <li>Train additional labor (seasonal crew)</li>
@@ -601,8 +602,8 @@ export function SekelbosSection4() {
         <Card title="Year 3: Optimization (120ha)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-sm mb-2">Expected Results:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Expected Results:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>120ha cleared (cumulative 270ha, 45% of property)</li>
                 <li>360-600 m³ wood harvested</li>
                 <li>R216K-600K wood revenue</li>
@@ -611,8 +612,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Key Achievements:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Key Achievements:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Value-added products (braai wood bags, treated posts)</li>
                 <li>Premium pricing (seasoned firewood)</li>
                 <li>Established brand recognition</li>
@@ -625,8 +626,8 @@ export function SekelbosSection4() {
         <Card title="Year 4-5: Completion (165ha each year)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-sm mb-2">Year 4 Results:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Year 4 Results:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>165ha cleared (cumulative 435ha, 73% of property)</li>
                 <li>495-825 m³ wood harvested</li>
                 <li>R297K-825K wood revenue</li>
@@ -634,8 +635,8 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-2">Year 5 Results:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Year 5 Results:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>165ha cleared (cumulative 600ha, 100% complete)</li>
                 <li>495-825 m³ wood harvested</li>
                 <li>R297K-825K wood revenue</li>
@@ -644,8 +645,8 @@ export function SekelbosSection4() {
             </div>
 
             <div className="col-span-1 md:col-span-2">
-              <h4 className="font-semibold text-sm mb-2">Final Status:</h4>
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Final Status:</h4>
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Sekelbos controlled permanently (rotational grazing maintains)</li>
                 <li>Wood sales transition to maintenance volume (50-100 m³/year)</li>
                 <li>Property value increased R2M-4M (cleared vs degraded)</li>
@@ -668,8 +669,8 @@ export function SekelbosSection4() {
         />
 
         <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-          <h4 className="font-semibold text-sm mb-2">Revenue vs Cost:</h4>
-          <ul className="space-y-1 text-sm list-disc list-inside">
+          <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Revenue vs Cost:</h4>
+          <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
             <li>Total investment: R723K-1.42M</li>
             <li>Total wood revenue: R1.08M-3M</li>
             <li>Net profit (wood only): R357K-1.58M</li>
@@ -691,8 +692,8 @@ export function SekelbosSection5() {
       <Card title="5.1 Target Markets">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Primary Market: Residential (40% of sales)</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Primary Market: Residential (40% of sales)</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Households within 50km radius</li>
               <li>Winter heating demand (May-August peak)</li>
               <li>Fireplace, indoor wood stoves</li>
@@ -702,8 +703,8 @@ export function SekelbosSection5() {
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Secondary Market: Hospitality (30% of sales)</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Secondary Market: Hospitality (30% of sales)</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Lodges, game farms, guesthouses</li>
               <li>Year-round demand (fireplaces, bomas, braais)</li>
               <li>Premium quality expectations</li>
@@ -713,8 +714,8 @@ export function SekelbosSection5() {
           </div>
 
           <div className="border-l-4 border-orange-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Tertiary Market: Commercial (20% of sales)</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Tertiary Market: Commercial (20% of sales)</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Restaurants (pizza ovens, grills, braai areas)</li>
               <li>Butcheries (in-store braai demonstrations)</li>
               <li>Bakeries (wood-fired ovens)</li>
@@ -723,8 +724,8 @@ export function SekelbosSection5() {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Niche Market: Agricultural/Construction (10% of sales)</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Niche Market: Agricultural/Construction (10% of sales)</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Farmers (fence posts)</li>
               <li>Landscaping companies (poles, mulch)</li>
               <li>Construction (lapa poles)</li>
@@ -739,7 +740,7 @@ export function SekelbosSection5() {
           <div>
             <h4 className="font-semibold mb-2">Channel 1: Farm Gate Sales (30% of revenue)</h4>
             <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Customer pickup at farm</li>
                 <li>Cash/EFT payment</li>
                 <li>No delivery cost</li>
@@ -752,7 +753,7 @@ export function SekelbosSection5() {
           <div>
             <h4 className="font-semibold mb-2">Channel 2: Delivery Service (40% of revenue)</h4>
             <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Bakkie/trailer delivery within 50km</li>
                 <li>Scheduled routes (Wednesdays, Saturdays)</li>
                 <li>Minimum order: 0.5 m³ or R500</li>
@@ -765,7 +766,7 @@ export function SekelbosSection5() {
           <div>
             <h4 className="font-semibold mb-2">Channel 3: Bulk Contracts (25% of revenue)</h4>
             <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Annual supply agreements</li>
                 <li>Lodges, restaurants, large consumers</li>
                 <li>Scheduled deliveries (monthly/quarterly)</li>
@@ -778,7 +779,7 @@ export function SekelbosSection5() {
           <div>
             <h4 className="font-semibold mb-2">Channel 4: Retail Partnerships (5% of revenue)</h4>
             <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-              <ul className="space-y-1 text-sm list-disc list-inside">
+              <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Hardware stores, butcheries, farm co-ops</li>
                 <li>Consignment or wholesale</li>
                 <li>Braai wood bags (10kg, 20kg)</li>
@@ -793,8 +794,8 @@ export function SekelbosSection5() {
       <Card title="5.3 Marketing Tactics" className="mt-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-sm mb-2">Online Marketing (Low Cost, High Reach):</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Online Marketing (Low Cost, High Reach):</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Facebook page: "Zeerust Sekelbos Firewood"</li>
               <li>WhatsApp Business: Broadcast lists, status updates</li>
               <li>Facebook Marketplace: Individual listings</li>
@@ -804,8 +805,8 @@ export function SekelbosSection5() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Offline Marketing (Local Presence):</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Offline Marketing (Local Presence):</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Roadside signage: R49/R52 highways</li>
               <li>Flyers: Hardware stores, co-ops, community boards</li>
               <li>Word-of-mouth: Referral discounts (R50 off)</li>
@@ -815,8 +816,8 @@ export function SekelbosSection5() {
           </div>
 
           <div className="col-span-1 md:col-span-2">
-            <h4 className="font-semibold text-sm mb-2">Branding & Messaging:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Branding & Messaging:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Brand name: "[Farm Name] Indigenous Hardwood"</li>
               <li>Tagline: "Sustainable Bush Clearing, Premium Firewood"</li>
               <li>Key messages: Indigenous hardwood, sustainable land management, high heat output</li>
@@ -835,12 +836,12 @@ export function SekelbosSection6() {
       subtitle="Identifying and mitigating potential challenges"
     >
       <Card title="6.1 Operational Risks">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div className="border-l-4 border-red-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 1: Equipment Breakdown</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 1: Equipment Breakdown</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Lost clearing days, delayed wood sales</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Spare chainsaw chain (3 chains in rotation)</li>
               <li>Regular maintenance schedule</li>
               <li>Backup chainsaw (Year 2+)</li>
@@ -849,10 +850,10 @@ export function SekelbosSection6() {
           </div>
 
           <div className="border-l-4 border-orange-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 2: Labor Availability</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 2: Labor Availability</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Clearing delays, missed sales opportunities</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Build reliable crew (2-3 regular laborers)</li>
               <li>Pay competitive wages (R250-300/day)</li>
               <li>Seasonal planning (avoid planting/harvest times)</li>
@@ -861,10 +862,10 @@ export function SekelbosSection6() {
           </div>
 
           <div className="border-l-4 border-yellow-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 3: Livestock Health Issues</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 3: Livestock Health Issues</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Reduced clearing effectiveness, mortality losses</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Preventative veterinary care (vaccinations, deworming)</li>
               <li>Quarantine new animals (disease prevention)</li>
               <li>Indigenous breeds (disease resistance)</li>
@@ -875,12 +876,12 @@ export function SekelbosSection6() {
       </Card>
 
       <Card title="6.2 Market Risks" className="mt-6">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 1: Seasonal Demand Fluctuation</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 1: Seasonal Demand Fluctuation</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Cash flow gaps in summer months</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Build seasoned wood inventory (sell in winter at premium)</li>
               <li>Diversify products (braai wood year-round demand)</li>
               <li>Bulk contracts (smooth revenue throughout year)</li>
@@ -889,10 +890,10 @@ export function SekelbosSection6() {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 2: Competition (Other Firewood Suppliers)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 2: Competition (Other Firewood Suppliers)</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Price pressure, lost market share</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Differentiation (indigenous hardwood, sustainability story)</li>
               <li>Quality focus (superior burning properties)</li>
               <li>Customer service (reliable delivery, consistent quality)</li>
@@ -903,12 +904,12 @@ export function SekelbosSection6() {
       </Card>
 
       <Card title="6.3 Environmental Risks" className="mt-6">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 1: Drought (Below 315mm Rainfall)</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 1: Drought (Below 315mm Rainfall)</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Slow grass recovery, livestock stress, reduced clearing pace</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Drought-adapted livestock (indigenous breeds)</li>
               <li>Flexible clearing schedule (pause in severe drought)</li>
               <li>Focus on wood sales (less dependent on grass recovery)</li>
@@ -917,10 +918,10 @@ export function SekelbosSection6() {
           </div>
 
           <div className="border-l-4 border-red-600 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 2: Fire</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 2: Fire</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Loss of stacked wood inventory, infrastructure damage</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Firebreaks around wood storage areas</li>
               <li>Separate stacks (limit fire spread)</li>
               <li>Insurance coverage</li>
@@ -929,10 +930,10 @@ export function SekelbosSection6() {
           </div>
 
           <div className="border-l-4 border-amber-600 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Risk 3: Sekelbos Regrowth</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Risk 3: Sekelbos Regrowth</h4>
             <p className="text-sm mb-2"><strong>Impact:</strong> Clearing failure, repeated costs, lost value</p>
             <p className="text-sm font-medium mb-1">Mitigation:</p>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Thorough root destruction (pig rooting)</li>
               <li>Seed bank reduction (chicken scratching)</li>
               <li>Maintenance grazing (cattle, goats)</li>
@@ -954,8 +955,8 @@ export function SekelbosSection7() {
       <Card title="7.1 Key Performance Indicators (KPIs)">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-sm mb-2">Biological Metrics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Biological Metrics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Sekelbos canopy cover reduction: Target 80-90% per treated area</li>
               <li>Root destruction effectiveness: Target 80-90%</li>
               <li>Grass species recovery: Target 30-50% increase in diversity</li>
@@ -964,8 +965,8 @@ export function SekelbosSection7() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Operational Metrics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Operational Metrics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Hectares cleared per year: Target 50-165ha annually</li>
               <li>Wood volume harvested: Target 150-825 m³ annually</li>
               <li>Clearing cost per hectare: Target less than R2,000</li>
@@ -974,8 +975,8 @@ export function SekelbosSection7() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Financial Metrics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Financial Metrics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Revenue per hectare cleared: Target R1,800-5,000</li>
               <li>Gross margin: Target 60-70%</li>
               <li>Cash flow positive: Target Month 6</li>
@@ -984,8 +985,8 @@ export function SekelbosSection7() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-2">Customer Metrics:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Customer Metrics:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Customer acquisition: Target 20-30 customers Year 1</li>
               <li>Repeat customer rate: Target 60-70%</li>
               <li>Bulk contracts: Target 3-5 by Year 2</li>
@@ -996,10 +997,10 @@ export function SekelbosSection7() {
       </Card>
 
       <Card title="7.2 Monitoring Schedule" className="mt-6">
-        <div className="space-y-4">
+        <div className={styles.spaceY4}>
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Weekly:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Weekly:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Wood sales volume and revenue</li>
               <li>Customer inquiries and orders</li>
               <li>Livestock health checks</li>
@@ -1008,8 +1009,8 @@ export function SekelbosSection7() {
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Monthly:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Monthly:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Hectares cleared (cumulative)</li>
               <li>Wood inventory levels (stacked, seasoned)</li>
               <li>Cash flow analysis</li>
@@ -1018,8 +1019,8 @@ export function SekelbosSection7() {
           </div>
 
           <div className="border-l-4 border-orange-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Quarterly:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Quarterly:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Regrowth assessment (cleared areas)</li>
               <li>Grass recovery progress</li>
               <li>Cost per hectare analysis</li>
@@ -1028,8 +1029,8 @@ export function SekelbosSection7() {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-sm mb-2">Annually:</h4>
-            <ul className="space-y-1 text-sm list-disc list-inside">
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Annually:</h4>
+            <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Full financial review (revenue, costs, profit)</li>
               <li>Clearing progress vs targets</li>
               <li>Customer satisfaction survey</li>
@@ -1040,8 +1041,8 @@ export function SekelbosSection7() {
       </Card>
 
       <Card title="Conclusion" className="mt-6">
-        <div className="space-y-4">
-          <p className="text-sm">
+        <div className={styles.spaceY4}>
+          <p className={styles.textSm}>
             The Sekelbos Clearance & Wood Sales Enterprise offers a unique opportunity to:
           </p>
           
@@ -1054,7 +1055,7 @@ export function SekelbosSection7() {
             <li>Build sustainable business (ongoing maintenance wood sales after Year 5)</li>
           </ul>
 
-          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mt-4">
+          <div className={styles.bgGreen}>
             <p className="text-sm font-bold text-green-700 dark:text-green-400">
               Total Value Creation: R2.16M-7.58M (net wood profit + avoided costs)
             </p>
