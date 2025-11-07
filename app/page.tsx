@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Users, Target, CheckCircle } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, CheckCircle, Beef, Milk, Salad, Egg } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
@@ -261,6 +261,98 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Livestock Operations Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
+              Livestock Operations
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Diversified revenue streams from integrated livestock operations
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Cattle */}
+            <Link
+              href="/cattle"
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            >
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600 dark:group-hover:bg-green-500 transition-colors">
+                <Beef className="w-6 h-6 text-green-600 dark:text-green-400 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                Cattle Ranging
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Foundation operation expanding from 72 to 104 LSU through regenerative practices
+              </p>
+              <div className="flex items-center text-green-600 dark:text-green-400 text-sm font-semibold">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </div>
+            </Link>
+
+            {/* Goats */}
+            <Link
+              href="/goats"
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            >
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 transition-colors">
+                <Milk className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                Goats, Dairy & Cheese
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Triple revenue stream from meat goats, dairy production, and artisan cheese
+              </p>
+              <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </div>
+            </Link>
+
+            {/* Pigs */}
+            <Link
+              href="/pigs"
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            >
+              <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-600 dark:group-hover:bg-pink-500 transition-colors">
+                <Salad className="w-6 h-6 text-pink-600 dark:text-pink-400 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                Pig Farming
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                High-efficiency protein production with rapid ROI and waste recycling
+              </p>
+              <div className="flex items-center text-pink-600 dark:text-pink-400 text-sm font-semibold">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </div>
+            </Link>
+
+            {/* Chicken */}
+            <Link
+              href="/chicken"
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            >
+              <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-600 dark:group-hover:bg-yellow-500 transition-colors">
+                <Egg className="w-6 h-6 text-yellow-600 dark:text-yellow-400 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">
+                Chicken & Eggs
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Dual revenue from premium free-range eggs and pasture-raised chicken
+              </p>
+              <div className="flex items-center text-yellow-600 dark:text-yellow-400 text-sm font-semibold">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </div>
+            </Link>
           </div>
         </div>
       </section>

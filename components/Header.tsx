@@ -27,16 +27,34 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/contact', label: 'Contact' },
   ];
 
+  const livestockItems = [
+    { href: '/cattle', label: 'Cattle' },
+    { href: '/goats', label: 'Goats & Dairy' },
+    { href: '/pigs', label: 'Pigs' },
+    { href: '/chicken', label: 'Chicken' },
+  ];
+
   useEffect(() => {
-    // Check system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Check localStorage first, then system preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode !== null) {
+      const isDark = savedDarkMode === 'true';
+      setDarkMode(isDark);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setDarkMode(true);
       document.documentElement.classList.add('dark');
     }
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', String(newDarkMode));
     document.documentElement.classList.toggle('dark');
   };
 
