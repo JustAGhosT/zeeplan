@@ -1,18 +1,30 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Sun, Moon, Download, Share2, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
-  onToggleControls: () => void;
-  showControls: boolean;
+  onToggleControls?: () => void;
+  showControls?: boolean;
   onExport?: () => void;
   onShare?: () => void;
+  showControlsButton?: boolean;
 }
 
-export function Header({ onToggleControls, showControls, onExport, onShare }: HeaderProps) {
+export function Header({ onToggleControls, showControls, onExport, onShare, showControlsButton = true }: HeaderProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/proposal', label: 'Proposal' },
+    { href: '/financials', label: 'Financials' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   useEffect(() => {
     // Check system preference
@@ -57,16 +69,30 @@ export function Header({ onToggleControls, showControls, onExport, onShare }: He
         <div className="flex justify-between items-center">
           {/* Logo and Title */}
           <div className="flex items-center gap-4">
-            <div>
+            <Link href="/" className="flex items-center gap-2">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50 flex items-center gap-2">
                 <span className="text-3xl">🌱</span>
                 <span>Zeeplan</span>
               </h1>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                Zeerust Regenerative Agriculture Partnership
-              </p>
-            </div>
+            </Link>
           </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  pathname === item.href
+                    ? 'bg-green-600 text-white'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
@@ -100,12 +126,14 @@ export function Header({ onToggleControls, showControls, onExport, onShare }: He
               <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-300" />
             </button>
 
-            <button
-              onClick={onToggleControls}
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md print:hidden"
-            >
-              {showControls ? 'Hide Controls' : 'Adjust Values'}
-            </button>
+            {showControlsButton && onToggleControls && (
+              <button
+                onClick={onToggleControls}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md print:hidden"
+              >
+                {showControls ? 'Hide Controls' : 'Adjust Values'}
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -124,6 +152,22 @@ export function Header({ onToggleControls, showControls, onExport, onShare }: He
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-2 border-t dark:border-gray-700 pt-4">
+            {/* Mobile Navigation */}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block w-full px-4 py-2 rounded-lg transition-colors ${
+                  pathname === item.href
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+
             <button
               onClick={() => {
                 toggleDarkMode();
@@ -163,15 +207,17 @@ export function Header({ onToggleControls, showControls, onExport, onShare }: He
               <span className="text-gray-700 dark:text-gray-300">Share Proposal</span>
             </button>
 
-            <button
-              onClick={() => {
-                onToggleControls();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-            >
-              {showControls ? 'Hide Controls' : 'Adjust Values'}
-            </button>
+            {showControlsButton && onToggleControls && (
+              <button
+                onClick={() => {
+                  onToggleControls();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                {showControls ? 'Hide Controls' : 'Adjust Values'}
+              </button>
+            )}
           </div>
         )}
       </div>
