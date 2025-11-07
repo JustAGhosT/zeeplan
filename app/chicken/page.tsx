@@ -1,33 +1,35 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Egg, TrendingUp, Package, DollarSign, Calendar, CheckCircle, Target } from 'lucide-react';
+import { Egg, TrendingUp, Target, DollarSign, Calendar, CheckCircle, Package } from 'lucide-react';
+
+import styles from './page.module.css';
 
 export default function ChickenPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className={styles.pageContainer}>
       <Header showControlsButton={false} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className={styles.mainContent}>
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl mb-6">
+        <div className={styles.heroSection}>
+          <div className={styles.iconContainer}>
             <Egg className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+          <h1 className={styles.heroTitle}>
             Chicken & Egg Production
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className={styles.heroSubtitle}>
             Dual-purpose operation producing premium free-range eggs and quality chicken meat
           </p>
         </div>
 
         {/* Dual Stream Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
             Dual Revenue Approach
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+          <div className={styles.twoColumnGrid}>
+            <div className={styles.card}>
               <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
                 <Egg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
@@ -71,7 +73,7 @@ export default function ChickenPage() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+            <div className={styles.card}>
               <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
                 <Package className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
@@ -118,11 +120,11 @@ export default function ChickenPage() {
         </section>
 
         {/* Production Economics Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
             Production Economics
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className={styles.threeColumnGrid}>
             <div className="bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-4">Egg Economics</h3>
               <div className="space-y-3 text-sm">
@@ -196,11 +198,11 @@ export default function ChickenPage() {
         </section>
 
         {/* Timeline Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
             Development Timeline
           </h2>
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+          <div className={styles.card}>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -254,12 +256,12 @@ export default function ChickenPage() {
         </section>
 
         {/* Market Strategy Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
             Market Strategy
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.strategyCard}>
               <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
                 <DollarSign className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
@@ -269,7 +271,7 @@ export default function ChickenPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.strategyCard}>
               <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mb-4">
                 <Package className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
@@ -279,7 +281,7 @@ export default function ChickenPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.strategyCard}>
               <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4">
                 <Target className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
@@ -289,7 +291,7 @@ export default function ChickenPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.strategyCard}>
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
@@ -302,7 +304,7 @@ export default function ChickenPage() {
         </section>
 
         {/* Key Benefits Section */}
-        <section className="bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-700 dark:to-orange-700 rounded-2xl p-8 md:p-12 text-white">
+        <section className={styles.benefitsSection}>
           <h2 className="text-3xl font-bold mb-6 text-center">Why Chicken & Egg Production?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="flex items-start gap-3">

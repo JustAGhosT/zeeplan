@@ -1,4 +1,4 @@
-/* Cattle Page Styles */
+/* Chicken Page Styles */
 
 .pageContainer {
   min-height: 100vh;
@@ -39,7 +39,7 @@
   justify-content: center;
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(to bottom right, #10b981, #059669);
+  background: linear-gradient(to bottom right, #eab308, #ea580c);
   border-radius: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -394,4 +394,113 @@
 .benefitDescription {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.875rem;
+}
+
+/* Additional styles for goats page */
+.listItem {
+  color: #4b5563;
+}
+
+:global(.dark) .listItem {
+  color: #9ca3af;
+}
+
+.listTitle {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .listTitle {
+  color: #f9fafb;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.progressBarContainer {
+  margin-bottom: 1.5rem;
+}
+
+.progressBarHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.progressBarLabel {
+  font-weight: 600;
+  color: #111827;
+}
+
+:global(.dark) .progressBarLabel {
+  color: #f9fafb;
+}
+
+.progressBarSubLabel {
+  color: #4b5563;
+}
+
+:global(.dark) .progressBarSubLabel {
+  color: #9ca3af;
+}
+
+.progressBarTrack {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.75rem;
+}
+
+:global(.dark) .progressBarTrack {
+  background: #4b5563;
+}
+
+.progressBarFill {
+  background: #2563eb;
+  height: 0.75rem;
+  border-radius: 9999px;
+}
+
+.progressBarDescription {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+:global(.dark) .progressBarDescription {
+  color: #9ca3af;
+}
+
+.revenueTarget {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+:global(.dark) .revenueTarget {
+  color: #9ca3af;
+}
+
+.fourColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .fourColumnGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.strategyIconPurple {
+  background: #f3e8ff;
+}
+
+:global(.dark) .strategyIconPurple {
+  background: #581c87;
 }
