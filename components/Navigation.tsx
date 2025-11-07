@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, FileText, TrendingUp, Calendar, Settings } from 'lucide-react';
+import { ChevronRight, FileText, TrendingUp, Calendar, Settings, TreeDeciduous, Leaf, Package, Wrench, Target, BarChart3, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 interface NavigationProps {
   className?: string;
@@ -14,6 +14,14 @@ export function Navigation({ className = '' }: NavigationProps) {
     { id: 'executive-summary', label: 'Executive Summary', icon: FileText },
     { id: 'financial-projections', label: 'Financial Projections', icon: TrendingUp },
     { id: 'transformation-plan', label: 'Transformation Plan', icon: Calendar },
+    { id: 'sekelbos-executive', label: 'Sekelbos: Executive Summary', icon: TreeDeciduous },
+    { id: 'sekelbos-section1', label: 'Sekelbos: Biology & Strategy', icon: Leaf },
+    { id: 'sekelbos-section2', label: 'Sekelbos: Wood Products', icon: Package },
+    { id: 'sekelbos-section3', label: 'Sekelbos: Operations', icon: Wrench },
+    { id: 'sekelbos-section4', label: 'Sekelbos: Timeline', icon: Target },
+    { id: 'sekelbos-section5', label: 'Sekelbos: Marketing', icon: BarChart3 },
+    { id: 'sekelbos-section6', label: 'Sekelbos: Risk Management', icon: AlertTriangle },
+    { id: 'sekelbos-section7', label: 'Sekelbos: Success Metrics', icon: CheckCircle2 },
   ];
 
   useEffect(() => {

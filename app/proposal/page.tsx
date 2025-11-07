@@ -10,6 +10,16 @@ import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import { FinancialCharts } from '@/components/FinancialCharts';
 import { Footer } from '@/components/Footer';
+import { 
+  SekelbosExecutiveSummary, 
+  SekelbosSection1, 
+  SekelbosSection2, 
+  SekelbosSection3, 
+  SekelbosSection4, 
+  SekelbosSection5, 
+  SekelbosSection6, 
+  SekelbosSection7 
+} from '@/components/SekelbosClearance';
 
 export default function ProposalPage() {
   const [data, setData] = useState<PartnershipData>(defaultPartnershipData);
@@ -48,6 +58,39 @@ export default function ProposalPage() {
             
             <div id="transformation-plan">
               <TransformationPlan data={data} />
+            </div>
+
+            {/* Sekelbos Clearance Business Plan Sections */}
+            <div id="sekelbos-executive">
+              <SekelbosExecutiveSummary />
+            </div>
+
+            <div id="sekelbos-section1">
+              <SekelbosSection1 />
+            </div>
+
+            <div id="sekelbos-section2">
+              <SekelbosSection2 />
+            </div>
+
+            <div id="sekelbos-section3">
+              <SekelbosSection3 />
+            </div>
+
+            <div id="sekelbos-section4">
+              <SekelbosSection4 />
+            </div>
+
+            <div id="sekelbos-section5">
+              <SekelbosSection5 />
+            </div>
+
+            <div id="sekelbos-section6">
+              <SekelbosSection6 />
+            </div>
+
+            <div id="sekelbos-section7">
+              <SekelbosSection7 />
             </div>
           </div>
 
