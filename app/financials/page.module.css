@@ -1,0 +1,165 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #eff6ff);
+}
+
+.page.dark {
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+}
+
+.main {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.title.dark {
+  color: #f9fafb;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.subtitle.dark {
+  color: #9ca3af;
+}
+
+.content {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.chartsSection {
+  margin-top: 1.5rem;
+}
+
+.sidebar {
+  display: none;
+  width: 20rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sidebar {
+    width: 24rem;
+  }
+}
+
+/* Mobile Modal */
+.mobileModal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .mobileModal {
+    display: none;
+  }
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  max-width: 28rem;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.modalContent.dark {
+  background-color: #1f2937;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalHeader.dark {
+  border-color: #374151;
+}
+
+.modalTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.closeButton.dark {
+  color: #9ca3af;
+}
+
+.closeButton:hover {
+  color: #374151;
+}
+
+.closeButton.dark:hover {
+  color: #e5e7eb;
+}
+
+.closeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.modalBody {
+  padding: 1rem;
+}

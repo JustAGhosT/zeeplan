@@ -1,45 +1,60 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { defaultPartnershipData, PartnershipData } from '@/lib/partnershipData';
 import { FinancialProjections } from '@/components/FinancialProjections';
 import { ControlsPanel } from '@/components/ControlsPanel';
 import { Header } from '@/components/Header';
 import { FinancialCharts } from '@/components/FinancialCharts';
 import { Footer } from '@/components/Footer';
+import styles from './page.module.css';
 
 export default function FinancialsPage() {
   const [data, setData] = useState<PartnershipData>(defaultPartnershipData);
   const [showControls, setShowControls] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className={`${styles.page} ${isDark ? styles.dark : ''}`}>
       <Header 
         onToggleControls={() => setShowControls(!showControls)}
         showControls={showControls}
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+      <main className={styles.main}>
+        <div className={styles.header}>
+          <h1 className={`${styles.title} ${isDark ? styles.dark : ''}`}>
             Financial Projections
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className={`${styles.subtitle} ${isDark ? styles.dark : ''}`}>
             Comprehensive 5-year revenue, cost, and profit breakdown with interactive controls
           </p>
         </div>
 
-        <div className="flex gap-6">
-          <div className="flex-1 min-w-0">
+        <div className={styles.content}>
+          <div className={styles.mainContent}>
             <FinancialProjections data={data} />
             
-            <div className="mt-6">
+            <div className={styles.chartsSection}>
               <FinancialCharts data={data} />
             </div>
           </div>
 
           {showControls && (
-            <aside className="hidden lg:block w-80 xl:w-96 flex-shrink-0">
+            <aside className={styles.sidebar}>
               <ControlsPanel data={data} onUpdate={setData} />
             </aside>
           )}
@@ -47,20 +62,20 @@ export default function FinancialsPage() {
 
         {/* Mobile Controls Modal */}
         {showControls && (
-          <div className="lg:hidden fixed inset-0 bg-black/50 z-50 flex items-start justify-center p-4 overflow-y-auto">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full my-8">
-              <div className="flex justify-between items-center p-4 border-b dark:border-gray-700">
-                <h3 className="text-lg font-semibold">Adjust Values</h3>
+          <div className={styles.mobileModal}>
+            <div className={`${styles.modalContent} ${isDark ? styles.dark : ''}`}>
+              <div className={`${styles.modalHeader} ${isDark ? styles.dark : ''}`}>
+                <h3 className={styles.modalTitle}>Adjust Values</h3>
                 <button
                   onClick={() => setShowControls(false)}
-                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  className={`${styles.closeButton} ${isDark ? styles.dark : ''}`}
                 >
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={styles.closeIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <div className="p-4">
+              <div className={styles.modalBody}>
                 <ControlsPanel data={data} onUpdate={setData} />
               </div>
             </div>
