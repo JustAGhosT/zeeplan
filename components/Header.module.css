@@ -1,0 +1,280 @@
+.header {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header.dark {
+  background-color: #1f2937;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoTitle.dark {
+  color: #f9fafb;
+}
+
+@media (min-width: 640px) {
+  .logoTitle {
+    font-size: 1.875rem;
+  }
+}
+
+.logoIcon {
+  font-size: 1.875rem;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: #374151;
+}
+
+.navLink.dark {
+  color: #d1d5db;
+}
+
+.navLink:hover {
+  background-color: #f3f4f6;
+}
+
+.navLink.dark:hover {
+  background-color: #374151;
+}
+
+.navLink.active {
+  background-color: #16a34a;
+  color: white;
+}
+
+.desktopActions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .desktopActions {
+    display: flex;
+  }
+}
+
+.iconButton {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.iconButton.dark {
+  background-color: #374151;
+}
+
+.iconButton:hover {
+  background-color: #e5e7eb;
+}
+
+.iconButton.dark:hover {
+  background-color: #4b5563;
+}
+
+.controlsButton {
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.controlsButton:hover {
+  background-color: #15803d;
+}
+
+.mobileMenuButton {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+}
+
+.mobileMenuButton.dark {
+  background-color: #374151;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  display: block;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.mobileMenu.dark {
+  border-color: #374151;
+}
+
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileNavLink {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.mobileNavLink.dark {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.mobileNavLink:hover {
+  background-color: #e5e7eb;
+}
+
+.mobileNavLink.dark:hover {
+  background-color: #4b5563;
+}
+
+.mobileNavLink.active {
+  background-color: #16a34a;
+  color: white;
+}
+
+.mobileActionButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #374151;
+}
+
+.mobileActionButton.dark {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.mobileActionButton:hover {
+  background-color: #e5e7eb;
+}
+
+.mobileActionButton.dark:hover {
+  background-color: #4b5563;
+}
+
+.mobileControlsButton {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mobileControlsButton:hover {
+  background-color: #15803d;
+}
+
+@media print {
+  .header {
+    position: relative !important;
+    box-shadow: none !important;
+  }
+  
+  .iconButton,
+  .controlsButton,
+  .mobileMenuButton {
+    display: none !important;
+  }
+}
