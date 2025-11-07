@@ -4,6 +4,7 @@ import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
 import { Section, Card, Table } from './UIComponents';
+import styles from './FinancialProjections.module.css';
 
 interface FinancialProjectionsProps {
   data: PartnershipData;
@@ -79,35 +80,35 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
         />
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <div className={styles.cardsGrid}>
         <Card title="Hans's Investment & Returns">
-          <div className="space-y-3">
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Livestock Investment</p>
-              <p className="text-lg font-semibold">{formatRange(data.hansLivestockValue)}</p>
+          <div className={styles.investmentDetails}>
+            <div className={styles.investmentItem}>
+              <p className={styles.itemLabel}>Livestock Investment</p>
+              <p className={styles.itemValue}>{formatRange(data.hansLivestockValue)}</p>
             </div>
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Cash Investment</p>
-              <p className="text-lg font-semibold text-green-600 dark:text-green-400">R0 (zero cash)</p>
+            <div className={styles.investmentItem}>
+              <p className={styles.itemLabel}>Cash Investment</p>
+              <p className={styles.itemValueGreen}>R0 (zero cash)</p>
             </div>
-            <div className="border-t pt-3 dark:border-gray-700">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Total 5-Year Returns</p>
-              <p className="text-2xl font-bold text-green-700 dark:text-green-400">{formatRange(summary.cumulative.hans)}</p>
+            <div className={styles.totalSection}>
+              <p className={styles.totalLabel}>Total 5-Year Returns</p>
+              <p className={styles.totalValue}>{formatRange(summary.cumulative.hans)}</p>
             </div>
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Net Gain</p>
-              <p className="text-lg font-semibold">
+            <div className={styles.investmentItem}>
+              <p className={styles.itemLabel}>Net Gain</p>
+              <p className={styles.itemValue}>
                 {formatCurrency(summary.cumulative.hans[0] - data.hansLivestockValue[1])}-
                 {formatCurrency(summary.cumulative.hans[1] - data.hansLivestockValue[0])}
               </p>
             </div>
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">ROI (5-year)</p>
-              <p className="text-lg font-semibold text-green-600 dark:text-green-400">1,870-3,400%</p>
+            <div className={styles.investmentItem}>
+              <p className={styles.itemLabel}>ROI (5-year)</p>
+              <p className={styles.itemValueGreen}>1,870-3,400%</p>
             </div>
-            <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Average Annual Income</p>
-              <p className="text-lg font-semibold">
+            <div className={styles.investmentItem}>
+              <p className={styles.itemLabel}>Average Annual Income</p>
+              <p className={styles.itemValue}>
                 {formatCurrency(Math.round(summary.cumulative.hans[0] / 5))}-
                 {formatCurrency(Math.round(summary.cumulative.hans[1] / 5))}
               </p>

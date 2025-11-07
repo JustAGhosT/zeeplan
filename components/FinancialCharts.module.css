@@ -1,0 +1,56 @@
+/* FinancialCharts Component Styles */
+
+.chartsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chartCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+}
+
+:global(.dark) .chartCard {
+  background-color: #1f2937;
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+:global(.dark) .chartTitle {
+  color: #f9fafb;
+}
+
+.tooltipContainer {
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+:global(.dark) .tooltipContainer {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.tooltipLabel {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .tooltipLabel {
+  color: #f9fafb;
+}
+
+.tooltipValue {
+  font-size: 0.875rem;
+}

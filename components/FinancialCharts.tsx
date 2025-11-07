@@ -4,6 +4,7 @@ import React from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFiveYearSummary, formatCurrency } from '@/lib/calculations';
+import styles from './FinancialCharts.module.css';
 
 interface FinancialChartsProps {
   data: PartnershipData;
@@ -78,10 +79,10 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-          <p className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{label}</p>
+        <div className={styles.tooltipContainer}>
+          <p className={styles.tooltipLabel}>{label}</p>
           {payload.map((entry: any, index: number) => (
-            <p key={index} className="text-sm" style={{ color: entry.color }}>
+            <p key={index} className={styles.tooltipValue} style={{ color: entry.color }}>
               {entry.name}: {formatCurrency(entry.value)}
             </p>
           ))}
@@ -92,10 +93,10 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className={styles.chartsContainer}>
       {/* Revenue & Profit Growth */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">
+      <div className={styles.chartCard}>
+        <h4 className={styles.chartTitle}>
           Revenue & Profit Growth (5-Year Projection)
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -134,8 +135,8 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
       </div>
 
       {/* Partner Income Comparison */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">
+      <div className={styles.chartCard}>
+        <h4 className={styles.chartTitle}>
           Partner Income Distribution (5-Year Projection)
         </h4>
         <ResponsiveContainer width="100%" height={300}>
