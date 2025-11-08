@@ -1,20 +1,28 @@
 /* Card Component */
 .card {
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  padding: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .card.dark {
   background-color: #1f2937;
+  border-color: #374151;
 }
 
 .cardTitle {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: #1f2937;
+  line-height: 1.4;
 }
 
 .cardTitle.dark {
@@ -23,14 +31,15 @@
 
 /* Section Component */
 .section {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .sectionTitle {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: #111827;
+  line-height: 1.3;
 }
 
 .sectionTitle.dark {
@@ -39,7 +48,9 @@
 
 .sectionSubtitle {
   color: #4b5563;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .sectionSubtitle.dark {
@@ -49,6 +60,8 @@
 /* Table Component */
 .tableWrapper {
   overflow-x: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .table {
@@ -58,7 +71,7 @@
 }
 
 .tableHead {
-  background-color: #f9fafb;
+  background-color: #f3f4f6;
 }
 
 .tableHead.dark {
@@ -66,17 +79,19 @@
 }
 
 .tableHeader {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   text-align: left;
   font-size: 0.75rem;
-  font-weight: 500;
-  color: #6b7280;
+  font-weight: 600;
+  color: #374151;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .tableHeader.dark {
-  color: #9ca3af;
+  color: #d1d5db;
+  border-bottom-color: #374151;
 }
 
 .tableBody {
@@ -89,10 +104,27 @@
 
 .tableRow {
   border-top: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f9fafb;
 }
 
 .tableRow.dark {
   border-color: #374151;
+}
+
+.tableRow.dark:nth-child(even) {
+  background-color: #111827;
+}
+
+.tableRow:hover {
+  background-color: #f0fdf4;
+}
+
+.tableRow.dark:hover {
+  background-color: #14532d;
 }
 
 .tableCell {
@@ -100,10 +132,15 @@
   white-space: nowrap;
   font-size: 0.875rem;
   color: #111827;
+  line-height: 1.5;
 }
 
 .tableCell.dark {
   color: #f3f4f6;
+}
+
+.tableCell:first-child {
+  font-weight: 500;
 }
 
 /* MetricCard Component */
