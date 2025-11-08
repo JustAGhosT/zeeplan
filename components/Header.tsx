@@ -25,6 +25,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/proposal', label: 'Proposal' },
+    { href: '/operations', label: 'Operations' },
     { href: '/financials', label: 'Financials' },
   ];
 
