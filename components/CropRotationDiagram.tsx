@@ -81,28 +81,13 @@ export const CropRotationDiagram: React.FC<CropRotationDiagramProps> = ({
       viewBox="0 0 800 550" 
       xmlns="http://www.w3.org/2000/svg"
       style={{ fontFamily: 'system-ui, sans-serif' }}
+      role="img"
+      aria-label="Crop rotation and nitrogen cycle diagram showing sustainable nutrient loop"
     >
-      {/* Title */}
-      <text x="400" y="30" textAnchor="middle" fontSize="24" fontWeight="bold" fill="#4C3F2F">
-        Crop Rotation & Nitrogen Cycle
-      </text>
-      <text x="400" y="50" textAnchor="middle" fontSize="14" fill="#4C3F2F">
-        Sustainable nutrient loop for regenerative agriculture
-      </text>
+      <title>Crop Rotation & Nitrogen Cycle</title>
+      <desc>Interactive diagram showing the 8-stage regenerative crop rotation: Lucerne fixes nitrogen, which enriches soil, feeds maize growth, rotates to sunflower, continues to sorghum, produces residue for livestock, generates manure as fertilizer, completing the cycle back to lucerne</desc>
 
-      {/* Central concept circle */}
-      <circle cx="400" cy="275" r="80" fill="#F5F5F0" stroke="#4C3F2F" strokeWidth="3" strokeDasharray="5,5" />
-      <text x="400" y="265" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#4C3F2F">
-        Regenerative
-      </text>
-      <text x="400" y="285" textAnchor="middle" fontSize="14" fill="#4C3F2F">
-        Nutrient Cycle
-      </text>
-      <text x="400" y="305" textAnchor="middle" fontSize="12" fill="#5DAA68" fontWeight="bold">
-        180ha Rotation
-      </text>
-
-      {/* Arrows connecting nodes */}
+      {/* Enhanced definitions */}
       <defs>
         <marker
           id="arrowhead"
@@ -114,16 +99,92 @@ export const CropRotationDiagram: React.FC<CropRotationDiagramProps> = ({
         >
           <polygon points="0 0, 10 3, 0 6" fill="#4C3F2F" />
         </marker>
+        
+        {/* Animated flow marker */}
+        <marker
+          id="flowDot"
+          markerWidth="8"
+          markerHeight="8"
+          refX="4"
+          refY="4"
+        >
+          <circle cx="4" cy="4" r="3" fill="#5DAA68" opacity="0.8" />
+        </marker>
+
+        {/* Gradient for nodes */}
+        {crops.map((crop, i) => (
+          <linearGradient key={`grad-${i}`} id={`cropGrad-${i}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor={crop.color} stopOpacity="1"/>
+            <stop offset="100%" stopColor={crop.color} stopOpacity="0.8"/>
+          </linearGradient>
+        ))}
+
+        {/* Glow filter for hover */}
+        <filter id="cropGlow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
       </defs>
 
+      {/* Title with animation */}
+      <text 
+        x="400" 
+        y="30" 
+        textAnchor="middle" 
+        fontSize="24" 
+        fontWeight="bold" 
+        fill="#4C3F2F"
+        opacity={animationProgress}
+      >
+        Crop Rotation & Nitrogen Cycle
+      </text>
+      <text 
+        x="400" 
+        y="50" 
+        textAnchor="middle" 
+        fontSize="14" 
+        fill="#4C3F2F"
+        opacity={animationProgress}
+      >
+        Sustainable nutrient loop for regenerative agriculture
+      </text>
+
+      {/* Central concept circle with pulse animation */}
+      <circle 
+        cx="400" 
+        cy="275" 
+        r={80 + Math.sin(flowAnimation / 10) * 2} 
+        fill="#F5F5F0" 
+        stroke="#4C3F2F" 
+        strokeWidth="3" 
+        strokeDasharray="5,5"
+        opacity={animationProgress * 0.9}
+      />
+      <text x="400" y="265" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#4C3F2F" opacity={animationProgress}>
+        Regenerative
+      </text>
+      <text x="400" y="285" textAnchor="middle" fontSize="14" fill="#4C3F2F" opacity={animationProgress}>
+        Nutrient Cycle
+      </text>
+      <text x="400" y="305" textAnchor="middle" fontSize="12" fill="#5DAA68" fontWeight="bold" opacity={animationProgress}>
+        180ha Rotation
+      </text>
+
+      {/* Arrows connecting nodes with animation */}
       {arrows.map((arrow, index) => {
         const from = crops[arrow.from];
         const to = crops[arrow.to];
         const midX = (from.x + to.x) / 2;
         const midY = (from.y + to.y) / 2;
+        const pathLength = Math.sqrt(Math.pow(to.x - from.x, 2) + Math.pow(to.y - from.y, 2));
+        const dashOffset = pathLength - (flowAnimation / 100 * pathLength);
         
         return (
-          <g key={index}>
+          <g key={index} opacity={animationProgress}>
+            {/* Main arrow path */}
             <path
               d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
               stroke="#4C3F2F"
@@ -131,13 +192,35 @@ export const CropRotationDiagram: React.FC<CropRotationDiagramProps> = ({
               fill="none"
               markerEnd="url(#arrowhead)"
             />
+            {/* Animated flow indicator */}
+            <path
+              d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
+              stroke="#5DAA68"
+              strokeWidth="4"
+              fill="none"
+              strokeDasharray="10,90"
+              strokeDashoffset={-dashOffset}
+              opacity="0.6"
+              strokeLinecap="round"
+            />
+            {/* Label with background */}
+            <rect
+              x={midX - 40}
+              y={midY - 20}
+              width="80"
+              height="18"
+              fill="white"
+              opacity="0.9"
+              rx="3"
+            />
             <text
               x={midX}
-              y={midY - 10}
+              y={midY - 8}
               textAnchor="middle"
               fontSize="10"
               fill="#4C3F2F"
               fontStyle="italic"
+              fontWeight="500"
             >
               {arrow.label}
             </text>
@@ -145,49 +228,145 @@ export const CropRotationDiagram: React.FC<CropRotationDiagramProps> = ({
         );
       })}
 
-      {/* Crop nodes */}
-      {crops.map((crop, index) => (
-        <g key={index}>
-          <circle 
-            cx={crop.x} 
-            cy={crop.y} 
-            r="50" 
-            fill={crop.color} 
-            stroke="#4C3F2F" 
-            strokeWidth="3"
-          />
-          <text
-            x={crop.x}
-            y={crop.y - 5}
-            textAnchor="middle"
-            fontSize="14"
-            fontWeight="bold"
-            fill="#FFFFFF"
+      {/* Crop nodes with enhanced interactivity */}
+      {crops.map((crop, index) => {
+        const isHovered = hoveredCrop === index;
+        const scale = isHovered ? 1.1 : 1;
+        const nodeOpacity = animationProgress * (isHovered ? 1 : 0.95);
+        
+        return (
+          <g 
+            key={index}
+            style={{ cursor: interactive ? 'pointer' : 'default' }}
+            onMouseEnter={interactive ? () => setHoveredCrop(index) : undefined}
+            onMouseLeave={interactive ? () => setHoveredCrop(null) : undefined}
+            opacity={nodeOpacity}
           >
-            {crop.name}
-          </text>
-          <text
-            x={crop.x}
-            y={crop.y + 10}
-            textAnchor="middle"
-            fontSize="10"
-            fill="#FFFFFF"
-          >
-            {crop.benefit}
-          </text>
-        </g>
-      ))}
+            {/* Shadow */}
+            <ellipse
+              cx={crop.x + 2}
+              cy={crop.y + 52}
+              rx="52"
+              ry="8"
+              fill="#000000"
+              opacity="0.15"
+            />
+            
+            {/* Node circle */}
+            <circle 
+              cx={crop.x} 
+              cy={crop.y} 
+              r={50 * scale} 
+              fill={`url(#cropGrad-${index})`} 
+              stroke={isHovered ? "#2D5016" : "#4C3F2F"} 
+              strokeWidth={isHovered ? "4" : "3"}
+              filter={isHovered ? "url(#cropGlow)" : "none"}
+              style={{ transition: 'all 0.3s ease' }}
+            />
+            
+            {/* Icon/emoji */}
+            <text
+              x={crop.x}
+              y={crop.y - 15}
+              textAnchor="middle"
+              fontSize={isHovered ? "24" : "20"}
+              style={{ transition: 'font-size 0.3s ease' }}
+            >
+              {index === 0 ? '🌿' : index === 1 ? '🌍' : index === 2 ? '🌽' : 
+               index === 3 ? '🌻' : index === 4 ? '🌾' : index === 5 ? '♻️' : 
+               index === 6 ? '🐄' : '💩'}
+            </text>
+            
+            <text
+              x={crop.x}
+              y={crop.y + 5}
+              textAnchor="middle"
+              fontSize={isHovered ? "15" : "14"}
+              fontWeight="bold"
+              fill="#FFFFFF"
+              stroke="#4C3F2F"
+              strokeWidth="0.5"
+              style={{ transition: 'font-size 0.3s ease' }}
+            >
+              {crop.name}
+            </text>
+            <text
+              x={crop.x}
+              y={crop.y + 20}
+              textAnchor="middle"
+              fontSize={isHovered ? "11" : "10"}
+              fill="#FFFFFF"
+              stroke="#4C3F2F"
+              strokeWidth="0.3"
+              style={{ transition: 'font-size 0.3s ease' }}
+            >
+              {crop.benefit}
+            </text>
 
-      {/* Key benefits box */}
-      <g transform="translate(50, 480)">
-        <rect width="700" height="50" fill="#F5F5F0" stroke="#4C3F2F" strokeWidth="2" rx="5" />
-        <text x="350" y="18" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#4C3F2F">
-          Key Benefits:
+            {/* Detailed tooltip on hover */}
+            {isHovered && (
+              <g>
+                <rect
+                  x={crop.x - 80}
+                  y={crop.y + 60}
+                  width="160"
+                  height="30"
+                  fill="white"
+                  stroke="#4C3F2F"
+                  strokeWidth="2"
+                  rx="5"
+                  filter="url(#cropGlow)"
+                />
+                <text
+                  x={crop.x}
+                  y={crop.y + 78}
+                  textAnchor="middle"
+                  fontSize="11"
+                  fill="#4C3F2F"
+                  fontWeight="500"
+                >
+                  {crop.detail}
+                </text>
+              </g>
+            )}
+          </g>
+        );
+      })}
+
+      {/* Key benefits box with improved styling */}
+      <g transform="translate(50, 480)" opacity={animationProgress}>
+        <rect 
+          width="700" 
+          height="55" 
+          fill="#F5F5F0" 
+          stroke="#4C3F2F" 
+          strokeWidth="2" 
+          rx="8"
+        />
+        <text x="350" y="20" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#4C3F2F">
+          Key Benefits of This System:
         </text>
-        <text x="350" y="35" textAnchor="middle" fontSize="11" fill="#4C3F2F">
-          ⚡ Reduced fertilizer costs • 🌱 Improved soil health • 💧 Better water retention • 🔄 Pest/disease break
+        <text x="350" y="38" textAnchor="middle" fontSize="11" fill="#4C3F2F">
+          ⚡ Reduced fertilizer costs by R50-80K/year • 🌱 Improved soil health +2-3% OM
+        </text>
+        <text x="350" y="50" textAnchor="middle" fontSize="11" fill="#4C3F2F">
+          💧 Better water retention +30% • 🔄 Pest/disease break • 🌍 Carbon sequestration
         </text>
       </g>
+
+      {/* Interaction hint */}
+      {interactive && (
+        <text 
+          x="400" 
+          y="545" 
+          textAnchor="middle" 
+          fontSize="9" 
+          fill="#9CA3AF"
+          opacity={animationProgress * 0.7}
+        >
+          💡 Hover over crops for detailed information
+        </text>
+      )}
     </svg>
   );
 };
