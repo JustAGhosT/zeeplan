@@ -1,115 +1,175 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Milk, TrendingUp, Package, DollarSign, Users, CheckCircle, Target } from 'lucide-react';
+import { HeroSection, StrategyCard, BenefitsSection } from '@/components/shared';
+import type { Strategy, Benefit } from '@/components/shared';
 import styles from './page.module.css';
 
 export default function GoatsPage() {
+  const revenueStreams: Strategy[] = [
+    {
+      icon: Target,
+      iconColor: 'text-green-600 dark:text-green-400',
+      iconBgColor: 'bg-green-100 dark:bg-green-900',
+      title: 'Meat Goats',
+      description: (
+        <div className="space-y-2 text-sm">
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <span>Boer goats for high-quality meat production</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <span>Fast growth rates and excellent feed conversion</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <span>Strong local demand for chevon (goat meat)</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <span>Multiple harvests per year with managed breeding</span>
+          </p>
+        </div>
+      )
+    },
+    {
+      icon: Milk,
+      iconColor: 'text-blue-600 dark:text-blue-400',
+      iconBgColor: 'bg-blue-100 dark:bg-blue-900',
+      title: 'Dairy Goats',
+      description: (
+        <div className="space-y-2 text-sm">
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <span>Saanen and Toggenburg breeds for milk production</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <span>Year-round milk production with managed breeding</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <span>Premium pricing for fresh goat milk (health benefits)</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <span>Direct sales and farm shop opportunities</span>
+          </p>
+        </div>
+      )
+    },
+    {
+      icon: Package,
+      iconColor: 'text-yellow-600 dark:text-yellow-400',
+      iconBgColor: 'bg-yellow-100 dark:bg-yellow-900',
+      title: 'Artisan Cheese',
+      description: (
+        <div className="space-y-2 text-sm">
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+            <span>Value-added products from goat milk</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+            <span>Chèvre, feta, and aged cheese varieties</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+            <span>Premium pricing in restaurants and specialty stores</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+            <span>Farm tourism and cheese-tasting experiences</span>
+          </p>
+        </div>
+      )
+    }
+  ];
+
+  const marketStrategies: Strategy[] = [
+    {
+      icon: DollarSign,
+      iconColor: 'text-green-600 dark:text-green-400',
+      iconBgColor: 'bg-green-100 dark:bg-green-900',
+      title: 'Direct-to-Consumer',
+      description: 'On-farm shop, farmers markets, and delivery subscriptions for fresh milk and cheese. Build loyal customer base with farm visits and tastings.',
+      footer: <strong>Target: 60% of revenue</strong>
+    },
+    {
+      icon: Package,
+      iconColor: 'text-blue-600 dark:text-blue-400',
+      iconBgColor: 'bg-blue-100 dark:bg-blue-900',
+      title: 'Restaurant & Retail',
+      description: 'Supply artisan cheeses to high-end restaurants, specialty food stores, and gourmet shops. Position as premium local product.',
+      footer: <strong>Target: 25% of revenue</strong>
+    },
+    {
+      icon: TrendingUp,
+      iconColor: 'text-yellow-600 dark:text-yellow-400',
+      iconBgColor: 'bg-yellow-100 dark:bg-yellow-900',
+      title: 'Agri-Tourism',
+      description: 'Farm tours, cheese-making workshops, and farm-to-table dining experiences. Educational programs attract urban consumers.',
+      footer: <strong>Target: 10% of revenue</strong>
+    },
+    {
+      icon: Users,
+      iconColor: 'text-purple-600 dark:text-purple-400',
+      iconBgColor: 'bg-purple-100 dark:bg-purple-900',
+      title: 'Meat Sales',
+      description: 'Sell live animals and butchered meat locally. Strong demand for halal and cultural celebrations. Managed breeding ensures consistent supply.',
+      footer: <strong>Target: 5% of revenue</strong>
+    }
+  ];
+
+  const benefits: Benefit[] = [
+    {
+      title: 'Multiple Revenue Streams',
+      description: 'Meat, milk, and cheese provide diversified income from single livestock system'
+    },
+    {
+      title: 'Lower Entry Cost',
+      description: 'Smaller initial investment compared to cattle, faster reproduction cycles'
+    },
+    {
+      title: 'Premium Pricing',
+      description: 'Artisan cheese commands 3-5x higher prices than raw milk'
+    },
+    {
+      title: 'Growing Market',
+      description: 'Increasing demand for goat products due to health benefits and lactose intolerance'
+    },
+    {
+      title: 'Land Efficiency',
+      description: 'Goats thrive on marginal land and help control brush'
+    },
+    {
+      title: 'Year-Round Income',
+      description: 'Managed breeding enables consistent milk and cheese production'
+    }
+  ];
+
   return (
     <div className={styles.pageContainer}>
       <Header showControlsButton={false} />
 
       <main className={styles.mainContent}>
-        {/* Hero Section */}
-        <div className={styles.heroSection}>
-          <div className={styles.iconContainer}>
-            <Milk className="w-10 h-10 text-white" />
-          </div>
-          <h1 className={styles.heroTitle}>
-            Goats, Dairy & Cheese Production
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Diversified revenue stream combining meat goats, dairy production, and artisan cheese making
-          </p>
-        </div>
+        <HeroSection
+          icon={Milk}
+          title="Goats, Dairy & Cheese Production"
+          subtitle="Diversified revenue stream combining meat goats, dairy production, and artisan cheese making"
+        />
 
         {/* Three Revenue Streams Section */}
+        <StrategyCard
+          title="Triple Revenue Stream Approach"
+          strategies={revenueStreams}
+          columns={3}
+        />
+
+        {/* Operations & Infrastructure Section - keeping custom content */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Triple Revenue Stream Approach
-          </h2>
-          <div className={styles.threeColumnGrid}>
-            <div className={styles.card}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconGreen}`}>
-                <Target className="w-6 h-6 text-green-600 dark:text-green-400" />
-              </div>
-              <h3 className={styles.cardTitle}>Meat Goats</h3>
-              <div className={styles.featureList}>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Boer goats for high-quality meat production</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Fast growth rates and excellent feed conversion</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Strong local demand for chevon (goat meat)</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Multiple harvests per year with managed breeding</span>
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.card}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconBlue}`}>
-                <Milk className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className={styles.cardTitle}>Dairy Goats</h3>
-              <div className={styles.featureList}>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Saanen and Toggenburg breeds for milk production</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Year-round milk production with managed breeding</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Premium pricing for fresh goat milk (health benefits)</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Direct sales and farm shop opportunities</span>
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.card}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconYellow}`}>
-                <Package className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-              </div>
-              <h3 className={styles.cardTitle}>Artisan Cheese</h3>
-              <div className={styles.featureList}>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Value-added products from goat milk</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Chèvre, feta, and aged cheese varieties</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Premium pricing in restaurants and specialty stores</span>
-                </p>
-                <p className={styles.featureItem}>
-                  <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className={styles.featureDescription}>Farm tourism and cheese-tasting experiences</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Operations & Infrastructure Section */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Operations & Infrastructure
-          </h2>
+          <h2 className={styles.sectionTitle}>Operations & Infrastructure</h2>
           <div className={styles.twoColumnGrid}>
             <div className={styles.card}>
               <h3 className={styles.strategyTitle}>Start-Up Requirements</h3>
@@ -187,113 +247,17 @@ export default function GoatsPage() {
         </section>
 
         {/* Market Strategy Section */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Market & Revenue Strategy
-          </h2>
-          <div className={styles.fourColumnGrid}>
-            <div className={styles.strategyCard}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconGreen}`}>
-                <DollarSign className="w-6 h-6 text-green-600 dark:text-green-400" />
-              </div>
-              <h3 className={styles.strategyTitle}>Direct-to-Consumer</h3>
-              <p className={styles.strategyDescription}>
-                On-farm shop, farmers markets, and delivery subscriptions for fresh milk and cheese. Build loyal customer base with farm visits and tastings.
-              </p>
-              <div className={styles.revenueTarget}>
-                <strong>Target: 60% of revenue</strong>
-              </div>
-            </div>
-
-            <div className={styles.strategyCard}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconBlue}`}>
-                <Package className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className={styles.strategyTitle}>Restaurant & Retail</h3>
-              <p className={styles.strategyDescription}>
-                Supply artisan cheeses to high-end restaurants, specialty food stores, and gourmet shops. Position as premium local product.
-              </p>
-              <div className={styles.revenueTarget}>
-                <strong>Target: 25% of revenue</strong>
-              </div>
-            </div>
-
-            <div className={styles.strategyCard}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconYellow}`}>
-                <TrendingUp className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-              </div>
-              <h3 className={styles.strategyTitle}>Agri-Tourism</h3>
-              <p className={styles.strategyDescription}>
-                Farm tours, cheese-making workshops, and farm-to-table dining experiences. Educational programs attract urban consumers.
-              </p>
-              <div className={styles.revenueTarget}>
-                <strong>Target: 10% of revenue</strong>
-              </div>
-            </div>
-
-            <div className={styles.strategyCard}>
-              <div className={`${styles.strategyIconContainer} ${styles.strategyIconPurple}`}>
-                <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <h3 className={styles.strategyTitle}>Meat Sales</h3>
-              <p className={styles.strategyDescription}>
-                Sell live animals and butchered meat locally. Strong demand for halal and cultural celebrations. Managed breeding ensures consistent supply.
-              </p>
-              <div className={styles.revenueTarget}>
-                <strong>Target: 5% of revenue</strong>
-              </div>
-            </div>
-          </div>
-        </section>
+        <StrategyCard
+          title="Market & Revenue Strategy"
+          strategies={marketStrategies}
+          columns={4}
+        />
 
         {/* Key Benefits Section */}
-        <section className={styles.benefitsSection}>
-          <h2 className={styles.benefitsTitle}>Why Goats, Dairy & Cheese?</h2>
-          <div className={styles.benefitsGrid}>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Multiple Revenue Streams</h4>
-                <p className={styles.benefitDescription}>Meat, milk, and cheese provide diversified income from single livestock system</p>
-              </div>
-            </div>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Lower Entry Cost</h4>
-                <p className={styles.benefitDescription}>Smaller initial investment compared to cattle, faster reproduction cycles</p>
-              </div>
-            </div>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Premium Pricing</h4>
-                <p className={styles.benefitDescription}>Artisan cheese commands 3-5x higher prices than raw milk</p>
-              </div>
-            </div>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Growing Market</h4>
-                <p className={styles.benefitDescription}>Increasing demand for goat products due to health benefits and lactose intolerance</p>
-              </div>
-            </div>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Land Efficiency</h4>
-                <p className={styles.benefitDescription}>Goats thrive on marginal land and help control brush</p>
-              </div>
-            </div>
-            <div className={styles.benefitItem}>
-              <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className={styles.benefitTitle}>Year-Round Income</h4>
-                <p className={styles.benefitDescription}>Managed breeding enables consistent milk and cheese production</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <BenefitsSection
+          title="Why Goats, Dairy & Cheese?"
+          benefits={benefits}
+        />
       </main>
 
       <Footer />
