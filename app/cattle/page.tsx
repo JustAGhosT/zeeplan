@@ -66,7 +66,7 @@ export default function CattlePage() {
       iconColor: 'text-red-600 dark:text-red-400',
       iconBgColor: 'bg-red-100 dark:bg-red-900',
       title: 'Composite Genetics',
-      description: 'Maintain hybrid vigor through composite herd (Nguni/Brahman/Santa Gertrudis/Bonsmara) delivering 15-25% performance advantage in fertility, growth, and disease resistance.'
+      description: 'Maintain hybrid vigor through composite herd (Brahman/Santa Gertrudis/Bonsmara/Nguni) delivering 15-25% performance advantage in fertility, growth, and disease resistance.'
     },
     {
       icon: Grid3x3,
@@ -88,12 +88,6 @@ export default function CattlePage() {
     {
       icon: CheckCircle,
       iconColor: 'text-red-600 dark:text-red-400',
-      title: 'Nguni 30-40%',
-      description: 'Indigenous genetics: tick/heat resistance, 85-95% calving rate, easy calving, maternal efficiency'
-    },
-    {
-      icon: CheckCircle,
-      iconColor: 'text-red-600 dark:text-red-400',
       title: 'Brahman 25-35%',
       description: 'Zebu hardiness: large frame, heat/disease tolerance, 450-600kg mature cows, hybrid vigor boost'
     },
@@ -108,6 +102,12 @@ export default function CattlePage() {
       iconColor: 'text-red-600 dark:text-red-400',
       title: 'Bonsmara 10-20%',
       description: 'SA composite: high fertility, calm temperament, adapted to 200-600mm rainfall, optimal for Zeerust'
+    },
+    {
+      icon: CheckCircle,
+      iconColor: 'text-red-600 dark:text-red-400',
+      title: 'Nguni 30-40%',
+      description: 'Indigenous genetics: tick/heat resistance, 85-95% calving rate, easy calving, maternal efficiency'
     }
   ];
 
@@ -149,7 +149,7 @@ export default function CattlePage() {
     },
     {
       title: 'Drought Adaptation',
-      description: 'Multiple genetic pathways: Nguni efficiency, Brahman fat storage, Afrikaner evolution for 200-400mm rainfall'
+      description: 'Multiple genetic pathways: Brahman fat storage, Afrikaner evolution for 200-400mm rainfall, indigenous efficiency'
     },
     {
       title: 'Heat Tolerance',

@@ -30,6 +30,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
   ];
 
   const livestockItems = [
+    { href: '/livestock', label: '📊 Livestock Overview', isSummary: true },
     { href: '/cattle', label: 'Cattle' },
     { href: '/goats', label: 'Goats & Dairy' },
     { href: '/pigs', label: 'Pigs' },
@@ -37,7 +38,9 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
   ];
 
   const cropItems = [
-    { href: '/crops', label: 'Crop Production' },
+    { href: '/crops/summary', label: '📊 Crops Overview', isSummary: true },
+    { href: '/crops/dryland', label: 'Dryland Crops' },
+    { href: '/crops/irrigated', label: 'Irrigated Crops' },
   ];
 
   useEffect(() => {
