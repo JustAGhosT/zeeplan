@@ -14,11 +14,11 @@ export default function Home() {
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              <span className="block">Regenerative Agriculture</span>
-              <span className={styles.heroTitleAccent}>Partnership Proposal</span>
+              <span className="block">Transform Your Farm</span>
+              <span className={styles.heroTitleAccent}>Zero Cash, Maximum Returns</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              Zero-cash entry, performance-based partnership in 600ha regenerative agriculture venture
+              Performance-based partnership that increases your farm revenue by 229-384% while you maintain 70% family control
             </p>
             <div className={styles.heroCTA}>
               <Link
@@ -29,10 +29,10 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
-                href="/financials"
+                href="/sekelbos"
                 className={styles.secondaryButton}
               >
-                Financial Projections
+                Sekelbos Clearance Plan
               </Link>
             </div>
           </div>
@@ -51,20 +51,133 @@ export default function Home() {
         <div className={styles.mainContent}>
           <div className={styles.fourColumnGrid}>
             <div className={styles.metricCard}>
-              <div className={styles.metricValue}>600ha</div>
-              <div className={styles.metricLabel}>Bushveld Farmland</div>
+              <div className={styles.metricValue}>70%</div>
+              <div className={styles.metricLabel}>Family Control</div>
             </div>
             <div className={styles.metricCard}>
-              <div className={styles.metricValue}>+384%</div>
-              <div className={styles.metricLabel}>Revenue Growth</div>
+              <div className={styles.metricValue}>R0</div>
+              <div className={styles.metricLabel}>Cash Required</div>
+            </div>
+            <div className={styles.metricCard}>
+              <div className={styles.metricValue}>+229%</div>
+              <div className={styles.metricLabel}>Revenue Growth (Eben & Willie)</div>
             </div>
             <div className={styles.metricCard}>
               <div className={styles.metricValue}>R1.8M</div>
               <div className={styles.metricLabel}>Year 5 Target</div>
             </div>
-            <div className={styles.metricCard}>
-              <div className={styles.metricValue}>3,400%</div>
-              <div className={styles.metricLabel}>ROI (5-year)</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sekelbos Clearance Featured Section */}
+      <section className={styles.sectionPadding} style={{ background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' }}>
+        <div className={styles.mainContent}>
+          <div className={styles.transformationGrid}>
+            <div>
+              <h2 className={styles.sectionHeading} style={{ color: '#065f46' }}>
+                Sekelbos Clearance: Immediate Value Generator
+              </h2>
+              <p className={styles.sectionSubheading} style={{ color: '#047857' }}>
+                Turn your sekelbos problem into profit while expanding grazing capacity
+              </p>
+              
+              <div className={styles.checklistContainer}>
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <div>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>240-360ha Affected</h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>40-60% of your property has sekelbos encroachment reducing grazing capacity</p>
+                  </div>
+                </div>
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <div>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>R1.08M-3M Wood Revenue</h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Generate R150K-250K in Year 1 from firewood, braai wood, and poles</p>
+                  </div>
+                </div>
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <div>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>Biological Clearance System</h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Goats, pigs, and chickens do the work - sustainable and cost-effective</p>
+                  </div>
+                </div>
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <div>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>+44% Capacity Increase</h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Expand from 72 LSU to 104 LSU as land is cleared</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '2rem' }}>
+                <Link href="/sekelbos" className={styles.primaryButton}>
+                  View Complete Sekelbos Plan
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className={styles.revenueBox} style={{ background: '#ffffff', border: '2px solid #059669' }}>
+              <h3 className={styles.revenueBoxTitle} style={{ color: '#065f46' }}>5-Year Sekelbos Revenue</h3>
+              <div className={styles.revenueList}>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 1 (50ha)</span>
+                    <span className={styles.revenueAmount}>R150K-250K</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '14%', background: '#059669' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 2 (100ha)</span>
+                    <span className={styles.revenueAmount}>R300K-500K</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '28%', background: '#059669' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 3 (120ha)</span>
+                    <span className={styles.revenueAmount}>R360K-600K</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '33%', background: '#059669' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 4 (165ha)</span>
+                    <span className={styles.revenueAmount}>R495K-825K</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '46%', background: '#059669' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 5 (165ha)</span>
+                    <span className={styles.revenueAmount}>R495K-825K</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '100%', background: '#059669' }}></div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ marginTop: '1.5rem', padding: '1rem', background: '#d1fae5', borderRadius: '0.5rem' }}>
+                <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#065f46' }}>
+                  Total 5-Year Revenue: R1.8M - R3M
+                </p>
+                <p style={{ fontSize: '0.75rem', color: '#047857', marginTop: '0.25rem' }}>
+                  Plus avoided cost of R1.8M-6M in conventional clearance
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -75,10 +188,10 @@ export default function Home() {
         <div className={styles.mainContent}>
           <div className={styles.sectionCenter}>
             <h2 className={styles.sectionHeading}>
-              Why This Partnership?
+              Why This Partnership Protects Your Interests
             </h2>
             <p className={styles.sectionSubheading}>
-              A unique opportunity combining zero-capital entry with high returns through regenerative agriculture
+              Designed to preserve family farm ownership while maximizing returns for all partners
             </p>
           </div>
 
@@ -86,39 +199,39 @@ export default function Home() {
             {/* Feature 1 */}
             <div className={styles.featureCard}>
               <div className={`${styles.featureIconContainer} ${styles.featureIconGreen}`}>
-                <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
+                <Users className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className={styles.featureCardTitle}>
-                Performance-Based Growth
+                Family Control Maintained (70%)
               </h3>
               <p className={styles.featureCardText}>
-                Phased equity earn-in from 0% to 30% based on revenue milestones, protecting all partners while enabling significant returns.
+                Eben and Willie retain 70% ownership (35% each). Partnership equity starts at 0% and grows only when revenue targets are met.
               </p>
             </div>
 
             {/* Feature 2 */}
             <div className={styles.featureCard}>
               <div className={`${styles.featureIconContainer} ${styles.featureIconBlue}`}>
-                <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className={styles.featureCardTitle}>
-                Win-Win-Win Structure
+                Zero Cash Risk
               </h3>
               <p className={styles.featureCardText}>
-                All partners benefit with 229% growth for existing owners and 1,870-3,400% ROI for new partner with zero cash investment.
+                No money required from Eben or Willie. Hans brings R48K-98K in livestock and pure sweat equity. You risk nothing financially.
               </p>
             </div>
 
             {/* Feature 3 */}
             <div className={styles.featureCard}>
               <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
-                <Target className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
+                <TrendingUp className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
               <h3 className={styles.featureCardTitle}>
-                Diversified Revenue Streams
+                Your Income Grows 229-384%
               </h3>
               <p className={styles.featureCardText}>
-                8+ revenue streams including cattle, goats, pigs, chickens, crops, and wood products for resilient income.
+                From R210K-245K baseline to R618K-1.41M over 5 years. Each of you earns substantially more while maintaining control.
               </p>
             </div>
           </div>
@@ -180,19 +293,15 @@ export default function Home() {
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className={styles.checklistTitle}>
-                      <Link href="/sekelbos" className={styles.checklistLink}>
-                        Sekelbos Clearing
-                      </Link>
-                    </h4>
-                    <p className={styles.checklistDescription}>260ha removal generates revenue + capacity expansion</p>
+                    <h4 className={styles.checklistTitle}>Stocking Increase</h4>
+                    <p className={styles.checklistDescription}>From 72 LSU to 104 LSU (+44% capacity) as Sekelbos is cleared</p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className={styles.checklistTitle}>Stocking Increase</h4>
-                    <p className={styles.checklistDescription}>From 72 LSU to 104 LSU (+44% capacity)</p>
+                    <h4 className={styles.checklistTitle}>Diversification</h4>
+                    <p className={styles.checklistDescription}>Add goats, pigs, chickens, crops for 8+ revenue streams</p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>

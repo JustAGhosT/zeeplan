@@ -26,7 +26,6 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/about', label: 'About' },
     { href: '/proposal', label: 'Proposal' },
     { href: '/financials', label: 'Financials' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   const livestockItems = [
@@ -41,6 +40,11 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/crops/summary', label: '📊 Crops Overview', isSummary: true },
     { href: '/crops/dryland', label: 'Dryland Crops' },
     { href: '/crops/irrigated', label: 'Irrigated Crops' },
+  ];
+
+  const bottomNavItems = [
+    { href: '/sekelbos', label: 'Sekelbos' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   useEffect(() => {
@@ -174,6 +178,19 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                 </div>
               )}
             </div>
+
+            {/* Bottom Navigation Items */}
+            {bottomNavItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                  pathname === item.href ? styles.active : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Desktop Actions */}
@@ -275,6 +292,22 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`${styles.mobileNavLink} ${styles.mobileSubLink} ${darkMode ? styles.dark : ''} ${
+                      pathname === item.href ? styles.active : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Bottom Navigation Items */}
+              <div className={styles.mobileSection}>
+                {bottomNavItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`${styles.mobileNavLink} ${darkMode ? styles.dark : ''} ${
                       pathname === item.href ? styles.active : ''
                     }`}
                   >

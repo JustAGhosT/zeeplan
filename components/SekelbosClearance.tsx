@@ -123,7 +123,7 @@ export function SekelbosSection1() {
         </div>
       </Card>
 
-      <Card title="1.2 Five-Phase Biological Clearance" className="mt-6">
+      <Card title="1.2 Five-Phase Biological Clearance" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 1: Goat Browsing (Weeks 1-4)</h4>
@@ -187,7 +187,7 @@ export function SekelbosSection1() {
         </div>
       </Card>
 
-      <Card title="1.3 Why This System Works" className="mt-6">
+      <Card title="1.3 Why This System Works" className={styles.cardSpacing}>
         <div className={styles.gridAuto}>
           <div>
             <h4 className={`${styles.sectionHeading}`}>Addresses All Regeneration Pathways:</h4>
@@ -255,7 +255,7 @@ export function SekelbosSection2() {
         </div>
       </Card>
 
-      <Card title="2.2 Product Lines & Pricing" className="mt-6">
+      <Card title="2.2 Product Lines & Pricing" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div>
             <h4 className={`${styles.sectionHeading}`}>Product 1: Firewood (Primary Market - 60% of volume)</h4>
@@ -358,7 +358,7 @@ export function SekelbosSection2() {
         </div>
       </Card>
 
-      <Card title="2.3 Revenue Projections by Product" className="mt-6">
+      <Card title="2.3 Revenue Projections by Product" className={styles.cardSpacing}>
         <Table
           headers={['Product', 'Volume', 'Price', 'Revenue']}
           rows={[
@@ -371,7 +371,7 @@ export function SekelbosSection2() {
           ]}
         />
         
-        <div className="mt-6">
+        <div className={styles.tableSpacing}>
           <h4 className="font-semibold text-sm mb-3">5-Year Revenue Projection:</h4>
           <Table
             headers={['Year', 'Ha Cleared', 'Wood Volume', 'Conservative', 'Optimistic']}
@@ -435,7 +435,7 @@ export function SekelbosSection3() {
         </div>
       </Card>
 
-      <Card title="3.2 Labor Requirements" className="mt-6">
+      <Card title="3.2 Labor Requirements" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div>
             <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Clearing Crew (Per Hectare):</h4>
@@ -463,7 +463,7 @@ export function SekelbosSection3() {
         </div>
       </Card>
 
-      <Card title="3.3 Operational Workflow" className="mt-6">
+      <Card title="3.3 Operational Workflow" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Month 1-2: Site Selection & Preparation</h4>
@@ -525,7 +525,7 @@ export function SekelbosSection4() {
       title="SECTION 4: CLEARANCE TIMELINE & TARGETS"
       subtitle="Five-year phased approach to complete property clearance"
     >
-      <div className="space-y-6">
+      <div className={styles.cardContainer}>
         <Card title="Year 1: Proof of Concept (50ha)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -661,7 +661,7 @@ export function SekelbosSection4() {
         </Card>
       </div>
 
-      <Card title="4.2 Clearance Cost Summary" className="mt-6">
+      <Card title="4.2 Clearance Cost Summary" className={styles.cardSpacing}>
         <Table
           headers={['Category', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', 'Total']}
           rows={[
@@ -739,7 +739,7 @@ export function SekelbosSection5() {
         </div>
       </Card>
 
-      <Card title="5.2 Sales Channels" className="mt-6">
+      <Card title="5.2 Sales Channels" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div>
             <h4 className={`${styles.sectionHeading}`}>Channel 1: Farm Gate Sales (30% of revenue)</h4>
@@ -795,7 +795,7 @@ export function SekelbosSection5() {
         </div>
       </Card>
 
-      <Card title="5.3 Marketing Tactics" className="mt-6">
+      <Card title="5.3 Marketing Tactics" className={styles.cardSpacing}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Online Marketing (Low Cost, High Reach):</h4>
@@ -879,7 +879,7 @@ export function SekelbosSection6() {
         </div>
       </Card>
 
-      <Card title="6.2 Market Risks" className="mt-6">
+      <Card title="6.2 Market Risks" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseBlue}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 1: Seasonal Demand Fluctuation</h4>
@@ -907,7 +907,7 @@ export function SekelbosSection6() {
         </div>
       </Card>
 
-      <Card title="6.3 Environmental Risks" className="mt-6">
+      <Card title="6.3 Environmental Risks" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 1: Drought (Below 315mm Rainfall)</h4>
@@ -1000,7 +1000,7 @@ export function SekelbosSection7() {
         </div>
       </Card>
 
-      <Card title="7.2 Monitoring Schedule" className="mt-6">
+      <Card title="7.2 Monitoring Schedule" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Weekly:</h4>
@@ -1044,7 +1044,7 @@ export function SekelbosSection7() {
         </div>
       </Card>
 
-      <Card title="Conclusion" className="mt-6">
+      <Card title="Conclusion" className={styles.cardSpacing}>
         <div className={styles.spaceY4}>
           <p className={styles.textSm}>
             The Sekelbos Clearance & Wood Sales Enterprise offers a unique opportunity to:
