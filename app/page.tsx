@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Users, Target, CheckCircle, Beef, Milk, Salad, Egg } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, CheckCircle, Beef, Milk, Salad, Egg, Wheat } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import styles from './page.module.css';
@@ -266,15 +266,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Livestock Operations Section */}
+      {/* Livestock & Crops Operations Section */}
       <section className="py-20">
         <div className={styles.mainContent}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
-              Livestock Operations
+              Livestock & Crop Operations
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Diversified revenue streams from integrated livestock operations
+              Diversified revenue streams from integrated livestock and crop production
             </p>
           </div>
 
@@ -351,6 +351,25 @@ export default function Home() {
                 Dual revenue from premium free-range eggs and pasture-raised chicken
               </p>
               <div className="flex items-center text-yellow-600 dark:text-yellow-400 text-sm font-semibold">
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </div>
+            </Link>
+
+            {/* Crops */}
+            <Link
+              href="/crops"
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            >
+              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-600 dark:group-hover:bg-amber-500 transition-colors">
+                <Wheat className="w-6 h-6 text-amber-600 dark:text-amber-400 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Crop Production
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Drought-adapted crops providing feed independence, food security, and cash income
+              </p>
+              <div className="flex items-center text-amber-600 dark:text-amber-400 text-sm font-semibold">
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>

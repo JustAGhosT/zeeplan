@@ -17,6 +17,8 @@ interface HeaderProps {
 export function Header({ onToggleControls, showControls, onExport, onShare, showControlsButton = true }: HeaderProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [livestockDropdownOpen, setLivestockDropdownOpen] = useState(false);
+  const [cropsDropdownOpen, setCropsDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
@@ -32,6 +34,10 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/goats', label: 'Goats & Dairy' },
     { href: '/pigs', label: 'Pigs' },
     { href: '/chicken', label: 'Chicken' },
+  ];
+
+  const cropItems = [
+    { href: '/crops', label: 'Crop Production' },
   ];
 
   useEffect(() => {
@@ -109,6 +115,62 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                 {item.label}
               </Link>
             ))}
+            
+            {/* Livestock Dropdown */}
+            <div 
+              className={styles.dropdown}
+              onMouseEnter={() => setLivestockDropdownOpen(true)}
+              onMouseLeave={() => setLivestockDropdownOpen(false)}
+            >
+              <button className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                livestockItems.some(item => pathname === item.href) ? styles.active : ''
+              }`}>
+                Livestock
+              </button>
+              {livestockDropdownOpen && (
+                <div className={`${styles.dropdownMenu} ${darkMode ? styles.dark : ''}`}>
+                  {livestockItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`${styles.dropdownItem} ${darkMode ? styles.dark : ''} ${
+                        pathname === item.href ? styles.active : ''
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Crops Dropdown */}
+            <div 
+              className={styles.dropdown}
+              onMouseEnter={() => setCropsDropdownOpen(true)}
+              onMouseLeave={() => setCropsDropdownOpen(false)}
+            >
+              <button className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                cropItems.some(item => pathname === item.href) ? styles.active : ''
+              }`}>
+                Crops
+              </button>
+              {cropsDropdownOpen && (
+                <div className={`${styles.dropdownMenu} ${darkMode ? styles.dark : ''}`}>
+                  {cropItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`${styles.dropdownItem} ${darkMode ? styles.dark : ''} ${
+                        pathname === item.href ? styles.active : ''
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Desktop Actions */}
@@ -183,6 +245,40 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                   {item.label}
                 </Link>
               ))}
+
+              {/* Livestock Section */}
+              <div className={styles.mobileSection}>
+                <div className={styles.mobileSectionTitle}>Livestock</div>
+                {livestockItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`${styles.mobileNavLink} ${styles.mobileSubLink} ${darkMode ? styles.dark : ''} ${
+                      pathname === item.href ? styles.active : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Crops Section */}
+              <div className={styles.mobileSection}>
+                <div className={styles.mobileSectionTitle}>Crops</div>
+                {cropItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`${styles.mobileNavLink} ${styles.mobileSubLink} ${darkMode ? styles.dark : ''} ${
+                      pathname === item.href ? styles.active : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
 
               <button
                 onClick={() => {
