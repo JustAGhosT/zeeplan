@@ -1,26 +1,27 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Leaf, TrendingUp, Users, Award, Target, Shield } from 'lucide-react';
+import styles from './page.module.css';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className={styles.pageContainer}>
       <Header showControlsButton={false} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className={styles.mainContent}>
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+        <div className={styles.heroSection}>
+          <h1 className={styles.heroTitle}>
             About Zeeplan
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className={styles.heroSubtitle}>
             A transformative regenerative agriculture partnership in Zeerust, North West Province, South Africa
           </p>
         </div>
 
         {/* Mission Section */}
-        <section className="mb-20">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+        <section className={styles.section}>
+          <div className={styles.card}>
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
                 <Leaf className="w-6 h-6 text-green-600 dark:text-green-400" />
@@ -36,11 +37,11 @@ export default function AboutPage() {
         </section>
 
         {/* The Farm Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">The Farm</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-4">Current State</h3>
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>The Farm</h2>
+          <div className={styles.twoColumnGrid}>
+            <div className={styles.card}>
+              <h3 className={styles.strategyTitle}>Current State</h3>
               <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
@@ -65,8 +66,8 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-4">Future Vision</h3>
+            <div className={styles.card}>
+              <h3 className={styles.strategyTitle}>Future Vision</h3>
               <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
@@ -94,10 +95,10 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Core Values</h2>
+          <div className={styles.threeColumnGrid}>
+            <div className={styles.card}>
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
@@ -107,7 +108,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.card}>
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
@@ -117,7 +118,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className={styles.card}>
               <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
@@ -130,8 +131,8 @@ export default function AboutPage() {
         </section>
 
         {/* Partnership Principles Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">Partnership Principles</h2>
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Partnership Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
@@ -192,9 +193,9 @@ export default function AboutPage() {
         </section>
 
         {/* The Team Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-8 text-center">The Partnership Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>The Partnership Team</h2>
+          <div className={styles.threeColumnGrid}>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-8 shadow-lg text-center">
               <div className="text-5xl font-bold mb-2">35%</div>
               <h3 className="text-2xl font-semibold mb-3">Oom Willie</h3>

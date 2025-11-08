@@ -2,34 +2,35 @@ import Link from 'next/link';
 import { ArrowRight, TrendingUp, Users, Target, CheckCircle, Beef, Milk, Salad, Egg } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className={styles.pageContainer}>
       <Header showControlsButton={false} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+      <section className={styles.heroSection}>
+        <div className={styles.heroContainer}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
               <span className="block">Regenerative Agriculture</span>
-              <span className="block text-green-600 dark:text-green-400">Partnership Proposal</span>
+              <span className={styles.heroTitleAccent}>Partnership Proposal</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
+            <p className={styles.heroSubtitle}>
               Zero-cash entry, performance-based partnership in 600ha regenerative agriculture venture
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={styles.heroCTA}>
               <Link
                 href="/proposal"
-                className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg hover:bg-green-700 transition-colors shadow-lg"
+                className={styles.primaryButton}
               >
                 View Proposal
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 href="/financials"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-50 text-lg font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg border border-gray-200 dark:border-gray-700"
+                className={styles.secondaryButton}
               >
                 Financial Projections
               </Link>
@@ -38,30 +39,30 @@ export default function Home() {
         </div>
 
         {/* Decorative background elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 dark:bg-green-700 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-yellow-300 dark:bg-yellow-700 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob animation-delay-4000"></div>
+        <div className={styles.decorativeBackground}>
+          <div className={`${styles.blob} ${styles.blob1}`}></div>
+          <div className={`${styles.blob} ${styles.blob2}`}></div>
+          <div className={`${styles.blob} ${styles.blob3}`}></div>
         </div>
       </section>
 
       {/* Key Metrics Section */}
-      <section className="bg-white dark:bg-gray-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={styles.whiteSection}>
+        <div className={styles.mainContent}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">600ha</div>
               <div className="text-gray-600 dark:text-gray-400">Bushveld Farmland</div>
             </div>
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">+384%</div>
               <div className="text-gray-600 dark:text-gray-400">Revenue Growth</div>
             </div>
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">R1.8M</div>
               <div className="text-gray-600 dark:text-gray-400">Year 5 Target</div>
             </div>
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">3,400%</div>
               <div className="text-gray-600 dark:text-gray-400">ROI (5-year)</div>
             </div>
@@ -71,7 +72,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={styles.mainContent}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
               Why This Partnership?
@@ -81,7 +82,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={styles.threeColumnGrid}>
             {/* Feature 1 */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
@@ -126,7 +127,7 @@ export default function Home() {
 
       {/* Partnership Structure Section */}
       <section className="bg-white dark:bg-gray-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={styles.mainContent}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
               Partnership Structure
@@ -137,21 +138,21 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-8 shadow-lg">
                 <div className="text-5xl font-bold mb-2">35%</div>
                 <div className="text-lg font-semibold mb-1">Oom Willie</div>
                 <div className="text-sm opacity-90">Land + Operations</div>
               </div>
             </div>
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-8 shadow-lg">
                 <div className="text-5xl font-bold mb-2">35%</div>
                 <div className="text-lg font-semibold mb-1">Eben</div>
                 <div className="text-sm opacity-90">Infrastructure + Family</div>
               </div>
             </div>
-            <div className="text-center">
+            <div className={styles.heroContent}>
               <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl p-8 shadow-lg">
                 <div className="text-5xl font-bold mb-2">30%</div>
                 <div className="text-lg font-semibold mb-1">Hans</div>
@@ -164,7 +165,7 @@ export default function Home() {
 
       {/* Key Benefits Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={styles.mainContent}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-6">
@@ -267,7 +268,7 @@ export default function Home() {
 
       {/* Livestock Operations Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={styles.mainContent}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
               Livestock Operations
@@ -366,7 +367,7 @@ export default function Home() {
           <p className="text-xl text-white/90 mb-8">
             Dive into the complete partnership details, financial projections, and transformation plan.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={styles.heroCTA}>
             <Link
               href="/proposal"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
