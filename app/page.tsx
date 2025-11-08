@@ -49,75 +49,75 @@ export default function Home() {
       {/* Key Metrics Section */}
       <section className={styles.whiteSection}>
         <div className={styles.mainContent}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className={styles.heroContent}>
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">600ha</div>
-              <div className="text-gray-600 dark:text-gray-400">Bushveld Farmland</div>
+          <div className={styles.fourColumnGrid}>
+            <div className={styles.metricCard}>
+              <div className={styles.metricValue}>600ha</div>
+              <div className={styles.metricLabel}>Bushveld Farmland</div>
             </div>
-            <div className={styles.heroContent}>
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">+384%</div>
-              <div className="text-gray-600 dark:text-gray-400">Revenue Growth</div>
+            <div className={styles.metricCard}>
+              <div className={styles.metricValue}>+384%</div>
+              <div className={styles.metricLabel}>Revenue Growth</div>
             </div>
-            <div className={styles.heroContent}>
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">R1.8M</div>
-              <div className="text-gray-600 dark:text-gray-400">Year 5 Target</div>
+            <div className={styles.metricCard}>
+              <div className={styles.metricValue}>R1.8M</div>
+              <div className={styles.metricLabel}>Year 5 Target</div>
             </div>
-            <div className={styles.heroContent}>
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">3,400%</div>
-              <div className="text-gray-600 dark:text-gray-400">ROI (5-year)</div>
+            <div className={styles.metricCard}>
+              <div className={styles.metricValue}>3,400%</div>
+              <div className={styles.metricLabel}>ROI (5-year)</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className={styles.sectionPadding}>
         <div className={styles.mainContent}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
+          <div className={styles.sectionCenter}>
+            <h2 className={styles.sectionHeading}>
               Why This Partnership?
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className={styles.sectionSubheading}>
               A unique opportunity combining zero-capital entry with high returns through regenerative agriculture
             </p>
           </div>
 
           <div className={styles.threeColumnGrid}>
             {/* Feature 1 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
+            <div className={styles.featureCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconGreen}`}>
                 <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-3">
+              <h3 className={styles.featureCardTitle}>
                 Performance-Based Growth
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className={styles.featureCardText}>
                 Phased equity earn-in from 0% to 30% based on revenue milestones, protecting all partners while enabling significant returns.
               </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
+            <div className={styles.featureCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconBlue}`}>
                 <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-3">
+              <h3 className={styles.featureCardTitle}>
                 Win-Win-Win Structure
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className={styles.featureCardText}>
                 All partners benefit with 229% growth for existing owners and 1,870-3,400% ROI for new partner with zero cash investment.
               </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
+            <div className={styles.featureCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
                 <Target className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-3">
+              <h3 className={styles.featureCardTitle}>
                 Diversified Revenue Streams
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className={styles.featureCardText}>
                 8+ revenue streams including cattle, goats, pigs, chickens, crops, and wood products for resilient income.
               </p>
             </div>
@@ -126,37 +126,37 @@ export default function Home() {
       </section>
 
       {/* Partnership Structure Section */}
-      <section className="bg-white dark:bg-gray-800 py-20">
+      <section className={styles.lightSection}>
         <div className={styles.mainContent}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
+          <div className={styles.sectionCenter}>
+            <h2 className={styles.sectionHeading}>
               Partnership Structure
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className={styles.sectionSubheading}>
               Fair and balanced equity distribution
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className={styles.heroContent}>
-              <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-8 shadow-lg">
-                <div className="text-5xl font-bold mb-2">35%</div>
-                <div className="text-lg font-semibold mb-1">Oom Willie</div>
-                <div className="text-sm opacity-90">Land + Operations</div>
+          <div className={styles.partnershipGrid}>
+            <div className={styles.partnerCard}>
+              <div className={styles.partnerCardGreen}>
+                <div className={styles.partnerPercentage}>35%</div>
+                <div className={styles.partnerName}>Oom Willie</div>
+                <div className={styles.partnerRole}>Land + Operations</div>
               </div>
             </div>
-            <div className={styles.heroContent}>
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-8 shadow-lg">
-                <div className="text-5xl font-bold mb-2">35%</div>
-                <div className="text-lg font-semibold mb-1">Eben</div>
-                <div className="text-sm opacity-90">Infrastructure + Family</div>
+            <div className={styles.partnerCard}>
+              <div className={styles.partnerCardBlue}>
+                <div className={styles.partnerPercentage}>35%</div>
+                <div className={styles.partnerName}>Eben</div>
+                <div className={styles.partnerRole}>Infrastructure + Family</div>
               </div>
             </div>
-            <div className={styles.heroContent}>
-              <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl p-8 shadow-lg">
-                <div className="text-5xl font-bold mb-2">30%</div>
-                <div className="text-lg font-semibold mb-1">Hans</div>
-                <div className="text-sm opacity-90">Sweat Equity + Livestock</div>
+            <div className={styles.partnerCard}>
+              <div className={styles.partnerCardYellow}>
+                <div className={styles.partnerPercentage}>30%</div>
+                <div className={styles.partnerName}>Hans</div>
+                <div className={styles.partnerRole}>Sweat Equity + Livestock</div>
               </div>
             </div>
           </div>
@@ -164,100 +164,100 @@ export default function Home() {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20">
+      <section className={styles.sectionPadding}>
         <div className={styles.mainContent}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className={styles.transformationGrid}>
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+              <h2 className={styles.sectionHeading}>
                 5-Year Transformation Plan
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+              <p className={styles.sectionSubheading}>
                 A comprehensive strategy to transform the farm through regenerative agriculture practices, 
                 capacity expansion, and revenue diversification.
               </p>
               
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+              <div className={styles.checklistContainer}>
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">
-                      <Link href="/sekelbos" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                    <h4 className={styles.checklistTitle}>
+                      <Link href="/sekelbos" className={styles.checklistLink}>
                         Sekelbos Clearing
                       </Link>
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-400">260ha removal generates revenue + capacity expansion</p>
+                    <p className={styles.checklistDescription}>260ha removal generates revenue + capacity expansion</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">Stocking Increase</h4>
-                    <p className="text-gray-600 dark:text-gray-400">From 72 LSU to 104 LSU (+44% capacity)</p>
+                    <h4 className={styles.checklistTitle}>Stocking Increase</h4>
+                    <p className={styles.checklistDescription}>From 72 LSU to 104 LSU (+44% capacity)</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">Systems Implementation</h4>
-                    <p className="text-gray-600 dark:text-gray-400">Financial tracking, optimization, KPI management</p>
+                    <h4 className={styles.checklistTitle}>Systems Implementation</h4>
+                    <p className={styles.checklistDescription}>Financial tracking, optimization, KPI management</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+                <div className={styles.checklistItem}>
+                  <CheckCircle className={styles.checklistIcon} />
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-gray-50">Market Development</h4>
-                    <p className="text-gray-600 dark:text-gray-400">Direct-to-consumer, premium pricing, farm shop</p>
+                    <h4 className={styles.checklistTitle}>Market Development</h4>
+                    <p className={styles.checklistDescription}>Direct-to-consumer, premium pricing, farm shop</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-100 to-blue-100 dark:from-gray-700 dark:to-gray-800 rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6">Revenue Growth Trajectory</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-700 dark:text-gray-300">Year 1</span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-50">R340K - R618K</span>
+            <div className={styles.revenueBox}>
+              <h3 className={styles.revenueBoxTitle}>Revenue Growth Trajectory</h3>
+              <div className={styles.revenueList}>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 1</span>
+                    <span className={styles.revenueAmount}>R340K - R618K</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                    <div className="bg-green-600 h-3 rounded-full" style={{ width: '19%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-700 dark:text-gray-300">Year 2</span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-50">R544K - R1.03M</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                    <div className="bg-green-600 h-3 rounded-full" style={{ width: '31%' }}></div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '19%' }}></div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-700 dark:text-gray-300">Year 3</span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-50">R752K - R1.46M</span>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 2</span>
+                    <span className={styles.revenueAmount}>R544K - R1.03M</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                    <div className="bg-green-600 h-3 rounded-full" style={{ width: '42%' }}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-700 dark:text-gray-300">Year 4</span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-50">R943K - R1.78M</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                    <div className="bg-green-600 h-3 rounded-full" style={{ width: '53%' }}></div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '31%' }}></div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-700 dark:text-gray-300">Year 5</span>
-                    <span className="font-semibold text-gray-900 dark:text-gray-50">R1.13M - R1.78M</span>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 3</span>
+                    <span className={styles.revenueAmount}>R752K - R1.46M</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                    <div className="bg-green-600 h-3 rounded-full" style={{ width: '100%' }}></div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '42%' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 4</span>
+                    <span className={styles.revenueAmount}>R943K - R1.78M</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '53%' }}></div>
+                  </div>
+                </div>
+                <div className={styles.revenueItem}>
+                  <div className={styles.revenueItemHeader}>
+                    <span className={styles.revenueYear}>Year 5</span>
+                    <span className={styles.revenueAmount}>R1.13M - R1.78M</span>
+                  </div>
+                  <div className={styles.revenueBar}>
+                    <div className={styles.revenueBarFill} style={{ width: '100%' }}></div>
                   </div>
                 </div>
               </div>
@@ -267,109 +267,94 @@ export default function Home() {
       </section>
 
       {/* Livestock & Crops Operations Section */}
-      <section className="py-20">
+      <section className={styles.sectionPadding}>
         <div className={styles.mainContent}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
+          <div className={styles.sectionCenter}>
+            <h2 className={styles.sectionHeading}>
               Livestock & Crop Operations
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className={styles.sectionSubheading}>
               Diversified revenue streams from integrated livestock and crop production
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className={styles.livestockGrid}>
             {/* Cattle */}
-            <Link
-              href="/cattle"
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600 dark:group-hover:bg-green-500 transition-colors">
-                <Beef className="w-6 h-6 text-green-600 dark:text-green-400 group-hover:text-white transition-colors" />
+            <Link href="/cattle" className={styles.livestockCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconGreen}`}>
+                <Beef className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+              <h3 className={styles.livestockCardTitle}>
                 Cattle Ranging
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className={styles.livestockCardDescription}>
                 Foundation operation expanding from 72 to 104 LSU through regenerative practices
               </p>
-              <div className="flex items-center text-green-600 dark:text-green-400 text-sm font-semibold">
+              <div className={styles.livestockCardLink}>
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>
 
             {/* Goats */}
-            <Link
-              href="/goats"
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 transition-colors">
-                <Milk className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors" />
+            <Link href="/goats" className={styles.livestockCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconBlue}`}>
+                <Milk className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className={styles.livestockCardTitle}>
                 Goats, Dairy & Cheese
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className={styles.livestockCardDescription}>
                 Triple revenue stream from meat goats, dairy production, and artisan cheese
               </p>
-              <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold">
+              <div className={styles.livestockCardLink}>
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>
 
             {/* Pigs */}
-            <Link
-              href="/pigs"
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-600 dark:group-hover:bg-pink-500 transition-colors">
-                <Salad className="w-6 h-6 text-pink-600 dark:text-pink-400 group-hover:text-white transition-colors" />
+            <Link href="/pigs" className={styles.livestockCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
+                <Salad className="w-6 h-6 text-pink-600 dark:text-pink-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+              <h3 className={styles.livestockCardTitle}>
                 Pig Farming
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className={styles.livestockCardDescription}>
                 High-efficiency protein production with rapid ROI and waste recycling
               </p>
-              <div className="flex items-center text-pink-600 dark:text-pink-400 text-sm font-semibold">
+              <div className={styles.livestockCardLink}>
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>
 
             {/* Chicken */}
-            <Link
-              href="/chicken"
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-600 dark:group-hover:bg-yellow-500 transition-colors">
-                <Egg className="w-6 h-6 text-yellow-600 dark:text-yellow-400 group-hover:text-white transition-colors" />
+            <Link href="/chicken" className={styles.livestockCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
+                <Egg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">
+              <h3 className={styles.livestockCardTitle}>
                 Chicken & Eggs
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className={styles.livestockCardDescription}>
                 Dual revenue from premium free-range eggs and pasture-raised chicken
               </p>
-              <div className="flex items-center text-yellow-600 dark:text-yellow-400 text-sm font-semibold">
+              <div className={styles.livestockCardLink}>
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>
 
             {/* Crops */}
-            <Link
-              href="/crops"
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            >
-              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-600 dark:group-hover:bg-amber-500 transition-colors">
-                <Wheat className="w-6 h-6 text-amber-600 dark:text-amber-400 group-hover:text-white transition-colors" />
+            <Link href="/crops" className={styles.livestockCard}>
+              <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
+                <Wheat className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 className={styles.livestockCardTitle}>
                 Crop Production
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className={styles.livestockCardDescription}>
                 Drought-adapted crops providing feed independence, food security, and cash income
               </p>
-              <div className="flex items-center text-amber-600 dark:text-amber-400 text-sm font-semibold">
+              <div className={styles.livestockCardLink}>
                 Learn more <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </Link>
@@ -378,33 +363,24 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-700 dark:to-blue-700 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaContainer}>
+          <h2 className={styles.ctaHeading}>
             Ready to Explore the Full Proposal?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className={styles.ctaText}>
             Dive into the complete partnership details, financial projections, and transformation plan.
           </p>
           <div className={styles.heroCTA}>
-            <Link
-              href="/proposal"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-            >
+            <Link href="/proposal" className={styles.ctaButton}>
               Full Proposal
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-            <Link
-              href="/sekelbos"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-            >
+            <Link href="/sekelbos" className={styles.ctaButton}>
               Sekelbos Plan
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white/10 transition-colors"
-            >
+            <Link href="/contact" className={styles.ctaButtonOutline}>
               Get in Touch
             </Link>
           </div>
