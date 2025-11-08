@@ -395,3 +395,409 @@
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.875rem;
 }
+
+/* Genetics Section */
+.geneticsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.geneticsIntro {
+  background: linear-gradient(to right, #fee2e2, #fef3c7);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+:global(.dark) .geneticsIntro {
+  background: linear-gradient(to right, #7f1d1d, #78350f);
+}
+
+.geneticsIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to bottom right, #dc2626, #f59e0b);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.geneticsIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+}
+
+.geneticsDescription {
+  color: #7c2d12;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+:global(.dark) .geneticsDescription {
+  color: #fef3c7;
+}
+
+.geneticsCard {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .geneticsCard {
+  background: #1f2937;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefitIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+:global(.dark) .benefitIcon {
+  color: #34d399;
+}
+
+.geneticsHighlight {
+  background: linear-gradient(to right, #dc2626, #f59e0b);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+:global(.dark) .geneticsHighlight {
+  background: linear-gradient(to right, #991b1b, #b45309);
+}
+
+.highlightTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.highlightText {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Grazing Section */
+.grazingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grazingIntro {
+  background: linear-gradient(to right, #d1fae5, #dbeafe);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+:global(.dark) .grazingIntro {
+  background: linear-gradient(to right, #064e3b, #1e3a8a);
+}
+
+.grazingIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to bottom right, #059669, #2563eb);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.grazingIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+}
+
+.grazingDescription {
+  color: #065f46;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+:global(.dark) .grazingDescription {
+  color: #d1fae5;
+}
+
+.grazingPhases {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .grazingPhases {
+  background: #1f2937;
+}
+
+.phaseGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .phaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.phaseCard {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border-left: 4px solid #059669;
+}
+
+:global(.dark) .phaseCard {
+  background: #374151;
+  border-left-color: #34d399;
+}
+
+.phaseHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.phaseIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+:global(.dark) .phaseIcon {
+  color: #34d399;
+}
+
+.phaseTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+:global(.dark) .phaseTitle {
+  color: #f9fafb;
+}
+
+.phaseDescription {
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+:global(.dark) .phaseDescription {
+  color: #9ca3af;
+}
+
+.grazingBenefits {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .grazingBenefits {
+  background: #1f2937;
+}
+
+.seasonGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .seasonGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.seasonCard {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+:global(.dark) .seasonCard {
+  background: #374151;
+}
+
+.seasonTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .seasonTitle {
+  color: #f9fafb;
+}
+
+.seasonText {
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+:global(.dark) .seasonText {
+  color: #9ca3af;
+}
+
+/* Financial Section */
+.financialContainer {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .financialContainer {
+  background: #1f2937;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.financialTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .financialTable {
+    font-size: 1rem;
+  }
+}
+
+.financialTable thead {
+  background: linear-gradient(to right, #059669, #2563eb);
+  color: #ffffff;
+}
+
+:global(.dark) .financialTable thead {
+  background: linear-gradient(to right, #047857, #1d4ed8);
+}
+
+.financialTable th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.financialTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+:global(.dark) .financialTable td {
+  border-bottom-color: #4b5563;
+  color: #d1d5db;
+}
+
+.financialTable tbody tr:hover {
+  background: #f9fafb;
+}
+
+:global(.dark) .financialTable tbody tr:hover {
+  background: #374151;
+}
+
+.totalCell {
+  font-weight: 600;
+  color: #059669;
+}
+
+:global(.dark) .totalCell {
+  color: #34d399;
+}
+
+.totalRow {
+  background: #f9fafb;
+  font-weight: 700;
+}
+
+:global(.dark) .totalRow {
+  background: #374151;
+}
+
+.grandTotal {
+  color: #059669;
+  font-size: 1.125rem;
+}
+
+:global(.dark) .grandTotal {
+  color: #34d399;
+}
+
+.financialNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(to right, #d1fae5, #dbeafe);
+  border-radius: 0.75rem;
+}
+
+:global(.dark) .financialNotes {
+  background: linear-gradient(to right, #064e3b, #1e3a8a);
+}
+
+.noteItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.noteIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+:global(.dark) .noteIcon {
+  color: #34d399;
+}
+
+.noteText {
+  color: #065f46;
+  line-height: 1.5;
+}
+
+:global(.dark) .noteText {
+  color: #d1fae5;
+}
