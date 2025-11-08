@@ -373,3 +373,20 @@
   background: #78350f;
   border-color: #fbbf24;
 }
+
+/* Card spacing utility */
+.cardSpacing {
+  margin-top: 2rem;
+}
+
+/* Table spacing within cards */
+.tableSpacing {
+  margin-top: 1.5rem;
+}
+
+/* Container for stacked cards with spacing */
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
