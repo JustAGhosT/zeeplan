@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react';
 
 interface CropRotationDiagramProps {
   width?: number;
   height?: number;
+  showAnimation?: boolean;
+  interactive?: boolean;
 }
 
 /**
@@ -10,20 +14,53 @@ interface CropRotationDiagramProps {
  * Shows the nitrogen and organic matter loop
  * Lucerne → Soil N → Maize → Sunflower → Sorghum → Residue → Livestock → Manure → Lucerne
  * Color palette: Earth #4C3F2F, Green #5DAA68, Gold #C69B3A
+ * Enhanced with animations, interactivity, and accessibility
  */
 export const CropRotationDiagram: React.FC<CropRotationDiagramProps> = ({ 
   width = 800, 
-  height = 600 
+  height = 600,
+  showAnimation = true,
+  interactive = true
 }) => {
+  const [hoveredCrop, setHoveredCrop] = React.useState<number | null>(null);
+  const [animationProgress, setAnimationProgress] = React.useState(0);
+  const [flowAnimation, setFlowAnimation] = React.useState(0);
+
+  // Initial animation
+  React.useEffect(() => {
+    if (showAnimation) {
+      const timer = setInterval(() => {
+        setAnimationProgress(prev => {
+          if (prev >= 1) {
+            clearInterval(timer);
+            return 1;
+          }
+          return prev + 0.025;
+        });
+      }, 25);
+      return () => clearInterval(timer);
+    } else {
+      setAnimationProgress(1);
+    }
+  }, [showAnimation]);
+
+  // Flow animation (continuous)
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setFlowAnimation(prev => (prev + 1) % 100);
+    }, 50);
+    return () => clearInterval(timer);
+  }, []);
+
   const crops = [
-    { name: 'Lucerne', x: 400, y: 100, color: '#5DAA68', benefit: 'Nitrogen Fixation' },
-    { name: 'Soil N', x: 600, y: 200, color: '#8B7355', benefit: 'Enriched Soil' },
-    { name: 'Maize', x: 600, y: 350, color: '#C69B3A', benefit: 'Feed Grain' },
-    { name: 'Sunflower', x: 400, y: 450, color: '#E6B84D', benefit: 'Oil + Protein' },
-    { name: 'Sorghum', x: 200, y: 350, color: '#8B6F47', benefit: 'Drought Resistant' },
-    { name: 'Residue', x: 200, y: 200, color: '#6B5D4F', benefit: 'Organic Matter' },
-    { name: 'Livestock', x: 150, y: 100, color: '#4C9F70', benefit: 'Grazing' },
-    { name: 'Manure', x: 250, y: 50, color: '#8B7355', benefit: 'Fertilizer' },
+    { name: 'Lucerne', x: 400, y: 100, color: '#5DAA68', benefit: 'Nitrogen Fixation', detail: 'Fixes 150-200kg N/ha/year naturally' },
+    { name: 'Soil N', x: 600, y: 200, color: '#8B7355', benefit: 'Enriched Soil', detail: 'Organic nitrogen available for crops' },
+    { name: 'Maize', x: 600, y: 350, color: '#C69B3A', benefit: 'Feed Grain', detail: '4-6 tons/ha with reduced fertilizer' },
+    { name: 'Sunflower', x: 400, y: 450, color: '#E6B84D', benefit: 'Oil + Protein', detail: 'Deep roots break soil compaction' },
+    { name: 'Sorghum', x: 200, y: 350, color: '#8B6F47', benefit: 'Drought Resistant', detail: 'Uses 35% less water than maize' },
+    { name: 'Residue', x: 200, y: 200, color: '#6B5D4F', benefit: 'Organic Matter', detail: 'Returns 2-3 tons/ha biomass' },
+    { name: 'Livestock', x: 150, y: 100, color: '#4C9F70', benefit: 'Grazing', detail: 'Converts residue to protein' },
+    { name: 'Manure', x: 250, y: 50, color: '#8B7355', benefit: 'Fertilizer', detail: 'Completes the nutrient cycle' },
   ];
 
   const arrows = [
