@@ -162,9 +162,9 @@ export function formatRange(range: [number, number]): string {
   return `${formatCurrency(range[0])}-${formatCurrency(range[1])}`;
 }
 
-export function calculateROI(investment: [number, number], returns: [number, number]): string {
-  const minROI = ((returns[0] - investment[1]) / investment[1]) * 100;
-  const maxROI = ((returns[1] - investment[0]) / investment[0]) * 100;
+export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
+  const minROI = ((netProfit[0] - investment[1]) / investment[1]) * 100;
+  const maxROI = ((netProfit[1] - investment[0]) / investment[0]) * 100;
   
   return `${Math.round(minROI).toLocaleString()}-${Math.round(maxROI).toLocaleString()}%`;
 }

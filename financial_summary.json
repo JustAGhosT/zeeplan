@@ -1,0 +1,198 @@
+{
+  "year1": {
+    "revenue": [
+      340000,
+      618000
+    ],
+    "costs": [
+      220000,
+      340000
+    ],
+    "profit": [
+      0,
+      398000
+    ],
+    "oomWillieIncome": [
+      0,
+      199000
+    ],
+    "ebenIncome": [
+      0,
+      199000
+    ],
+    "hansEquityIncome": [
+      0,
+      0
+    ],
+    "hansSalary": [
+      120000,
+      180000
+    ],
+    "hansTotalIncome": [
+      120000,
+      180000
+    ]
+  },
+  "year2": {
+    "revenue": [
+      544000,
+      1031000
+    ],
+    "costs": [
+      320000,
+      480000
+    ],
+    "profit": [
+      64000,
+      711000
+    ],
+    "oomWillieIncome": [
+      27200,
+      302175
+    ],
+    "ebenIncome": [
+      27200,
+      302175
+    ],
+    "hansEquityIncome": [
+      9600,
+      106650
+    ],
+    "hansSalary": [
+      120000,
+      180000
+    ],
+    "hansTotalIncome": [
+      129600,
+      286650
+    ]
+  },
+  "year3": {
+    "revenue": [
+      752000,
+      1460000
+    ],
+    "costs": [
+      420000,
+      620000
+    ],
+    "profit": [
+      132000,
+      1040000
+    ],
+    "oomWillieIncome": [
+      51150,
+      403000
+    ],
+    "ebenIncome": [
+      51150,
+      403000
+    ],
+    "hansEquityIncome": [
+      29700,
+      234000
+    ],
+    "hansSalary": [
+      120000,
+      180000
+    ],
+    "hansTotalIncome": [
+      149700,
+      414000
+    ]
+  },
+  "year4": {
+    "revenue": [
+      943000,
+      1775000
+    ],
+    "costs": [
+      520000,
+      720000
+    ],
+    "profit": [
+      223000,
+      1255000
+    ],
+    "oomWillieIncome": [
+      78050,
+      439250
+    ],
+    "ebenIncome": [
+      78050,
+      439250
+    ],
+    "hansEquityIncome": [
+      66900,
+      376500
+    ],
+    "hansSalary": [
+      120000,
+      180000
+    ],
+    "hansTotalIncome": [
+      186900,
+      556500
+    ]
+  },
+  "year5": {
+    "revenue": [
+      1128000,
+      1775000
+    ],
+    "costs": [
+      600000,
+      800000
+    ],
+    "profit": [
+      328000,
+      1175000
+    ],
+    "oomWillieIncome": [
+      114800,
+      411250
+    ],
+    "ebenIncome": [
+      114800,
+      411250
+    ],
+    "hansEquityIncome": [
+      98400,
+      352500
+    ],
+    "hansSalary": [
+      120000,
+      180000
+    ],
+    "hansTotalIncome": [
+      218400,
+      532500
+    ]
+  },
+  "cumulative": {
+    "revenue": [
+      3707000,
+      6659000
+    ],
+    "costs": [
+      2080000,
+      2960000
+    ],
+    "profit": [
+      747000,
+      4579000
+    ],
+    "oomWillie": [
+      271200,
+      1754675
+    ],
+    "eben": [
+      271200,
+      1754675
+    ],
+    "hans": [
+      804600,
+      1969650
+    ]
+  }
+}

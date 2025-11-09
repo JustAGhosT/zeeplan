@@ -4,13 +4,17 @@ import React from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFiveYearSummary, formatCurrency } from '@/lib/calculations';
+import { useWindowSize } from '@/lib/hooks';
 import styles from './FinancialCharts.module.css';
+import commonStyles from '@/app/common.module.css';
 
 interface FinancialChartsProps {
   data: PartnershipData;
 }
 
 export function FinancialCharts({ data }: FinancialChartsProps) {
+  const { width } = useWindowSize();
+  const isMobile = width ? width < 768 : false;
   const summary = calculateFiveYearSummary(data);
   
   // Prepare revenue growth data
@@ -95,20 +99,20 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   return (
     <div className={styles.chartsContainer}>
       {/* Revenue & Profit Growth */}
-      <div className={styles.chartCard}>
-        <h4 className={styles.chartTitle}>
+      <div className={commonStyles.chartCard}>
+        <h4 className={commonStyles.chartTitle}>
           Revenue & Profit Growth (5-Year Projection)
         </h4>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
           <LineChart data={revenueData}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-gray-300 dark:stroke-gray-700" />
             <XAxis 
               dataKey="year" 
-              className="text-xs"
+              className={isMobile ? "text-xxs" : "text-xs"}
               stroke="#9ca3af"
             />
             <YAxis 
-              className="text-xs"
+              className={isMobile ? "text-xxs" : "text-xs"}
               stroke="#9ca3af"
               tickFormatter={(value) => `R${(value / 1000).toFixed(0)}K`}
             />
@@ -135,20 +139,20 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
       </div>
 
       {/* Partner Income Comparison */}
-      <div className={styles.chartCard}>
-        <h4 className={styles.chartTitle}>
+      <div className={commonStyles.chartCard}>
+        <h4 className={commonStyles.chartTitle}>
           Partner Income Distribution (5-Year Projection)
         </h4>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
           <BarChart data={partnerIncomeData}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-gray-300 dark:stroke-gray-700" />
             <XAxis 
               dataKey="year" 
-              className="text-xs"
+              className={isMobile ? "text-xxs" : "text-xs"}
               stroke="#9ca3af"
             />
             <YAxis 
-              className="text-xs"
+              className={isMobile ? "text-xxs" : "text-xs"}
               stroke="#9ca3af"
               tickFormatter={(value) => `R${(value / 1000).toFixed(0)}K`}
             />

@@ -33,6 +33,59 @@ export function Card({ title, children, className = '' }: CardProps) {
   );
 }
 
+interface SliderProps {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  className?: string;
+}
+
+export function Slider({
+  label,
+  value,
+  onChange,
+  min,
+  max,
+  step = 1,
+  className = ''
+}: SliderProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className={`${styles.sliderGroup} ${className}`}>
+      <label className={`${styles.sliderLabel} ${isDark ? styles.dark : ''}`}>
+        {label}
+      </label>
+      <input
+        type="range"
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        min={min}
+        max={max}
+        step={step}
+        className={`${styles.slider} ${isDark ? styles.dark : ''}`}
+      />
+      <span className={`${styles.sliderValue} ${isDark ? styles.dark : ''}`}>{value}</span>
+    </div>
+  );
+}
+
 interface SectionProps {
   title: string;
   subtitle?: string;

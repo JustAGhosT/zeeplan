@@ -3,21 +3,42 @@
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
-import { Section, Card, Table } from './UIComponents';
+import { Section, Card, Table, Slider } from './UIComponents';
 import styles from './FinancialProjections.module.css';
 
 interface FinancialProjectionsProps {
   data: PartnershipData;
 }
 
+function Controls({ data, setData }: { data: PartnershipData, setData: (data: PartnershipData) => void }) {
+  return (
+    <Card title="Scenario Controls">
+      <Slider
+        label="Sekelbos Revenue (per ton)"
+        value={data.yearlyTargets.year1.sekelbosRevenue[0]}
+        onChange={(value) => {
+          const newData = { ...data };
+          newData.yearlyTargets.year1.sekelbosRevenue[0] = value;
+          setData(newData);
+        }}
+        min={500}
+        max={1500}
+        step={50}
+      />
+    </Card>
+  );
+}
+
 export function FinancialProjections({ data }: FinancialProjectionsProps) {
-  const summary = calculateFiveYearSummary(data);
+  const [localData, setLocalData] = React.useState(data);
+  const summary = calculateFiveYearSummary(localData);
   
   return (
     <Section
       title="Financial Projections"
       subtitle="5-year revenue, costs, and profit breakdown by partner"
     >
+      <Controls data={localData} setData={setLocalData} />
       <Card title="5-Year Cumulative Summary">
         <Table
           headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Willie', 'Eben', 'Hans']}

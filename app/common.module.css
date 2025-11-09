@@ -1,0 +1,103 @@
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: #059669;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  color: #111827;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+}
+
+:global(.dark) .secondaryButton {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.secondaryButton:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.15);
+}
+
+:global(.dark) .secondaryButton:hover {
+  background: #374151;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .card {
+  background: #1f2937;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+:global(.dark) .cardTitle {
+  color: #f9fafb;
+}
+
+.chartCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  min-height: 250px;
+}
+
+@media (min-width: 640px) {
+  .chartCard {
+    padding: 1.5rem;
+  }
+}
+
+:global(.dark) .chartCard {
+  background-color: #1f2937;
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+:global(.dark) .chartTitle {
+  color: #f9fafb;
+}
