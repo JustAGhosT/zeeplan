@@ -43,15 +43,7 @@ interface SliderProps {
   className?: string;
 }
 
-export function Slider({
-  label,
-  value,
-  onChange,
-  min,
-  max,
-  step = 1,
-  className = ''
-}: SliderProps) {
+export function Slider({ label, value, onChange, min, max, step = 1, className = '' }: SliderProps) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -69,9 +61,7 @@ export function Slider({
 
   return (
     <div className={`${styles.sliderGroup} ${className}`}>
-      <label className={`${styles.sliderLabel} ${isDark ? styles.dark : ''}`}>
-        {label}
-      </label>
+      <label className={`${styles.sliderLabel} ${isDark ? styles.dark : ''}`}>{label}</label>
       <input
         type="range"
         value={value}
@@ -146,10 +136,7 @@ export function Table({ headers, rows, className = '' }: TableProps) {
         <thead className={`${styles.tableHead} ${isDark ? styles.dark : ''}`}>
           <tr>
             {headers.map((header, i) => (
-              <th
-                key={i}
-                className={`${styles.tableHeader} ${isDark ? styles.dark : ''}`}
-              >
+              <th key={i} className={`${styles.tableHeader} ${isDark ? styles.dark : ''}`}>
                 {header}
               </th>
             ))}
@@ -198,9 +185,7 @@ export function MetricCard({ label, value, change, className = '' }: MetricCardP
     <div className={`${styles.metricCard} ${isDark ? styles.dark : ''} ${className}`}>
       <p className={`${styles.metricLabel} ${isDark ? styles.dark : ''}`}>{label}</p>
       <p className={`${styles.metricValue} ${isDark ? styles.dark : ''}`}>{value}</p>
-      {change && (
-        <p className={`${styles.metricChange} ${isDark ? styles.dark : ''}`}>{change}</p>
-      )}
+      {change && <p className={`${styles.metricChange} ${isDark ? styles.dark : ''}`}>{change}</p>}
     </div>
   );
 }
@@ -216,16 +201,7 @@ interface InputGroupProps {
   className?: string;
 }
 
-export function InputGroup({
-  label,
-  value,
-  onChange,
-  min,
-  max,
-  step = 1,
-  suffix,
-  className = ''
-}: InputGroupProps) {
+export function InputGroup({ label, value, onChange, min, max, step = 1, suffix, className = '' }: InputGroupProps) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -243,9 +219,7 @@ export function InputGroup({
 
   return (
     <div className={`${styles.inputGroup} ${className}`}>
-      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
-        {label}
-      </label>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>{label}</label>
       <div className={styles.inputWrapper}>
         <input
           type="number"
@@ -256,9 +230,7 @@ export function InputGroup({
           step={step}
           className={`${styles.input} ${isDark ? styles.dark : ''}`}
         />
-        {suffix && (
-          <span className={`${styles.inputSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>
-        )}
+        {suffix && <span className={`${styles.inputSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>}
       </div>
     </div>
   );
@@ -283,7 +255,7 @@ export function RangeInputGroup({
   onChangeMax,
   step = 1,
   suffix,
-  className = ''
+  className = '',
 }: RangeInputGroupProps) {
   const [isDark, setIsDark] = useState(false);
 
@@ -302,9 +274,7 @@ export function RangeInputGroup({
 
   return (
     <div className={`${styles.rangeInputGroup} ${className}`}>
-      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
-        {label}
-      </label>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>{label}</label>
       <div className={styles.inputWrapper}>
         <input
           type="number"
@@ -323,9 +293,7 @@ export function RangeInputGroup({
           className={`${styles.input} ${isDark ? styles.dark : ''}`}
           placeholder="Max"
         />
-        {suffix && (
-          <span className={`${styles.rangeSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>
-        )}
+        {suffix && <span className={`${styles.rangeSuffix} ${isDark ? styles.dark : ''}`}>{suffix}</span>}
       </div>
     </div>
   );

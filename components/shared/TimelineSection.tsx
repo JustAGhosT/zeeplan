@@ -16,10 +16,7 @@ interface TimelineSectionProps {
   title?: string;
 }
 
-export const TimelineSection: React.FC<TimelineSectionProps> = ({ 
-  items, 
-  title 
-}) => {
+export const TimelineSection: React.FC<TimelineSectionProps> = ({ items, title }) => {
   return (
     <section className={styles.section}>
       {title && <h2 className={styles.sectionTitle}>{title}</h2>}
@@ -35,9 +32,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>{item.title}</h3>
                   <p className={styles.timelineDescription}>{item.description}</p>
-                  {item.subtext && (
-                    <div className={styles.timelineSubtext}>{item.subtext}</div>
-                  )}
+                  {item.subtext && <div className={styles.timelineSubtext}>{item.subtext}</div>}
                 </div>
               </div>
             );

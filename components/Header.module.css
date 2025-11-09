@@ -1,6 +1,8 @@
 .header {
   background-color: white;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
   position: sticky;
   top: 0;
   z-index: 40;
@@ -145,7 +147,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .controlsButton:hover {
@@ -271,7 +275,7 @@
     position: relative !important;
     box-shadow: none !important;
   }
-  
+
   .iconButton,
   .controlsButton,
   .mobileMenuButton {
@@ -301,7 +305,9 @@
   min-width: 12rem;
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
   padding: 0.5rem 0;
   z-index: 50;
 }

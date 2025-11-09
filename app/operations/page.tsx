@@ -17,9 +17,8 @@ export default function OperationsPage() {
       <section className={styles.section}>
         <h2>1. Land Use Allocation</h2>
         <p className={styles.description}>
-          Our 600 hectares are strategically divided into five operational zones, 
-          each optimized for specific agricultural activities that work together 
-          in an integrated system.
+          Our 600 hectares are strategically divided into five operational zones, each optimized for specific
+          agricultural activities that work together in an integrated system.
         </p>
         <div className={styles.diagramContainer}>
           <LandUseMap width={800} height={600} interactive={true} />
@@ -27,28 +26,38 @@ export default function OperationsPage() {
         <div className={styles.zoneDetails}>
           <div className={styles.zoneCard}>
             <h3>🌳 Western Ridge (40-50%)</h3>
-            <p><strong>240-300ha:</strong> Primary focus on sekelbos clearance using biological methods. 
-            Goat browsing reduces canopy cover while generating wood sales revenue of R1.08-3M over 5 years.</p>
+            <p>
+              <strong>240-300ha:</strong> Primary focus on sekelbos clearance using biological methods. Goat browsing
+              reduces canopy cover while generating wood sales revenue of R1.08-3M over 5 years.
+            </p>
           </div>
           <div className={styles.zoneCard}>
             <h3>🐄 Central Plateau (25%)</h3>
-            <p><strong>150ha:</strong> Rotational grazing core supporting cattle and pigs. 
-            High-density mob grazing with 104 LSU capacity creates resilient pasture systems.</p>
+            <p>
+              <strong>150ha:</strong> Rotational grazing core supporting cattle and pigs. High-density mob grazing with
+              104 LSU capacity creates resilient pasture systems.
+            </p>
           </div>
           <div className={styles.zoneCard}>
             <h3>🌾 Eastern Corridor (20%)</h3>
-            <p><strong>120ha:</strong> Dryland crop rotation (maize, sorghum, sunflower) 
-            providing feed independence and cash crops with drought-adapted varieties.</p>
+            <p>
+              <strong>120ha:</strong> Dryland crop rotation (maize, sorghum, sunflower) providing feed independence and
+              cash crops with drought-adapted varieties.
+            </p>
           </div>
           <div className={styles.zoneCard}>
             <h3>💧 Southern Foot - Mbewa (10%)</h3>
-            <p><strong>60ha:</strong> Irrigated vegetable production and lucerne with solar pump hub. 
-            High-value crops for direct sales and premium livestock feed.</p>
+            <p>
+              <strong>60ha:</strong> Irrigated vegetable production and lucerne with solar pump hub. High-value crops
+              for direct sales and premium livestock feed.
+            </p>
           </div>
           <div className={styles.zoneCard}>
             <h3>🌱 Northern Slope (5%)</h3>
-            <p><strong>30ha:</strong> Conservation and rehabilitation buffer zone. 
-            Biodiversity corridors and ecosystem services protection.</p>
+            <p>
+              <strong>30ha:</strong> Conservation and rehabilitation buffer zone. Biodiversity corridors and ecosystem
+              services protection.
+            </p>
           </div>
         </div>
       </section>
@@ -56,9 +65,9 @@ export default function OperationsPage() {
       <section className={styles.section}>
         <h2>2. Crop Rotation System</h2>
         <p className={styles.description}>
-          Our regenerative crop rotation creates a closed-loop nitrogen cycle that reduces 
-          fertilizer costs by 40-60% while improving soil health. The 180ha rotation integrates 
-          with livestock systems for maximum resource efficiency.
+          Our regenerative crop rotation creates a closed-loop nitrogen cycle that reduces fertilizer costs by 40-60%
+          while improving soil health. The 180ha rotation integrates with livestock systems for maximum resource
+          efficiency.
         </p>
         <div className={styles.diagramContainer}>
           <CropRotationDiagram width={800} height={600} />
@@ -86,9 +95,8 @@ export default function OperationsPage() {
       <section className={styles.section}>
         <h2>3. Livestock Integration Flow</h2>
         <p className={styles.description}>
-          Four livestock species work together in a regenerative system where waste from one 
-          becomes input for another. This integration achieves R1.25-1.81M in annual livestock 
-          revenue by Year 5 while building soil health.
+          Four livestock species work together in a regenerative system where waste from one becomes input for another.
+          This integration achieves R1.25-1.81M in annual livestock revenue by Year 5 while building soil health.
         </p>
         <div className={styles.diagramContainer}>
           <LivestockIntegrationFlow width={900} height={720} />
@@ -125,10 +133,18 @@ export default function OperationsPage() {
         <h2>Ready to Learn More?</h2>
         <p>Explore detailed enterprise plans for each component of our integrated system</p>
         <div className={styles.ctaButtons}>
-          <a href="/proposal" className={styles.primaryButton}>Full Proposal</a>
-          <a href="/financials" className={styles.secondaryButton}>Financial Projections</a>
-          <a href="/livestock" className={styles.secondaryButton}>Livestock Details</a>
-          <a href="/crops" className={styles.secondaryButton}>Crop Systems</a>
+          <a href="/proposal" className={styles.primaryButton}>
+            Full Proposal
+          </a>
+          <a href="/financials" className={styles.secondaryButton}>
+            Financial Projections
+          </a>
+          <a href="/livestock" className={styles.secondaryButton}>
+            Livestock Details
+          </a>
+          <a href="/crops" className={styles.secondaryButton}>
+            Crop Systems
+          </a>
         </div>
       </section>
     </div>

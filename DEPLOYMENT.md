@@ -1,6 +1,7 @@
 # Zeeplan Deployment Guide
 
 ## Overview
+
 This guide explains how to run and deploy the Zeeplan interactive partnership proposal website.
 
 ## Quick Start (Development)
@@ -30,6 +31,7 @@ npm start
 ## Deployment Options
 
 ### Option 1: Vercel (Recommended)
+
 The easiest way to deploy is using Vercel:
 
 1. Push code to GitHub
@@ -38,11 +40,13 @@ The easiest way to deploy is using Vercel:
 4. Your site will be live at `your-project.vercel.app`
 
 ### Option 2: Netlify
+
 1. Build command: `npm run build`
 2. Publish directory: `.next`
 3. Deploy
 
 ### Option 3: Docker
+
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -55,25 +59,29 @@ CMD ["npm", "start"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t zeeplan .
 docker run -p 3000:3000 zeeplan
 ```
 
 ### Option 4: Static Export
+
 For hosting on any static host:
 
 1. Update `next.config.js`:
+
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 2. Build:
+
 ```bash
 npm run build
 ```
@@ -95,6 +103,7 @@ npm run build
 No environment variables required for basic deployment. The app uses default data from `lib/partnershipData.ts`.
 
 For future enhancements with database/API:
+
 ```env
 # Example for future features
 DATABASE_URL=your_database_url
@@ -118,6 +127,7 @@ API_KEY=your_api_key
 ## Monitoring
 
 For production, consider adding:
+
 - Vercel Analytics
 - Google Analytics
 - Sentry for error tracking
@@ -125,6 +135,7 @@ For production, consider adding:
 ## Support
 
 For questions or issues, contact:
+
 - Email: [your email]
 - GitHub Issues: [repository URL]
 

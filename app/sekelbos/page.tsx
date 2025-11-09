@@ -4,15 +4,15 @@ import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { 
-  SekelbosExecutiveSummary, 
-  SekelbosSection1, 
-  SekelbosSection2, 
-  SekelbosSection3, 
-  SekelbosSection4, 
-  SekelbosSection5, 
-  SekelbosSection6, 
-  SekelbosSection7 
+import {
+  SekelbosExecutiveSummary,
+  SekelbosSection1,
+  SekelbosSection2,
+  SekelbosSection3,
+  SekelbosSection4,
+  SekelbosSection5,
+  SekelbosSection6,
+  SekelbosSection7,
 } from '@/components/SekelbosClearance';
 import styles from './page.module.css';
 
@@ -22,10 +22,7 @@ export default function SekelbosPage() {
   return (
     <div className={styles.pageContainer}>
       {/* Enhanced Header */}
-      <Header 
-        onToggleControls={() => setShowControls(!showControls)}
-        showControls={showControls}
-      />
+      <Header onToggleControls={() => setShowControls(!showControls)} showControls={showControls} />
 
       {/* Main Content */}
       <main className={styles.mainContent}>

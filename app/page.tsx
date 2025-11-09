@@ -19,20 +19,15 @@ export default function Home() {
               <span className={styles.heroTitleAccent}>Zero Cash, Maximum Returns</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              Performance-based partnership that increases your farm revenue by 229-384% while you maintain 70% family control
+              Performance-based partnership that increases your farm revenue by 229-384% while you maintain 70% family
+              control
             </p>
             <div className={styles.heroCTA}>
-              <Link
-                href="/proposal"
-                className={commonStyles.primaryButton}
-              >
+              <Link href="/proposal" className={commonStyles.primaryButton}>
                 View Proposal
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <Link
-                href="/sekelbos"
-                className={commonStyles.secondaryButton}
-              >
+              <Link href="/sekelbos" className={commonStyles.secondaryButton}>
                 Sekelbos Clearance Plan
               </Link>
             </div>
@@ -72,7 +67,10 @@ export default function Home() {
       </section>
 
       {/* Sekelbos Clearance Featured Section */}
-      <section className={styles.sectionPadding} style={{ background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' }}>
+      <section
+        className={styles.sectionPadding}
+        style={{ background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' }}
+      >
         <div className={styles.mainContent}>
           <div className={styles.transformationGrid}>
             <div>
@@ -82,34 +80,50 @@ export default function Home() {
               <p className={styles.sectionSubheading} style={{ color: '#047857' }}>
                 Turn your sekelbos problem into profit while expanding grazing capacity
               </p>
-              
+
               <div className={styles.checklistContainer}>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>240-360ha Affected</h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>40-60% of your property has sekelbos encroachment reducing grazing capacity</p>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                      240-360ha Affected
+                    </h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                      40-60% of your property has sekelbos encroachment reducing grazing capacity
+                    </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>R1.08M-3M Wood Revenue</h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Generate R150K-250K in Year 1 from firewood, braai wood, and poles</p>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                      R1.08M-3M Wood Revenue
+                    </h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                      Generate R150K-250K in Year 1 from firewood, braai wood, and poles
+                    </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>Biological Clearance System</h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Goats, pigs, and chickens do the work - sustainable and cost-effective</p>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                      Biological Clearance System
+                    </h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                      Goats, pigs, and chickens do the work - sustainable and cost-effective
+                    </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>+44% Capacity Increase</h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>Expand from 72 LSU to 104 LSU as land is cleared</p>
+                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                      +44% Capacity Increase
+                    </h4>
+                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                      Expand from 72 LSU to 104 LSU as land is cleared
+                    </p>
                   </div>
                 </div>
               </div>
@@ -123,7 +137,9 @@ export default function Home() {
             </div>
 
             <div className={styles.revenueBox} style={{ background: '#ffffff', border: '2px solid #059669' }}>
-              <h3 className={styles.revenueBoxTitle} style={{ color: '#065f46' }}>5-Year Sekelbos Revenue</h3>
+              <h3 className={styles.revenueBoxTitle} style={{ color: '#065f46' }}>
+                5-Year Sekelbos Revenue
+              </h3>
               <div className={styles.revenueList}>
                 <div className={styles.revenueItem}>
                   <div className={styles.revenueItemHeader}>
@@ -188,9 +204,7 @@ export default function Home() {
       <section className={styles.sectionPadding}>
         <div className={styles.mainContent}>
           <div className={styles.sectionCenter}>
-            <h2 className={styles.sectionHeading}>
-              Why This Partnership Protects Your Interests
-            </h2>
+            <h2 className={styles.sectionHeading}>Why This Partnership Protects Your Interests</h2>
             <p className={styles.sectionSubheading}>
               Designed to preserve family farm ownership while maximizing returns for all partners
             </p>
@@ -202,11 +216,10 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconGreen}`}>
                 <Users className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className={styles.featureCardTitle}>
-                Family Control Maintained (70%)
-              </h3>
+              <h3 className={styles.featureCardTitle}>Family Control Maintained (70%)</h3>
               <p className={styles.featureCardText}>
-                Eben and Willie retain 70% ownership (35% each). Partnership equity starts at 0% and grows only when revenue targets are met.
+                Eben and Willie retain 70% ownership (35% each). Partnership equity starts at 0% and grows only when
+                revenue targets are met.
               </p>
             </div>
 
@@ -215,11 +228,10 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconBlue}`}>
                 <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className={styles.featureCardTitle}>
-                Zero Cash Risk
-              </h3>
+              <h3 className={styles.featureCardTitle}>Zero Cash Risk</h3>
               <p className={styles.featureCardText}>
-                No money required from Eben or Willie. Hans brings R48K-98K in livestock and pure sweat equity. You risk nothing financially.
+                No money required from Eben or Willie. Hans brings R48K-98K in livestock and pure sweat equity. You risk
+                nothing financially.
               </p>
             </div>
 
@@ -228,11 +240,10 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
                 <TrendingUp className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
-              <h3 className={styles.featureCardTitle}>
-                Your Income Grows 229-384%
-              </h3>
+              <h3 className={styles.featureCardTitle}>Your Income Grows 229-384%</h3>
               <p className={styles.featureCardText}>
-                From R210K-245K baseline to R618K-1.41M over 5 years. Each of you earns substantially more while maintaining control.
+                From R210K-245K baseline to R618K-1.41M over 5 years. Each of you earns substantially more while
+                maintaining control.
               </p>
             </div>
           </div>
@@ -243,12 +254,8 @@ export default function Home() {
       <section className={styles.lightSection}>
         <div className={styles.mainContent}>
           <div className={styles.sectionCenter}>
-            <h2 className={styles.sectionHeading}>
-              Partnership Structure
-            </h2>
-            <p className={styles.sectionSubheading}>
-              Fair and balanced equity distribution
-            </p>
+            <h2 className={styles.sectionHeading}>Partnership Structure</h2>
+            <p className={styles.sectionSubheading}>Fair and balanced equity distribution</p>
           </div>
 
           <div className={styles.partnershipGrid}>
@@ -282,27 +289,29 @@ export default function Home() {
         <div className={styles.mainContent}>
           <div className={styles.transformationGrid}>
             <div>
-              <h2 className={styles.sectionHeading}>
-                5-Year Transformation Plan
-              </h2>
+              <h2 className={styles.sectionHeading}>5-Year Transformation Plan</h2>
               <p className={styles.sectionSubheading}>
-                A comprehensive strategy to transform the farm through regenerative agriculture practices, 
-                capacity expansion, and revenue diversification.
+                A comprehensive strategy to transform the farm through regenerative agriculture practices, capacity
+                expansion, and revenue diversification.
               </p>
-              
+
               <div className={styles.checklistContainer}>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} />
                   <div>
                     <h4 className={styles.checklistTitle}>Stocking Increase</h4>
-                    <p className={styles.checklistDescription}>From 72 LSU to 104 LSU (+44% capacity) as Sekelbos is cleared</p>
+                    <p className={styles.checklistDescription}>
+                      From 72 LSU to 104 LSU (+44% capacity) as Sekelbos is cleared
+                    </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
                   <CheckCircle className={styles.checklistIcon} />
                   <div>
                     <h4 className={styles.checklistTitle}>Diversification</h4>
-                    <p className={styles.checklistDescription}>Add goats, pigs, chickens, crops for 8+ revenue streams</p>
+                    <p className={styles.checklistDescription}>
+                      Add goats, pigs, chickens, crops for 8+ revenue streams
+                    </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
@@ -380,9 +389,7 @@ export default function Home() {
       <section className={styles.sectionPadding}>
         <div className={styles.mainContent}>
           <div className={styles.sectionCenter}>
-            <h2 className={styles.sectionHeading}>
-              Livestock & Crop Operations
-            </h2>
+            <h2 className={styles.sectionHeading}>Livestock & Crop Operations</h2>
             <p className={styles.sectionSubheading}>
               Diversified revenue streams from integrated livestock and crop production
             </p>
@@ -394,9 +401,7 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconGreen}`}>
                 <Beef className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className={styles.livestockCardTitle}>
-                Cattle Ranging
-              </h3>
+              <h3 className={styles.livestockCardTitle}>Cattle Ranging</h3>
               <p className={styles.livestockCardDescription}>
                 Foundation operation expanding from 72 to 104 LSU through regenerative practices
               </p>
@@ -410,9 +415,7 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconBlue}`}>
                 <Milk className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className={styles.livestockCardTitle}>
-                Goats, Dairy & Cheese
-              </h3>
+              <h3 className={styles.livestockCardTitle}>Goats, Dairy & Cheese</h3>
               <p className={styles.livestockCardDescription}>
                 Triple revenue stream from meat goats, dairy production, and artisan cheese
               </p>
@@ -426,9 +429,7 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
                 <Salad className="w-6 h-6 text-pink-600 dark:text-pink-400" />
               </div>
-              <h3 className={styles.livestockCardTitle}>
-                Pig Farming
-              </h3>
+              <h3 className={styles.livestockCardTitle}>Pig Farming</h3>
               <p className={styles.livestockCardDescription}>
                 High-efficiency protein production with rapid ROI and waste recycling
               </p>
@@ -442,9 +443,7 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
                 <Egg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
-              <h3 className={styles.livestockCardTitle}>
-                Chicken & Eggs
-              </h3>
+              <h3 className={styles.livestockCardTitle}>Chicken & Eggs</h3>
               <p className={styles.livestockCardDescription}>
                 Dual revenue from premium free-range eggs and pasture-raised chicken
               </p>
@@ -458,9 +457,7 @@ export default function Home() {
               <div className={`${styles.featureIconContainer} ${styles.featureIconYellow}`}>
                 <Wheat className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
-              <h3 className={styles.livestockCardTitle}>
-                Crop Production
-              </h3>
+              <h3 className={styles.livestockCardTitle}>Crop Production</h3>
               <p className={styles.livestockCardDescription}>
                 Drought-adapted crops providing feed independence, food security, and cash income
               </p>
@@ -475,9 +472,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaContainer}>
-          <h2 className={styles.ctaHeading}>
-            Ready to Explore the Full Proposal?
-          </h2>
+          <h2 className={styles.ctaHeading}>Ready to Explore the Full Proposal?</h2>
           <p className={styles.ctaText}>
             Dive into the complete partnership details, financial projections, and transformation plan.
           </p>

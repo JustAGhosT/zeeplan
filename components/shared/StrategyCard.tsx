@@ -17,14 +17,8 @@ interface StrategyCardProps {
   columns?: 2 | 3 | 4;
 }
 
-export const StrategyCard: React.FC<StrategyCardProps> = ({ 
-  strategies, 
-  title,
-  columns = 3
-}) => {
-  const gridClass = columns === 2 ? styles.twoColumn : 
-                    columns === 4 ? styles.fourColumn : 
-                    styles.threeColumn;
+export const StrategyCard: React.FC<StrategyCardProps> = ({ strategies, title, columns = 3 }) => {
+  const gridClass = columns === 2 ? styles.twoColumn : columns === 4 ? styles.fourColumn : styles.threeColumn;
 
   return (
     <section className={styles.section}>
@@ -43,9 +37,7 @@ export const StrategyCard: React.FC<StrategyCardProps> = ({
               ) : (
                 <div className={styles.strategyDescription}>{strategy.description}</div>
               )}
-              {strategy.footer && (
-                <div className={styles.strategyFooter}>{strategy.footer}</div>
-              )}
+              {strategy.footer && <div className={styles.strategyFooter}>{strategy.footer}</div>}
             </div>
           );
         })}

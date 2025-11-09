@@ -15,11 +15,7 @@ interface FeatureCardProps {
   variant?: 'default' | 'target';
 }
 
-export const FeatureCard: React.FC<FeatureCardProps> = ({ 
-  features, 
-  title,
-  variant = 'default'
-}) => {
+export const FeatureCard: React.FC<FeatureCardProps> = ({ features, title, variant = 'default' }) => {
   return (
     <div className={variant === 'target' ? styles.targetCard : styles.card}>
       {title && <h2 className={styles.cardTitle}>{title}</h2>}

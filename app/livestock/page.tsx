@@ -18,7 +18,8 @@ export default function LivestockPage() {
               Livestock Operations Overview
             </h1>
             <p className={styles.heroSubtitle}>
-              Diversified livestock portfolio providing multiple revenue streams through integrated regenerative agriculture practices
+              Diversified livestock portfolio providing multiple revenue streams through integrated regenerative
+              agriculture practices
             </p>
           </div>
         </section>
@@ -50,10 +51,9 @@ export default function LivestockPage() {
           <div className={styles.sectionContent}>
             <h2 className={styles.sectionTitle}>Integrated Livestock System</h2>
             <p className={styles.sectionText}>
-              The livestock operations form the foundation of the regenerative agriculture system, 
-              providing multiple revenue streams while working synergistically with sekelbos clearance 
-              and soil regeneration efforts. Each enterprise is carefully selected to complement the 
-              others and maximize the use of available resources.
+              The livestock operations form the foundation of the regenerative agriculture system, providing multiple
+              revenue streams while working synergistically with sekelbos clearance and soil regeneration efforts. Each
+              enterprise is carefully selected to complement the others and maximize the use of available resources.
             </p>
           </div>
         </section>
@@ -228,7 +228,8 @@ export default function LivestockPage() {
                 </div>
                 <h3 className={styles.benefitTitle}>Multiple Revenue Streams</h3>
                 <p className={styles.benefitText}>
-                  Four distinct enterprises reduce risk through diversification. If one market weakens, others provide stability.
+                  Four distinct enterprises reduce risk through diversification. If one market weakens, others provide
+                  stability.
                 </p>
               </div>
               <div className={styles.benefitCard}>
@@ -237,7 +238,8 @@ export default function LivestockPage() {
                 </div>
                 <h3 className={styles.benefitTitle}>Synergistic Integration</h3>
                 <p className={styles.benefitText}>
-                  Each enterprise supports others: chickens control pests, pigs clear roots, all provide manure for pasture improvement.
+                  Each enterprise supports others: chickens control pests, pigs clear roots, all provide manure for
+                  pasture improvement.
                 </p>
               </div>
               <div className={styles.benefitCard}>
@@ -246,7 +248,8 @@ export default function LivestockPage() {
                 </div>
                 <h3 className={styles.benefitTitle}>Proven Baseline</h3>
                 <p className={styles.benefitText}>
-                  Existing cattle operation (72 LSU, R233K-297K/year) provides stable foundation with clear expansion path.
+                  Existing cattle operation (72 LSU, R233K-297K/year) provides stable foundation with clear expansion
+                  path.
                 </p>
               </div>
             </div>

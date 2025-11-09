@@ -15,17 +15,17 @@ export function SekelbosExecutiveSummary() {
           <p className={styles.textSm}>600 hectares, Zeerust, North West Province</p>
           <p className={`${styles.textSm} ${styles.textGray}`}>Rainfall: 315mm annually</p>
         </Card>
-        
+
         <Card title="Current Problem">
           <p className={styles.textSm}>40-60% sekelbos encroachment</p>
           <p className={`${styles.textSm} ${styles.textGray}`}>240-360ha affected</p>
         </Card>
-        
+
         <Card title="Solution">
           <p className={styles.textSm}>Multi-species biological clearance</p>
           <p className={`${styles.textSm} ${styles.textGray}`}>+ wood revenue</p>
         </Card>
-        
+
         <Card title="Timeline">
           <p className={styles.textSm}>5 years to complete clearance</p>
           <p className={`${styles.textSm} ${styles.textGray}`}>Investment: R598K-954K</p>
@@ -36,7 +36,9 @@ export function SekelbosExecutiveSummary() {
         <Card title="The Problem">
           <div className={styles.spaceY4}>
             <div>
-              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Sekelbos (Dichrostachys cinerea) Impact:</h4>
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>
+                Sekelbos (Dichrostachys cinerea) Impact:
+              </h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>240-360ha affected (40-60% of property)</li>
                 <li>Lost grazing capacity: 100-150 Large Stock Units</li>
@@ -44,7 +46,7 @@ export function SekelbosExecutiveSummary() {
                 <li>Property value reduction: R2M-4M</li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Conventional Clearance Costs:</h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
@@ -72,7 +74,7 @@ export function SekelbosExecutiveSummary() {
                 <li>Cattle maintenance grazing (prevent regrowth)</li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Financial Advantage:</h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
@@ -101,7 +103,9 @@ export function SekelbosSection1() {
       <Card title="1.1 Understanding Sekelbos">
         <div className={styles.spaceY4}>
           <div>
-            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Dichrostachys cinerea Characteristics:</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>
+              Dichrostachys cinerea Characteristics:
+            </h4>
             <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Growth: Thorny shrub/small tree, 2-7m height</li>
               <li>Root system: Extensive lateral spread (5-10m), deep taproot (3-5m)</li>
@@ -128,60 +132,114 @@ export function SekelbosSection1() {
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 1: Goat Browsing (Weeks 1-4)</h4>
             <ul className={styles.enhancedList}>
-              <li><strong>Stocking:</strong> 30-50 goats per 10ha section</li>
-              <li><strong>Duration:</strong> 2-4 weeks (intensive browsing)</li>
-              <li><strong>Target:</strong> Leaves, young stems, seed pods, bark</li>
-              <li><strong>Result:</strong> 60-80% canopy reduction, stress on plant</li>
-              <li><strong>Timing:</strong> Spring/summer (active growth, maximum impact)</li>
-              <li><strong>Mechanism:</strong> Repeated defoliation depletes root reserves</li>
+              <li>
+                <strong>Stocking:</strong> 30-50 goats per 10ha section
+              </li>
+              <li>
+                <strong>Duration:</strong> 2-4 weeks (intensive browsing)
+              </li>
+              <li>
+                <strong>Target:</strong> Leaves, young stems, seed pods, bark
+              </li>
+              <li>
+                <strong>Result:</strong> 60-80% canopy reduction, stress on plant
+              </li>
+              <li>
+                <strong>Timing:</strong> Spring/summer (active growth, maximum impact)
+              </li>
+              <li>
+                <strong>Mechanism:</strong> Repeated defoliation depletes root reserves
+              </li>
             </ul>
           </div>
 
           <div className={`${styles.phaseBox} ${styles.phaseBlue}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 2: Mechanical Cutting + Wood Harvesting (Week 4-6)</h4>
             <ul className={styles.enhancedList}>
-              <li><strong>Method:</strong> Chainsaw cutting at ground level</li>
-              <li><strong>Sorting:</strong> By size for different markets</li>
+              <li>
+                <strong>Method:</strong> Chainsaw cutting at ground level
+              </li>
+              <li>
+                <strong>Sorting:</strong> By size for different markets
+              </li>
               <li>Large stems (greater than 10cm diameter): Firewood, poles</li>
               <li>Medium stems (5-10cm): Braai wood, fence posts</li>
               <li>Small branches (less than 5cm): Chipping for mulch</li>
-              <li><strong>Revenue generation:</strong> Immediate cash flow</li>
-              <li><strong>Site preparation:</strong> Clear area for pig access</li>
+              <li>
+                <strong>Revenue generation:</strong> Immediate cash flow
+              </li>
+              <li>
+                <strong>Site preparation:</strong> Clear area for pig access
+              </li>
             </ul>
           </div>
 
           <div className={`${styles.phaseBox} ${styles.phaseOrange}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 3: Pig Rooting (Weeks 6-14)</h4>
             <ul className={styles.enhancedList}>
-              <li><strong>Stocking:</strong> 10-15 pigs per 5ha section</li>
-              <li><strong>Duration:</strong> 4-8 weeks (intensive rooting)</li>
-              <li><strong>Target:</strong> Root systems (20-30cm depth)</li>
-              <li><strong>Mechanism:</strong> Pigs dig for roots, expose to air, break into pieces</li>
-              <li><strong>Result:</strong> 80-90% root destruction, prevents resprouting</li>
-              <li><strong>Bonus:</strong> Soil aeration, organic matter incorporation</li>
+              <li>
+                <strong>Stocking:</strong> 10-15 pigs per 5ha section
+              </li>
+              <li>
+                <strong>Duration:</strong> 4-8 weeks (intensive rooting)
+              </li>
+              <li>
+                <strong>Target:</strong> Root systems (20-30cm depth)
+              </li>
+              <li>
+                <strong>Mechanism:</strong> Pigs dig for roots, expose to air, break into pieces
+              </li>
+              <li>
+                <strong>Result:</strong> 80-90% root destruction, prevents resprouting
+              </li>
+              <li>
+                <strong>Bonus:</strong> Soil aeration, organic matter incorporation
+              </li>
             </ul>
           </div>
 
           <div className={`${styles.phaseBox} ${styles.phaseYellow}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 4: Chicken Scratching (Weeks 14-16)</h4>
             <ul className={styles.enhancedList}>
-              <li><strong>Stocking:</strong> 200-300 chickens per 10ha</li>
-              <li><strong>Duration:</strong> 2-4 weeks (systematic coverage)</li>
-              <li><strong>Target:</strong> Exposed sekelbos seeds in soil</li>
-              <li><strong>Mechanism:</strong> Chickens scratch, consume seeds</li>
-              <li><strong>Result:</strong> 40-60% seed bank reduction</li>
-              <li><strong>Bonus:</strong> High-nitrogen fertilization (manure)</li>
+              <li>
+                <strong>Stocking:</strong> 200-300 chickens per 10ha
+              </li>
+              <li>
+                <strong>Duration:</strong> 2-4 weeks (systematic coverage)
+              </li>
+              <li>
+                <strong>Target:</strong> Exposed sekelbos seeds in soil
+              </li>
+              <li>
+                <strong>Mechanism:</strong> Chickens scratch, consume seeds
+              </li>
+              <li>
+                <strong>Result:</strong> 40-60% seed bank reduction
+              </li>
+              <li>
+                <strong>Bonus:</strong> High-nitrogen fertilization (manure)
+              </li>
             </ul>
           </div>
 
           <div className={`${styles.phaseBox} ${styles.phasePurple}`}>
             <h4 className={`${styles.sectionHeading}`}>Phase 5: Cattle Maintenance (Ongoing)</h4>
             <ul className={styles.enhancedList}>
-              <li><strong>Method:</strong> High-density mob grazing</li>
-              <li><strong>Duration:</strong> 2-5 days per paddock, return every 40-60 days</li>
-              <li><strong>Target:</strong> Trample any seedlings, promote grass competition</li>
-              <li><strong>Result:</strong> Prevent regrowth, maintain cleared state</li>
-              <li><strong>Long-term:</strong> Grass establishment outcompetes sekelbos</li>
+              <li>
+                <strong>Method:</strong> High-density mob grazing
+              </li>
+              <li>
+                <strong>Duration:</strong> 2-5 days per paddock, return every 40-60 days
+              </li>
+              <li>
+                <strong>Target:</strong> Trample any seedlings, promote grass competition
+              </li>
+              <li>
+                <strong>Result:</strong> Prevent regrowth, maintain cleared state
+              </li>
+              <li>
+                <strong>Long-term:</strong> Grass establishment outcompetes sekelbos
+              </li>
             </ul>
           </div>
         </div>
@@ -315,7 +373,9 @@ export function SekelbosSection2() {
           </div>
 
           <div>
-            <h4 className={`${styles.sectionHeading}`}>Product 3: Lapa/Boma Poles (Specialty Market - 10% of volume)</h4>
+            <h4 className={`${styles.sectionHeading}`}>
+              Product 3: Lapa/Boma Poles (Specialty Market - 10% of volume)
+            </h4>
             <div className={styles.productBox}>
               <div>
                 <p className={`${styles.textSm} ${styles.fontSemibold}`}>Pricing:</p>
@@ -343,7 +403,9 @@ export function SekelbosSection2() {
           </div>
 
           <div>
-            <h4 className={`${styles.sectionHeading}`}>Product 5: Wood Chips/Mulch (Secondary Market - 5% of volume)</h4>
+            <h4 className={`${styles.sectionHeading}`}>
+              Product 5: Wood Chips/Mulch (Secondary Market - 5% of volume)
+            </h4>
             <div className={styles.productBox}>
               <div>
                 <p className={`${styles.textSm} ${styles.fontSemibold}`}>Pricing:</p>
@@ -370,7 +432,7 @@ export function SekelbosSection2() {
             ['TOTAL Year 1', '150-250 m³', '', 'R149K-247K'],
           ]}
         />
-        
+
         <div className={styles.tableSpacing}>
           <h4 className="font-semibold text-sm mb-3">5-Year Revenue Projection:</h4>
           <Table
@@ -798,7 +860,9 @@ export function SekelbosSection5() {
       <Card title="5.3 Marketing Tactics" className={styles.cardSpacing}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Online Marketing (Low Cost, High Reach):</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>
+              Online Marketing (Low Cost, High Reach):
+            </h4>
             <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Facebook page: "Zeerust Sekelbos Firewood"</li>
               <li>WhatsApp Business: Broadcast lists, status updates</li>
@@ -809,7 +873,9 @@ export function SekelbosSection5() {
           </div>
 
           <div>
-            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Offline Marketing (Local Presence):</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>
+              Offline Marketing (Local Presence):
+            </h4>
             <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
               <li>Roadside signage: R49/R52 highways</li>
               <li>Flyers: Hardware stores, co-ops, community boards</li>
@@ -835,15 +901,14 @@ export function SekelbosSection5() {
 
 export function SekelbosSection6() {
   return (
-    <Section
-      title="SECTION 6: RISK MANAGEMENT"
-      subtitle="Identifying and mitigating potential challenges"
-    >
+    <Section title="SECTION 6: RISK MANAGEMENT" subtitle="Identifying and mitigating potential challenges">
       <Card title="6.1 Operational Risks">
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseRed}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 1: Equipment Breakdown</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Lost clearing days, delayed wood sales</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Lost clearing days, delayed wood sales
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Spare chainsaw chain (3 chains in rotation)</li>
@@ -855,7 +920,9 @@ export function SekelbosSection6() {
 
           <div className={`${styles.phaseBox} ${styles.phaseOrange}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 2: Labor Availability</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Clearing delays, missed sales opportunities</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Clearing delays, missed sales opportunities
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Build reliable crew (2-3 regular laborers)</li>
@@ -867,7 +934,9 @@ export function SekelbosSection6() {
 
           <div className={`${styles.phaseBox} ${styles.phaseYellow}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 3: Livestock Health Issues</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Reduced clearing effectiveness, mortality losses</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Reduced clearing effectiveness, mortality losses
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Preventative veterinary care (vaccinations, deworming)</li>
@@ -883,7 +952,9 @@ export function SekelbosSection6() {
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseBlue}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 1: Seasonal Demand Fluctuation</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Cash flow gaps in summer months</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Cash flow gaps in summer months
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Build seasoned wood inventory (sell in winter at premium)</li>
@@ -895,7 +966,9 @@ export function SekelbosSection6() {
 
           <div className={`${styles.phaseBox} ${styles.phasePurple}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 2: Competition (Other Firewood Suppliers)</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Price pressure, lost market share</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Price pressure, lost market share
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Differentiation (indigenous hardwood, sustainability story)</li>
@@ -911,7 +984,9 @@ export function SekelbosSection6() {
         <div className={styles.spaceY4}>
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 1: Drought (Below 315mm Rainfall)</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Slow grass recovery, livestock stress, reduced clearing pace</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Slow grass recovery, livestock stress, reduced clearing pace
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Drought-adapted livestock (indigenous breeds)</li>
@@ -923,7 +998,9 @@ export function SekelbosSection6() {
 
           <div className={`${styles.phaseBox} ${styles.phaseRed}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 2: Fire</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Loss of stacked wood inventory, infrastructure damage</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Loss of stacked wood inventory, infrastructure damage
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Firebreaks around wood storage areas</li>
@@ -935,7 +1012,9 @@ export function SekelbosSection6() {
 
           <div className={`${styles.phaseBox} ${styles.phaseAmber}`}>
             <h4 className={`${styles.sectionHeading}`}>Risk 3: Sekelbos Regrowth</h4>
-            <p className={styles.textSm}><strong>Impact:</strong> Clearing failure, repeated costs, lost value</p>
+            <p className={styles.textSm}>
+              <strong>Impact:</strong> Clearing failure, repeated costs, lost value
+            </p>
             <p className={`${styles.textSm} ${styles.fontSemibold} ${styles.mt2}`}>Mitigation:</p>
             <ul className={styles.enhancedList}>
               <li>Thorough root destruction (pig rooting)</li>
@@ -952,10 +1031,7 @@ export function SekelbosSection6() {
 
 export function SekelbosSection7() {
   return (
-    <Section
-      title="SECTION 7: SUCCESS METRICS & MONITORING"
-      subtitle="Key performance indicators and tracking systems"
-    >
+    <Section title="SECTION 7: SUCCESS METRICS & MONITORING" subtitle="Key performance indicators and tracking systems">
       <Card title="7.1 Key Performance Indicators (KPIs)">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -1049,7 +1125,7 @@ export function SekelbosSection7() {
           <p className={styles.textSm}>
             The Sekelbos Clearance & Wood Sales Enterprise offers a unique opportunity to:
           </p>
-          
+
           <ul className={styles.enhancedList}>
             <li>Solve a major land degradation problem (240-360ha sekelbos encroachment)</li>
             <li>Generate significant revenue (R1.08M-3M over 5 years from wood sales)</li>
@@ -1064,8 +1140,8 @@ export function SekelbosSection7() {
               Total Value Creation: R2.16M-7.58M (net wood profit + avoided costs)
             </p>
             <p className={`${styles.textSm} ${styles.mt2}`}>
-              This is not just bush clearing—it's a profitable, sustainable land restoration enterprise 
-              that pays for itself while solving a critical environmental problem.
+              This is not just bush clearing—it's a profitable, sustainable land restoration enterprise that pays for
+              itself while solving a critical environmental problem.
             </p>
           </div>
         </div>

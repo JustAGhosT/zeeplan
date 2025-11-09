@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sun, Moon, Download, Share2, Menu, X } from 'lucide-react';
@@ -101,16 +101,18 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                 {item.label}
               </Link>
             ))}
-            
+
             {/* Livestock Dropdown */}
-            <div 
+            <div
               className={styles.dropdown}
               onMouseEnter={() => setLivestockDropdownOpen(true)}
               onMouseLeave={() => setLivestockDropdownOpen(false)}
             >
-              <button className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
-                livestockItems.some(item => pathname === item.href) ? styles.active : ''
-              }`}>
+              <button
+                className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                  livestockItems.some((item) => pathname === item.href) ? styles.active : ''
+                }`}
+              >
                 Livestock
               </button>
               {livestockDropdownOpen && (
@@ -131,14 +133,16 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
             </div>
 
             {/* Crops Dropdown */}
-            <div 
+            <div
               className={styles.dropdown}
               onMouseEnter={() => setCropsDropdownOpen(true)}
               onMouseLeave={() => setCropsDropdownOpen(false)}
             >
-              <button className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
-                cropItems.some(item => pathname === item.href) ? styles.active : ''
-              }`}>
+              <button
+                className={`${styles.navLink} ${darkMode ? styles.dark : ''} ${
+                  cropItems.some((item) => pathname === item.href) ? styles.active : ''
+                }`}
+              >
                 Crops
               </button>
               {cropsDropdownOpen && (
@@ -205,10 +209,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
             </button>
 
             {showControlsButton && onToggleControls && (
-              <button
-                onClick={onToggleControls}
-                className={styles.controlsButton}
-              >
+              <button onClick={onToggleControls} className={styles.controlsButton}>
                 {showControls ? 'Hide Controls' : 'Adjust Values'}
               </button>
             )}
@@ -307,9 +308,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
                 ) : (
                   <Moon style={{ width: '1.25rem', height: '1.25rem', color: '#4b5563' }} />
                 )}
-                <span>
-                  {darkMode ? 'Light Mode' : 'Dark Mode'}
-                </span>
+                <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
               </button>
 
               <button

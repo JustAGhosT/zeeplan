@@ -11,9 +11,7 @@ export default function AboutPage() {
       <main className={styles.mainContent}>
         {/* Hero Section */}
         <div className={styles.heroSection}>
-          <h1 className={styles.heroTitle}>
-            About Zeeplan
-          </h1>
+          <h1 className={styles.heroTitle}>About Zeeplan</h1>
           <p className={styles.heroSubtitle}>
             A transformative regenerative agriculture partnership in Zeerust, North West Province, South Africa
           </p>
@@ -29,8 +27,8 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50">Our Mission</h2>
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              To transform a 600-hectare Bushveld farm into a thriving, sustainable, and profitable regenerative 
-              agriculture operation through innovative practices, diversified revenue streams, and a fair partnership 
+              To transform a 600-hectare Bushveld farm into a thriving, sustainable, and profitable regenerative
+              agriculture operation through innovative practices, diversified revenue streams, and a fair partnership
               structure that benefits all stakeholders while preserving the land for future generations.
             </p>
           </div>
@@ -45,23 +43,33 @@ export default function AboutPage() {
               <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
-                  <span><strong>Location:</strong> Zeerust, North West Province, South Africa</span>
+                  <span>
+                    <strong>Location:</strong> Zeerust, North West Province, South Africa
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
-                  <span><strong>Size:</strong> 600 hectares of Bushveld farmland</span>
+                  <span>
+                    <strong>Size:</strong> 600 hectares of Bushveld farmland
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
-                  <span><strong>Current Stocking:</strong> 72 LSU cattle</span>
+                  <span>
+                    <strong>Current Stocking:</strong> 72 LSU cattle
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
-                  <span><strong>Sekelbos Encroachment:</strong> 70% of land affected</span>
+                  <span>
+                    <strong>Sekelbos Encroachment:</strong> 70% of land affected
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400 mt-1">•</span>
-                  <span><strong>Current Revenue:</strong> R233,000-R297,000/year</span>
+                  <span>
+                    <strong>Current Revenue:</strong> R233,000-R297,000/year
+                  </span>
                 </li>
               </ul>
             </div>
@@ -71,23 +79,33 @@ export default function AboutPage() {
               <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
-                  <span><strong>Target Stocking:</strong> 104 LSU (+44% increase)</span>
+                  <span>
+                    <strong>Target Stocking:</strong> 104 LSU (+44% increase)
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
-                  <span><strong>Revenue Streams:</strong> 8+ diversified income sources</span>
+                  <span>
+                    <strong>Revenue Streams:</strong> 8+ diversified income sources
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
-                  <span><strong>Sekelbos Cleared:</strong> 260ha over 5 years</span>
+                  <span>
+                    <strong>Sekelbos Cleared:</strong> 260ha over 5 years
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
-                  <span><strong>Year 5 Revenue:</strong> R1.13M-R1.78M/year</span>
+                  <span>
+                    <strong>Year 5 Revenue:</strong> R1.13M-R1.78M/year
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
-                  <span><strong>Growth:</strong> +384% revenue increase</span>
+                  <span>
+                    <strong>Growth:</strong> +384% revenue increase
+                  </span>
                 </li>
               </ul>
             </div>
@@ -104,7 +122,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Sustainable Growth</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Building long-term value through regenerative practices that improve land quality while increasing productivity.
+                Building long-term value through regenerative practices that improve land quality while increasing
+                productivity.
               </p>
             </div>
 
@@ -219,7 +238,8 @@ export default function AboutPage() {
               <h3 className="text-2xl font-semibold mb-3">Hans</h3>
               <p className="text-lg opacity-90 mb-4">Sweat Equity + Livestock</p>
               <p className="text-sm opacity-75">
-                Brings systems, planning, marketing expertise and livestock investment through performance-based earn-in.
+                Brings systems, planning, marketing expertise and livestock investment through performance-based
+                earn-in.
               </p>
             </div>
           </div>
@@ -233,20 +253,20 @@ export default function AboutPage() {
             </h2>
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                This partnership represents more than just a business venture—it's a model for sustainable agriculture 
-                that can be replicated across South Africa and beyond. By combining traditional farming knowledge with 
-                modern regenerative practices, we're creating a blueprint for how agriculture can be both profitable 
-                and environmentally responsible.
+                This partnership represents more than just a business venture—it's a model for sustainable agriculture
+                that can be replicated across South Africa and beyond. By combining traditional farming knowledge with
+                modern regenerative practices, we're creating a blueprint for how agriculture can be both profitable and
+                environmentally responsible.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                The phased equity structure ensures that all partners have skin in the game while protecting the family 
-                farm legacy. With zero cash investment required from Hans, this creates an accessible pathway for skilled 
-                operators to enter agriculture without capital barriers, while existing landowners benefit from expertise 
-                and systems they may not otherwise access.
+                The phased equity structure ensures that all partners have skin in the game while protecting the family
+                farm legacy. With zero cash investment required from Hans, this creates an accessible pathway for
+                skilled operators to enter agriculture without capital barriers, while existing landowners benefit from
+                expertise and systems they may not otherwise access.
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                Most importantly, this partnership demonstrates that regenerative agriculture isn't just good for the 
-                environment—it's economically superior, with projected revenue growth of 384% over five years benefiting 
+                Most importantly, this partnership demonstrates that regenerative agriculture isn't just good for the
+                environment—it's economically superior, with projected revenue growth of 384% over five years benefiting
                 all stakeholders.
               </p>
             </div>

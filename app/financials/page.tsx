@@ -29,16 +29,11 @@ export default function FinancialsPage() {
 
   return (
     <div className={`${styles.page} ${isDark ? styles.dark : ''}`}>
-      <Header 
-        onToggleControls={() => setShowControls(!showControls)}
-        showControls={showControls}
-      />
+      <Header onToggleControls={() => setShowControls(!showControls)} showControls={showControls} />
 
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={`${styles.title} ${isDark ? styles.dark : ''}`}>
-            Financial Projections
-          </h1>
+          <h1 className={`${styles.title} ${isDark ? styles.dark : ''}`}>Financial Projections</h1>
           <p className={`${styles.subtitle} ${isDark ? styles.dark : ''}`}>
             Comprehensive 5-year revenue, cost, and profit breakdown with interactive controls
           </p>
@@ -47,7 +42,7 @@ export default function FinancialsPage() {
         <div className={styles.content}>
           <div className={styles.mainContent}>
             <FinancialProjections data={data} />
-            
+
             <div className={styles.chartsSection}>
               <FinancialCharts data={data} />
             </div>
