@@ -3,6 +3,7 @@ import { ArrowRight, TrendingUp, Users, Target, CheckCircle, Beef, Milk, Salad, 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import styles from './page.module.css';
+import commonStyles from './common.module.css';
 
 export default function Home() {
   return (
@@ -23,14 +24,14 @@ export default function Home() {
             <div className={styles.heroCTA}>
               <Link
                 href="/proposal"
-                className={styles.primaryButton}
+                className={commonStyles.primaryButton}
               >
                 View Proposal
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 href="/sekelbos"
-                className={styles.secondaryButton}
+                className={commonStyles.secondaryButton}
               >
                 Sekelbos Clearance Plan
               </Link>
@@ -114,7 +115,7 @@ export default function Home() {
               </div>
 
               <div style={{ marginTop: '2rem' }}>
-                <Link href="/sekelbos" className={styles.primaryButton}>
+                <Link href="/sekelbos" className={commonStyles.primaryButton}>
                   View Complete Sekelbos Plan
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>

@@ -9,7 +9,7 @@
 **Target State:** 85-100% cleared productive land, 104 LSU capacity (5.5ha/LSU)  
 **Timeline:** 5-year transformation plan  
 **Hans's Investment:** Pure sweat equity + small livestock (NO cash)  
-**Projected 5-Year Returns (Hans):** R922K-1.72M (infinite ROI - no cash invested)
+**Projected 5-Year Returns (Hans):** R804.6K-1.97M (infinite ROI - no cash invested)
 
 ---
 
@@ -55,8 +55,8 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner | Equity | Contribution | Role | Year 1 Income |
 |---------|--------|--------------|------|---------------|
-| **Oom Willie** | 50% | Land + infrastructure + operational expertise | Day-to-day operations | R60K-139K equity + operations |
-| **Eben** | 50% | Existing infrastructure + capital | Passive investor + family | R60K-139K equity |
+| **Oom Willie** | 50% | Land + infrastructure + operational expertise | Day-to-day operations | R0-199K equity + operations |
+| **Eben** | 50% | Existing infrastructure + capital | Passive investor + family | R0-199K equity |
 | **Hans** | 0% | Sweat equity + livestock | Systems, planning, marketing | R120K-180K salary only |
 
 **Hans's Year 1 Compensation:**
@@ -72,15 +72,15 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner | Equity | Contribution | Role | Year 2-3 Income |
 |---------|--------|--------------|------|-----------------|
-| **Oom Willie** | 42.5% | Land + infrastructure + operational expertise | Day-to-day operations | R95K-234K (Y2), R141K-357K (Y3) |
-| **Eben** | 42.5% | Existing infrastructure + capital | Passive investor + family | R95K-234K (Y2), R141K-357K (Y3) |
-| **Hans** | 15% | Sweat equity + livestock + proven results | Systems, planning, marketing | R154K-263K (Y2), R170K-306K (Y3) |
+| **Oom Willie** | 42.5% | Land + infrastructure + operational expertise | Day-to-day operations | R27.2K-302.2K (Y2), R51.2K-403K (Y3) |
+| **Eben** | 42.5% | Existing infrastructure + capital | Passive investor + family | R27.2K-302.2K (Y2), R51.2K-403K (Y3) |
+| **Hans** | 15% | Sweat equity + livestock + proven results | Systems, planning, marketing | R129.6K-286.7K (Y2), R149.7K-414K (Y3) |
 
 **Hans's Year 2-3 Compensation:**
-- **Equity:** 15% of net profit (R34K-83K Y2, R50K-126K Y3)
+- **Equity:** 15% of net profit (R9.6K-106.7K Y2, R29.7K-234K Y3)
 - **Salary:** R10K-15K/month (R120K-180K/year)
-- **Total Year 2:** R154K-263K
-- **Total Year 3:** R170K-306K
+- **Total Year 2:** R129.6K-286.7K
+- **Total Year 3:** R149.7K-414K
 
 **Performance milestone:** If Year 2-3 cumulative revenue reaches R1.3M+ (133% above baseline), Hans earns additional 7.5% equity (15% → 22.5%) for Year 4+
 
@@ -90,15 +90,15 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner | Equity | Contribution | Role | Year 4-5 Income |
 |---------|--------|--------------|------|-----------------|
-| **Oom Willie** | 35% | Land + infrastructure + operational expertise | Day-to-day operations | R148K-371K (Y4), R186K-343K (Y5) |
-| **Eben** | 35% | Existing infrastructure + capital | Passive investor + family | R148K-371K (Y4), R186K-343K (Y5) |
-| **Hans** | 30% | Sweat equity + livestock + proven results | Systems, planning, marketing | R247K-498K (Y4), R279K-474K (Y5) |
+| **Oom Willie** | 35% | Land + infrastructure + operational expertise | Day-to-day operations | R78.1K-439.3K (Y4), R114.8K-411.3K (Y5) |
+| **Eben** | 35% | Existing infrastructure + capital | Passive investor + family | R78.1K-439.3K (Y4), R114.8K-411.3K (Y5) |
+| **Hans** | 30% | Sweat equity + livestock + proven results | Systems, planning, marketing | R186.9K-556.5K (Y4), R218.4K-532.5K (Y5) |
 
 **Hans's Year 4-5 Compensation:**
-- **Equity:** 30% of net profit (R127K-318K Y4, R159K-294K Y5)
+- **Equity:** 30% of net profit (R66.9K-376.5K Y4, R98.4K-352.5K Y5)
 - **Salary:** R10K-15K/month (R120K-180K/year)
-- **Total Year 4:** R247K-498K
-- **Total Year 5:** R279K-474K
+- **Total Year 4:** R186.9K-556.5K
+- **Total Year 5:** R218.4K-532.5K
 
 **Final structure achieved:** 35%/35%/30% (Oom Willie/Eben/Hans)
 
@@ -109,18 +109,18 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | Year | Hans Equity | Equity Income | Salary | Total Income | Cumulative |
 |------|-------------|---------------|--------|--------------|------------|
 | **Year 1** | 0% | R0 | R120K-180K | R120K-180K | R120K-180K |
-| **Year 2** | 15% | R34K-83K | R120K-180K | R154K-263K | R274K-443K |
-| **Year 3** | 22.5% | R75K-189K | R120K-180K | R195K-369K | R469K-812K |
-| **Year 4** | 30% | R127K-318K | R120K-180K | R247K-498K | R716K-1.31M |
-| **Year 5** | 30% | R159K-294K | R120K-180K | R279K-474K | R995K-1.78M |
-| **TOTAL** | | **R395K-884K** | **R600K-900K** | **R995K-1.78M** | |
+| **Year 2** | 15% | R9.6K-106.7K | R120K-180K | R129.6K-286.7K | R249.6K-466.7K |
+| **Year 3** | 22.5% | R29.7K-234K | R120K-180K | R149.7K-414K | R399.3K-880.7K |
+| **Year 4** | 30% | R66.9K-376.5K | R120K-180K | R186.9K-556.5K | R586.2K-1.44M |
+| **Year 5** | 30% | R98.4K-352.5K | R120K-180K | R218.4K-532.5K | R804.6K-1.97M |
+| **TOTAL** | | **R204.6K-1.07M** | **R600K-900K** | **R804.6K-1.97M** | |
 
 **Hans's ROI:**
 - Investment: R48K-98K (livestock only, NO CASH)
-- Returns: R995K-1.78M
-- **Net gain:** R947K-1.68M
-- **ROI (5-year):** 1,870-3,400% (infinite ROI if livestock excluded)
-- **Average annual income:** R199K-356K
+- Returns: R804.6K-1.97M
+- **Net gain:** R706.6K-1.87M
+- **ROI (5-year):** 1,442-3,816% (infinite ROI if livestock excluded)
+- **Average annual income:** R160.9K-394K
 
 ---
 
@@ -150,8 +150,8 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R233K-297K** | Baseline revenue |
 
 **Current Costs:** R150K-200K (feed, vet, labor, fuel)  
-**Current Net Profit:** R83K-97K (28-36% margin)  
-**Current profit split:** Oom Willie R42K-49K (50%), Eben R42K-49K (50%)
+**Current Net Profit:** R-107K-R147K (-46%-49% margin)
+**Current profit split:** Oom Willie R-53.5K-R73.5K (50%), Eben R-53.5K-R73.5K (50%)
 
 ### Key Problems (Why Hans is Needed)
 
@@ -204,10 +204,10 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R340K-618K** | +46-108% vs baseline |
 
 **Costs:** R220K-340K  
-**Net Profit:** R120K-278K (35-45% margin)  
+**Net Profit:** R0-398K (0%-64% margin)
 **Profit split:**
-- Oom Willie (50%): R60K-139K
-- Eben (50%): R60K-139K
+- Oom Willie (50%): R0-199K
+- Eben (50%): R0-199K
 - Hans (0%): R0 equity, R120K-180K salary
 
 **Hans's Year 1 Income:**
@@ -259,16 +259,16 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R544K-1.03M** | +133-247% vs baseline |
 
 **Costs:** R320K-480K  
-**Net Profit:** R224K-550K (41-53% margin)  
+**Net Profit:** R64K-711K (12%-69% margin)
 **Profit split:**
-- Oom Willie (42.5%): R95K-234K
-- Eben (42.5%): R95K-234K
-- Hans (15%): R34K-83K
+- Oom Willie (42.5%): R27.2K-302.2K
+- Eben (42.5%): R27.2K-302.2K
+- Hans (15%): R9.6K-106.7K
 
 **Hans's Year 2 Income:**
-- Equity profit: R34K-83K (15% earned from Year 1 success)
+- Equity profit: R9.6K-106.7K (15% earned from Year 1 success)
 - Management salary: R120K-180K
-- **Total:** R154K-263K
+- **Total:** R129.6K-286.7K
 
 **Capital Requirements:**
 - Dairy infrastructure: R60K-100K (milking parlor, cheese-making equipment)
@@ -308,16 +308,16 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R752K-1.46M** | +222-392% vs baseline |
 
 **Costs:** R420K-620K  
-**Net Profit:** R332K-840K (44-58% margin)  
+**Net Profit:** R132K-1.04M (18%-71% margin)
 **Profit split:**
-- Oom Willie (38.75%): R129K-325K
-- Eben (38.75%): R129K-325K
-- Hans (22.5%): R75K-189K
+- Oom Willie (38.75%): R51.2K-403K
+- Eben (38.75%): R51.2K-403K
+- Hans (22.5%): R29.7K-234K
 
 **Hans's Year 3 Income:**
-- Equity profit: R75K-189K (22.5% earned from Year 2 success)
+- Equity profit: R29.7K-234K (22.5% earned from Year 2 success)
 - Management salary: R120K-180K
-- **Total:** R195K-369K
+- **Total:** R149.7K-414K
 
 **Capital Requirements:**
 - Branding & marketing: R30K-50K (packaging, labels, website)
@@ -361,16 +361,16 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R943K-1.78M** | +305-499% vs baseline |
 
 **Costs:** R520K-720K  
-**Net Profit:** R423K-1.06M (45-60% margin)  
+**Net Profit:** R223K-1.255M (24%-71% margin)
 **Profit split:**
-- Oom Willie (35%): R148K-371K
-- Eben (35%): R148K-371K
-- Hans (30%): R127K-318K
+- Oom Willie (35%): R78.1K-439.3K
+- Eben (35%): R78.1K-439.3K
+- Hans (30%): R66.9K-376.5K
 
 **Hans's Year 4 Income:**
-- Equity profit: R127K-318K (30% earned from Year 3 success)
+- Equity profit: R66.9K-376.5K (30% earned from Year 3 success)
 - Management salary: R120K-180K
-- **Total:** R247K-498K
+- **Total:** R186.9K-556.5K
 
 **Capital Requirements:**
 - Distribution infrastructure: R40K-60K (farm shop, cold storage)
@@ -408,16 +408,16 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 | **TOTAL** | | **R1.13M-1.78M** | +385-499% vs baseline |
 
 **Costs:** R600K-800K  
-**Net Profit:** R530K-980K (47-55% margin)  
+**Net Profit:** R328K-1.175M (29%-66% margin)
 **Profit split:**
-- Oom Willie (35%): R186K-343K
-- Eben (35%): R186K-343K
-- Hans (30%): R159K-294K
+- Oom Willie (35%): R114.8K-411.3K
+- Eben (35%): R114.8K-411.3K
+- Hans (30%): R98.4K-352.5K
 
 **Hans's Year 5 Income:**
-- Equity profit: R159K-294K (30% full partnership)
+- Equity profit: R98.4K-352.5K (30% full partnership)
 - Management salary: R120K-180K
-- **Total:** R279K-474K
+- **Total:** R218.4K-532.5K
 
 **Capital Requirements:**
 - Maintenance & replacement: R40K-60K (equipment, infrastructure)
@@ -436,12 +436,12 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Year | Gross Revenue | Costs | Net Profit | Oom Willie | Eben | Hans (Equity + Salary) |
 |------|---------------|-------|------------|------------|------|------------------------|
-| **Year 1** | R340K-618K | R220K-340K | R120K-278K | R60K-139K (50%) | R60K-139K (50%) | R0 + R120K-180K = **R120K-180K** |
-| **Year 2** | R544K-1.03M | R320K-480K | R224K-550K | R95K-234K (42.5%) | R95K-234K (42.5%) | R34K-83K + R120K-180K = **R154K-263K** |
-| **Year 3** | R752K-1.46M | R420K-620K | R332K-840K | R129K-325K (38.75%) | R129K-325K (38.75%) | R75K-189K + R120K-180K = **R195K-369K** |
-| **Year 4** | R943K-1.78M | R520K-720K | R423K-1.06M | R148K-371K (35%) | R148K-371K (35%) | R127K-318K + R120K-180K = **R247K-498K** |
-| **Year 5** | R1.13M-1.78M | R600K-800K | R530K-980K | R186K-343K (35%) | R186K-343K (35%) | R159K-294K + R120K-180K = **R279K-474K** |
-| **TOTAL** | **R3.71M-6.69M** | **R2.08M-2.96M** | **R1.63M-3.73M** | **R618K-1.41M** | **R618K-1.41M** | **R395K-884K + R600K-900K = R995K-1.78M** |
+| **Year 1** | R340K-618K | R220K-340K | R0-398K | R0-199K (50%) | R0-199K (50%) | R0 + R120K-180K = **R120K-180K** |
+| **Year 2** | R544K-1.03M | R320K-480K | R64K-711K | R27.2K-302.2K (42.5%) | R27.2K-302.2K (42.5%) | R9.6K-106.7K + R120K-180K = **R129.6K-286.7K** |
+| **Year 3** | R752K-1.46M | R420K-620K | R132K-1.04M | R51.2K-403K (38.75%) | R51.2K-403K (38.75%) | R29.7K-234K + R120K-180K = **R149.7K-414K** |
+| **Year 4** | R943K-1.78M | R520K-720K | R223K-1.255M | R78.1K-439.3K (35%) | R78.1K-439.3K (35%) | R66.9K-376.5K + R120K-180K = **R186.9K-556.5K** |
+| **Year 5** | R1.13M-1.78M | R600K-800K | R328K-1.175M | R114.8K-411.3K (35%) | R114.8K-411.3K (35%) | R98.4K-352.5K + R120K-180K = **R218.4K-532.5K** |
+| **TOTAL** | **R3.71M-6.69M** | **R2.08M-2.96M** | **R747K-4.58M** | **R271.3K-1.75M** | **R271.3K-1.75M** | **R204.6K-1.07M + R600K-900K = R804.6K-1.97M** |
 
 ### Hans's Investment & Returns (Zero Cash Investment)
 
@@ -467,9 +467,9 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner | Contribution | 5-Year Income | Income Growth vs Baseline |
 |---------|--------------|---------------|---------------------------|
-| **Oom Willie** | Land + operations | R618K-1.41M | +194-476% (vs R210K-245K baseline) |
-| **Eben** | Infrastructure + family | R618K-1.41M | +194-476% (vs R210K-245K baseline) |
-| **Hans** | Sweat equity + livestock | R995K-1.78M | N/A (new partner) |
+| **Oom Willie** | Land + operations | R271.3K-1.75M | +30%-615% (vs R210K-245K baseline) |
+| **Eben** | Infrastructure + family | R271.3K-1.75M | +30%-615% (vs R210K-245K baseline) |
+| **Hans** | Sweat equity + livestock | R804.6K-1.97M | N/A (new partner) |
 
 **Win-Win-Win:**
 - **Oom Willie:** Income increases 194-476% (R42K-49K/year → R124K-282K/year average)

@@ -1,0 +1,26 @@
+@media print {
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}

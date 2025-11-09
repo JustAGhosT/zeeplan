@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "Interactive partnership proposal for Zeerust regenerative agriculture venture",
 };
 
+import { ThemeProvider } from './contexts/ThemeContext';
+import './print.css';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -14,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

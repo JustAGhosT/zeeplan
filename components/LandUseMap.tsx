@@ -9,6 +9,7 @@ interface LandUseMapProps {
   interactive?: boolean;
   clickable?: boolean;
   showAnimation?: boolean;
+  year?: number;
 }
 
 /**
@@ -22,7 +23,8 @@ export const LandUseMap: React.FC<LandUseMapProps> = ({
   height = 600,
   interactive = true,
   clickable = true,
-  showAnimation = true
+  showAnimation = true,
+  year = 1
 }) => {
   const [hoveredZone, setHoveredZone] = React.useState<string | null>(null);
   const [selectedZone, setSelectedZone] = React.useState<string | null>(null);
@@ -46,63 +48,71 @@ export const LandUseMap: React.FC<LandUseMapProps> = ({
     }
   }, [showAnimation]);
 
-  const zones = [
-    { 
-      id: 'western-ridge', 
-      name: 'Western Ridge', 
-      area: '240-300ha', 
-      percentage: '40-50%', 
-      use: 'Sekelbos clearance + goat browsing',
-      link: '/sekelbos',
-      color: '#C69B3A',
-      path: 'M 50 100 Q 100 80 150 100 L 150 350 Q 100 370 50 350 Z',
-      description: 'Primary Sekelbos clearance zone with goat browsing system generating R1.08-3M wood sales over 5 years'
-    },
-    { 
-      id: 'central-plateau', 
-      name: 'Central Plateau', 
-      area: '150ha', 
-      percentage: '25%', 
-      use: 'Cattle + pigs feedlot corridor',
-      link: '/livestock',
-      color: '#5DAA68',
-      path: 'M 170 120 Q 280 100 390 120 L 390 340 Q 280 360 170 340 Z',
-      description: 'Rotational grazing core supporting 104 LSU cattle and 250 pig finishers with integrated feed systems'
-    },
-    { 
-      id: 'eastern-corridor', 
-      name: 'Eastern Corridor', 
-      area: '120ha', 
-      percentage: '20%', 
-      use: 'Dryland rotation (maize/sorghum/sunflower)',
-      link: '/crops',
-      color: '#8B7355',
-      path: 'M 410 130 L 500 130 L 500 330 L 410 330 Z',
-      description: 'Dryland crop rotation providing feed independence and cash crops with drought-adapted varieties'
-    },
-    { 
-      id: 'southern-foot', 
-      name: 'Southern Foot (Mbewa)', 
-      area: '60ha', 
-      percentage: '10%', 
-      use: 'Irrigated veg + lucerne + homestead',
-      link: '/crops/irrigated',
-      color: '#4C9F70',
-      path: 'M 170 360 L 390 360 L 390 420 L 170 420 Z',
-      description: 'Solar-powered irrigation hub with high-value vegetables, lucerne for livestock feed, and homestead area'
-    },
-    { 
-      id: 'northern-slope', 
-      name: 'Northern Slope', 
-      area: '30ha', 
-      percentage: '5%', 
-      use: 'Rehabilitation / buffer',
-      link: '/about',
-      color: '#6B8E6B',
-      path: 'M 170 80 L 390 80 L 390 100 L 170 100 Z',
-      description: 'Conservation and rehabilitation buffer zone for biodiversity corridors and ecosystem services'
-    }
-  ];
+  const calculateZonesForYear = (year: number) => {
+    const clearedLand = Math.min(240, 50 * year);
+    const sekelbosLand = 240 - clearedLand;
+    const grazingLand = 150 + clearedLand;
+
+    return [
+      {
+        id: 'western-ridge',
+        name: 'Western Ridge',
+        area: `${sekelbosLand}ha`,
+        percentage: `${((sekelbosLand / 600) * 100).toFixed(0)}%`,
+        use: 'Sekelbos clearance + goat browsing',
+        link: '/sekelbos',
+        color: '#C69B3A',
+        path: 'M 50 100 Q 100 80 150 100 L 150 350 Q 100 370 50 350 Z',
+        description: `Year ${year}: ${sekelbosLand}ha of Sekelbos remaining. Cleared land is converted to grazing.`
+      },
+      {
+        id: 'central-plateau',
+        name: 'Central Plateau',
+        area: `${grazingLand}ha`,
+        percentage: `${((grazingLand / 600) * 100).toFixed(0)}%`,
+        use: 'Cattle + pigs feedlot corridor',
+        link: '/livestock',
+        color: '#5DAA68',
+        path: 'M 170 120 Q 280 100 390 120 L 390 340 Q 280 360 170 340 Z',
+        description: `Year ${year}: ${grazingLand}ha of rotational grazing.`
+      },
+      {
+        id: 'eastern-corridor',
+        name: 'Eastern Corridor',
+        area: '120ha',
+        percentage: '20%',
+        use: 'Dryland rotation (maize/sorghum/sunflower)',
+        link: '/crops',
+        color: '#8B7355',
+        path: 'M 410 130 L 500 130 L 500 330 L 410 330 Z',
+        description: 'Dryland crop rotation providing feed independence and cash crops with drought-adapted varieties'
+      },
+      {
+        id: 'southern-foot',
+        name: 'Southern Foot (Mbewa)',
+        area: '60ha',
+        percentage: '10%',
+        use: 'Irrigated veg + lucerne + homestead',
+        link: '/crops/irrigated',
+        color: '#4C9F70',
+        path: 'M 170 360 L 390 360 L 390 420 L 170 420 Z',
+        description: 'Solar-powered irrigation hub with high-value vegetables, lucerne for livestock feed, and homestead area'
+      },
+      {
+        id: 'northern-slope',
+        name: 'Northern Slope',
+        area: '30ha',
+        percentage: '5%',
+        use: 'Rehabilitation / buffer',
+        link: '/about',
+        color: '#6B8E6B',
+        path: 'M 170 80 L 390 80 L 390 100 L 170 100 Z',
+        description: 'Conservation and rehabilitation buffer zone for biodiversity corridors and ecosystem services'
+      }
+    ];
+  };
+
+  const zones = calculateZonesForYear(year);
 
   const handleZoneClick = (zone: typeof zones[0]) => {
     if (clickable) {

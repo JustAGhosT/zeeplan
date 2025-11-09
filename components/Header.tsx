@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sun, Moon, Download, Share2, Menu, X } from 'lucide-react';
 import styles from './Header.module.css';
+import { useTheme } from '@/app/contexts/ThemeContext';
 
 interface HeaderProps {
   onToggleControls?: () => void;
@@ -15,7 +16,8 @@ interface HeaderProps {
 }
 
 export function Header({ onToggleControls, showControls, onExport, onShare, showControlsButton = true }: HeaderProps) {
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const darkMode = theme === 'dark';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [livestockDropdownOpen, setLivestockDropdownOpen] = useState(false);
   const [cropsDropdownOpen, setCropsDropdownOpen] = useState(false);
@@ -47,30 +49,6 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
     { href: '/sekelbos', label: 'Sekelbos' },
     { href: '/contact', label: 'Contact' },
   ];
-
-  useEffect(() => {
-    // Check localStorage first, then system preference
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode !== null) {
-      const isDark = savedDarkMode === 'true';
-      setDarkMode(isDark);
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    localStorage.setItem('darkMode', String(newDarkMode));
-    document.documentElement.classList.toggle('dark');
-  };
 
   const handleExport = () => {
     if (onExport) {
@@ -197,7 +175,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
           {/* Desktop Actions */}
           <div className={styles.desktopActions}>
             <button
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
               className={`${styles.iconButton} ${darkMode ? styles.dark : ''}`}
               aria-label="Toggle dark mode"
             >
@@ -319,7 +297,7 @@ export function Header({ onToggleControls, showControls, onExport, onShare, show
 
               <button
                 onClick={() => {
-                  toggleDarkMode();
+                  toggleTheme();
                   setMobileMenuOpen(false);
                 }}
                 className={`${styles.mobileActionButton} ${darkMode ? styles.dark : ''}`}
