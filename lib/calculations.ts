@@ -13,12 +13,8 @@ export interface YearlyFinancials {
   hansTotalIncome: [number, number];
 }
 
-export interface FiveYearSummary {
-  year1: YearlyFinancials;
-  year2: YearlyFinancials;
-  year3: YearlyFinancials;
-  year4: YearlyFinancials;
-  year5: YearlyFinancials;
+export interface FinancialSummary {
+  yearly: YearlyFinancials[];
   cumulative: {
     revenue: [number, number];
     costs: [number, number];
@@ -29,75 +25,68 @@ export interface FiveYearSummary {
   };
 }
 
-function sumRevenue(revenues: Record<string, [number, number]>): [number, number] {
+export function sumRevenue(revenues: Record<string, [number, number]>): [number, number] {
   let minTotal = 0;
   let maxTotal = 0;
-  
+
   Object.values(revenues).forEach(([min, max]) => {
     minTotal += min;
     maxTotal += max;
   });
-  
+
   return [minTotal, maxTotal];
 }
 
-function calculateProfit(revenue: [number, number], costs: [number, number]): [number, number] {
-  return [revenue[0] - costs[1], revenue[1] - costs[0]]; // conservative: min rev - max cost, max rev - min cost
+export function calculateProfit(revenue: [number, number], costs: [number, number]): [number, number] {
+  return [revenue[0] - costs[0], revenue[1] - costs[1]];
 }
 
-function calculateEquityShare(profit: [number, number], percentage: number): [number, number] {
-  return [
-    Math.round(profit[0] * (percentage / 100)),
-    Math.round(profit[1] * (percentage / 100))
-  ];
+export function calculateEquityShare(profit: [number, number], percentage: number): [number, number] {
+  return [Math.round(profit[0] * (percentage / 100)), Math.round(profit[1] * (percentage / 100))];
 }
 
-export function calculateYearlyFinancials(
-  year: number,
-  data: PartnershipData
-): YearlyFinancials {
-  const yearKey = `year${year}` as keyof typeof data.yearlyTargets;
-  const yearData = data.yearlyTargets[yearKey];
-  const equity = data.equityStructure[yearKey];
-  
-  // Calculate total revenue
+function calculateTotalRevenue(yearData: any): [number, number] {
   const revenues: Record<string, [number, number]> = {
     sekelbos: yearData.sekelbosRevenue,
     cattle: yearData.cattleRevenue,
+    goats: yearData.goatsRevenue,
+    pigs: yearData.pigsRevenue,
+    chickens: yearData.chickensRevenue,
+    crops: yearData.cropsRevenue,
   };
-  
-  if ('goatsRevenue' in yearData) {
-    revenues.goats = yearData.goatsRevenue;
-  }
-  if ('goatsMeatRevenue' in yearData) {
-    revenues.goatsMeat = yearData.goatsMeatRevenue;
-  }
-  if ('goatsDairyRevenue' in yearData) {
-    revenues.goatsDairy = yearData.goatsDairyRevenue;
-  }
-  
-  revenues.pigs = yearData.pigsRevenue;
-  revenues.chickens = yearData.chickensRevenue;
-  revenues.crops = yearData.cropsRevenue;
-  
-  const revenue = sumRevenue(revenues);
-  const costs = yearData.costs;
-  const profit = calculateProfit(revenue, costs);
-  
+  return sumRevenue(revenues);
+}
+
+function calculatePartnerIncomes(profit: [number, number], equity: any) {
   const oomWillieIncome = calculateEquityShare(profit, equity.oomWillie);
   const ebenIncome = calculateEquityShare(profit, equity.eben);
   const hansEquityIncome = calculateEquityShare(profit, equity.hans);
-  
-  const hansSalary: [number, number] = [
-    data.hansMonthlySalary[0] * 12,
-    data.hansMonthlySalary[1] * 12
-  ];
-  
-  const hansTotalIncome: [number, number] = [
-    hansEquityIncome[0] + hansSalary[0],
-    hansEquityIncome[1] + hansSalary[1]
-  ];
-  
+  return { oomWillieIncome, ebenIncome, hansEquityIncome };
+}
+
+const MONTHS_IN_YEAR = 12;
+
+function calculateHansTotalIncome(
+  hansEquityIncome: [number, number],
+  hansMonthlySalary: [number, number],
+): { hansSalary: [number, number]; hansTotalIncome: [number, number] } {
+  const hansSalary: [number, number] = [hansMonthlySalary[0] * MONTHS_IN_YEAR, hansMonthlySalary[1] * MONTHS_IN_YEAR];
+  const hansTotalIncome: [number, number] = [hansEquityIncome[0] + hansSalary[0], hansEquityIncome[1] + hansSalary[1]];
+  return { hansSalary, hansTotalIncome };
+}
+
+export function calculateYearlyFinancials(year: number, data: PartnershipData): YearlyFinancials {
+  const yearIndex = year - 1;
+  const yearData = data.yearlyTargets[yearIndex];
+  const equity = data.equityStructure[yearIndex];
+
+  const revenue = calculateTotalRevenue(yearData);
+  const costs = yearData.costs;
+  const profit = calculateProfit(revenue, costs);
+
+  const { oomWillieIncome, ebenIncome, hansEquityIncome } = calculatePartnerIncomes(profit, equity);
+  const { hansSalary, hansTotalIncome } = calculateHansTotalIncome(hansEquityIncome, data.hansMonthlySalary);
+
   return {
     revenue,
     costs,
@@ -110,62 +99,60 @@ export function calculateYearlyFinancials(
   };
 }
 
-export function calculateFiveYearSummary(data: PartnershipData): FiveYearSummary {
-  const year1 = calculateYearlyFinancials(1, data);
-  const year2 = calculateYearlyFinancials(2, data);
-  const year3 = calculateYearlyFinancials(3, data);
-  const year4 = calculateYearlyFinancials(4, data);
-  const year5 = calculateYearlyFinancials(5, data);
-  
+const summaryCache = new Map<string, FinancialSummary>();
+
+export function calculateFinancialSummary(data: PartnershipData): FinancialSummary {
+  const cacheKey = JSON.stringify(data);
+  if (summaryCache.has(cacheKey)) {
+    return summaryCache.get(cacheKey)!;
+  }
+
+  const yearly: YearlyFinancials[] = [];
   const cumulative = {
-    revenue: [
-      year1.revenue[0] + year2.revenue[0] + year3.revenue[0] + year4.revenue[0] + year5.revenue[0],
-      year1.revenue[1] + year2.revenue[1] + year3.revenue[1] + year4.revenue[1] + year5.revenue[1],
-    ] as [number, number],
-    costs: [
-      year1.costs[0] + year2.costs[0] + year3.costs[0] + year4.costs[0] + year5.costs[0],
-      year1.costs[1] + year2.costs[1] + year3.costs[1] + year4.costs[1] + year5.costs[1],
-    ] as [number, number],
-    profit: [
-      year1.profit[0] + year2.profit[0] + year3.profit[0] + year4.profit[0] + year5.profit[0],
-      year1.profit[1] + year2.profit[1] + year3.profit[1] + year4.profit[1] + year5.profit[1],
-    ] as [number, number],
-    oomWillie: [
-      year1.oomWillieIncome[0] + year2.oomWillieIncome[0] + year3.oomWillieIncome[0] + year4.oomWillieIncome[0] + year5.oomWillieIncome[0],
-      year1.oomWillieIncome[1] + year2.oomWillieIncome[1] + year3.oomWillieIncome[1] + year4.oomWillieIncome[1] + year5.oomWillieIncome[1],
-    ] as [number, number],
-    eben: [
-      year1.ebenIncome[0] + year2.ebenIncome[0] + year3.ebenIncome[0] + year4.ebenIncome[0] + year5.ebenIncome[0],
-      year1.ebenIncome[1] + year2.ebenIncome[1] + year3.ebenIncome[1] + year4.ebenIncome[1] + year5.ebenIncome[1],
-    ] as [number, number],
-    hans: [
-      year1.hansTotalIncome[0] + year2.hansTotalIncome[0] + year3.hansTotalIncome[0] + year4.hansTotalIncome[0] + year5.hansTotalIncome[0],
-      year1.hansTotalIncome[1] + year2.hansTotalIncome[1] + year3.hansTotalIncome[1] + year4.hansTotalIncome[1] + year5.hansTotalIncome[1],
-    ] as [number, number],
+    revenue: [0, 0] as [number, number],
+    costs: [0, 0] as [number, number],
+    profit: [0, 0] as [number, number],
+    oomWillie: [0, 0] as [number, number],
+    eben: [0, 0] as [number, number],
+    hans: [0, 0] as [number, number],
   };
-  
-  return {
-    year1,
-    year2,
-    year3,
-    year4,
-    year5,
-    cumulative,
-  };
+
+  for (let i = 1; i <= data.yearlyTargets.length; i++) {
+    const yearlyFinancials = calculateYearlyFinancials(i, data);
+    yearly.push(yearlyFinancials);
+
+    cumulative.revenue[0] += yearlyFinancials.revenue[0];
+    cumulative.revenue[1] += yearlyFinancials.revenue[1];
+    cumulative.costs[0] += yearlyFinancials.costs[0];
+    cumulative.costs[1] += yearlyFinancials.costs[1];
+    cumulative.profit[0] += yearlyFinancials.profit[0];
+    cumulative.profit[1] += yearlyFinancials.profit[1];
+    cumulative.oomWillie[0] += yearlyFinancials.oomWillieIncome[0];
+    cumulative.oomWillie[1] += yearlyFinancials.oomWillieIncome[1];
+    cumulative.eben[0] += yearlyFinancials.ebenIncome[0];
+    cumulative.eben[1] += yearlyFinancials.ebenIncome[1];
+    cumulative.hans[0] += yearlyFinancials.hansTotalIncome[0];
+    cumulative.hans[1] += yearlyFinancials.hansTotalIncome[1];
+  }
+
+  const summary = { yearly, cumulative };
+  summaryCache.set(cacheKey, summary);
+  return summary;
 }
 
-export function formatCurrency(value: number): string {
-  return 'R' + value.toLocaleString('en-ZA', { maximumFractionDigits: 0 });
-}
-
-export function formatRange(range: [number, number]): string {
-  return `${formatCurrency(range[0])}-${formatCurrency(range[1])}`;
-}
 
 export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
+  if (investment[0] === 0 || investment[1] === 0) {
+    if (netProfit[1] > 0) {
+      return 'Infinite';
+    } else {
+      return 'N/A';
+    }
+  }
+
   const minROI = ((netProfit[0] - investment[1]) / investment[1]) * 100;
   const maxROI = ((netProfit[1] - investment[0]) / investment[0]) * 100;
-  
+
   return `${Math.round(minROI).toLocaleString()}-${Math.round(maxROI).toLocaleString()}%`;
 }
 
@@ -177,6 +164,6 @@ export function calculateBaseline(data: PartnershipData): {
   const revenue = sumRevenue(data.baselineRevenue);
   const costs = data.baselineCosts;
   const profit = calculateProfit(revenue, costs);
-  
+
   return { revenue, costs, profit };
 }

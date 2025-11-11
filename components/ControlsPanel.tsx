@@ -11,19 +11,16 @@ interface ControlsPanelProps {
 }
 
 export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
-  const updateField = <K extends keyof PartnershipData>(
-    field: K,
-    value: PartnershipData[K]
-  ) => {
+  const updateField = <K extends keyof PartnershipData>(field: K, value: PartnershipData[K]) => {
     onUpdate({ ...data, [field]: value });
   };
 
   const updateRangeField = <
-    K extends keyof Pick<PartnershipData, 'hansLivestockValue' | 'hansMonthlySalary' | 'baselineCosts'>
+    K extends keyof Pick<PartnershipData, 'hansLivestockValue' | 'hansMonthlySalary' | 'baselineCosts'>,
   >(
     field: K,
     index: 0 | 1,
-    value: number
+    value: number,
   ) => {
     const currentValue = [...data[field]] as [number, number];
     currentValue[index] = value;
@@ -35,7 +32,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
       <div className={styles.controlsContainer}>
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Farm Basics</h4>
-          
+
           <InputGroup
             label="Land Size"
             value={data.landSize}
@@ -44,7 +41,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={2000}
             suffix="ha"
           />
-          
+
           <InputGroup
             label="Current LSU"
             value={data.currentLSU}
@@ -53,7 +50,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={200}
             suffix="cattle"
           />
-          
+
           <InputGroup
             label="Target LSU"
             value={data.targetLSU}
@@ -62,7 +59,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={300}
             suffix="cattle"
           />
-          
+
           <InputGroup
             label="Sekelbos Encroachment"
             value={data.sekelbosEncroachment}
@@ -75,7 +72,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Hans's Investment</h4>
-          
+
           <RangeInputGroup
             label="Livestock Value"
             min={data.hansLivestockValue[0]}
@@ -85,7 +82,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             step={1000}
             suffix="ZAR"
           />
-          
+
           <RangeInputGroup
             label="Monthly Salary"
             min={data.hansMonthlySalary[0]}
@@ -99,7 +96,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Equity Structure - Year 1</h4>
-          
+
           <InputGroup
             label="Oom Willie Equity"
             value={data.equityStructure.year1.oomWillie}
@@ -112,7 +109,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={100}
             suffix="%"
           />
-          
+
           <InputGroup
             label="Eben Equity"
             value={data.equityStructure.year1.eben}
@@ -125,7 +122,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={100}
             suffix="%"
           />
-          
+
           <InputGroup
             label="Hans Equity"
             value={data.equityStructure.year1.hans}
@@ -142,7 +139,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Equity Structure - Year 5</h4>
-          
+
           <InputGroup
             label="Oom Willie Equity"
             value={data.equityStructure.year5.oomWillie}
@@ -155,7 +152,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={100}
             suffix="%"
           />
-          
+
           <InputGroup
             label="Eben Equity"
             value={data.equityStructure.year5.eben}
@@ -168,7 +165,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={100}
             suffix="%"
           />
-          
+
           <InputGroup
             label="Hans Equity"
             value={data.equityStructure.year5.hans}

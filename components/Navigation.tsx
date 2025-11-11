@@ -2,7 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronRight, FileText, TrendingUp, Calendar, Settings, TreeDeciduous, Leaf, Package, Wrench, Target, BarChart3, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import {
+  ChevronRight,
+  FileText,
+  TrendingUp,
+  Calendar,
+  TreeDeciduous,
+  Leaf,
+  Package,
+  Wrench,
+  Target,
+  BarChart3,
+  AlertTriangle,
+  CheckCircle2,
+} from 'lucide-react';
 import styles from './Navigation.module.css';
 
 interface NavigationProps {
@@ -55,7 +68,7 @@ export function Navigation({ className = '', pageType = 'proposal' }: Navigation
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     sections.forEach(({ id }) => {
@@ -82,49 +95,37 @@ export function Navigation({ className = '', pageType = 'proposal' }: Navigation
 
   return (
     <nav className={`${styles.navigation} ${isDark ? styles.dark : ''} ${className}`}>
-      <h3 className={`${styles.title} ${isDark ? styles.dark : ''}`}>
-        Table of Contents
-      </h3>
-      
+      <h3 className={`${styles.title} ${isDark ? styles.dark : ''}`}>Table of Contents</h3>
+
       {/* Link to other page */}
       {pageType === 'proposal' && (
         <div className={`${styles.linkSection} ${isDark ? styles.dark : ''}`}>
-          <Link
-            href="/sekelbos"
-            className={`${styles.navLink} ${styles.green} ${isDark ? styles.dark : ''}`}
-          >
+          <Link href="/sekelbos" className={`${styles.navLink} ${styles.green} ${isDark ? styles.dark : ''}`}>
             <TreeDeciduous style={{ width: '1rem', height: '1rem' }} />
             <span style={{ flex: 1 }}>Sekelbos Clearance Plan →</span>
           </Link>
         </div>
       )}
-      
+
       {pageType === 'sekelbos' && (
         <div className={`${styles.linkSection} ${isDark ? styles.dark : ''}`}>
-          <Link
-            href="/proposal"
-            className={`${styles.navLink} ${isDark ? styles.dark : ''}`}
-          >
+          <Link href="/proposal" className={`${styles.navLink} ${isDark ? styles.dark : ''}`}>
             <FileText style={{ width: '1rem', height: '1rem' }} />
             <span style={{ flex: 1 }}>← Main Proposal</span>
           </Link>
         </div>
       )}
-      
+
       <ul className={styles.list}>
         {sections.map(({ id, label, icon: Icon }) => (
           <li key={id} className={styles.listItem}>
             <button
               onClick={() => scrollToSection(id)}
-              className={`${styles.button} ${isDark ? styles.dark : ''} ${
-                activeSection === id ? styles.active : ''
-              }`}
+              className={`${styles.button} ${isDark ? styles.dark : ''} ${activeSection === id ? styles.active : ''}`}
             >
               <Icon style={{ width: '1rem', height: '1rem' }} />
               <span style={{ fontSize: '0.875rem', flex: 1 }}>{label}</span>
-              {activeSection === id && (
-                <ChevronRight style={{ width: '1rem', height: '1rem' }} />
-              )}
+              {activeSection === id && <ChevronRight style={{ width: '1rem', height: '1rem' }} />}
             </button>
           </li>
         ))}

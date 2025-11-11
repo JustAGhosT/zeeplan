@@ -1,0 +1,83 @@
+{
+  "landSize": 600,
+  "currentLSU": 72,
+  "targetLSU": 104,
+  "sekelbosEncroachment": 70,
+  "currentCarryingCapacity": 8.33,
+  "targetCarryingCapacity": 5.5,
+  "baselineRevenue": {
+    "cattle": [216000, 243000],
+    "goats": [8000, 16000],
+    "pigs": [0, 10000],
+    "chickens": [4000, 8000],
+    "crops": [0, 5000],
+    "wood": [5000, 15000]
+  },
+  "baselineCosts": [150000, 200000],
+  "hansLivestockValue": [48000, 98000],
+  "hansMonthlySalary": [10000, 15000],
+  "equityStructure": [
+    { "oomWillie": 50, "eben": 50, "hans": 0 },
+    { "oomWillie": 42.5, "eben": 42.5, "hans": 15 },
+    { "oomWillie": 38.75, "eben": 38.75, "hans": 22.5 },
+    { "oomWillie": 35, "eben": 35, "hans": 30 },
+    { "oomWillie": 35, "eben": 35, "hans": 30 }
+  ],
+  "yearlyTargets": [
+    {
+      "sekelbosCleared": 50,
+      "targetLSU": 81,
+      "sekelbosRevenue": [40000, 205000],
+      "cattleRevenue": [216000, 243000],
+      "goatsRevenue": [24000, 50000],
+      "pigsRevenue": [25000, 50000],
+      "chickensRevenue": [20000, 40000],
+      "cropsRevenue": [15000, 30000],
+      "costs": [220000, 340000]
+    },
+    {
+      "sekelbosCleared": 30,
+      "targetLSU": 86,
+      "sekelbosRevenue": [65000, 328000],
+      "cattleRevenue": [258000, 288000],
+      "goatsRevenue": [66000, 125000],
+      "pigsRevenue": [65000, 130000],
+      "chickensRevenue": [60000, 110000],
+      "cropsRevenue": [30000, 50000],
+      "costs": [320000, 480000]
+    },
+    {
+      "sekelbosCleared": 20,
+      "targetLSU": 90,
+      "sekelbosRevenue": [81000, 410000],
+      "cattleRevenue": [270000, 300000],
+      "goatsRevenue": [126000, 210000],
+      "pigsRevenue": [110000, 210000],
+      "chickensRevenue": [110000, 210000],
+      "cropsRevenue": [55000, 120000],
+      "costs": [420000, 620000]
+    },
+    {
+      "sekelbosCleared": 100,
+      "targetLSU": 98,
+      "sekelbosRevenue": [81000, 410000],
+      "cattleRevenue": [294000, 330000],
+      "goatsRevenue": [183000, 285000],
+      "pigsRevenue": [150000, 280000],
+      "chickensRevenue": [150000, 280000],
+      "cropsRevenue": [85000, 190000],
+      "costs": [520000, 720000]
+    },
+    {
+      "sekelbosCleared": 60,
+      "targetLSU": 104,
+      "sekelbosRevenue": [5000, 102000],
+      "cattleRevenue": [312000, 348000],
+      "goatsRevenue": [276000, 440000],
+      "pigsRevenue": [220000, 375000],
+      "chickensRevenue": [220000, 300000],
+      "cropsRevenue": [95000, 210000],
+      "costs": [600000, 800000]
+    }
+  ]
+}

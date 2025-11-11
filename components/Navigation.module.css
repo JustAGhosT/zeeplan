@@ -1,7 +1,9 @@
 .navigation {
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   padding: 1rem;
   position: sticky;
   top: 6rem;
@@ -92,7 +94,9 @@
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   text-align: left;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   background: none;
   border: none;
   cursor: pointer;

@@ -13,11 +13,7 @@ interface BenefitsSectionProps {
   columns?: 1 | 2;
 }
 
-export const BenefitsSection: React.FC<BenefitsSectionProps> = ({ 
-  title, 
-  benefits,
-  columns = 2
-}) => {
+export const BenefitsSection: React.FC<BenefitsSectionProps> = ({ title, benefits, columns = 2 }) => {
   const gridClass = columns === 1 ? styles.singleColumn : styles.twoColumn;
 
   return (

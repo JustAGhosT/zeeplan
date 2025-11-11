@@ -11,14 +11,18 @@ export default function CropsSummaryPage() {
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
-        <section className={styles.heroSection} style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' }}>
+        <section
+          className={styles.heroSection}
+          style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' }}
+        >
           <div className={styles.heroContainer}>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroIcon}>🌾</span>
               Crop Production Overview
             </h1>
             <p className={styles.heroSubtitle}>
-              Drought-adapted crop rotation system providing feed independence, food security, and cash income in 315mm rainfall zone
+              Drought-adapted crop rotation system providing feed independence, food security, and cash income in 315mm
+              rainfall zone
             </p>
           </div>
         </section>
@@ -50,10 +54,10 @@ export default function CropsSummaryPage() {
           <div className={styles.sectionContent}>
             <h2 className={styles.sectionTitle}>Integrated Crop System</h2>
             <p className={styles.sectionText}>
-              The crop production system complements livestock operations by providing feed independence, 
-              household food security, and cash crop income. Focused on drought-adapted varieties suited 
-              to the 315mm rainfall environment, the system integrates seamlessly with livestock through 
-              manure fertilization and crop residue grazing.
+              The crop production system complements livestock operations by providing feed independence, household food
+              security, and cash crop income. Focused on drought-adapted varieties suited to the 315mm rainfall
+              environment, the system integrates seamlessly with livestock through manure fertilization and crop residue
+              grazing.
             </p>
           </div>
         </section>
@@ -171,7 +175,8 @@ export default function CropsSummaryPage() {
                 </div>
                 <h3 className={styles.benefitTitle}>Proven 315mm Crops</h3>
                 <p className={styles.benefitText}>
-                  Sorghum, millet, and cowpeas evolved for low-rainfall Africa. Opportunistic planting minimizes drought risk.
+                  Sorghum, millet, and cowpeas evolved for low-rainfall Africa. Opportunistic planting minimizes drought
+                  risk.
                 </p>
               </div>
               <div className={styles.benefitCard}>
@@ -180,7 +185,8 @@ export default function CropsSummaryPage() {
                 </div>
                 <h3 className={styles.benefitTitle}>Soil Regeneration</h3>
                 <p className={styles.benefitText}>
-                  Planting on cleared sekelbos areas. Legume nitrogen fixation and crop residues rebuild soil fertility for improved grazing.
+                  Planting on cleared sekelbos areas. Legume nitrogen fixation and crop residues rebuild soil fertility
+                  for improved grazing.
                 </p>
               </div>
             </div>

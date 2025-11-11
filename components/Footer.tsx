@@ -13,16 +13,16 @@ export function Footer() {
     const checkDarkMode = () => {
       setIsDark(document.documentElement.classList.contains('dark'));
     };
-    
+
     checkDarkMode();
-    
+
     // Watch for dark mode changes
     const observer = new MutationObserver(checkDarkMode);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class'],
     });
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -37,19 +37,15 @@ export function Footer() {
               <h3 className={`${styles.logoTitle} ${isDark ? styles.dark : ''}`}>Zeeplan</h3>
             </div>
             <p className={`${styles.description} ${isDark ? styles.dark : ''}`}>
-              Comprehensive business partnership proposal for a regenerative agriculture venture 
-              in Zeerust, North West Province, South Africa.
+              Comprehensive business partnership proposal for a regenerative agriculture venture in Zeerust, North West
+              Province, South Africa.
             </p>
-            <p className={`${styles.version} ${isDark ? styles.dark : ''}`}>
-              Document Version 4.0 | November 7, 2025
-            </p>
+            <p className={`${styles.version} ${isDark ? styles.dark : ''}`}>Document Version 4.0 | November 7, 2025</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className={`${styles.sectionTitle} ${isDark ? styles.dark : ''}`}>
-              Quick Links
-            </h4>
+            <h4 className={`${styles.sectionTitle} ${isDark ? styles.dark : ''}`}>Quick Links</h4>
             <ul className={styles.linkList}>
               <li>
                 <Link href="/" className={`${styles.link} ${isDark ? styles.dark : ''}`}>
@@ -81,9 +77,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className={`${styles.sectionTitle} ${isDark ? styles.dark : ''}`}>
-              Contact
-            </h4>
+            <h4 className={`${styles.sectionTitle} ${isDark ? styles.dark : ''}`}>Contact</h4>
             <ul className={styles.contactList}>
               <li className={`${styles.contactItem} ${isDark ? styles.dark : ''}`}>
                 <MapPin style={{ width: '1rem', height: '1rem' }} />
@@ -91,10 +85,7 @@ export function Footer() {
               </li>
               <li className={`${styles.contactItem} ${isDark ? styles.dark : ''}`}>
                 <Mail style={{ width: '1rem', height: '1rem' }} />
-                <a 
-                  href="mailto:hans@zeeplan.com" 
-                  className={`${styles.link} ${isDark ? styles.dark : ''}`}
-                >
+                <a href="mailto:hans@zeeplan.com" className={`${styles.link} ${isDark ? styles.dark : ''}`}>
                   hans@zeeplan.com
                 </a>
               </li>

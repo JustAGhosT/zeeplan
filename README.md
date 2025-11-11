@@ -5,7 +5,9 @@ This repository contains the comprehensive business partnership proposal for a r
 ## 📄 Documents
 
 ### 1. **Zeerust_Partnership_Proposal_v4.0.md** (Full Master Plan)
+
 The complete partnership proposal including:
+
 - Executive Summary
 - Current State Analysis
 - 5-Year Transformation Plan
@@ -20,6 +22,7 @@ The complete partnership proposal including:
 - Appendices
 
 ### 2. **Executive_Summary.md** (One-Page Overview)
+
 A concise summary suitable for initial presentations and quick reference.
 
 ## 📊 Key Highlights
@@ -27,40 +30,45 @@ A concise summary suitable for initial presentations and quick reference.
 **Partnership Type:** Zero-cash entry, performance-based sweat equity partnership
 
 **Current State:**
+
 - 600 hectares Bushveld farmland
 - 72 LSU cattle (current stocking)
 - R233K-297K/year baseline revenue
 - 60-80% sekelbos encroachment
 
 **Proposed Transformation:**
+
 - 5-year regenerative agriculture plan
 - Increase to 104 LSU capacity (+44%)
 - Diversify to 8+ revenue streams
 - Target: R1.13M-1.78M revenue by Year 5
 
 **Partnership Structure:**
+
 - Oom Willie: 35% (land + operations)
 - Eben: 35% (infrastructure + family)
 - Hans: 30% (sweat equity + livestock)
 
 **Hans's Investment:**
+
 - R48K-98K livestock (pigs, goats, chickens)
 - R0 cash
 - Pure sweat equity (systems, planning, marketing)
 
 **Hans's 5-Year Returns:**
+
 - R995K-1.78M total income
 - 1,870-3,400% ROI
 - Average R199K-356K/year
 
 ## 🎯 Performance-Based Equity
 
-| Year | Hans Equity | Target Revenue | Income |
-|------|-------------|----------------|--------|
-| Year 1 | 0% | R340K+ | R120K-180K (salary) |
-| Year 2 | 15% | R544K+ | R154K-263K |
-| Year 3 | 22.5% | R752K+ | R195K-369K |
-| Year 4-5 | 30% | R943K-1.13M+ | R247K-498K |
+| Year     | Hans Equity | Target Revenue | Income              |
+| -------- | ----------- | -------------- | ------------------- |
+| Year 1   | 0%          | R340K+         | R120K-180K (salary) |
+| Year 2   | 15%         | R544K+         | R154K-263K          |
+| Year 3   | 22.5%       | R752K+         | R195K-369K          |
+| Year 4-5 | 30%         | R943K-1.13M+   | R247K-498K          |
 
 ## 🌱 Core Strategy
 
@@ -109,4 +117,4 @@ Date: November 7, 2025
 
 ---
 
-*This proposal represents a unique opportunity for zero-capital-entry, high-return regenerative agriculture partnership that benefits all stakeholders while preserving family farm dynamics.*
+_This proposal represents a unique opportunity for zero-capital-entry, high-return regenerative agriculture partnership that benefits all stakeholders while preserving family farm dynamics._

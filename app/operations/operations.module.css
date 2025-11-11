@@ -8,53 +8,53 @@
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem 0;
-  border-bottom: 3px solid #5DAA68;
+  border-bottom: 3px solid #5daa68;
 }
 
 .header h1 {
   font-size: 2.5rem;
-  color: #4C3F2F;
+  color: #4c3f2f;
   margin-bottom: 0.5rem;
 }
 
 .header p {
   font-size: 1.125rem;
-  color: #6B5D4F;
+  color: #6b5d4f;
 }
 
 .section {
   margin-bottom: 4rem;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 :global(.dark) .section {
-  background: #1F2937;
+  background: #1f2937;
 }
 
 .section h2 {
   font-size: 2rem;
-  color: #4C3F2F;
+  color: #4c3f2f;
   margin-bottom: 1rem;
-  border-left: 5px solid #5DAA68;
+  border-left: 5px solid #5daa68;
   padding-left: 1rem;
 }
 
 :global(.dark) .section h2 {
-  color: #F3F4F6;
+  color: #f3f4f6;
 }
 
 .description {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: #4C3F2F;
+  color: #4c3f2f;
   margin-bottom: 2rem;
 }
 
 :global(.dark) .description {
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
 .diagramContainer {
@@ -62,7 +62,7 @@
   justify-content: center;
   margin: 2rem 0;
   padding: 1rem;
-  background: #F9FAFB;
+  background: #f9fafb;
   border-radius: 8px;
   overflow-x: auto;
   will-change: transform;
@@ -86,11 +86,13 @@
 }
 
 .zoneCard {
-  background: #F5F5F0;
-  border-left: 4px solid #5DAA68;
+  background: #f5f5f0;
+  border-left: 4px solid #5daa68;
   padding: 1.5rem;
   border-radius: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .zoneCard:hover {
@@ -99,28 +101,28 @@
 }
 
 :global(.dark) .zoneCard {
-  background: #1F2937;
-  border-left-color: #C69B3A;
+  background: #1f2937;
+  border-left-color: #c69b3a;
 }
 
 .zoneCard h3 {
   font-size: 1.25rem;
-  color: #4C3F2F;
+  color: #4c3f2f;
   margin-bottom: 0.75rem;
 }
 
 :global(.dark) .zoneCard h3 {
-  color: #F9FAFB;
+  color: #f9fafb;
 }
 
 .zoneCard p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #6B5D4F;
+  color: #6b5d4f;
 }
 
 :global(.dark) .zoneCard p {
-  color: #D1D5DB;
+  color: #d1d5db;
 }
 
 .benefitsGrid {
@@ -131,7 +133,7 @@
 }
 
 .benefitCard {
-  background: linear-gradient(135deg, #5DAA68 0%, #4C9F70 100%);
+  background: linear-gradient(135deg, #5daa68 0%, #4c9f70 100%);
   color: white;
   padding: 1.5rem;
   border-radius: 8px;
@@ -156,8 +158,8 @@
 }
 
 .statCard {
-  background: #F5F5F0;
-  border: 3px solid #5DAA68;
+  background: #f5f5f0;
+  border: 3px solid #5daa68;
   padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
@@ -165,51 +167,51 @@
 }
 
 .statCard:hover {
-  border-color: #C69B3A;
+  border-color: #c69b3a;
   transform: scale(1.05);
 }
 
 :global(.dark) .statCard {
-  background: #1F2937;
+  background: #1f2937;
 }
 
 .statCard h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #4C3F2F;
+  color: #4c3f2f;
 }
 
 :global(.dark) .statCard h3 {
-  color: #F9FAFB;
+  color: #f9fafb;
 }
 
 .statNumber {
   font-size: 2rem;
   font-weight: bold;
-  color: #5DAA68;
+  color: #5daa68;
   margin: 0.5rem 0;
 }
 
 .statDetail {
   font-size: 0.9rem;
-  color: #6B5D4F;
+  color: #6b5d4f;
   margin-bottom: 0.75rem;
 }
 
 :global(.dark) .statDetail {
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
 .statRevenue {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #C69B3A;
+  color: #c69b3a;
 }
 
 .ctaSection {
   text-align: center;
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, #5DAA68 0%, #4C9F70 100%);
+  background: linear-gradient(135deg, #5daa68 0%, #4c9f70 100%);
   border-radius: 12px;
   color: white;
 }
@@ -237,7 +239,7 @@
 .primaryButton {
   padding: 1rem 2rem;
   background: white;
-  color: #5DAA68;
+  color: #5daa68;
   font-size: 1.125rem;
   font-weight: 600;
   border-radius: 8px;
@@ -265,7 +267,7 @@
 
 .secondaryButton:hover {
   background: white;
-  color: #5DAA68;
+  color: #5daa68;
   transform: translateY(-2px);
 }
 

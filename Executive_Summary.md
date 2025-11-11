@@ -1,4 +1,5 @@
 # Zeerust Regenerative Agriculture Partnership
+
 ## Executive Summary - One-Page Overview
 
 **Partnership Opportunity:** Zero-cash entry, sweat equity partnership in 600ha regenerative agriculture venture
@@ -16,6 +17,7 @@
 ## The Opportunity
 
 **Hans's Zero-Cash Proposition:**
+
 - **Investment:** R48K-98K livestock (pigs, goats, chickens) + sweat equity
 - **Cash required:** R0
 - **5-Year returns:** R995K-1.78M
@@ -23,12 +25,12 @@
 
 ## Phased Equity Structure (Performance-Based)
 
-| Year | Hans Equity | Performance Milestone | Hans Income |
-|------|-------------|----------------------|-------------|
-| **Year 1** | 0% (Prove-It) | Revenue ≥R340K (+46% vs baseline) | R120K-180K (salary only) |
-| **Year 2** | 15% (Earned) | Revenue ≥R544K (+133% vs baseline) | R154K-263K (equity + salary) |
-| **Year 3** | 22.5% (Earned) | Cumulative revenue ≥R1.3M | R195K-369K (equity + salary) |
-| **Year 4-5** | 30% (Full Partner) | Revenue ≥R943K-1.13M | R247K-498K (Y4), R279K-474K (Y5) |
+| Year         | Hans Equity        | Performance Milestone              | Hans Income                      |
+| ------------ | ------------------ | ---------------------------------- | -------------------------------- |
+| **Year 1**   | 0% (Prove-It)      | Revenue ≥R340K (+46% vs baseline)  | R120K-180K (salary only)         |
+| **Year 2**   | 15% (Earned)       | Revenue ≥R544K (+133% vs baseline) | R154K-263K (equity + salary)     |
+| **Year 3**   | 22.5% (Earned)     | Cumulative revenue ≥R1.3M          | R195K-369K (equity + salary)     |
+| **Year 4-5** | 30% (Full Partner) | Revenue ≥R943K-1.13M               | R247K-498K (Y4), R279K-474K (Y5) |
 
 **Final Structure:** Oom Willie 35%, Eben 35%, Hans 30%
 
@@ -45,18 +47,21 @@
 ## Transformation Plan (5 Years)
 
 ### Year 1: Foundation
+
 - Clear 50ha sekelbos → +R40K-205K revenue
 - Increase to 81 LSU (+9 cattle)
 - Launch diversification (goats, pigs, chickens)
 - **Target:** R340K-618K revenue (+46-108%)
 
 ### Year 2-3: Expansion
+
 - Clear additional 50ha sekelbos
 - Launch dairy goat enterprise
 - Scale all enterprises
 - **Target:** R544K-1.46M revenue (+133-392%)
 
 ### Year 4-5: Maturity
+
 - Reach 104 LSU capacity (+44% vs baseline)
 - Establish brand & distribution
 - Full capacity across all enterprises
@@ -64,11 +69,11 @@
 
 ## Win-Win-Win Outcome (5-Year Total Income)
 
-| Partner | Current Income | Future Income (5-Year) | Growth |
-|---------|----------------|------------------------|--------|
-| **Oom Willie** | R210K-245K | R618K-1.41M | +194-476% |
-| **Eben** | R210K-245K | R618K-1.41M | +194-476% |
-| **Hans** | R0 | R995K-1.78M | N/A (new partner) |
+| Partner        | Current Income | Future Income (5-Year) | Growth            |
+| -------------- | -------------- | ---------------------- | ----------------- |
+| **Oom Willie** | R210K-245K     | R618K-1.41M            | +194-476%         |
+| **Eben**       | R210K-245K     | R618K-1.41M            | +194-476%         |
+| **Hans**       | R0             | R995K-1.78M            | N/A (new partner) |
 
 **Key Benefit:** Everyone's absolute income increases massively, even though equity % adjusts
 

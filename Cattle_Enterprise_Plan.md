@@ -1,4 +1,5 @@
 # CATTLE ENTERPRISE - COMPOSITE HERD MANAGEMENT PLAN
+
 ## Zeerust 600ha Property - Santa Gertrudis Bull Program
 
 **Current Herd:** 72 head (50 breeding cows, 3 bulls, 19 calves)  
@@ -15,18 +16,21 @@
 ### Current Situation Analysis
 
 **Herd Composition (72 Head):**
+
 - 50 breeding cows (composite genetics)
 - 3 bulls (1 Santa Gertrudis primary, 2 others)
 - 19 calves (various ages)
 - Estimated value: R720K-1.08M
 
 **Composite Cow Herd Genetics (Estimated):**
+
 - Nguni influence: 30-40% (indigenous, tick/heat resistant, high fertility, easy calving)
 - Brahman influence: 25-35% (zebu hardiness, disease/heat tolerance, frame size)
 - Santa Gertrudis influence: 15-25% (from current bull breeding program)
 - Bonsmara influence: 10-20% (South African composite, fertility, temperament)
 
 **Current Challenges:**
+
 - Sekelbos encroachment (40-70% grazing capacity loss)
 - Likely continuous grazing (degraded pastures)
 - Underutilized genetic potential
@@ -55,14 +59,14 @@
 
 ### Financial Projections (5-Year)
 
-| Year | Breeding Cows | Weaners Sold | Weaner Revenue | Cull Cow Revenue | Total Revenue |
-|------|---------------|--------------|----------------|------------------|---------------|
-| 1 | 52 | 17 | R136K-204K | R16K-24K | R152K-228K |
-| 2 | 60 | 20 | R180K-300K | R24K-36K | R204K-336K |
-| 3 | 70 | 24 | R240K-360K | R30K-45K | R270K-405K |
-| 4 | 80 | 28 | R308K-448K | R40K-60K | R348K-508K |
-| 5 | 90 | 32 | R384K-512K | R48K-72K | R432K-584K |
-| **TOTAL** | | **121** | **R1.25M-1.82M** | **R158K-237K** | **R1.41M-2.06M** |
+| Year      | Breeding Cows | Weaners Sold | Weaner Revenue   | Cull Cow Revenue | Total Revenue    |
+| --------- | ------------- | ------------ | ---------------- | ---------------- | ---------------- |
+| 1         | 52            | 17           | R136K-204K       | R16K-24K         | R152K-228K       |
+| 2         | 60            | 20           | R180K-300K       | R24K-36K         | R204K-336K       |
+| 3         | 70            | 24           | R240K-360K       | R30K-45K         | R270K-405K       |
+| 4         | 80            | 28           | R308K-448K       | R40K-60K         | R348K-508K       |
+| 5         | 90            | 32           | R384K-512K       | R48K-72K         | R432K-584K       |
+| **TOTAL** |               | **121**      | **R1.25M-1.82M** | **R158K-237K**   | **R1.41M-2.06M** |
 
 **Plus:** Increased grazing capacity value (R200K-400K annually after clearance)  
 **Plus:** Property value increase (R2M-4M from cleared land)
@@ -76,6 +80,7 @@
 #### Nguni (30-40% Influence):
 
 **Core Traits:**
+
 - Indigenous South African breed (evolved over 1,000+ years)
 - Small to medium frame (cows 350-450kg, bulls 500-650kg)
 - Highly fertile (85-95% calving rate)
@@ -85,12 +90,14 @@
 - Feed efficient (6-8kg feed per 1kg gain vs 10-12kg European breeds)
 
 **Contribution to Composite:**
+
 - **Maternal efficiency:** High fertility, easy calving, good mothering
 - **Adaptability:** Drought tolerance, browse utilization
 - **Disease resistance:** Lower veterinary costs
 - **Longevity:** Productive to 12-15 years (vs 8-10 European breeds)
 
 **Challenges:**
+
 - Smaller frame (lower weaner weights)
 - Slower growth rate (compensated by efficiency)
 - Variable carcass quality (improved by crossbreeding)
@@ -98,6 +105,7 @@
 #### Brahman (25-35% Influence):
 
 **Core Traits:**
+
 - Zebu type (Bos indicus), originated India
 - Large frame (cows 450-600kg, bulls 800-1,000kg)
 - Heat tolerant (loose skin, sweat glands, short coat)
@@ -106,12 +114,14 @@
 - Strong carcass frame (good muscling, bone structure)
 
 **Contribution to Composite:**
+
 - **Growth:** Larger frame, heavier weaners
 - **Hybrid vigor:** Crossbred performance boost (especially with Bos taurus)
 - **Environmental endurance:** Heat, drought, disease tolerance
 - **Carcass frame:** Structural soundness, muscling
 
 **Challenges:**
+
 - Temperament (can be flighty, requires calm handling)
 - Longer gestation (290 days vs 283 Bos taurus)
 - Slower feedlot finishing (compensated by efficiency)
@@ -119,6 +129,7 @@
 #### Santa Gertrudis (15-25% Influence - Growing via Current Bull):
 
 **Core Traits:**
+
 - 5/8 Shorthorn × 3/8 Brahman (developed in Texas, 1940s)
 - Red coat (dominant color, heat reflective)
 - Beef specialist (excellent muscling, marbling)
@@ -127,12 +138,14 @@
 - Good temperament (Shorthorn influence)
 
 **Contribution to Composite:**
+
 - **Muscling:** Shorthorn beef genetics (thick, blocky conformation)
 - **Marbling:** Intramuscular fat (meat quality, premium pricing)
 - **Carcass consistency:** Predictable meat quality
 - **Color:** Red coat (visually uniform herd, market appeal)
 
 **Strategic Value:**
+
 - Current bull ensures continued SG influence
 - Weaners command premium (R8,000-12,000 vs R6,000-9,000 indigenous)
 - Ideal for 315mm rainfall (heat tolerance + beef quality)
@@ -140,6 +153,7 @@
 #### Bonsmara (10-20% Influence):
 
 **Core Traits:**
+
 - South African composite: 5/8 Afrikaner × 3/16 Hereford × 3/16 Shorthorn
 - Developed 1937-1964 (Mara Research Station)
 - Red coat (Afrikaner/Hereford influence)
@@ -149,6 +163,7 @@
 - Adapted to South African conditions (200-600mm rainfall)
 
 **Contribution to Composite:**
+
 - **Fertility:** Consistent calving, short calving intervals
 - **Temperament:** Calm, manageable (critical for rotational grazing)
 - **Adaptation:** Proven South African genetics (local conditions)
@@ -162,6 +177,7 @@
 **Magnitude:** 15-25% improvement in key traits
 
 **Traits affected:**
+
 - Fertility: +10-15% calving rate
 - Weaning weight: +8-12% heavier calves
 - Survival: +5-10% calf survival
@@ -169,6 +185,7 @@
 - Disease resistance: +10-15% lower mortality
 
 **Example Calculation:**
+
 - Purebred Nguni: 75% calving rate, 180kg weaner weight
 - Purebred Brahman: 70% calving rate, 220kg weaner weight
 - Average: 72.5% calving rate, 200kg weaner weight
@@ -177,12 +194,14 @@
 #### Drought Adaptation (Critical for 315mm Rainfall):
 
 **Multiple Genetic Pathways:**
+
 - **Nguni:** Efficient feed conversion, browse tolerance
 - **Brahman:** Fat storage (hump), can lose 30% body weight and recover
 - **Afrikaner (via Bonsmara):** Evolved for 200-400mm rainfall
 - **Result:** Herd survives 315mm with minimal supplementation
 
 **Practical Impact:**
+
 - Feed costs: R500-800 per cow per year (vs R1,500-2,500 European breeds)
 - Supplement: Only in severe drought (<250mm years)
 - Grazing flexibility: Utilize browse, low-quality forage
@@ -190,12 +209,14 @@
 #### Heat Tolerance (35-40°C Summer Temperatures):
 
 **Genetic Mechanisms:**
+
 - **Brahman:** Loose skin (surface area for heat dissipation), sweat glands
 - **Nguni:** Short coat, seek shade less than European breeds
 - **Santa Gertrudis:** 3/8 Brahman genetics, red coat (reflects heat)
 - **Result:** Productive in extreme heat (no heat stress)
 
 **Practical Impact:**
+
 - No summer slump (maintain weight, fertility)
 - Lower water requirements (8-12L/day vs 15-25L European breeds)
 - Reduced shade infrastructure needs
@@ -203,11 +224,13 @@
 #### Disease/Parasite Resistance:
 
 **Genetic Resistance:**
+
 - **Nguni:** Tick resistance (genetic), lower internal parasite burden
 - **Brahman:** Natural resistance to ticks, flies, internal parasites
 - **Result:** R15K-30K annual savings on dipping/deworming
 
 **Practical Impact:**
+
 - Dipping: 2-4 times per year (vs 8-12 European breeds)
 - Deworming: Selective (FAMACHA system, minimal chemical use)
 - Mortality: <3% annual (vs 5-8% European breeds in harsh conditions)
@@ -215,12 +238,14 @@
 #### Fertility & Maternal Efficiency:
 
 **Genetic Advantages:**
+
 - **Nguni:** 85-95% calving rate, calve every 12-14 months, easy calving
 - **Bonsmara:** Selected for fertility, 80-90% calving rate
 - **Composite vigor:** +10-15% calving rate boost
 - **Result:** More weaners per 100 cows (higher revenue)
 
 **Practical Impact:**
+
 - Calving rate: 75-85% (composite) vs 65-75% (purebred in harsh conditions)
 - Calving interval: 13-15 months (vs 15-18 months)
 - Dystocia: <5% (vs 10-15% large European breeds)
@@ -228,11 +253,13 @@
 #### Carcass Quality (Santa Gertrudis Bull Impact):
 
 **Genetic Improvement:**
+
 - **Santa Gertrudis:** Muscling (Shorthorn), marbling, red meat color
 - **Crossbred calves:** Hybrid vigor + improved carcass (vs straight indigenous)
 - **Result:** Premium weaner prices (R8,000-12,000 vs R6,000-9,000)
 
 **Market Advantage:**
+
 - Feedlot demand: SG-cross weaners preferred (finish well, marble)
 - Weaner sales: 20-40% premium over indigenous weaners
 - Repeat buyers: Consistent quality = loyal customers
@@ -240,12 +267,14 @@
 #### Frame Size Balance:
 
 **Optimal Sizing:**
+
 - Mature cow weight: 400-500kg (moderate frame)
 - Not too large: Lower feed requirements (critical for 315mm)
 - Not too small: Adequate weaner weights (200-250kg @ 7-9 months)
 - **Result:** Optimal efficiency for low-rainfall environment
 
 **Comparison:**
+
 - European breeds (Hereford, Angus): 550-700kg cows (too large for 315mm)
 - Pure Nguni: 350-450kg cows (efficient but small weaners)
 - **Composite: 400-500kg cows (sweet spot for Zeerust)**
@@ -261,17 +290,20 @@
 #### Bull Selection Criteria:
 
 **Current Bull (Santa Gertrudis) - KEEP:**
+
 - Proven genetics (carcass quality, heat tolerance)
 - Complements cow herd (adds muscling, marbling)
 - Market advantage (premium weaners)
 
 **Additional Bulls (Year 2-5):**
+
 - **Option A:** Additional Santa Gertrudis bull (strengthen SG influence)
 - **Option B:** Bonsmara bull (maintain fertility, temperament)
 - **Option C:** Brahman bull (strengthen heat/disease resistance)
 - **Recommendation:** Option A (additional SG bull) - maximize weaner premiums
 
 **Bull Management:**
+
 - Ratio: 1 bull per 20-25 cows (Year 5: 90 cows = 4-5 bulls)
 - Rotation: Prevent inbreeding, maintain genetic diversity
 - Culling: Remove poor performers, aggressive bulls
@@ -280,6 +312,7 @@
 #### Cow Selection Criteria:
 
 **Replacement Heifers (Annual Selection):**
+
 - **Maternal traits:** Easy calving, good mothering, milk production
 - **Frame size:** Moderate (400-500kg mature weight)
 - **Temperament:** Calm, easy to handle (critical for rotational grazing)
@@ -287,6 +320,7 @@
 - **Efficiency:** Maintain body condition on browse/grass (minimal supplement)
 
 **Culling Criteria (Annual Culling):**
+
 - **Age:** >12 years (declining fertility, teeth worn)
 - **Fertility:** Missed 2 consecutive breeding seasons
 - **Temperament:** Aggressive, difficult to handle
@@ -311,6 +345,7 @@
 #### Proposed System: High-Density Mob Grazing
 
 **Paddock Layout:**
+
 - Total area: 600ha (after sekelbos clearance)
 - Number of paddocks: **40 paddocks**
 - Paddock size: **15ha each** (average)
@@ -318,12 +353,14 @@
 - Water: Portable troughs or piped water to each paddock
 
 **Grazing Parameters:**
+
 - Stocking density: 80-120 cows per 15ha (very high density)
 - Grazing period: **3-5 days per paddock** (short duration)
 - Rest period: **40-60 days** (long recovery time)
 - Rotation: Systematic (paddock 1 → 2 → 3... → 40 → 1)
 
 **Why High-Density Works:**
+
 - **Even grazing:** Cattle eat everything (no selective grazing)
 - **Trampling:** Organic matter incorporated into soil
 - **Manure distribution:** Even fertilization across paddock
@@ -335,24 +372,28 @@
 #### Seasonal Adjustments:
 
 **Spring (September-November) - Rapid Growth:**
+
 - Grass growing fast (300-500kg DM/ha/month)
 - Grazing period: 3-4 days per paddock
 - Rest period: 40-50 days
 - Stocking: Full herd (all paddocks grazed)
 
 **Summer (December-February) - Peak Production:**
+
 - Grass at peak (400-600kg DM/ha/month)
 - Grazing period: 4-5 days per paddock
 - Rest period: 50-60 days
 - Stocking: Full herd + calves (highest demand)
 
 **Autumn (March-May) - Declining Growth:**
+
 - Grass slowing (200-400kg DM/ha/month)
 - Grazing period: 3-4 days per paddock
 - Rest period: 50-60 days
 - Stocking: Full herd (weaners sold, lower demand)
 
 **Winter (June-August) - Dormancy:**
+
 - Grass dormant (50-150kg DM/ha/month)
 - Grazing period: 5-7 days per paddock (slower consumption)
 - Rest period: 60-80 days
@@ -362,12 +403,14 @@
 #### Drought Management:
 
 **Moderate Drought (250-300mm rainfall):**
+
 - Reduce stocking (sell cull cows early, wean calves early)
 - Extend rest periods (70-90 days, allow grass recovery)
 - Supplement: Lucerne, lick blocks (maintain body condition)
 - Prioritize: Pregnant cows, young cows (cull old cows)
 
 **Severe Drought (<250mm rainfall):**
+
 - Aggressive destocking (sell 20-30% of herd)
 - Focus grazing: Best paddocks only (rest poor paddocks entirely)
 - Heavy supplementation: Hay, silage, lick blocks
@@ -379,24 +422,28 @@
 #### Phased Grazing Plan (Follows Clearance):
 
 **Year 1 (50ha Cleared):**
+
 - Divide cleared area into 3-4 paddocks (12-15ha each)
 - Graze cleared paddocks first (best grass recovery)
 - Rest uncleared areas (cattle avoid sekelbos-infested areas)
 - **Benefit:** Cattle performance improves (better forage quality)
 
 **Year 2 (150ha Cleared Cumulative):**
+
 - Divide cleared area into 10 paddocks (15ha each)
 - Systematic rotation (cleared paddocks only)
 - Uncleared areas: Occasional grazing (maintenance, prevent regrowth)
 - **Benefit:** Carrying capacity increases 20-30%
 
 **Year 3 (270ha Cleared Cumulative):**
+
 - Divide cleared area into 18 paddocks (15ha each)
 - Full rotational system (cleared paddocks)
 - Uncleared areas: Strategic grazing (prevent sekelbos regrowth)
 - **Benefit:** Carrying capacity increases 40-50%
 
 **Year 4-5 (600ha Cleared):**
+
 - Full 40-paddock system (entire property)
 - Systematic rotation (all paddocks)
 - Maintenance grazing (prevent sekelbos regrowth)
@@ -405,6 +452,7 @@
 #### Cattle Role in Sekelbos Control:
 
 **Phase 5 of Clearance System:**
+
 - **Timing:** After goat browsing, mechanical cutting, pig rooting, chicken scratching
 - **Method:** High-density mob grazing (80-120 cows per 15ha)
 - **Duration:** 3-5 days per cleared paddock
@@ -412,6 +460,7 @@
 - **Result:** Grass establishment outcompetes sekelbos regrowth
 
 **Ongoing Maintenance:**
+
 - Rotational grazing: Prevents selective grazing (cattle eat everything)
 - Trampling: Any sekelbos seedlings crushed before establishment
 - Grass competition: Dense grass sward prevents sekelbos germination
@@ -422,10 +471,12 @@
 #### Fencing (Year 1-3):
 
 **Permanent Perimeter Fencing:**
+
 - Existing (assumed adequate)
 - Repairs: R20K-40K (Year 1)
 
 **Internal Paddock Fencing (Electric):**
+
 - Type: Polywire or polytape (6-8 strands)
 - Posts: Step-in fiberglass or steel (every 10-15m)
 - Energizer: Solar-powered (12V, 5-10 joule)
@@ -434,6 +485,7 @@
 - Phased: Year 1 (R150K-250K), Year 2 (R300K-500K), Year 3 (R350K-530K)
 
 **Alternative: Temporary Electric Fencing:**
+
 - Type: Polywire, step-in posts (moved every 3-5 days)
 - Length: 800m (enclose 15ha paddock)
 - Cost: R15K-25K (reusable, moved daily/weekly)
@@ -443,10 +495,12 @@
 #### Water Infrastructure (Year 1-3):
 
 **Existing Water Points:**
+
 - Boreholes, dams, troughs (assumed adequate for current system)
 - Assessment needed (capacity, distribution)
 
 **Additional Water Requirements:**
+
 - Target: Water in every paddock or within 500m
 - Options:
   - Portable troughs (200-500L, moved with herd)
@@ -454,12 +508,14 @@
   - Additional boreholes (if existing insufficient)
 
 **Portable Troughs (Recommended Year 1-2):**
+
 - Number: 4-6 troughs (rotate with herd)
 - Capacity: 500L each (sufficient for 80-120 cows for 1-2 days)
 - Filling: Bakkie with water tank (daily/every 2 days)
 - Cost: R2,000-4,000 each × 6 = R12K-24K
 
 **Piped Water System (Permanent - Year 3+):**
+
 - Mainline: 50mm HDPE pipe (borehole to paddocks)
 - Branch lines: 25mm HDPE (mainline to troughs)
 - Troughs: Permanent 500-1,000L (each paddock)
@@ -470,9 +526,11 @@
 #### Handling Facilities (Year 1-2):
 
 **Existing Facilities:**
+
 - Crush, race, loading ramp (assumed existing, may need repairs)
 
 **Upgrades/Additions:**
+
 - Sorting pens (separate weaners, cull cows)
 - Weigh scale (track weaner weights, optimize marketing)
 - Shade structure (reduce stress during handling)
@@ -481,12 +539,14 @@
 #### Total Cattle Infrastructure Investment:
 
 **Temporary System (Recommended Start):**
+
 - Fencing: R15K-25K (temporary)
 - Water: R12K-24K (portable)
 - Handling: R30K-60K (upgrades)
 - **Total (Temporary System): R57K-109K**
 
 **Permanent System (Year 3+ Transition):**
+
 - Fencing: R800K-1.28M (phased over 3 years)
 - Water: R150K-300K (permanent, Year 3+)
 - Handling: R30K-60K (upgrades)
@@ -590,17 +650,20 @@
 #### Vaccination Program:
 
 **Calves (Birth to Weaning):**
+
 - 2-3 months: Botulism, blackleg (Covexin or equivalent)
 - 4-5 months: Booster (21-28 days after first dose)
 - Pre-weaning: Respiratory vaccines (if feedlot-bound)
 - Cost: R30-50 per calf (2 doses)
 
 **Cows (Annual):**
+
 - Pre-breeding: Botulism, blackleg booster (November-December)
 - Pre-calving: Scour vaccine (protect calves via colostrum)
 - Cost: R40-60 per cow annually
 
 **Bulls (Annual):**
+
 - Pre-breeding: Full vaccination (botulism, blackleg, vibriosis)
 - Cost: R50-80 per bull annually
 
@@ -609,6 +672,7 @@
 #### Parasite Control:
 
 **Internal Parasites (Worms):**
+
 - **Strategy:** Selective deworming (FAMACHA system, fecal egg counts)
 - **Frequency:** 2-4 times per year (only animals showing signs)
 - **Products:** Ivermectin, levamisole (rotate to prevent resistance)
@@ -616,6 +680,7 @@
 - **Composite advantage:** Indigenous genetics = lower parasite burden
 
 **External Parasites (Ticks):**
+
 - **Strategy:** Minimal dipping (composite genetics = tick resistance)
 - **Frequency:** 2-4 times per year (vs 8-12 European breeds)
 - **Method:** Spray race or pour-on (amitraz, deltamethrin)
@@ -627,6 +692,7 @@
 #### Mineral Supplementation:
 
 **Lick Blocks (Year-Round):**
+
 - **Type:** Phosphorus-enriched (critical in Zeerust soils)
 - **Consumption:** 50-80g per cow per day
 - **Placement:** Every paddock (free choice)
@@ -634,6 +700,7 @@
 - **Total Annual Cost:** R7,500-22,500 (Year 5 herd)
 
 **Injectable Minerals (Optional):**
+
 - **Type:** Multimin or equivalent (Se, Cu, Zn, Mn)
 - **Frequency:** Once or twice annually (pre-breeding, pre-calving)
 - **Cost:** R30-50 per cow per dose
@@ -641,13 +708,13 @@
 
 #### Total Annual Herd Health Costs (Year 5 - 90 Cows):
 
-| Cost Category | Amount |
-|---------------|--------|
-| Vaccinations | R3,000-6,000 |
-| Parasite control | R2,000-5,000 |
-| Minerals | R7,500-22,500 |
-| Veterinary services | R5,000-10,000 |
-| **TOTAL** | **R17,500-43,500** |
+| Cost Category       | Amount             |
+| ------------------- | ------------------ |
+| Vaccinations        | R3,000-6,000       |
+| Parasite control    | R2,000-5,000       |
+| Minerals            | R7,500-22,500      |
+| Veterinary services | R5,000-10,000      |
+| **TOTAL**           | **R17,500-43,500** |
 
 **Per Cow:** R195-485 annually  
 **Composite advantage:** 30-50% lower health costs vs European breeds in harsh conditions
@@ -681,6 +748,7 @@
 #### Sales Channels:
 
 **Option 1: Auction (70% of weaners):**
+
 - **Venues:** Zeerust, Rustenburg, Mafikeng auctions
 - **Frequency:** Weekly sales (autumn peak)
 - **Advantages:** Competitive bidding, market price discovery
@@ -688,12 +756,14 @@
 - **Timing:** April-June (autumn sales, high demand)
 
 **Option 2: Private Treaty (20% of weaners):**
+
 - **Buyers:** Feedlots, backgrounders (direct relationships)
 - **Advantages:** No commission, negotiate price, build relationships
 - **Pricing:** Typically R1-3/kg above auction (no commission)
 - **Timing:** Flexible (buyer preference)
 
 **Option 3: Retain Ownership (10% of weaners):**
+
 - **Strategy:** Background on farm (grow to 300-350kg)
 - **Duration:** 6-9 months (additional growth)
 - **Advantages:** Capture additional R2,000-4,000 per animal
@@ -702,14 +772,14 @@
 
 ### 4.2 Weaner Revenue Projections
 
-| Year | Breeding Cows | Calving Rate | Calves Weaned | Sold | Avg Weight | Price/kg | Revenue |
-|------|---------------|--------------|---------------|------|------------|----------|---------|
-| 1 | 52 | 75% | 37 | 17 | 210kg | R40-48 | R142,800-171,360 |
-| 2 | 60 | 78% | 45 | 20 | 220kg | R42-50 | R184,800-220,000 |
-| 3 | 70 | 80% | 53 | 24 | 230kg | R43-52 | R237,360-287,040 |
-| 4 | 80 | 82% | 63 | 28 | 240kg | R44-54 | R295,680-362,880 |
-| 5 | 90 | 83% | 71 | 32 | 250kg | R45-56 | R360,000-448,000 |
-| **TOTAL** | | | | **121** | | | **R1,220,640-1,489,280** |
+| Year      | Breeding Cows | Calving Rate | Calves Weaned | Sold    | Avg Weight | Price/kg | Revenue                  |
+| --------- | ------------- | ------------ | ------------- | ------- | ---------- | -------- | ------------------------ |
+| 1         | 52            | 75%          | 37            | 17      | 210kg      | R40-48   | R142,800-171,360         |
+| 2         | 60            | 78%          | 45            | 20      | 220kg      | R42-50   | R184,800-220,000         |
+| 3         | 70            | 80%          | 53            | 24      | 230kg      | R43-52   | R237,360-287,040         |
+| 4         | 80            | 82%          | 63            | 28      | 240kg      | R44-54   | R295,680-362,880         |
+| 5         | 90            | 83%          | 71            | 32      | 250kg      | R45-56   | R360,000-448,000         |
+| **TOTAL** |               |              |               | **121** |            |          | **R1,220,640-1,489,280** |
 
 ### 4.3 Cull Cow & Bull Revenue
 
@@ -723,14 +793,14 @@
 
 #### Annual Cull Cow Revenue:
 
-| Year | Cows Culled | Revenue |
-|------|-------------|---------|
-| 1 | 2 | R16,000-20,000 |
-| 2 | 3 | R24,000-30,000 |
-| 3 | 3 | R25,500-33,000 |
-| 4 | 4 | R36,000-48,000 |
-| 5 | 4 | R38,000-50,000 |
-| **TOTAL** | | **R139,500-181,000** |
+| Year      | Cows Culled | Revenue              |
+| --------- | ----------- | -------------------- |
+| 1         | 2           | R16,000-20,000       |
+| 2         | 3           | R24,000-30,000       |
+| 3         | 3           | R25,500-33,000       |
+| 4         | 4           | R36,000-48,000       |
+| 5         | 4           | R38,000-50,000       |
+| **TOTAL** |             | **R139,500-181,000** |
 
 #### Cull Bull Sales:
 
@@ -742,16 +812,17 @@
 
 ### 4.4 Total Cattle Enterprise Revenue (5-Year)
 
-| Revenue Stream | Conservative | Optimistic |
-|----------------|--------------|------------|
-| Weaner sales | R1,220,640 | R1,489,280 |
-| Cull cow sales | R139,500 | R181,000 |
-| Cull bull sales | R22,400 | R70,000 |
-| **TOTAL** | **R1,382,540** | **R1,740,280** |
+| Revenue Stream  | Conservative   | Optimistic     |
+| --------------- | -------------- | -------------- |
+| Weaner sales    | R1,220,640     | R1,489,280     |
+| Cull cow sales  | R139,500       | R181,000       |
+| Cull bull sales | R22,400        | R70,000        |
+| **TOTAL**       | **R1,382,540** | **R1,740,280** |
 
 **Average Annual Revenue (Year 5):** R360K-498K
 
 **Plus Indirect Value:**
+
 - Increased grazing capacity: R200K-400K annually (after clearance)
 - Property value increase: R2M-4M (cleared land)
 - Herd equity growth: R720K → R1.2M-1.8M (herd value appreciation)
@@ -764,17 +835,17 @@
 
 #### Annual Operating Costs (Year 5 - 90 Cows):
 
-| Cost Category | Amount | Notes |
-|---------------|--------|-------|
-| Herd health | R17,500-43,500 | Vaccinations, parasites, minerals, vet |
-| Supplement feeding | R15,000-45,000 | Drought years, winter lick blocks |
-| Bull purchases | R10,000-20,000 | Amortized (1 bull every 3-4 years) |
-| Fencing maintenance | R10,000-20,000 | Repairs, energizer batteries |
-| Water infrastructure | R5,000-15,000 | Pump maintenance, trough repairs |
-| Marketing costs | R8,000-15,000 | Auction commissions, transport |
-| Labor (part-time) | R24,000-48,000 | Seasonal help (calving, weaning) |
-| Miscellaneous | R10,000-20,000 | Ear tags, record keeping, fuel |
-| **TOTAL** | **R99,500-226,500** | **R1,106-2,517 per cow** |
+| Cost Category        | Amount              | Notes                                  |
+| -------------------- | ------------------- | -------------------------------------- |
+| Herd health          | R17,500-43,500      | Vaccinations, parasites, minerals, vet |
+| Supplement feeding   | R15,000-45,000      | Drought years, winter lick blocks      |
+| Bull purchases       | R10,000-20,000      | Amortized (1 bull every 3-4 years)     |
+| Fencing maintenance  | R10,000-20,000      | Repairs, energizer batteries           |
+| Water infrastructure | R5,000-15,000       | Pump maintenance, trough repairs       |
+| Marketing costs      | R8,000-15,000       | Auction commissions, transport         |
+| Labor (part-time)    | R24,000-48,000      | Seasonal help (calving, weaning)       |
+| Miscellaneous        | R10,000-20,000      | Ear tags, record keeping, fuel         |
+| **TOTAL**            | **R99,500-226,500** | **R1,106-2,517 per cow**               |
 
 **Composite Advantage:** 30-40% lower operating costs vs European breeds (health, supplement)
 
@@ -782,25 +853,25 @@
 
 #### Year 5 Profit & Loss:
 
-| Item | Amount |
-|------|--------|
-| **Revenue** | |
-| Weaner sales (32 head) | R360,000-448,000 |
-| Cull cow sales (4 head) | R38,000-50,000 |
-| **Total Revenue** | **R398,000-498,000** |
-| | |
-| **Operating Costs** | |
-| Herd health | R17,500-43,500 |
-| Supplement | R15,000-45,000 |
-| Bulls | R10,000-20,000 |
-| Infrastructure | R15,000-35,000 |
-| Marketing | R8,000-15,000 |
-| Labor | R24,000-48,000 |
-| Miscellaneous | R10,000-20,000 |
-| **Total Costs** | **R99,500-226,500** |
-| | |
-| **NET PROFIT** | **R298,500-271,500** |
-| **Profit Margin** | **75-54%** |
+| Item                    | Amount               |
+| ----------------------- | -------------------- |
+| **Revenue**             |                      |
+| Weaner sales (32 head)  | R360,000-448,000     |
+| Cull cow sales (4 head) | R38,000-50,000       |
+| **Total Revenue**       | **R398,000-498,000** |
+|                         |                      |
+| **Operating Costs**     |                      |
+| Herd health             | R17,500-43,500       |
+| Supplement              | R15,000-45,000       |
+| Bulls                   | R10,000-20,000       |
+| Infrastructure          | R15,000-35,000       |
+| Marketing               | R8,000-15,000        |
+| Labor                   | R24,000-48,000       |
+| Miscellaneous           | R10,000-20,000       |
+| **Total Costs**         | **R99,500-226,500**  |
+|                         |                      |
+| **NET PROFIT**          | **R298,500-271,500** |
+| **Profit Margin**       | **75-54%**           |
 
 **Return per Cow (Year 5):** R3,317-3,017 net profit per breeding cow
 
@@ -809,6 +880,7 @@
 #### Infrastructure Investment (Year 1-3):
 
 **Option A: Temporary System (Low Capital)**
+
 - Temporary electric fencing: R15,000-25,000
 - Portable water troughs: R12,000-24,000
 - Handling facility upgrades: R30,000-60,000
@@ -817,6 +889,7 @@
 - **Disadvantage:** Daily labor (move fences, haul water)
 
 **Option B: Permanent System (High Capital)**
+
 - Permanent electric fencing (40 paddocks): R800,000-1,280,000
 - Piped water system: R150,000-300,000
 - Handling facility upgrades: R30,000-60,000
@@ -830,16 +903,16 @@
 
 #### 5-Year Financial Summary:
 
-| Metric | Conservative | Optimistic |
-|--------|--------------|------------|
-| Total Revenue | R1,382,540 | R1,740,280 |
-| Total Operating Costs | R497,500 | R1,132,500 |
-| Infrastructure (Temp System) | R57,000 | R109,000 |
-| **Net Profit (5-Year)** | **R828,040** | **R498,780** |
-| **ROI** | **1,452%** | **457%** |
-| **Annual Average Profit** | **R165,608** | **R99,756** |
+| Metric                       | Conservative | Optimistic   |
+| ---------------------------- | ------------ | ------------ |
+| Total Revenue                | R1,382,540   | R1,740,280   |
+| Total Operating Costs        | R497,500     | R1,132,500   |
+| Infrastructure (Temp System) | R57,000      | R109,000     |
+| **Net Profit (5-Year)**      | **R828,040** | **R498,780** |
+| **ROI**                      | **1,452%**   | **457%**     |
+| **Annual Average Profit**    | **R165,608** | **R99,756**  |
 
-*Note: Conservative scenario has higher profit due to lower operating costs (minimal supplement, health issues)*
+_Note: Conservative scenario has higher profit due to lower operating costs (minimal supplement, health issues)_
 
 #### Permanent System ROI:
 
@@ -860,6 +933,7 @@
 **Impact:** Reduced grazing, lower weaner weights, increased mortality
 
 **Mitigation:**
+
 - Composite genetics (drought-adapted)
 - Destocking (sell cull cows early)
 - Supplementation (hay, lick blocks)
@@ -873,6 +947,7 @@
 **Impact:** Mortality, quarantine, veterinary costs
 
 **Mitigation:**
+
 - Vaccination program (preventative)
 - Biosecurity (quarantine new animals)
 - Composite genetics (disease resistance)
@@ -885,6 +960,7 @@
 **Impact:** Calf losses (5-10% in high predator areas)
 
 **Mitigation:**
+
 - Calving paddock near homestead (observation)
 - Guardian animals (donkeys, alpacas - Year 2+)
 - Carcass removal (reduce predator attraction)
@@ -899,6 +975,7 @@
 **Impact:** Revenue fluctuations (R35-55/kg range)
 
 **Mitigation:**
+
 - Timing (sell autumn peak demand)
 - Quality (SG-cross genetics command premium)
 - Diversify (auction + private treaty)
@@ -911,6 +988,7 @@
 **Impact:** Lower weaner prices, slower sales
 
 **Mitigation:**
+
 - Backgrounding option (grow to 300-350kg)
 - Alternative markets (other farmers, export)
 - Herd flexibility (retain heifers, reduce sales)
@@ -924,6 +1002,7 @@
 **Impact:** Fence breakage (cattle escape), water system failure
 
 **Mitigation:**
+
 - Regular maintenance (monthly checks)
 - Backup systems (portable troughs, temporary fencing)
 - Spare parts inventory (energizer batteries, polywire)
@@ -935,6 +1014,7 @@
 **Impact:** Delayed calving checks, weaning, marketing
 
 **Mitigation:**
+
 - Hire reliable part-time labor (calving season)
 - Train multiple people (cross-training)
 - Composite genetics (easy calving, low intervention)
@@ -977,26 +1057,31 @@
 ### 7.2 Monitoring Schedule
 
 #### Daily:
+
 - Cattle checks (health, water, fencing)
 - Calving checks (during calving season)
 - Paddock rotation (move to next paddock)
 
 #### Weekly:
+
 - Grass assessment (grazing days remaining)
 - Water system checks (troughs, pumps)
 - Fence energizer checks (voltage)
 
 #### Monthly:
+
 - Herd health checks (body condition, parasites)
 - Breeding records (bulls in/out, cows bred)
 - Financial tracking (costs, revenue)
 
 #### Quarterly:
+
 - Pregnancy testing (post-breeding)
 - Weaner weight checks (growth rates)
 - Infrastructure maintenance (fencing, water)
 
 #### Annually:
+
 - Full financial review (profit/loss)
 - Herd genetic evaluation (culling, selection)
 - Grazing system assessment (carrying capacity, grass health)
