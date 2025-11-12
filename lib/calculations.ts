@@ -45,14 +45,33 @@ export function calculateEquityShare(profit: [number, number], percentage: numbe
   return [Math.round(profit[0] * (percentage / 100)), Math.round(profit[1] * (percentage / 100))];
 }
 
-function calculateTotalRevenue(yearData: any): [number, number] {
+function calculateTotalRevenue(yearData: any, data: PartnershipData): [number, number] {
+  const cattleRevenuePerLSU: [number, number] = [
+    data.baselineRevenue.cattle[0] / data.currentLSU,
+    data.baselineRevenue.cattle[1] / data.currentLSU,
+  ];
+
+  const cattleCount = data.cattleHectares * data.cattlePerHectare;
+  const goatCount = data.goatsHectares * data.goatsPerHectare;
+  const pigCount = data.pigsHectares * data.pigsPerHectare;
+  const chickenCount = data.chickensHectares * data.chickensPerHectare;
+
+  // Assuming other livestock revenue is proportional to cattle revenue per LSU
+  const goatRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.2, cattleRevenuePerLSU[1] * 0.2];
+  const pigRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.3, cattleRevenuePerLSU[1] * 0.3];
+  const chickenRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.05, cattleRevenuePerLSU[1] * 0.05];
+  const cropsRevenuePerHectare: [number, number] = [
+    data.baselineRevenue.crops[0] > 0 ? data.baselineRevenue.crops[0] : 1000,
+    data.baselineRevenue.crops[1] > 0 ? data.baselineRevenue.crops[1] : 2000,
+  ];
+
   const revenues: Record<string, [number, number]> = {
     sekelbos: yearData.sekelbosRevenue,
-    cattle: yearData.cattleRevenue,
-    goats: yearData.goatsRevenue,
-    pigs: yearData.pigsRevenue,
-    chickens: yearData.chickensRevenue,
-    crops: yearData.cropsRevenue,
+    cattle: [cattleRevenuePerLSU[0] * cattleCount, cattleRevenuePerLSU[1] * cattleCount],
+    goats: [goatRevenuePerAnimal[0] * goatCount, goatRevenuePerAnimal[1] * goatCount],
+    pigs: [pigRevenuePerAnimal[0] * pigCount, pigRevenuePerAnimal[1] * pigCount],
+    chickens: [chickenRevenuePerAnimal[0] * chickenCount, chickenRevenuePerAnimal[1] * chickenCount],
+    crops: [cropsRevenuePerHectare[0] * data.cropsHectares, cropsRevenuePerHectare[1] * data.cropsHectares],
   };
   return sumRevenue(revenues);
 }
@@ -80,7 +99,7 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   const yearData = data.yearlyTargets[yearIndex];
   const equity = data.equityStructure[yearIndex];
 
-  const revenue = calculateTotalRevenue(yearData);
+  const revenue = calculateTotalRevenue(yearData, data);
   const costs = yearData.costs;
   const profit = calculateProfit(revenue, costs);
 

@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { calculateBaseline, calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
+import { calculateBaseline, calculateFinancialSummary } from '@/lib/calculations';
+import { formatRange, formatCurrency } from '@/lib/formatting';
 import { Section, Card, MetricCard, Table } from './UIComponents';
 import styles from './ExecutiveSummary.module.css';
 
@@ -12,7 +13,7 @@ interface ExecutiveSummaryProps {
 
 export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
   const baseline = calculateBaseline(data);
-  const summary = calculateFiveYearSummary(data);
+  const summary = calculateFinancialSummary(data);
 
   const hansInvestment = data.hansLivestockValue;
   const hansReturns = summary.cumulative.hans;
@@ -27,8 +28,8 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
         <MetricCard label="Current Baseline Revenue" value={formatRange(baseline.revenue)} />
         <MetricCard
           label="Year 5 Target Revenue"
-          value={formatRange(summary.year5.revenue)}
-          change={`+${Math.round((summary.year5.revenue[0] / baseline.revenue[0] - 1) * 100)}% growth`}
+          value={formatRange(summary.yearly[4].revenue)}
+          change={`+${Math.round((summary.yearly[4].revenue[0] / baseline.revenue[0] - 1) * 100)}% growth`}
         />
         <MetricCard
           label="Hans's 5-Year Returns"
@@ -92,33 +93,33 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
           rows={[
             [
               'Year 1',
-              `${data.equityStructure.year1.hans}% (Prove-It)`,
-              `Revenue ≥${formatCurrency(summary.year1.revenue[0])}`,
-              formatRange(summary.year1.hansTotalIncome),
+              `${data.equityStructure[0].hans}% (Prove-It)`,
+              `Revenue ≥${formatCurrency(summary.yearly[0].revenue[0])}`,
+              formatRange(summary.yearly[0].hansTotalIncome),
             ],
             [
               'Year 2',
-              `${data.equityStructure.year2.hans}% (Earned)`,
-              `Revenue ≥${formatCurrency(summary.year2.revenue[0])}`,
-              formatRange(summary.year2.hansTotalIncome),
+              `${data.equityStructure[1].hans}% (Earned)`,
+              `Revenue ≥${formatCurrency(summary.yearly[1].revenue[0])}`,
+              formatRange(summary.yearly[1].hansTotalIncome),
             ],
             [
               'Year 3',
-              `${data.equityStructure.year3.hans}% (Earned)`,
-              `Revenue ≥${formatCurrency(summary.year3.revenue[0])}`,
-              formatRange(summary.year3.hansTotalIncome),
+              `${data.equityStructure[2].hans}% (Earned)`,
+              `Revenue ≥${formatCurrency(summary.yearly[2].revenue[0])}`,
+              formatRange(summary.yearly[2].hansTotalIncome),
             ],
             [
               'Year 4-5',
-              `${data.equityStructure.year4.hans}% (Full Partner)`,
-              `Revenue ≥${formatCurrency(summary.year4.revenue[0])}+`,
-              `${formatRange(summary.year4.hansTotalIncome)} / ${formatRange(summary.year5.hansTotalIncome)}`,
+              `${data.equityStructure[3].hans}% (Full Partner)`,
+              `Revenue ≥${formatCurrency(summary.yearly[3].revenue[0])}+`,
+              `${formatRange(summary.yearly[3].hansTotalIncome)} / ${formatRange(summary.yearly[4].hansTotalIncome)}`,
             ],
           ]}
         />
         <p className={styles.finalStructure}>
-          <strong>Final Structure:</strong> Oom Willie {data.equityStructure.year5.oomWillie}%, Eben{' '}
-          {data.equityStructure.year5.eben}%, Hans {data.equityStructure.year5.hans}%
+          <strong>Final Structure:</strong> Oom Willie {data.equityStructure[4].oomWillie}%, Eben{' '}
+          {data.equityStructure[4].eben}%, Hans {data.equityStructure[4].hans}%
         </p>
       </Card>
 
