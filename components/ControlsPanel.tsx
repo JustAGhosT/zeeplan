@@ -192,10 +192,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Oom Willie Equity"
-            value={data.equityStructure.year1.oomWillie}
+            value={data.equityStructure[0].oomWillie}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year1.oomWillie = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], oomWillie: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -205,10 +205,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Eben Equity"
-            value={data.equityStructure.year1.eben}
+            value={data.equityStructure[0].eben}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year1.eben = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], eben: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -218,10 +218,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Hans Equity"
-            value={data.equityStructure.year1.hans}
+            value={data.equityStructure[0].hans}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year1.hans = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], hans: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -235,10 +235,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Oom Willie Equity"
-            value={data.equityStructure.year5.oomWillie}
+            value={data.equityStructure[4].oomWillie}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year5.oomWillie = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], oomWillie: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -248,10 +248,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Eben Equity"
-            value={data.equityStructure.year5.eben}
+            value={data.equityStructure[4].eben}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year5.eben = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], eben: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -261,10 +261,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
           <InputGroup
             label="Hans Equity"
-            value={data.equityStructure.year5.hans}
+            value={data.equityStructure[4].hans}
             onChange={(v) => {
-              const newEquity = { ...data.equityStructure };
-              newEquity.year5.hans = v;
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], hans: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}

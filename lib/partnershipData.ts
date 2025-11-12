@@ -62,4 +62,4 @@ export interface YearlyTarget {
 
 import partnershipData from './partnershipData.json';
 
-export const defaultPartnershipData: PartnershipData = partnershipData;
+export const defaultPartnershipData: PartnershipData = partnershipData as PartnershipData;
