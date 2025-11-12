@@ -14,7 +14,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { PartnershipData } from '@/lib/partnershipData';
-import { calculateFiveYearSummary, formatCurrency } from '@/lib/calculations';
+import { calculateFinancialSummary } from '@/lib/calculations';
+import { formatCurrency } from '@/lib/formatting';
 import { useWindowSize } from '@/lib/hooks';
 import styles from './FinancialCharts.module.css';
 import commonStyles from '@/app/common.module.css';
@@ -26,34 +27,34 @@ interface FinancialChartsProps {
 export function FinancialCharts({ data }: FinancialChartsProps) {
   const { width } = useWindowSize();
   const isMobile = width ? width < 768 : false;
-  const summary = calculateFiveYearSummary(data);
+  const summary = calculateFinancialSummary(data);
 
   // Prepare revenue growth data
   const revenueData = [
     {
       year: 'Year 1',
-      revenue: (summary.year1.revenue[0] + summary.year1.revenue[1]) / 2,
-      profit: (summary.year1.profit[0] + summary.year1.profit[1]) / 2,
+      revenue: (summary.yearly[0].revenue[0] + summary.yearly[0].revenue[1]) / 2,
+      profit: (summary.yearly[0].profit[0] + summary.yearly[0].profit[1]) / 2,
     },
     {
       year: 'Year 2',
-      revenue: (summary.year2.revenue[0] + summary.year2.revenue[1]) / 2,
-      profit: (summary.year2.profit[0] + summary.year2.profit[1]) / 2,
+      revenue: (summary.yearly[1].revenue[0] + summary.yearly[1].revenue[1]) / 2,
+      profit: (summary.yearly[1].profit[0] + summary.yearly[1].profit[1]) / 2,
     },
     {
       year: 'Year 3',
-      revenue: (summary.year3.revenue[0] + summary.year3.revenue[1]) / 2,
-      profit: (summary.year3.profit[0] + summary.year3.profit[1]) / 2,
+      revenue: (summary.yearly[2].revenue[0] + summary.yearly[2].revenue[1]) / 2,
+      profit: (summary.yearly[2].profit[0] + summary.yearly[2].profit[1]) / 2,
     },
     {
       year: 'Year 4',
-      revenue: (summary.year4.revenue[0] + summary.year4.revenue[1]) / 2,
-      profit: (summary.year4.profit[0] + summary.year4.profit[1]) / 2,
+      revenue: (summary.yearly[3].revenue[0] + summary.yearly[3].revenue[1]) / 2,
+      profit: (summary.yearly[3].profit[0] + summary.yearly[3].profit[1]) / 2,
     },
     {
       year: 'Year 5',
-      revenue: (summary.year5.revenue[0] + summary.year5.revenue[1]) / 2,
-      profit: (summary.year5.profit[0] + summary.year5.profit[1]) / 2,
+      revenue: (summary.yearly[4].revenue[0] + summary.yearly[4].revenue[1]) / 2,
+      profit: (summary.yearly[4].profit[0] + summary.yearly[4].profit[1]) / 2,
     },
   ];
 
@@ -61,33 +62,33 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   const partnerIncomeData = [
     {
       year: 'Year 1',
-      oomWillie: (summary.year1.oomWillieIncome[0] + summary.year1.oomWillieIncome[1]) / 2,
-      eben: (summary.year1.ebenIncome[0] + summary.year1.ebenIncome[1]) / 2,
-      hans: (summary.year1.hansTotalIncome[0] + summary.year1.hansTotalIncome[1]) / 2,
+      oomWillie: (summary.yearly[0].oomWillieIncome[0] + summary.yearly[0].oomWillieIncome[1]) / 2,
+      eben: (summary.yearly[0].ebenIncome[0] + summary.yearly[0].ebenIncome[1]) / 2,
+      hans: (summary.yearly[0].hansTotalIncome[0] + summary.yearly[0].hansTotalIncome[1]) / 2,
     },
     {
       year: 'Year 2',
-      oomWillie: (summary.year2.oomWillieIncome[0] + summary.year2.oomWillieIncome[1]) / 2,
-      eben: (summary.year2.ebenIncome[0] + summary.year2.ebenIncome[1]) / 2,
-      hans: (summary.year2.hansTotalIncome[0] + summary.year2.hansTotalIncome[1]) / 2,
+      oomWillie: (summary.yearly[1].oomWillieIncome[0] + summary.yearly[1].oomWillieIncome[1]) / 2,
+      eben: (summary.yearly[1].ebenIncome[0] + summary.yearly[1].ebenIncome[1]) / 2,
+      hans: (summary.yearly[1].hansTotalIncome[0] + summary.yearly[1].hansTotalIncome[1]) / 2,
     },
     {
       year: 'Year 3',
-      oomWillie: (summary.year3.oomWillieIncome[0] + summary.year3.oomWillieIncome[1]) / 2,
-      eben: (summary.year3.ebenIncome[0] + summary.year3.ebenIncome[1]) / 2,
-      hans: (summary.year3.hansTotalIncome[0] + summary.year3.hansTotalIncome[1]) / 2,
+      oomWillie: (summary.yearly[2].oomWillieIncome[0] + summary.yearly[2].oomWillieIncome[1]) / 2,
+      eben: (summary.yearly[2].ebenIncome[0] + summary.yearly[2].ebenIncome[1]) / 2,
+      hans: (summary.yearly[2].hansTotalIncome[0] + summary.yearly[2].hansTotalIncome[1]) / 2,
     },
     {
       year: 'Year 4',
-      oomWillie: (summary.year4.oomWillieIncome[0] + summary.year4.oomWillieIncome[1]) / 2,
-      eben: (summary.year4.ebenIncome[0] + summary.year4.ebenIncome[1]) / 2,
-      hans: (summary.year4.hansTotalIncome[0] + summary.year4.hansTotalIncome[1]) / 2,
+      oomWillie: (summary.yearly[3].oomWillieIncome[0] + summary.yearly[3].oomWillieIncome[1]) / 2,
+      eben: (summary.yearly[3].ebenIncome[0] + summary.yearly[3].ebenIncome[1]) / 2,
+      hans: (summary.yearly[3].hansTotalIncome[0] + summary.yearly[3].hansTotalIncome[1]) / 2,
     },
     {
       year: 'Year 5',
-      oomWillie: (summary.year5.oomWillieIncome[0] + summary.year5.oomWillieIncome[1]) / 2,
-      eben: (summary.year5.ebenIncome[0] + summary.year5.ebenIncome[1]) / 2,
-      hans: (summary.year5.hansTotalIncome[0] + summary.year5.hansTotalIncome[1]) / 2,
+      oomWillie: (summary.yearly[4].oomWillieIncome[0] + summary.yearly[4].oomWillieIncome[1]) / 2,
+      eben: (summary.yearly[4].ebenIncome[0] + summary.yearly[4].ebenIncome[1]) / 2,
+      hans: (summary.yearly[4].hansTotalIncome[0] + summary.yearly[4].hansTotalIncome[1]) / 2,
     },
   ];
 

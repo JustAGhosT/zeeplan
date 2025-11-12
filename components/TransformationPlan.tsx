@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { formatCurrency } from '@/lib/calculations';
+import { formatCurrency } from '@/lib/formatting';
 import { Section, Card } from './UIComponents';
 import styles from './TransformationPlan.module.css';
 
@@ -12,11 +12,11 @@ interface TransformationPlanProps {
 
 export function TransformationPlan({ data }: TransformationPlanProps) {
   const years = [
-    { key: 'year1' as const, title: 'Year 1: Foundation', phase: 'Prove-It Phase' },
-    { key: 'year2' as const, title: 'Year 2: Expansion', phase: 'Earn-In Phase' },
-    { key: 'year3' as const, title: 'Year 3: Maturity', phase: 'Transition Phase' },
-    { key: 'year4' as const, title: 'Year 4: Optimization', phase: 'Full Partnership' },
-    { key: 'year5' as const, title: 'Year 5: Steady State', phase: 'Full Partnership' },
+    { index: 0, key: 'year1', title: 'Year 1: Foundation', phase: 'Prove-It Phase' },
+    { index: 1, key: 'year2', title: 'Year 2: Expansion', phase: 'Earn-In Phase' },
+    { index: 2, key: 'year3', title: 'Year 3: Maturity', phase: 'Transition Phase' },
+    { index: 3, key: 'year4', title: 'Year 4: Optimization', phase: 'Full Partnership' },
+    { index: 4, key: 'year5', title: 'Year 5: Steady State', phase: 'Full Partnership' },
   ];
 
   return (
@@ -25,9 +25,9 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
       subtitle="Phased approach to regenerative agriculture and capacity expansion"
     >
       <div className={styles.yearsContainer}>
-        {years.map(({ key, title, phase }) => {
-          const yearData = data.yearlyTargets[key];
-          const equity = data.equityStructure[key];
+        {years.map(({ index, key, title, phase }) => {
+          const yearData = data.yearlyTargets[index];
+          const equity = data.equityStructure[index];
 
           return (
             <Card key={key} title={title} className={styles.yearCard}>
@@ -55,23 +55,9 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                     <li>
                       • Cattle: {formatCurrency(yearData.cattleRevenue[0])}-{formatCurrency(yearData.cattleRevenue[1])}
                     </li>
-                    {'goatsRevenue' in yearData && (
-                      <li>
-                        • Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}
-                      </li>
-                    )}
-                    {'goatsMeatRevenue' in yearData && (
-                      <>
-                        <li>
-                          • Goats (meat): {formatCurrency(yearData.goatsMeatRevenue[0])}-
-                          {formatCurrency(yearData.goatsMeatRevenue[1])}
-                        </li>
-                        <li>
-                          • Goats (dairy): {formatCurrency(yearData.goatsDairyRevenue[0])}-
-                          {formatCurrency(yearData.goatsDairyRevenue[1])}
-                        </li>
-                      </>
-                    )}
+                    <li>
+                      • Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}
+                    </li>
                     <li>
                       • Pigs: {formatCurrency(yearData.pigsRevenue[0])}-{formatCurrency(yearData.pigsRevenue[1])}
                     </li>

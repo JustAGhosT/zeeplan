@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
+import { calculateFinancialSummary } from '@/lib/calculations';
+import { formatRange, formatCurrency } from '@/lib/formatting';
 import { Section, Card, Table, Slider } from './UIComponents';
 import styles from './FinancialProjections.module.css';
 
@@ -15,10 +16,12 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
     <Card title="Scenario Controls">
       <Slider
         label="Sekelbos Revenue (per ton)"
-        value={data.yearlyTargets.year1.sekelbosRevenue[0]}
+        value={data.yearlyTargets[0].sekelbosRevenue[0]}
         onChange={(value) => {
           const newData = { ...data };
-          newData.yearlyTargets.year1.sekelbosRevenue[0] = value;
+          const newYearlyTargets = [...data.yearlyTargets];
+          newYearlyTargets[0] = { ...newYearlyTargets[0], sekelbosRevenue: [value, newYearlyTargets[0].sekelbosRevenue[1]] };
+          newData.yearlyTargets = newYearlyTargets;
           setData(newData);
         }}
         min={500}
@@ -31,7 +34,7 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
 
 export function FinancialProjections({ data }: FinancialProjectionsProps) {
   const [localData, setLocalData] = React.useState(data);
-  const summary = calculateFiveYearSummary(localData);
+  const summary = calculateFinancialSummary(localData);
 
   return (
     <Section title="Financial Projections" subtitle="5-year revenue, costs, and profit breakdown by partner">
@@ -42,48 +45,48 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
           rows={[
             [
               'Year 1',
-              formatRange(summary.year1.revenue),
-              formatRange(summary.year1.costs),
-              formatRange(summary.year1.profit),
-              formatRange(summary.year1.oomWillieIncome),
-              formatRange(summary.year1.ebenIncome),
-              formatRange(summary.year1.hansTotalIncome),
+              formatRange(summary.yearly[0].revenue),
+              formatRange(summary.yearly[0].costs),
+              formatRange(summary.yearly[0].profit),
+              formatRange(summary.yearly[0].oomWillieIncome),
+              formatRange(summary.yearly[0].ebenIncome),
+              formatRange(summary.yearly[0].hansTotalIncome),
             ],
             [
               'Year 2',
-              formatRange(summary.year2.revenue),
-              formatRange(summary.year2.costs),
-              formatRange(summary.year2.profit),
-              formatRange(summary.year2.oomWillieIncome),
-              formatRange(summary.year2.ebenIncome),
-              formatRange(summary.year2.hansTotalIncome),
+              formatRange(summary.yearly[1].revenue),
+              formatRange(summary.yearly[1].costs),
+              formatRange(summary.yearly[1].profit),
+              formatRange(summary.yearly[1].oomWillieIncome),
+              formatRange(summary.yearly[1].ebenIncome),
+              formatRange(summary.yearly[1].hansTotalIncome),
             ],
             [
               'Year 3',
-              formatRange(summary.year3.revenue),
-              formatRange(summary.year3.costs),
-              formatRange(summary.year3.profit),
-              formatRange(summary.year3.oomWillieIncome),
-              formatRange(summary.year3.ebenIncome),
-              formatRange(summary.year3.hansTotalIncome),
+              formatRange(summary.yearly[2].revenue),
+              formatRange(summary.yearly[2].costs),
+              formatRange(summary.yearly[2].profit),
+              formatRange(summary.yearly[2].oomWillieIncome),
+              formatRange(summary.yearly[2].ebenIncome),
+              formatRange(summary.yearly[2].hansTotalIncome),
             ],
             [
               'Year 4',
-              formatRange(summary.year4.revenue),
-              formatRange(summary.year4.costs),
-              formatRange(summary.year4.profit),
-              formatRange(summary.year4.oomWillieIncome),
-              formatRange(summary.year4.ebenIncome),
-              formatRange(summary.year4.hansTotalIncome),
+              formatRange(summary.yearly[3].revenue),
+              formatRange(summary.yearly[3].costs),
+              formatRange(summary.yearly[3].profit),
+              formatRange(summary.yearly[3].oomWillieIncome),
+              formatRange(summary.yearly[3].ebenIncome),
+              formatRange(summary.yearly[3].hansTotalIncome),
             ],
             [
               'Year 5',
-              formatRange(summary.year5.revenue),
-              formatRange(summary.year5.costs),
-              formatRange(summary.year5.profit),
-              formatRange(summary.year5.oomWillieIncome),
-              formatRange(summary.year5.ebenIncome),
-              formatRange(summary.year5.hansTotalIncome),
+              formatRange(summary.yearly[4].revenue),
+              formatRange(summary.yearly[4].costs),
+              formatRange(summary.yearly[4].profit),
+              formatRange(summary.yearly[4].oomWillieIncome),
+              formatRange(summary.yearly[4].ebenIncome),
+              formatRange(summary.yearly[4].hansTotalIncome),
             ],
             [
               <strong key="total">TOTAL</strong>,
@@ -140,33 +143,33 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
             rows={[
               [
                 'Year 1',
-                formatRange(summary.year1.hansEquityIncome),
-                formatRange(summary.year1.hansSalary),
-                formatRange(summary.year1.hansTotalIncome),
+                formatRange(summary.yearly[0].hansEquityIncome),
+                formatRange(summary.yearly[0].hansSalary),
+                formatRange(summary.yearly[0].hansTotalIncome),
               ],
               [
                 'Year 2',
-                formatRange(summary.year2.hansEquityIncome),
-                formatRange(summary.year2.hansSalary),
-                formatRange(summary.year2.hansTotalIncome),
+                formatRange(summary.yearly[1].hansEquityIncome),
+                formatRange(summary.yearly[1].hansSalary),
+                formatRange(summary.yearly[1].hansTotalIncome),
               ],
               [
                 'Year 3',
-                formatRange(summary.year3.hansEquityIncome),
-                formatRange(summary.year3.hansSalary),
-                formatRange(summary.year3.hansTotalIncome),
+                formatRange(summary.yearly[2].hansEquityIncome),
+                formatRange(summary.yearly[2].hansSalary),
+                formatRange(summary.yearly[2].hansTotalIncome),
               ],
               [
                 'Year 4',
-                formatRange(summary.year4.hansEquityIncome),
-                formatRange(summary.year4.hansSalary),
-                formatRange(summary.year4.hansTotalIncome),
+                formatRange(summary.yearly[3].hansEquityIncome),
+                formatRange(summary.yearly[3].hansSalary),
+                formatRange(summary.yearly[3].hansTotalIncome),
               ],
               [
                 'Year 5',
-                formatRange(summary.year5.hansEquityIncome),
-                formatRange(summary.year5.hansSalary),
-                formatRange(summary.year5.hansTotalIncome),
+                formatRange(summary.yearly[4].hansEquityIncome),
+                formatRange(summary.yearly[4].hansSalary),
+                formatRange(summary.yearly[4].hansTotalIncome),
               ],
             ]}
           />
