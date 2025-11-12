@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { calculateFiveYearSummary, formatRange, formatCurrency } from '@/lib/calculations';
+import { calculateFinancialSummary } from '@/lib/calculations';
+import { formatRange, formatCurrency } from '@/lib/formatting';
 import { Section, Card, Table, Slider } from './UIComponents';
 import styles from './FinancialProjections.module.css';
 
@@ -15,10 +16,10 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
     <Card title="Scenario Controls">
       <Slider
         label="Sekelbos Revenue (per ton)"
-        value={data.yearlyTargets.year1.sekelbosRevenue[0]}
+        value={data.yearlyTargets[0].sekelbosRevenue[0]}
         onChange={(value) => {
           const newData = { ...data };
-          newData.yearlyTargets.year1.sekelbosRevenue[0] = value;
+          newData.yearlyTargets[0].sekelbosRevenue[0] = value;
           setData(newData);
         }}
         min={500}
@@ -31,7 +32,7 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
 
 export function FinancialProjections({ data }: FinancialProjectionsProps) {
   const [localData, setLocalData] = React.useState(data);
-  const summary = calculateFiveYearSummary(localData);
+  const summary = calculateFinancialSummary(localData);
 
   return (
     <Section title="Financial Projections" subtitle="5-year revenue, costs, and profit breakdown by partner">
@@ -40,51 +41,15 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
         <Table
           headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Willie', 'Eben', 'Hans']}
           rows={[
-            [
-              'Year 1',
-              formatRange(summary.year1.revenue),
-              formatRange(summary.year1.costs),
-              formatRange(summary.year1.profit),
-              formatRange(summary.year1.oomWillieIncome),
-              formatRange(summary.year1.ebenIncome),
-              formatRange(summary.year1.hansTotalIncome),
-            ],
-            [
-              'Year 2',
-              formatRange(summary.year2.revenue),
-              formatRange(summary.year2.costs),
-              formatRange(summary.year2.profit),
-              formatRange(summary.year2.oomWillieIncome),
-              formatRange(summary.year2.ebenIncome),
-              formatRange(summary.year2.hansTotalIncome),
-            ],
-            [
-              'Year 3',
-              formatRange(summary.year3.revenue),
-              formatRange(summary.year3.costs),
-              formatRange(summary.year3.profit),
-              formatRange(summary.year3.oomWillieIncome),
-              formatRange(summary.year3.ebenIncome),
-              formatRange(summary.year3.hansTotalIncome),
-            ],
-            [
-              'Year 4',
-              formatRange(summary.year4.revenue),
-              formatRange(summary.year4.costs),
-              formatRange(summary.year4.profit),
-              formatRange(summary.year4.oomWillieIncome),
-              formatRange(summary.year4.ebenIncome),
-              formatRange(summary.year4.hansTotalIncome),
-            ],
-            [
-              'Year 5',
-              formatRange(summary.year5.revenue),
-              formatRange(summary.year5.costs),
-              formatRange(summary.year5.profit),
-              formatRange(summary.year5.oomWillieIncome),
-              formatRange(summary.year5.ebenIncome),
-              formatRange(summary.year5.hansTotalIncome),
-            ],
+            ...summary.yearly.map((year, i) => [
+              `Year ${i + 1}`,
+              formatRange(year.revenue),
+              formatRange(year.costs),
+              formatRange(year.profit),
+              formatRange(year.oomWillieIncome),
+              formatRange(year.ebenIncome),
+              formatRange(year.hansTotalIncome),
+            ]),
             [
               <strong key="total">TOTAL</strong>,
               <strong key="rev">{formatRange(summary.cumulative.revenue)}</strong>,
@@ -137,38 +102,12 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
         <Card title="Hans's Income Breakdown">
           <Table
             headers={['Year', 'Equity Income', 'Salary', 'Total']}
-            rows={[
-              [
-                'Year 1',
-                formatRange(summary.year1.hansEquityIncome),
-                formatRange(summary.year1.hansSalary),
-                formatRange(summary.year1.hansTotalIncome),
-              ],
-              [
-                'Year 2',
-                formatRange(summary.year2.hansEquityIncome),
-                formatRange(summary.year2.hansSalary),
-                formatRange(summary.year2.hansTotalIncome),
-              ],
-              [
-                'Year 3',
-                formatRange(summary.year3.hansEquityIncome),
-                formatRange(summary.year3.hansSalary),
-                formatRange(summary.year3.hansTotalIncome),
-              ],
-              [
-                'Year 4',
-                formatRange(summary.year4.hansEquityIncome),
-                formatRange(summary.year4.hansSalary),
-                formatRange(summary.year4.hansTotalIncome),
-              ],
-              [
-                'Year 5',
-                formatRange(summary.year5.hansEquityIncome),
-                formatRange(summary.year5.hansSalary),
-                formatRange(summary.year5.hansTotalIncome),
-              ],
-            ]}
+            rows={summary.yearly.map((year, i) => [
+              `Year ${i + 1}`,
+              formatRange(year.hansEquityIncome),
+              formatRange(year.hansSalary),
+              formatRange(year.hansTotalIncome),
+            ])}
           />
         </Card>
       </div>

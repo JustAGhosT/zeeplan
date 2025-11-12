@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { formatCurrency } from '@/lib/calculations';
+import { formatCurrency } from '@/lib/formatting';
 import { Section, Card } from './UIComponents';
 import styles from './TransformationPlan.module.css';
 
@@ -25,9 +25,9 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
       subtitle="Phased approach to regenerative agriculture and capacity expansion"
     >
       <div className={styles.yearsContainer}>
-        {years.map(({ key, title, phase }) => {
-          const yearData = data.yearlyTargets[key];
-          const equity = data.equityStructure[key];
+        {years.map(({ key, title, phase }, i) => {
+          const yearData = data.yearlyTargets[i];
+          const equity = data.equityStructure[i];
 
           return (
             <Card key={key} title={title} className={styles.yearCard}>
@@ -55,23 +55,9 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                     <li>
                       • Cattle: {formatCurrency(yearData.cattleRevenue[0])}-{formatCurrency(yearData.cattleRevenue[1])}
                     </li>
-                    {'goatsRevenue' in yearData && (
-                      <li>
-                        • Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}
-                      </li>
-                    )}
-                    {'goatsMeatRevenue' in yearData && (
-                      <>
-                        <li>
-                          • Goats (meat): {formatCurrency(yearData.goatsMeatRevenue[0])}-
-                          {formatCurrency(yearData.goatsMeatRevenue[1])}
-                        </li>
-                        <li>
-                          • Goats (dairy): {formatCurrency(yearData.goatsDairyRevenue[0])}-
-                          {formatCurrency(yearData.goatsDairyRevenue[1])}
-                        </li>
-                      </>
-                    )}
+                    <li>
+                      • Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}
+                    </li>
                     <li>
                       • Pigs: {formatCurrency(yearData.pigsRevenue[0])}-{formatCurrency(yearData.pigsRevenue[1])}
                     </li>
