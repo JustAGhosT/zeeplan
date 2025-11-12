@@ -9,6 +9,19 @@ export interface PartnershipData {
   currentCarryingCapacity: number; // ha/LSU
   targetCarryingCapacity: number; // ha/LSU
 
+  // Land allocation
+  cattleHectares: number;
+  goatsHectares: number;
+  pigsHectares: number;
+  chickensHectares: number;
+  cropsHectares: number;
+
+  // Livestock density
+  cattlePerHectare: number;
+  goatsPerHectare: number;
+  pigsPerHectare: number;
+  chickensPerHectare: number;
+
   // Baseline revenue (current state)
   baselineRevenue: {
     cattle: [number, number]; // min, max range

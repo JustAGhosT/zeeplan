@@ -71,6 +71,99 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
         </div>
 
         <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Land & Crop Management</h4>
+
+          <InputGroup
+            label="Cattle Hectares"
+            value={data.cattleHectares}
+            onChange={(v) => updateField('cattleHectares', v)}
+            min={0}
+            max={data.landSize}
+            suffix="ha"
+          />
+
+          <InputGroup
+            label="Goats Hectares"
+            value={data.goatsHectares}
+            onChange={(v) => updateField('goatsHectares', v)}
+            min={0}
+            max={data.landSize}
+            suffix="ha"
+          />
+
+          <InputGroup
+            label="Pigs Hectares"
+            value={data.pigsHectares}
+            onChange={(v) => updateField('pigsHectares', v)}
+            min={0}
+            max={data.landSize}
+            suffix="ha"
+          />
+
+          <InputGroup
+            label="Chickens Hectares"
+            value={data.chickensHectares}
+            onChange={(v) => updateField('chickensHectares', v)}
+            min={0}
+            max={data.landSize}
+            suffix="ha"
+          />
+
+          <InputGroup
+            label="Crops Hectares"
+            value={data.cropsHectares}
+            onChange={(v) => updateField('cropsHectares', v)}
+            min={0}
+            max={data.landSize}
+            suffix="ha"
+          />
+        </div>
+
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Livestock Density</h4>
+
+          <InputGroup
+            label="Cattle per Hectare"
+            value={data.cattlePerHectare}
+            onChange={(v) => updateField('cattlePerHectare', v)}
+            min={0}
+            max={10}
+            step={0.1}
+            suffix="head/ha"
+          />
+
+          <InputGroup
+            label="Goats per Hectare"
+            value={data.goatsPerHectare}
+            onChange={(v) => updateField('goatsPerHectare', v)}
+            min={0}
+            max={20}
+            step={0.1}
+            suffix="head/ha"
+          />
+
+          <InputGroup
+            label="Pigs per Hectare"
+            value={data.pigsPerHectare}
+            onChange={(v) => updateField('pigsPerHectare', v)}
+            min={0}
+            max={50}
+            step={0.1}
+            suffix="head/ha"
+          />
+
+          <InputGroup
+            label="Chickens per Hectare"
+            value={data.chickensPerHectare}
+            onChange={(v) => updateField('chickensPerHectare', v)}
+            min={0}
+            max={100}
+            step={0.1}
+            suffix="birds/ha"
+          />
+        </div>
+
+        <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Hans's Investment</h4>
 
           <RangeInputGroup
