@@ -12,11 +12,11 @@ interface TransformationPlanProps {
 
 export function TransformationPlan({ data }: TransformationPlanProps) {
   const years = [
-    { key: 'year1' as const, title: 'Year 1: Foundation', phase: 'Prove-It Phase' },
-    { key: 'year2' as const, title: 'Year 2: Expansion', phase: 'Earn-In Phase' },
-    { key: 'year3' as const, title: 'Year 3: Maturity', phase: 'Transition Phase' },
-    { key: 'year4' as const, title: 'Year 4: Optimization', phase: 'Full Partnership' },
-    { key: 'year5' as const, title: 'Year 5: Steady State', phase: 'Full Partnership' },
+    { index: 0, key: 'year1', title: 'Year 1: Foundation', phase: 'Prove-It Phase' },
+    { index: 1, key: 'year2', title: 'Year 2: Expansion', phase: 'Earn-In Phase' },
+    { index: 2, key: 'year3', title: 'Year 3: Maturity', phase: 'Transition Phase' },
+    { index: 3, key: 'year4', title: 'Year 4: Optimization', phase: 'Full Partnership' },
+    { index: 4, key: 'year5', title: 'Year 5: Steady State', phase: 'Full Partnership' },
   ];
 
   return (
