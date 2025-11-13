@@ -36,10 +36,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
     const newData = { ...data, [field]: value };
     
     // Validate landSize: prevent reducing below current total allocations
-    if (field === 'landSize') {
+    if (field === 'landSize' && typeof value === 'number') {
       const currentTotalHectares = calculateTotalHectares(data);
       if (value < currentTotalHectares) {
-        const remaining = currentTotalHectares - (value as number);
+        const remaining = currentTotalHectares - value;
         showToast(
           `Cannot reduce land size to ${value}ha. Current allocations total ${currentTotalHectares}ha. Please reduce allocations by ${remaining}ha first.`
         );
