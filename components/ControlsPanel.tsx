@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import styles from './ControlsPanel.module.css';
 import { Card, InputGroup, RangeInputGroup } from './UIComponents';
@@ -10,17 +11,54 @@ interface ControlsPanelProps {
 }
 
 export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (toastMessage) {
+      const timer = setTimeout(() => {
+        setToastMessage(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [toastMessage]);
+
+  const showToast = (message: string) => {
+    setToastMessage(message);
+  };
+
+  const calculateTotalHectares = (data: PartnershipData) => {
+    return data.cattleHectares + data.goatsHectares + 
+           data.pigsHectares + data.chickensHectares + 
+           data.cropsHectares;
+  };
+
   const updateField = <K extends keyof PartnershipData>(field: K, value: PartnershipData[K]) => {
     const newData = { ...data, [field]: value };
     
+    // Validate landSize: prevent reducing below current total allocations
+    if (field === 'landSize') {
+      const currentTotalHectares = calculateTotalHectares(data);
+      if (value < currentTotalHectares) {
+        const remaining = currentTotalHectares - (value as number);
+        showToast(
+          `Cannot reduce land size to ${value}ha. Current allocations total ${currentTotalHectares}ha. Please reduce allocations by ${remaining}ha first.`
+        );
+        return;
+      }
+    }
+    
     // Validate total hectares don't exceed land size
     if (['cattleHectares', 'goatsHectares', 'pigsHectares', 'chickensHectares', 'cropsHectares'].includes(field as string)) {
-      const totalHectares = newData.cattleHectares + newData.goatsHectares + 
-                            newData.pigsHectares + newData.chickensHectares + 
-                            newData.cropsHectares;
+      const totalHectares = calculateTotalHectares(newData);
       
       if (totalHectares > newData.landSize) {
-        console.warn(`Total hectares (${totalHectares}) exceeds land size (${newData.landSize})`);
+        const overAllocation = totalHectares - newData.landSize;
+        // Calculate remaining available for this specific field
+        const otherHectares = totalHectares - (newData[field as keyof PartnershipData] as number);
+        const maxAvailable = newData.landSize - otherHectares;
+        showToast(
+          `Total hectares (${totalHectares}ha) exceeds land size (${newData.landSize}ha) by ${overAllocation}ha. Maximum available: ${Math.max(0, maxAvailable)}ha.`
+        );
         return;
       }
     }
@@ -41,8 +79,24 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
   };
 
   return (
-    <Card title="⚙️ Adjustable Parameters" className={styles.stickyCard}>
-      <div className={styles.controlsContainer}>
+    <>
+      {toastMessage && (
+        <div className={styles.toast}>
+          <div className={styles.toastContent}>
+            <span className={styles.toastIcon}>⚠️</span>
+            <span className={styles.toastMessage}>{toastMessage}</span>
+            <button
+              className={styles.toastClose}
+              onClick={() => setToastMessage(null)}
+              aria-label="Close notification"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+      <Card title="⚙️ Adjustable Parameters" className={styles.stickyCard}>
+        <div className={styles.controlsContainer}>
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Farm Basics</h4>
 
@@ -300,5 +354,6 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
         </div>
       </div>
     </Card>
+    </>
   );
 }
