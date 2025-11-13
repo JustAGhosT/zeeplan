@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
-import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFinancialSummary } from '@/lib/calculations';
-import { formatRange, formatCurrency } from '@/lib/formatting';
-import { Section, Card, Table, Slider } from './UIComponents';
+import { formatCurrency, formatRange } from '@/lib/formatting';
+import { PartnershipData } from '@/lib/partnershipData';
+import React from 'react';
 import styles from './FinancialProjections.module.css';
+import { Card, Section, Slider, Table } from './UIComponents';
 
 interface FinancialProjectionsProps {
   data: PartnershipData;
@@ -18,11 +18,12 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
         label="Sekelbos Revenue (per ton)"
         value={data.yearlyTargets[0].sekelbosRevenue[0]}
         onChange={(value) => {
-          const newData = { ...data };
           const newYearlyTargets = [...data.yearlyTargets];
           newYearlyTargets[0] = { ...newYearlyTargets[0], sekelbosRevenue: [value, newYearlyTargets[0].sekelbosRevenue[1]] };
-          newData.yearlyTargets = newYearlyTargets;
-          setData(newData);
+          setData({
+            ...data,
+            yearlyTargets: newYearlyTargets,
+          });
         }}
         min={500}
         max={1500}
