@@ -1,6 +1,6 @@
 // Utility functions for financial calculations
 
-import { Equity, PartnershipData, YearlyTarget } from './partnershipData';
+import { PartnershipData, YearlyTarget, Equity } from './partnershipData';
 import { validateMinMaxRange } from './validation';
 
 export interface YearlyFinancials {
