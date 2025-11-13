@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
-import { Card, InputGroup, RangeInputGroup } from './UIComponents';
 import styles from './ControlsPanel.module.css';
+import { Card, InputGroup, RangeInputGroup } from './UIComponents';
 
 interface ControlsPanelProps {
   data: PartnershipData;

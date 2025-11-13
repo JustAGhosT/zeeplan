@@ -1,10 +1,9 @@
 'use client';
 
-import React from 'react';
-import { PartnershipData } from '@/lib/partnershipData';
 import { formatCurrency } from '@/lib/formatting';
-import { Section, Card } from './UIComponents';
+import { PartnershipData } from '@/lib/partnershipData';
 import styles from './TransformationPlan.module.css';
+import { Card, Section } from './UIComponents';
 
 interface TransformationPlanProps {
   data: PartnershipData;

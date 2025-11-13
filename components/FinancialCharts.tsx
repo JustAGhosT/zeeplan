@@ -1,24 +1,23 @@
 'use client';
 
-import React from 'react';
-import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
-import { PartnershipData } from '@/lib/partnershipData';
+import commonStyles from '@/app/common.module.css';
 import { calculateFinancialSummary } from '@/lib/calculations';
 import { formatCurrency } from '@/lib/formatting';
 import { useWindowSize } from '@/lib/hooks';
+import { PartnershipData } from '@/lib/partnershipData';
+import {
+    Bar,
+    BarChart,
+    CartesianGrid,
+    Legend,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
+} from 'recharts';
 import styles from './FinancialCharts.module.css';
-import commonStyles from '@/app/common.module.css';
 
 interface FinancialChartsProps {
   data: PartnershipData;
