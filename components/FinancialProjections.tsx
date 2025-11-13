@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
-import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFinancialSummary } from '@/lib/calculations';
-import { formatRange, formatCurrency } from '@/lib/formatting';
-import { Section, Card, Table, Slider } from './UIComponents';
+import { formatCurrency, formatRange } from '@/lib/formatting';
+import { PartnershipData } from '@/lib/partnershipData';
+import React from 'react';
 import styles from './FinancialProjections.module.css';
+import { Card, Section, Slider, Table } from './UIComponents';
 
 interface FinancialProjectionsProps {
   data: PartnershipData;
