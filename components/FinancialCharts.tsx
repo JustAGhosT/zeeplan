@@ -49,6 +49,7 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
         <div className={styles.tooltipContainer}>
           <p className={styles.tooltipLabel}>{label}</p>
           {payload.map((entry: any, index: number) => (
+            // eslint-disable-next-line -- Dynamic color from recharts requires inline style
             <p key={index} className={styles.tooltipValue} style={{ color: entry.color }}>
               {entry.name}: {formatCurrency(entry.value)}
             </p>
