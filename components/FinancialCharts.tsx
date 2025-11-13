@@ -30,67 +30,19 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   const summary = calculateFinancialSummary(data);
 
   // Prepare revenue growth data
-  const revenueData = [
-    {
-      year: 'Year 1',
-      revenue: (summary.yearly[0].revenue[0] + summary.yearly[0].revenue[1]) / 2,
-      profit: (summary.yearly[0].profit[0] + summary.yearly[0].profit[1]) / 2,
-    },
-    {
-      year: 'Year 2',
-      revenue: (summary.yearly[1].revenue[0] + summary.yearly[1].revenue[1]) / 2,
-      profit: (summary.yearly[1].profit[0] + summary.yearly[1].profit[1]) / 2,
-    },
-    {
-      year: 'Year 3',
-      revenue: (summary.yearly[2].revenue[0] + summary.yearly[2].revenue[1]) / 2,
-      profit: (summary.yearly[2].profit[0] + summary.yearly[2].profit[1]) / 2,
-    },
-    {
-      year: 'Year 4',
-      revenue: (summary.yearly[3].revenue[0] + summary.yearly[3].revenue[1]) / 2,
-      profit: (summary.yearly[3].profit[0] + summary.yearly[3].profit[1]) / 2,
-    },
-    {
-      year: 'Year 5',
-      revenue: (summary.yearly[4].revenue[0] + summary.yearly[4].revenue[1]) / 2,
-      profit: (summary.yearly[4].profit[0] + summary.yearly[4].profit[1]) / 2,
-    },
-  ];
+  const revenueData = summary.yearly.map((year, i) => ({
+    year: `Year ${i + 1}`,
+    revenue: (year.revenue[0] + year.revenue[1]) / 2,
+    profit: (year.profit[0] + year.profit[1]) / 2,
+  }));
 
   // Prepare partner income data
-  const partnerIncomeData = [
-    {
-      year: 'Year 1',
-      oomWillie: (summary.yearly[0].oomWillieIncome[0] + summary.yearly[0].oomWillieIncome[1]) / 2,
-      eben: (summary.yearly[0].ebenIncome[0] + summary.yearly[0].ebenIncome[1]) / 2,
-      hans: (summary.yearly[0].hansTotalIncome[0] + summary.yearly[0].hansTotalIncome[1]) / 2,
-    },
-    {
-      year: 'Year 2',
-      oomWillie: (summary.yearly[1].oomWillieIncome[0] + summary.yearly[1].oomWillieIncome[1]) / 2,
-      eben: (summary.yearly[1].ebenIncome[0] + summary.yearly[1].ebenIncome[1]) / 2,
-      hans: (summary.yearly[1].hansTotalIncome[0] + summary.yearly[1].hansTotalIncome[1]) / 2,
-    },
-    {
-      year: 'Year 3',
-      oomWillie: (summary.yearly[2].oomWillieIncome[0] + summary.yearly[2].oomWillieIncome[1]) / 2,
-      eben: (summary.yearly[2].ebenIncome[0] + summary.yearly[2].ebenIncome[1]) / 2,
-      hans: (summary.yearly[2].hansTotalIncome[0] + summary.yearly[2].hansTotalIncome[1]) / 2,
-    },
-    {
-      year: 'Year 4',
-      oomWillie: (summary.yearly[3].oomWillieIncome[0] + summary.yearly[3].oomWillieIncome[1]) / 2,
-      eben: (summary.yearly[3].ebenIncome[0] + summary.yearly[3].ebenIncome[1]) / 2,
-      hans: (summary.yearly[3].hansTotalIncome[0] + summary.yearly[3].hansTotalIncome[1]) / 2,
-    },
-    {
-      year: 'Year 5',
-      oomWillie: (summary.yearly[4].oomWillieIncome[0] + summary.yearly[4].oomWillieIncome[1]) / 2,
-      eben: (summary.yearly[4].ebenIncome[0] + summary.yearly[4].ebenIncome[1]) / 2,
-      hans: (summary.yearly[4].hansTotalIncome[0] + summary.yearly[4].hansTotalIncome[1]) / 2,
-    },
-  ];
+  const partnerIncomeData = summary.yearly.map((year, i) => ({
+    year: `Year ${i + 1}`,
+    oomWillie: (year.oomWillieIncome[0] + year.oomWillieIncome[1]) / 2,
+    eben: (year.ebenIncome[0] + year.ebenIncome[1]) / 2,
+    hans: (year.hansTotalIncome[0] + year.hansTotalIncome[1]) / 2,
+  }));
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {

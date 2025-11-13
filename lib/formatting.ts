@@ -1,7 +1,15 @@
-// lib/formatting.ts
+// Formatting utilities
 
 export function formatCurrency(value: number): string {
-  return 'R' + value.toLocaleString('en-ZA', { maximumFractionDigits: 0 });
+  // The en-ZA locale adds a non-breaking space, which we remove to match test expectations.
+  return new Intl.NumberFormat('en-ZA', {
+    style: 'currency',
+    currency: 'ZAR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  })
+    .format(value)
+    .replace(/\s/, '');
 }
 
 export function formatRange(range: [number, number]): string {

@@ -25,9 +25,9 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
       subtitle="Phased approach to regenerative agriculture and capacity expansion"
     >
       <div className={styles.yearsContainer}>
-        {years.map(({ index, key, title, phase }) => {
-          const yearData = data.yearlyTargets[index];
-          const equity = data.equityStructure[index];
+        {years.map(({ key, title, phase }, i) => {
+          const yearData = data.yearlyTargets[i];
+          const equity = data.equityStructure[i];
 
           return (
             <Card key={key} title={title} className={styles.yearCard}>

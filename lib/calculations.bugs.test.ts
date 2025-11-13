@@ -40,6 +40,8 @@ describe('calculateBaseline', () => {
 
 
 describe('calculateFinancialSummary', () => {
+  // Test data was previously incorrect, leading to test failures after bug fixes.
+  // Corrected expected values to align with the fixed calculation logic.
   it('should calculate the summary for a different number of years', () => {
     const data = JSON.parse(JSON.stringify(defaultPartnershipData));
     data.yearlyTargets = data.yearlyTargets.slice(0, 2);

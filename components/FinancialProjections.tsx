@@ -43,51 +43,15 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
         <Table
           headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Willie', 'Eben', 'Hans']}
           rows={[
-            [
-              'Year 1',
-              formatRange(summary.yearly[0].revenue),
-              formatRange(summary.yearly[0].costs),
-              formatRange(summary.yearly[0].profit),
-              formatRange(summary.yearly[0].oomWillieIncome),
-              formatRange(summary.yearly[0].ebenIncome),
-              formatRange(summary.yearly[0].hansTotalIncome),
-            ],
-            [
-              'Year 2',
-              formatRange(summary.yearly[1].revenue),
-              formatRange(summary.yearly[1].costs),
-              formatRange(summary.yearly[1].profit),
-              formatRange(summary.yearly[1].oomWillieIncome),
-              formatRange(summary.yearly[1].ebenIncome),
-              formatRange(summary.yearly[1].hansTotalIncome),
-            ],
-            [
-              'Year 3',
-              formatRange(summary.yearly[2].revenue),
-              formatRange(summary.yearly[2].costs),
-              formatRange(summary.yearly[2].profit),
-              formatRange(summary.yearly[2].oomWillieIncome),
-              formatRange(summary.yearly[2].ebenIncome),
-              formatRange(summary.yearly[2].hansTotalIncome),
-            ],
-            [
-              'Year 4',
-              formatRange(summary.yearly[3].revenue),
-              formatRange(summary.yearly[3].costs),
-              formatRange(summary.yearly[3].profit),
-              formatRange(summary.yearly[3].oomWillieIncome),
-              formatRange(summary.yearly[3].ebenIncome),
-              formatRange(summary.yearly[3].hansTotalIncome),
-            ],
-            [
-              'Year 5',
-              formatRange(summary.yearly[4].revenue),
-              formatRange(summary.yearly[4].costs),
-              formatRange(summary.yearly[4].profit),
-              formatRange(summary.yearly[4].oomWillieIncome),
-              formatRange(summary.yearly[4].ebenIncome),
-              formatRange(summary.yearly[4].hansTotalIncome),
-            ],
+            ...summary.yearly.map((year, i) => [
+              `Year ${i + 1}`,
+              formatRange(year.revenue),
+              formatRange(year.costs),
+              formatRange(year.profit),
+              formatRange(year.oomWillieIncome),
+              formatRange(year.ebenIncome),
+              formatRange(year.hansTotalIncome),
+            ]),
             [
               <strong key="total">TOTAL</strong>,
               <strong key="rev">{formatRange(summary.cumulative.revenue)}</strong>,
@@ -140,38 +104,12 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
         <Card title="Hans's Income Breakdown">
           <Table
             headers={['Year', 'Equity Income', 'Salary', 'Total']}
-            rows={[
-              [
-                'Year 1',
-                formatRange(summary.yearly[0].hansEquityIncome),
-                formatRange(summary.yearly[0].hansSalary),
-                formatRange(summary.yearly[0].hansTotalIncome),
-              ],
-              [
-                'Year 2',
-                formatRange(summary.yearly[1].hansEquityIncome),
-                formatRange(summary.yearly[1].hansSalary),
-                formatRange(summary.yearly[1].hansTotalIncome),
-              ],
-              [
-                'Year 3',
-                formatRange(summary.yearly[2].hansEquityIncome),
-                formatRange(summary.yearly[2].hansSalary),
-                formatRange(summary.yearly[2].hansTotalIncome),
-              ],
-              [
-                'Year 4',
-                formatRange(summary.yearly[3].hansEquityIncome),
-                formatRange(summary.yearly[3].hansSalary),
-                formatRange(summary.yearly[3].hansTotalIncome),
-              ],
-              [
-                'Year 5',
-                formatRange(summary.yearly[4].hansEquityIncome),
-                formatRange(summary.yearly[4].hansSalary),
-                formatRange(summary.yearly[4].hansTotalIncome),
-              ],
-            ]}
+            rows={summary.yearly.map((year, i) => [
+              `Year ${i + 1}`,
+              formatRange(year.hansEquityIncome),
+              formatRange(year.hansSalary),
+              formatRange(year.hansTotalIncome),
+            ])}
           />
         </Card>
       </div>
