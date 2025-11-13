@@ -45,6 +45,7 @@ export function calculateProfit(revenue: [number, number], costs: [number, numbe
 }
 
 export function calculateEquityShare(profit: [number, number], percentage: number): [number, number] {
+  validateMinMaxRange(profit, 'profit');
   if (percentage < 0 || percentage > 100) {
     throw new Error(`Invalid percentage for equity share: ${percentage}`);
   }
@@ -52,32 +53,14 @@ export function calculateEquityShare(profit: [number, number], percentage: numbe
 }
 
 function calculateTotalRevenue(yearData: YearlyTarget, data: PartnershipData): [number, number] {
-  const cattleRevenuePerLSU: [number, number] = [
-    data.baselineRevenue.cattle[0] / data.currentLSU,
-    data.baselineRevenue.cattle[1] / data.currentLSU,
-  ];
-
-  const cattleCount = data.cattleHectares * data.cattlePerHectare;
-  const goatCount = data.goatsHectares * data.goatsPerHectare;
-  const pigCount = data.pigsHectares * data.pigsPerHectare;
-  const chickenCount = data.chickensHectares * data.chickensPerHectare;
-
-  // Assuming other livestock revenue is proportional to cattle revenue per LSU
-  const goatRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.2, cattleRevenuePerLSU[1] * 0.2];
-  const pigRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.3, cattleRevenuePerLSU[1] * 0.3];
-  const chickenRevenuePerAnimal: [number, number] = [cattleRevenuePerLSU[0] * 0.05, cattleRevenuePerLSU[1] * 0.05];
-  const cropsRevenuePerHectare: [number, number] = [
-    data.baselineRevenue.crops[0] > 0 ? data.baselineRevenue.crops[0] : 1000,
-    data.baselineRevenue.crops[1] > 0 ? data.baselineRevenue.crops[1] : 2000,
-  ];
-
+  // Decoupled revenue calculations to use YearlyTarget data directly.
   const revenues: Record<string, [number, number]> = {
     sekelbos: yearData.sekelbosRevenue,
-    cattle: [cattleRevenuePerLSU[0] * cattleCount, cattleRevenuePerLSU[1] * cattleCount],
-    goats: [goatRevenuePerAnimal[0] * goatCount, goatRevenuePerAnimal[1] * goatCount],
-    pigs: [pigRevenuePerAnimal[0] * pigCount, pigRevenuePerAnimal[1] * pigCount],
-    chickens: [chickenRevenuePerAnimal[0] * chickenCount, chickenRevenuePerAnimal[1] * chickenCount],
-    crops: [cropsRevenuePerHectare[0] * data.cropsHectares, cropsRevenuePerHectare[1] * data.cropsHectares],
+    cattle: yearData.cattleRevenue,
+    goats: yearData.goatsRevenue,
+    pigs: yearData.pigsRevenue,
+    chickens: yearData.chickensRevenue,
+    crops: yearData.cropsRevenue,
   };
   return sumRevenue(revenues);
 }

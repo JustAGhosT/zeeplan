@@ -18,9 +18,12 @@ function Controls({ data, setData }: { data: PartnershipData; setData: (data: Pa
         label="Sekelbos Revenue (per ton)"
         value={data.yearlyTargets[0].sekelbosRevenue[0]}
         onChange={(value) => {
-          const newData = { ...data };
-          newData.yearlyTargets[0].sekelbosRevenue[0] = value;
-          setData(newData);
+          const newYearlyTargets = [...data.yearlyTargets];
+          newYearlyTargets[0] = { ...newYearlyTargets[0], sekelbosRevenue: [value, newYearlyTargets[0].sekelbosRevenue[1]] };
+          setData({
+            ...data,
+            yearlyTargets: newYearlyTargets,
+          });
         }}
         min={500}
         max={1500}

@@ -12,7 +12,21 @@ interface ControlsPanelProps {
 
 export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
   const updateField = <K extends keyof PartnershipData>(field: K, value: PartnershipData[K]) => {
-    onUpdate({ ...data, [field]: value });
+    const newData = { ...data, [field]: value };
+    
+    // Validate total hectares don't exceed land size
+    if (['cattleHectares', 'goatsHectares', 'pigsHectares', 'chickensHectares', 'cropsHectares'].includes(field as string)) {
+      const totalHectares = newData.cattleHectares + newData.goatsHectares + 
+                            newData.pigsHectares + newData.chickensHectares + 
+                            newData.cropsHectares;
+      
+      if (totalHectares > newData.landSize) {
+        console.warn(`Total hectares (${totalHectares}) exceeds land size (${newData.landSize})`);
+        return;
+      }
+    }
+    
+    onUpdate(newData);
   };
 
   const updateRangeField = <
@@ -195,7 +209,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[0].oomWillie}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[0].oomWillie = v;
+              newEquity[0] = { ...newEquity[0], oomWillie: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -208,7 +222,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[0].eben}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[0].eben = v;
+              newEquity[0] = { ...newEquity[0], eben: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -221,7 +235,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[0].hans}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[0].hans = v;
+              newEquity[0] = { ...newEquity[0], hans: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -238,7 +252,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[4].oomWillie}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[4].oomWillie = v;
+              newEquity[4] = { ...newEquity[4], oomWillie: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -251,7 +265,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[4].eben}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[4].eben = v;
+              newEquity[4] = { ...newEquity[4], eben: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
@@ -264,7 +278,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             value={data.equityStructure[4].hans}
             onChange={(v) => {
               const newEquity = [...data.equityStructure];
-              newEquity[4].hans = v;
+              newEquity[4] = { ...newEquity[4], hans: v };
               updateField('equityStructure', newEquity);
             }}
             min={0}
