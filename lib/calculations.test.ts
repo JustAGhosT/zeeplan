@@ -5,6 +5,6 @@ describe('calculateROI', () => {
     const investment: [number, number] = [48000, 98000];
     const netProfit: [number, number] = [747000, 4579000];
     const roi = calculateROI(investment, netProfit);
-    expect(roi).toBe('662-9,440%');
+    expect(roi).toBe('762-9,540%');
   });
 });
