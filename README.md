@@ -4,7 +4,9 @@ This repository contains the comprehensive business partnership proposal for a r
 
 ## 📄 Documents
 
-### 1. **Zeerust_Partnership_Proposal_v4.0.md** (Full Master Plan)
+All business plan and documentation files are located in the `/docs` directory:
+
+### 1. **docs/Zeerust_Partnership_Proposal_v4.0.md** (Full Master Plan)
 
 The complete partnership proposal including:
 
@@ -21,7 +23,7 @@ The complete partnership proposal including:
 - Next Steps & Decision Points
 - Appendices
 
-### 2. **Executive_Summary.md** (One-Page Overview)
+### 2. **docs/Executive_Summary.md** (One-Page Overview)
 
 A concise summary suitable for initial presentations and quick reference.
 
@@ -96,8 +98,8 @@ All partners benefit from the transformation:
 
 ## 📞 Next Steps
 
-1. Review the full Master Plan (Zeerust_Partnership_Proposal_v4.0.md)
-2. Review the Executive Summary for quick reference
+1. Review the full Master Plan (docs/Zeerust_Partnership_Proposal_v4.0.md)
+2. Review the Executive Summary (docs/Executive_Summary.md) for quick reference
 3. Schedule meeting with Oom Willie + Eben
 4. Conduct land valuation and infrastructure audit
 5. Draft partnership agreement
@@ -109,6 +111,16 @@ All partners benefit from the transformation:
 - **v3.0** (Nov 7, 2025): Revised to reflect Hans entering from 0% equity
 - **v2.0** (Nov 7, 2025): Updated with real baseline data (72 LSU current stocking)
 - **v1.0** (Nov 6, 2025): Initial draft with estimated baseline
+
+## 📂 Repository Structure
+
+```
+/docs          - Business plan and documentation files
+/data          - Financial data and JSON files
+/lib           - Shared utilities and data
+/app           - Next.js application pages
+/components    - React components
+```
 
 ## 📧 Contact
 
