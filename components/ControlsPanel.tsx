@@ -67,7 +67,26 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
   };
 
   const updateRangeField = <
-    K extends keyof Pick<PartnershipData, 'hansLivestockValue' | 'hansMonthlySalary' | 'baselineCosts'>,
+    K extends keyof Pick<
+      PartnershipData,
+      | 'hansLivestockValue'
+      | 'hansMonthlySalary'
+      | 'baselineCosts'
+      | 'cattleMarketPrice'
+      | 'cattleCostPerHectare'
+      | 'cattleCostPerAnimal'
+      | 'goatsMarketPrice'
+      | 'goatsCostPerHectare'
+      | 'goatsCostPerAnimal'
+      | 'pigsMarketPrice'
+      | 'pigsCostPerHectare'
+      | 'pigsCostPerAnimal'
+      | 'chickensMarketPrice'
+      | 'chickensCostPerHectare'
+      | 'chickensCostPerAnimal'
+      | 'cropsRevenuePerHectare'
+      | 'cropsCostPerHectare'
+    >,
   >(
     field: K,
     index: 0 | 1,
@@ -187,10 +206,13 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Livestock Density</h4>
+          <h4 className={styles.sectionTitle}>Livestock Density & Financials</h4>
 
+          {/* Cattle Section */}
+          <h5 className={styles.subSectionTitle}>Cattle</h5>
           <InputGroup
             label="Cattle per Hectare"
+            tooltip="Number of cattle per hectare of allocated grazing land."
             value={data.cattlePerHectare}
             onChange={(v) => updateField('cattlePerHectare', v)}
             min={0}
@@ -199,8 +221,51 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             suffix="head/ha"
           />
 
+          <RangeInputGroup
+            label="Market Price"
+            tooltip="Expected sale price per animal."
+            min={data.cattleMarketPrice[0]}
+            max={data.cattleMarketPrice[1]}
+            onChangeMin={(v) => updateRangeField('cattleMarketPrice', 0, v)}
+            onChangeMax={(v) => updateRangeField('cattleMarketPrice', 1, v)}
+            step={100}
+            suffix="ZAR"
+          />
+          <InputGroup
+            label="Offtake Rate"
+            tooltip="Percentage of the herd sold annually."
+            value={data.cattleOfftakeRate}
+            onChange={(v) => updateField('cattleOfftakeRate', v)}
+            min={0}
+            max={100}
+            suffix="%"
+          />
+          <RangeInputGroup
+            label="Cost per Hectare"
+            tooltip="Annual cost to maintain one hectare of grazing land for cattle."
+            min={data.cattleCostPerHectare[0]}
+            max={data.cattleCostPerHectare[1]}
+            onChangeMin={(v) => updateRangeField('cattleCostPerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('cattleCostPerHectare', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+          <RangeInputGroup
+            label="Cost per Animal"
+            tooltip="Annual cost per head of cattle (vet, feed, etc.)."
+            min={data.cattleCostPerAnimal[0]}
+            max={data.cattleCostPerAnimal[1]}
+            onChangeMin={(v) => updateRangeField('cattleCostPerAnimal', 0, v)}
+            onChangeMax={(v) => updateRangeField('cattleCostPerAnimal', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+
+          {/* Goats Section */}
+          <h5 className={styles.subSectionTitle}>Goats</h5>
           <InputGroup
             label="Goats per Hectare"
+            tooltip="Number of goats per hectare of allocated grazing land."
             value={data.goatsPerHectare}
             onChange={(v) => updateField('goatsPerHectare', v)}
             min={0}
@@ -208,9 +273,51 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             step={0.1}
             suffix="head/ha"
           />
+          <RangeInputGroup
+            label="Market Price"
+            tooltip="Expected sale price per goat."
+            min={data.goatsMarketPrice[0]}
+            max={data.goatsMarketPrice[1]}
+            onChangeMin={(v) => updateRangeField('goatsMarketPrice', 0, v)}
+            onChangeMax={(v) => updateRangeField('goatsMarketPrice', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+          <InputGroup
+            label="Offtake Rate"
+            tooltip="Percentage of the herd sold annually."
+            value={data.goatsOfftakeRate}
+            onChange={(v) => updateField('goatsOfftakeRate', v)}
+            min={0}
+            max={100}
+            suffix="%"
+          />
+          <RangeInputGroup
+            label="Cost per Hectare"
+            tooltip="Annual cost to maintain one hectare of grazing land for goats."
+            min={data.goatsCostPerHectare[0]}
+            max={data.goatsCostPerHectare[1]}
+            onChangeMin={(v) => updateRangeField('goatsCostPerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('goatsCostPerHectare', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+          <RangeInputGroup
+            label="Cost per Animal"
+            tooltip="Annual cost per goat (vet, feed, etc.)."
+            min={data.goatsCostPerAnimal[0]}
+            max={data.goatsCostPerAnimal[1]}
+            onChangeMin={(v) => updateRangeField('goatsCostPerAnimal', 0, v)}
+            onChangeMax={(v) => updateRangeField('goatsCostPerAnimal', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
 
+          {/* Pigs Section */}
+          <h5 className={styles.subSectionTitle}>Pigs</h5>
           <InputGroup
             label="Pigs per Hectare"
+            tooltip="Number of pigs per hectare of allocated land."
             value={data.pigsPerHectare}
             onChange={(v) => updateField('pigsPerHectare', v)}
             min={0}
@@ -218,15 +325,121 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             step={0.1}
             suffix="head/ha"
           />
+          <RangeInputGroup
+            label="Market Price"
+            tooltip="Expected sale price per pig."
+            min={data.pigsMarketPrice[0]}
+            max={data.pigsMarketPrice[1]}
+            onChangeMin={(v) => updateRangeField('pigsMarketPrice', 0, v)}
+            onChangeMax={(v) => updateRangeField('pigsMarketPrice', 1, v)}
+            step={100}
+            suffix="ZAR"
+          />
+          <InputGroup
+            label="Offtake Rate"
+            tooltip="Percentage of the herd sold annually."
+            value={data.pigsOfftakeRate}
+            onChange={(v) => updateField('pigsOfftakeRate', v)}
+            min={0}
+            max={100}
+            suffix="%"
+          />
+          <RangeInputGroup
+            label="Cost per Hectare"
+            tooltip="Annual cost to maintain one hectare of land for pigs."
+            min={data.pigsCostPerHectare[0]}
+            max={data.pigsCostPerHectare[1]}
+            onChangeMin={(v) => updateRangeField('pigsCostPerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('pigsCostPerHectare', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+          <RangeInputGroup
+            label="Cost per Animal"
+            tooltip="Annual cost per pig (vet, feed, etc.)."
+            min={data.pigsCostPerAnimal[0]}
+            max={data.pigsCostPerAnimal[1]}
+            onChangeMin={(v) => updateRangeField('pigsCostPerAnimal', 0, v)}
+            onChangeMax={(v) => updateRangeField('pigsCostPerAnimal', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
 
+          {/* Chickens Section */}
+          <h5 className={styles.subSectionTitle}>Chickens</h5>
           <InputGroup
             label="Chickens per Hectare"
+            tooltip="Number of chickens per hectare of allocated land."
             value={data.chickensPerHectare}
             onChange={(v) => updateField('chickensPerHectare', v)}
             min={0}
             max={100}
             step={0.1}
             suffix="birds/ha"
+          />
+          <RangeInputGroup
+            label="Market Price"
+            tooltip="Expected sale price per chicken."
+            min={data.chickensMarketPrice[0]}
+            max={data.chickensMarketPrice[1]}
+            onChangeMin={(v) => updateRangeField('chickensMarketPrice', 0, v)}
+            onChangeMax={(v) => updateRangeField('chickensMarketPrice', 1, v)}
+            step={10}
+            suffix="ZAR"
+          />
+          <InputGroup
+            label="Offtake Rate"
+            tooltip="Percentage of the flock sold annually."
+            value={data.chickensOfftakeRate}
+            onChange={(v) => updateField('chickensOfftakeRate', v)}
+            min={0}
+            max={100}
+            suffix="%"
+          />
+          <RangeInputGroup
+            label="Cost per Hectare"
+            tooltip="Annual cost to maintain one hectare of land for chickens."
+            min={data.chickensCostPerHectare[0]}
+            max={data.chickensCostPerHectare[1]}
+            onChangeMin={(v) => updateRangeField('chickensCostPerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('chickensCostPerHectare', 1, v)}
+            step={50}
+            suffix="ZAR"
+          />
+          <RangeInputGroup
+            label="Cost per Animal"
+            tooltip="Annual cost per chicken (vet, feed, etc.)."
+            min={data.chickensCostPerAnimal[0]}
+            max={data.chickensCostPerAnimal[1]}
+            onChangeMin={(v) => updateRangeField('chickensCostPerAnimal', 0, v)}
+            onChangeMax={(v) => updateRangeField('chickensCostPerAnimal', 1, v)}
+            step={5}
+            suffix="ZAR"
+          />
+        </div>
+
+        {/* Crops Section */}
+        <div className={styles.section}>
+          <h4 className={styles.sectionTitle}>Crops Financials</h4>
+          <RangeInputGroup
+            label="Revenue per Hectare"
+            tooltip="Expected annual revenue from one hectare of crops."
+            min={data.cropsRevenuePerHectare[0]}
+            max={data.cropsRevenuePerHectare[1]}
+            onChangeMin={(v) => updateRangeField('cropsRevenuePerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('cropsRevenuePerHectare', 1, v)}
+            step={500}
+            suffix="ZAR"
+          />
+          <RangeInputGroup
+            label="Cost per Hectare"
+            tooltip="Annual cost to cultivate one hectare of crops."
+            min={data.cropsCostPerHectare[0]}
+            max={data.cropsCostPerHectare[1]}
+            onChangeMin={(v) => updateRangeField('cropsCostPerHectare', 0, v)}
+            onChangeMax={(v) => updateRangeField('cropsCostPerHectare', 1, v)}
+            step={250}
+            suffix="ZAR"
           />
         </div>
 
