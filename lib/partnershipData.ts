@@ -67,6 +67,7 @@ export interface PartnershipData {
     chickens: [number, number];
     crops: [number, number];
     wood: [number, number];
+    rabbits: [number, number];
   };
 
   baselineCosts: [number, number]; // min, max range
@@ -94,9 +95,10 @@ export interface YearlyTarget {
   pigsRevenue: [number, number];
   chickensRevenue: [number, number];
   cropsRevenue: [number, number];
+  rabbitsRevenue: [number, number];
   costs: [number, number];
 }
 
 import partnershipData from './partnershipData.json';
 
-export const defaultPartnershipData: PartnershipData = partnershipData as PartnershipData;
+export const defaultPartnershipData: PartnershipData = partnershipData as unknown as PartnershipData;
