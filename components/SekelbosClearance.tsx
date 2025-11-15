@@ -17,8 +17,8 @@ export function SekelbosExecutiveSummary() {
         </Card>
 
         <Card title="Current Problem">
-          <p className={styles.textSm}>40-60% sekelbos encroachment</p>
-          <p className={`${styles.textSm} ${styles.textGray}`}>240-360ha affected</p>
+          <p className={styles.textSm}>60-70% heavy sekelbos encroachment</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>360-420ha heavily affected</p>
         </Card>
 
         <Card title="Solution">
@@ -28,9 +28,19 @@ export function SekelbosExecutiveSummary() {
 
         <Card title="Timeline">
           <p className={styles.textSm}>5 years to complete clearance</p>
-          <p className={`${styles.textSm} ${styles.textGray}`}>Investment: R598K-954K</p>
+          <p className={`${styles.textSm} ${styles.textGray}`}>Direct investment (equipment & infrastructure): R598K–954K</p>
         </Card>
       </div>
+
+      <Card title="Key Assumptions" className={styles.cardSpacing}>
+        <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
+          <li>Property size: 600 ha Bushveld</li>
+          <li>Heavy sekelbos encroachment: 360–420 ha (60–70%)</li>
+          <li>Usable wood density: 3–5 m³/ha (farm-wide average)</li>
+          <li>Labour rate: R200–300/day, 2–3 workers</li>
+          <li>Clearing rate: 2–3 labour days per hectare</li>
+        </ul>
+      </Card>
 
       <div className={styles.grid2}>
         <Card title="The Problem">
@@ -40,8 +50,8 @@ export function SekelbosExecutiveSummary() {
                 Sekelbos (Dichrostachys cinerea) Impact:
               </h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
-                <li>240-360ha affected (40-60% of property)</li>
-                <li>Lost grazing capacity: 100-150 Large Stock Units</li>
+                <li>360-420ha heavily affected (60-70% of property)</li>
+                <li>Lost grazing capacity: 30-50 Large Stock Units (current 72 LSU → potential 104-120 LSU)</li>
                 <li>Annual revenue loss: R200K-400K</li>
                 <li>Property value reduction: R2M-4M</li>
               </ul>
@@ -78,7 +88,8 @@ export function SekelbosExecutiveSummary() {
             <div>
               <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Financial Advantage:</h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
-                <li>Cost: R598K-954K (biological system)</li>
+                <li>Direct investment (equipment & infrastructure): R598K–954K</li>
+                <li>Total 5-year project cost including labour: R723K–1.42M</li>
                 <li>Revenue: R1.08M-3M (wood sales)</li>
                 <li>Net positive: R486K-2.05M</li>
                 <li>Plus avoided cost: R1.8M-6M</li>
@@ -421,6 +432,10 @@ export function SekelbosSection2() {
       </Card>
 
       <Card title="2.3 Revenue Projections by Product" className={styles.cardSpacing}>
+        <p className={`${styles.textSm} ${styles.mb4}`}>
+          The Year 1 projection of 150-250 m³ is based on clearing 50 hectares with an estimated usable wood density of
+          3-5 m³/ha.
+        </p>
         <Table
           headers={['Product', 'Volume', 'Price', 'Revenue']}
           rows={[
@@ -744,6 +759,15 @@ export function SekelbosSection4() {
             <li className={`${styles.fontBold} ${styles.textGreen}`}>Total value created: R2.16M-7.58M</li>
           </ul>
         </div>
+      </Card>
+
+      <Card title="Note on Clearance Schedules" className={styles.cardSpacing}>
+        <p className={`${styles.textSm}`}>
+          The 5-year, 600ha schedule presented in this document is an illustrative model designed to show the full potential of the biological clearance system over the entire property. In total, 600 ha is treated over 5 years – 360–420 ha heavy sekelbos plus lighter follow‑up and maintenance passes on remaining areas.
+        </p>
+        <p className={`${styles.textSm} ${styles.mt4}`}>
+          The interactive proposal uses a more conservative 420ha schedule for its financial projections. You can adjust the yearly clearance rates in the floating controls panel to model different scenarios.
+        </p>
       </Card>
     </Section>
   );

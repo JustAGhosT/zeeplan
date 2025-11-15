@@ -46,8 +46,8 @@ describe('calculateFinancialSummary', () => {
     const data = JSON.parse(JSON.stringify(defaultPartnershipData));
     data.yearlyTargets = data.yearlyTargets.slice(0, 2);
     const summary = calculateFinancialSummary(data);
-    expect(summary.cumulative.revenue[0]).toBe(645000);
-    expect(summary.cumulative.revenue[1]).toBe(1253000);
+    expect(summary.cumulative.revenue[0]).toBe(780000);
+    expect(summary.cumulative.revenue[1]).toBe(1120000);
   });
 });
 

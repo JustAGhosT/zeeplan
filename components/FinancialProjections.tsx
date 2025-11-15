@@ -5,41 +5,24 @@ import { formatCurrency, formatRange } from '@/lib/formatting';
 import { PartnershipData } from '@/lib/partnershipData';
 import React from 'react';
 import styles from './FinancialProjections.module.css';
-import { Card, Section, Slider, Table } from './UIComponents';
+import { Card, Section, Table } from './UIComponents';
+import { useData } from '@/app/contexts/DataContext';
 
 interface FinancialProjectionsProps {
   data: PartnershipData;
 }
 
-function Controls({ data, setData }: { data: PartnershipData; setData: (data: PartnershipData) => void }) {
-  return (
-    <Card title="Scenario Controls">
-      <Slider
-        label="Sekelbos Revenue (per ton)"
-        value={data.yearlyTargets[0].sekelbosRevenue[0]}
-        onChange={(value) => {
-          const newYearlyTargets = [...data.yearlyTargets];
-          newYearlyTargets[0] = { ...newYearlyTargets[0], sekelbosRevenue: [value, newYearlyTargets[0].sekelbosRevenue[1]] };
-          setData({
-            ...data,
-            yearlyTargets: newYearlyTargets,
-          });
-        }}
-        min={500}
-        max={1500}
-        step={50}
-      />
-    </Card>
-  );
-}
-
 export function FinancialProjections({ data }: FinancialProjectionsProps) {
-  const [localData, setLocalData] = React.useState(data);
-  const summary = calculateFinancialSummary(localData);
+  const summary = calculateFinancialSummary(data);
+  const { openControls } = useData();
 
   return (
     <Section title="Financial Projections" subtitle="5-year revenue, costs, and profit breakdown by partner">
-      <Controls data={localData} setData={setLocalData} />
+      <div className={styles.controlsHeader}>
+        <button className={styles.adjustButton} onClick={openControls}>
+          Adjust Values
+        </button>
+      </div>
       <Card title="5-Year Cumulative Summary">
         <Table
           headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Willie', 'Eben', 'Hans']}
@@ -64,6 +47,11 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
             ],
           ]}
         />
+        <p className={styles.tableNote}>
+          Figures shown assume goats + pigs
+          {data.includeChickens ? ' + chickens' : ''}.
+          {data.includeRabbits ? ' Rabbits are an optional add-on.' : ''}
+        </p>
       </Card>
 
       <div className={styles.cardsGrid}>

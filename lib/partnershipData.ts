@@ -1,11 +1,16 @@
 // Data model for the Zeerust Partnership Proposal
 
 export interface PartnershipData {
+  // Livestock options
+  includeChickens: boolean;
+  includeRabbits: boolean;
+
   // Farm basics
   landSize: number; // hectares
   currentLSU: number; // Large Stock Units
   targetLSU: number; // Target LSU capacity
   sekelbosEncroachment: number; // percentage
+  sekelbosRevenuePerHectare: [number, number]; // min, max
   currentCarryingCapacity: number; // ha/LSU
   targetCarryingCapacity: number; // ha/LSU
 
@@ -42,6 +47,13 @@ export interface PartnershipData {
   chickensOfftakeRate: number;
   chickensCostPerHectare: [number, number];
   chickensCostPerAnimal: [number, number];
+
+  rabbitsHectares: number;
+  rabbitsPerHectare: number;
+  rabbitsMarketPrice: [number, number];
+  rabbitsOfftakeRate: number;
+  rabbitsCostPerHectare: [number, number];
+  rabbitsCostPerAnimal: [number, number];
 
   // Crop financial parameters
   cropsRevenuePerHectare: [number, number];

@@ -1,14 +1,18 @@
 {
+  "includeChickens": true,
+  "includeRabbits": false,
   "landSize": 600,
   "currentLSU": 72,
-  "targetLSU": 104,
+  "targetLSU": 110,
   "sekelbosEncroachment": 70,
+  "sekelbosRevenuePerHectare": [3000, 5000],
   "currentCarryingCapacity": 8.33,
   "targetCarryingCapacity": 5.5,
   "cattleHectares": 500,
   "goatsHectares": 0,
   "pigsHectares": 0,
   "chickensHectares": 0,
+  "rabbitsHectares": 0,
   "cropsHectares": 0,
   "cattlePerHectare": 0.144,
   "goatsPerHectare": 0,
@@ -30,6 +34,12 @@
   "chickensOfftakeRate": 95,
   "chickensCostPerHectare": [200, 300],
   "chickensCostPerAnimal": [20, 30],
+  "rabbitsHectares": 0,
+  "rabbitsPerHectare": 0,
+  "rabbitsMarketPrice": [100, 150],
+  "rabbitsOfftakeRate": 90,
+  "rabbitsCostPerHectare": [1000, 1500],
+  "rabbitsCostPerAnimal": [50, 80],
   "cropsRevenuePerHectare": [5000, 10000],
   "cropsCostPerHectare": [2000, 4000],
   "baselineRevenue": {
@@ -38,7 +48,8 @@
     "pigs": [0, 10000],
     "chickens": [4000, 8000],
     "crops": [0, 5000],
-    "wood": [5000, 15000]
+    "wood": [5000, 15000],
+    "rabbits": [0, 0]
   },
   "baselineCosts": [150000, 200000],
   "hansLivestockValue": [48000, 98000],
@@ -60,6 +71,7 @@
       "pigsRevenue": [25000, 50000],
       "chickensRevenue": [20000, 40000],
       "cropsRevenue": [15000, 30000],
+      "rabbitsRevenue": [0, 0],
       "costs": [220000, 340000]
     },
     {
@@ -71,6 +83,7 @@
       "pigsRevenue": [65000, 130000],
       "chickensRevenue": [60000, 110000],
       "cropsRevenue": [30000, 50000],
+      "rabbitsRevenue": [0, 0],
       "costs": [320000, 480000]
     },
     {
@@ -82,6 +95,7 @@
       "pigsRevenue": [110000, 210000],
       "chickensRevenue": [110000, 210000],
       "cropsRevenue": [55000, 120000],
+      "rabbitsRevenue": [0, 0],
       "costs": [420000, 620000]
     },
     {
@@ -93,6 +107,7 @@
       "pigsRevenue": [150000, 280000],
       "chickensRevenue": [150000, 280000],
       "cropsRevenue": [85000, 190000],
+      "rabbitsRevenue": [0, 0],
       "costs": [520000, 720000]
     },
     {
@@ -104,6 +119,7 @@
       "pigsRevenue": [220000, 375000],
       "chickensRevenue": [220000, 300000],
       "cropsRevenue": [95000, 210000],
+      "rabbitsRevenue": [0, 0],
       "costs": [600000, 800000]
     }
   ]

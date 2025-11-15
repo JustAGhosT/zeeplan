@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
@@ -14,15 +13,18 @@ import {
   SekelbosSection6,
   SekelbosSection7,
 } from '@/components/SekelbosClearance';
+import { ChickenModule } from '@/components/ChickenModule';
+import { RabbitModule } from '@/components/RabbitModule';
+import { useData } from '@/app/contexts/DataContext';
 import styles from './page.module.css';
 
 export default function SekelbosPage() {
-  const [showControls, setShowControls] = useState(false);
+  const { data } = useData();
 
   return (
     <div className={styles.pageContainer}>
       {/* Enhanced Header */}
-      <Header onToggleControls={() => setShowControls(!showControls)} showControls={showControls} />
+      <Header />
 
       {/* Main Content */}
       <main className={styles.mainContent}>
@@ -66,6 +68,8 @@ export default function SekelbosPage() {
             <div id="sekelbos-section7">
               <SekelbosSection7 />
             </div>
+            {data.includeChickens && <ChickenModule />}
+            {data.includeRabbits && <RabbitModule />}
           </div>
         </div>
       </main>

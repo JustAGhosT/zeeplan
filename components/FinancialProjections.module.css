@@ -1,76 +1,114 @@
-/* FinancialProjections Component Styles */
-
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .cardsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  margin-top: 2rem;
 }
 
 .investmentDetails {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .investmentItem {
-  /* Base style for investment items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.dark .investmentItem {
+  border-bottom-color: var(--border-color-dark);
 }
 
 .itemLabel {
-  font-size: 0.875rem;
-  color: #4b5563;
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
 }
 
-:global(.dark) .itemLabel {
-  color: #9ca3af;
+.dark .itemLabel {
+  color: var(--text-secondary-dark);
 }
 
 .itemValue {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--text-primary-light);
+}
+
+.dark .itemValue {
+  color: var(--text-primary-dark);
 }
 
 .itemValueGreen {
-  font-size: 1.125rem;
   font-weight: 600;
-  color: #16a34a;
+  color: #059669;
 }
 
-:global(.dark) .itemValueGreen {
-  color: #4ade80;
+.dark .itemValueGreen {
+  color: #6ee7b7;
 }
 
 .totalSection {
-  border-top: 1px solid #e5e7eb;
-  padding-top: 0.75rem;
+  padding: 1rem 0;
+  border-top: 2px solid var(--border-color-light);
+  border-bottom: 2px solid var(--border-color-light);
+  margin: 0.5rem 0;
 }
 
-:global(.dark) .totalSection {
-  border-color: #374151;
+.dark .totalSection {
+  border-color: var(--border-color-dark);
 }
 
 .totalLabel {
-  font-size: 0.875rem;
-  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary-light);
+  margin-bottom: 0.25rem;
 }
 
-:global(.dark) .totalLabel {
-  color: #9ca3af;
+.dark .totalLabel {
+  color: var(--text-primary-dark);
 }
 
 .totalValue {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #15803d;
+  color: #10b981;
 }
 
-:global(.dark) .totalValue {
-  color: #4ade80;
+.dark .totalValue {
+  color: #34d399;
+}
+
+.tableNote {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary-light);
+  text-align: center;
+}
+
+.controlsHeader {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.adjustButton {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.adjustButton:hover {
+  background-color: #059669;
+}
+
+.dark .tableNote {
+  color: var(--text-secondary-dark);
 }

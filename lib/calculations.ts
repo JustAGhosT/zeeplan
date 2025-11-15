@@ -86,7 +86,10 @@ function calculateCropsCosts(hectares: number, costPerHectare: [number, number])
 
 function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [number, number] {
   const revenues: Record<string, [number, number]> = {
-    sekelbos: yearData.sekelbosRevenue, // From yearly target for now
+    sekelbos: [
+      yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[0],
+      yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[1],
+    ],
     cattle: calculateLivestockRevenue(
       data.cattleHectares,
       data.cattlePerHectare,
@@ -113,40 +116,81 @@ function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [
     ),
     crops: calculateCropsRevenue(data.cropsHectares, data.cropsRevenuePerHectare),
   };
+
+  if (data.includeChickens) {
+    revenues.chickens = calculateLivestockRevenue(
+      data.chickensHectares,
+      data.chickensPerHectare,
+      data.chickensMarketPrice,
+      data.chickensOfftakeRate,
+    );
+  } else {
+    revenues.chickens = [0, 0];
+  }
+
+  if (data.includeRabbits) {
+    revenues.rabbits = calculateLivestockRevenue(
+      data.rabbitsHectares,
+      data.rabbitsPerHectare,
+      data.rabbitsMarketPrice,
+      data.rabbitsOfftakeRate,
+    );
+  } else {
+    revenues.rabbits = [0, 0];
+  }
+
+
   return sumRevenue(revenues);
 }
 
 function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [number, number] {
-  const cattleCosts = calculateLivestockCosts(
+  const costs: [number, number][] = [];
+
+  costs.push(calculateLivestockCosts(
     data.cattleHectares,
     data.cattlePerHectare,
     data.cattleCostPerHectare,
     data.cattleCostPerAnimal,
-  );
-  const goatsCosts = calculateLivestockCosts(
+  ));
+
+  costs.push(calculateLivestockCosts(
     data.goatsHectares,
     data.goatsPerHectare,
     data.goatsCostPerHectare,
     data.goatsCostPerAnimal,
-  );
-  const pigsCosts = calculateLivestockCosts(
+  ));
+
+  costs.push(calculateLivestockCosts(
     data.pigsHectares,
     data.pigsPerHectare,
     data.pigsCostPerHectare,
     data.pigsCostPerAnimal,
-  );
-  const chickensCosts = calculateLivestockCosts(
-    data.chickensHectares,
-    data.chickensPerHectare,
-    data.chickensCostPerHectare,
-    data.chickensCostPerAnimal,
-  );
-  const cropsCosts = calculateCropsCosts(data.cropsHectares, data.cropsCostPerHectare);
+  ));
+
+  if (data.includeChickens) {
+    costs.push(calculateLivestockCosts(
+      data.chickensHectares,
+      data.chickensPerHectare,
+      data.chickensCostPerHectare,
+      data.chickensCostPerAnimal,
+    ));
+  }
+
+  if (data.includeRabbits) {
+    costs.push(calculateLivestockCosts(
+      data.rabbitsHectares,
+      data.rabbitsPerHectare,
+      data.rabbitsCostPerHectare,
+      data.rabbitsCostPerAnimal,
+    ));
+  }
+
+  costs.push(calculateCropsCosts(data.cropsHectares, data.cropsCostPerHectare));
 
   let minTotal = 0;
   let maxTotal = 0;
 
-  [cattleCosts, goatsCosts, pigsCosts, chickensCosts, cropsCosts].forEach(([min, max]) => {
+  costs.forEach(([min, max]) => {
     minTotal += min;
     maxTotal += max;
   });
