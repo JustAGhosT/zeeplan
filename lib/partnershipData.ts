@@ -22,6 +22,31 @@ export interface PartnershipData {
   pigsPerHectare: number;
   chickensPerHectare: number;
 
+  // Livestock financial parameters
+  cattleMarketPrice: [number, number];
+  cattleOfftakeRate: number;
+  cattleCostPerHectare: [number, number];
+  cattleCostPerAnimal: [number, number];
+
+  goatsMarketPrice: [number, number];
+  goatsOfftakeRate: number;
+  goatsCostPerHectare: [number, number];
+  goatsCostPerAnimal: [number, number];
+
+  pigsMarketPrice: [number, number];
+  pigsOfftakeRate: number;
+  pigsCostPerHectare: [number, number];
+  pigsCostPerAnimal: [number, number];
+
+  chickensMarketPrice: [number, number];
+  chickensOfftakeRate: number;
+  chickensCostPerHectare: [number, number];
+  chickensCostPerAnimal: [number, number];
+
+  // Crop financial parameters
+  cropsRevenuePerHectare: [number, number];
+  cropsCostPerHectare: [number, number];
+
   // Baseline revenue (current state)
   baselineRevenue: {
     cattle: [number, number]; // min, max range

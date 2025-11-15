@@ -199,9 +199,20 @@ interface InputGroupProps {
   step?: number;
   suffix?: string;
   className?: string;
+  tooltip?: string;
 }
 
-export function InputGroup({ label, value, onChange, min, max, step = 1, suffix, className = '' }: InputGroupProps) {
+export function InputGroup({
+  label,
+  value,
+  onChange,
+  min,
+  max,
+  step = 1,
+  suffix,
+  className = '',
+  tooltip,
+}: InputGroupProps) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -219,7 +230,15 @@ export function InputGroup({ label, value, onChange, min, max, step = 1, suffix,
 
   return (
     <div className={`${styles.inputGroup} ${className}`}>
-      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>{label}</label>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
+        {label}
+        {tooltip && (
+          <span className={styles.tooltip}>
+            ?
+            <span className={styles.tooltiptext}>{tooltip}</span>
+          </span>
+        )}
+      </label>
       <div className={styles.inputWrapper}>
         <input
           type="number"
@@ -245,6 +264,7 @@ interface RangeInputGroupProps {
   step?: number;
   suffix?: string;
   className?: string;
+  tooltip?: string;
 }
 
 export function RangeInputGroup({
@@ -256,6 +276,7 @@ export function RangeInputGroup({
   step = 1,
   suffix,
   className = '',
+  tooltip,
 }: RangeInputGroupProps) {
   const [isDark, setIsDark] = useState(false);
 
@@ -274,7 +295,15 @@ export function RangeInputGroup({
 
   return (
     <div className={`${styles.rangeInputGroup} ${className}`}>
-      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>{label}</label>
+      <label className={`${styles.inputLabel} ${isDark ? styles.dark : ''}`}>
+        {label}
+        {tooltip && (
+          <span className={styles.tooltip}>
+            ?
+            <span className={styles.tooltiptext}>{tooltip}</span>
+          </span>
+        )}
+      </label>
       <div className={styles.inputWrapper}>
         <input
           type="number"

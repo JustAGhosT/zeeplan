@@ -45,24 +45,118 @@ export function calculateProfit(revenue: [number, number], costs: [number, numbe
 }
 
 export function calculateEquityShare(profit: [number, number], percentage: number): [number, number] {
-  validateMinMaxRange(profit, 'profit');
   if (percentage < 0 || percentage > 100) {
     throw new Error(`Invalid percentage for equity share: ${percentage}`);
   }
   return [Math.round(profit[0] * (percentage / 100)), Math.round(profit[1] * (percentage / 100))];
 }
 
-function calculateTotalRevenue(yearData: YearlyTarget, data: PartnershipData): [number, number] {
-  // Decoupled revenue calculations to use YearlyTarget data directly.
+// New helper functions for dynamic calculations based on slider data
+
+function calculateLivestockRevenue(
+  hectares: number,
+  density: number,
+  marketPrice: [number, number],
+  offtakeRate: number,
+): [number, number] {
+  const totalAnimals = hectares * density;
+  const animalsSold = totalAnimals * (offtakeRate / 100);
+  return [animalsSold * marketPrice[0], animalsSold * marketPrice[1]];
+}
+
+function calculateLivestockCosts(
+  hectares: number,
+  density: number,
+  costPerHectare: [number, number],
+  costPerAnimal: [number, number],
+): [number, number] {
+  const totalAnimals = hectares * density;
+  const minCost = hectares * costPerHectare[0] + totalAnimals * costPerAnimal[0];
+  const maxCost = hectares * costPerHectare[1] + totalAnimals * costPerAnimal[1];
+  return [minCost, maxCost];
+}
+
+function calculateCropsRevenue(hectares: number, revenuePerHectare: [number, number]): [number, number] {
+  return [hectares * revenuePerHectare[0], hectares * revenuePerHectare[1]];
+}
+
+function calculateCropsCosts(hectares: number, costPerHectare: [number, number]): [number, number] {
+  return [hectares * costPerHectare[0], hectares * costPerHectare[1]];
+}
+
+function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [number, number] {
   const revenues: Record<string, [number, number]> = {
-    sekelbos: yearData.sekelbosRevenue,
-    cattle: yearData.cattleRevenue,
-    goats: yearData.goatsRevenue,
-    pigs: yearData.pigsRevenue,
-    chickens: yearData.chickensRevenue,
-    crops: yearData.cropsRevenue,
+    sekelbos: yearData.sekelbosRevenue, // From yearly target for now
+    cattle: calculateLivestockRevenue(
+      data.cattleHectares,
+      data.cattlePerHectare,
+      data.cattleMarketPrice,
+      data.cattleOfftakeRate,
+    ),
+    goats: calculateLivestockRevenue(
+      data.goatsHectares,
+      data.goatsPerHectare,
+      data.goatsMarketPrice,
+      data.goatsOfftakeRate,
+    ),
+    pigs: calculateLivestockRevenue(
+      data.pigsHectares,
+      data.pigsPerHectare,
+      data.pigsMarketPrice,
+      data.pigsOfftakeRate,
+    ),
+    chickens: calculateLivestockRevenue(
+      data.chickensHectares,
+      data.chickensPerHectare,
+      data.chickensMarketPrice,
+      data.chickensOfftakeRate,
+    ),
+    crops: calculateCropsRevenue(data.cropsHectares, data.cropsRevenuePerHectare),
   };
   return sumRevenue(revenues);
+}
+
+function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [number, number] {
+  const cattleCosts = calculateLivestockCosts(
+    data.cattleHectares,
+    data.cattlePerHectare,
+    data.cattleCostPerHectare,
+    data.cattleCostPerAnimal,
+  );
+  const goatsCosts = calculateLivestockCosts(
+    data.goatsHectares,
+    data.goatsPerHectare,
+    data.goatsCostPerHectare,
+    data.goatsCostPerAnimal,
+  );
+  const pigsCosts = calculateLivestockCosts(
+    data.pigsHectares,
+    data.pigsPerHectare,
+    data.pigsCostPerHectare,
+    data.pigsCostPerAnimal,
+  );
+  const chickensCosts = calculateLivestockCosts(
+    data.chickensHectares,
+    data.chickensPerHectare,
+    data.chickensCostPerHectare,
+    data.chickensCostPerAnimal,
+  );
+  const cropsCosts = calculateCropsCosts(data.cropsHectares, data.cropsCostPerHectare);
+
+  let minTotal = 0;
+  let maxTotal = 0;
+
+  [cattleCosts, goatsCosts, pigsCosts, chickensCosts, cropsCosts].forEach(([min, max]) => {
+    minTotal += min;
+    maxTotal += max;
+  });
+
+  // Assuming yearData.costs contains other costs like sekelbos clearing, baseline costs etc.
+  // This is a temporary solution until all costs are slider-driven.
+  minTotal += yearData.costs[0];
+  maxTotal += yearData.costs[1];
+
+  return [minTotal, maxTotal];
 }
 
 import { MONTHS_IN_YEAR } from './config';
@@ -104,8 +198,8 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   const yearData = data.yearlyTargets[yearIndex];
   const equity = data.equityStructure[yearIndex];
 
-  const revenue = calculateTotalRevenue(yearData, data);
-  const costs = yearData.costs;
+  const revenue = calculateTotalRevenue(data, yearData);
+  const costs = calculateTotalCosts(data, yearData);
   const profit = calculateProfit(revenue, costs);
 
   const { oomWillieIncome, ebenIncome, hansEquityIncome } = calculatePartnerIncomes(profit, equity);
