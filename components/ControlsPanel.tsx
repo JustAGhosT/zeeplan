@@ -5,6 +5,7 @@ import { PartnershipData } from '@/lib/partnershipData';
 import styles from './ControlsPanel.module.css';
 import { Card } from './UIComponents';
 import { ReusableSlider } from './ReusableSlider';
+import { RangeSlider } from './RangeSlider';
 
 interface ControlsPanelProps {
   data: PartnershipData;
@@ -68,21 +69,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
 
   const updateRangeField = <K extends keyof PartnershipData>(
     field: K,
-    index: 0 | 1,
-    value: number
+    min: number,
+    max: number
   ) => {
-    const currentRange = data[field] as [number, number];
-    const newRange: [number, number] = [...currentRange];
-    newRange[index] = value;
-
-    if (index === 0 && value > newRange[1]) {
-      newRange[1] = value;
-    }
-    if (index === 1 && value < newRange[0]) {
-      newRange[0] = value;
-    }
-
-    const newData = { ...data, [field]: newRange };
+    const newData = { ...data, [field]: [min, max] as [number, number] };
     onUpdate(newData);
   };
 
@@ -106,8 +96,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
       <Card title="⚙️ Adjustable Parameters" className={styles.stickyCard}>
         <div className={styles.controlsContainer}>
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Farm Basics</h4>
-
+          <h4 className={styles.sectionTitle}>🏞️ Farm Basics</h4>
           <ReusableSlider
             label="Land Size"
             value={data.landSize}
@@ -117,9 +106,8 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={2000}
             step={50}
             suffix="ha"
-            tooltip="Total size of the farm in hectares."
+            tooltip="Total farm size."
           />
-
           <ReusableSlider
             label="Current LSU"
             value={data.currentLSU}
@@ -129,9 +117,8 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={200}
             step={1}
             suffix="cattle"
-            tooltip="Current number of Large Stock Units on the farm."
+            tooltip="Current livestock units."
           />
-
           <ReusableSlider
             label="Target LSU"
             value={data.targetLSU}
@@ -141,11 +128,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={300}
             step={1}
             suffix="cattle"
-            tooltip="Target number of Large Stock Units after sekelbos clearance."
+            tooltip="Target livestock units."
           />
-
           <ReusableSlider
-            label="Sekelbos Encroachment"
+            label="Sekelbos"
             value={data.sekelbosEncroachment}
             defaultValue={70}
             onChange={(v) => updateField('sekelbosEncroachment', v)}
@@ -153,12 +139,12 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={100}
             step={1}
             suffix="%"
-            tooltip="Percentage of the farm affected by sekelbos encroachment."
+            tooltip="Farm area affected."
           />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Livestock Options</h4>
+          <h4 className={styles.sectionTitle}>🐾 Options</h4>
           <div className={styles.checkboxGroup}>
             <label className={styles.checkboxLabel}>
               <input
@@ -166,7 +152,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
                 checked={data.includeChickens}
                 onChange={(e) => updateField('includeChickens', e.target.checked)}
               />
-              Include Chickens
+              🐔 Chickens
             </label>
             <label className={styles.checkboxLabel}>
               <input
@@ -174,17 +160,17 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
                 checked={data.includeRabbits}
                 onChange={(e) => updateField('includeRabbits', e.target.checked)}
               />
-              Include Rabbits
+              🐰 Rabbits
             </label>
           </div>
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Sekelbos Clearance Schedule (ha/year)</h4>
+          <h4 className={styles.sectionTitle}>🌳 Sekelbos Clearance</h4>
           {data.yearlyTargets.map((year, index) => (
             <ReusableSlider
               key={index}
-              label={`Year ${index + 1}`}
+              label={`Y${index + 1}`}
               value={year.sekelbosCleared}
               defaultValue={year.sekelbosCleared}
               onChange={(v) => {
@@ -196,16 +182,15 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
               max={200}
               step={10}
               suffix="ha"
-              tooltip="Adjust the number of hectares of sekelbos to be cleared each year."
+              tooltip={`Year ${index + 1} clearance.`}
             />
           ))}
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Land Allocation</h4>
-
+          <h4 className={styles.sectionTitle}>📏 Land Allocation</h4>
           <ReusableSlider
-            label="Cattle Hectares"
+            label="Cattle"
             value={data.cattleHectares}
             defaultValue={500}
             onChange={(v) => updateField('cattleHectares', v)}
@@ -213,11 +198,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={data.landSize}
             step={10}
             suffix="ha"
-            tooltip="Area allocated for cattle grazing."
+            tooltip="Cattle grazing area."
           />
-
           <ReusableSlider
-            label="Goats Hectares"
+            label="Goats"
             value={data.goatsHectares}
             defaultValue={0}
             onChange={(v) => updateField('goatsHectares', v)}
@@ -225,11 +209,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={data.landSize}
             step={10}
             suffix="ha"
-            tooltip="Area allocated for goat browsing."
+            tooltip="Goat browsing area."
           />
-
           <ReusableSlider
-            label="Pigs Hectares"
+            label="Pigs"
             value={data.pigsHectares}
             defaultValue={0}
             onChange={(v) => updateField('pigsHectares', v)}
@@ -237,11 +220,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={data.landSize}
             step={10}
             suffix="ha"
-            tooltip="Area allocated for pig rooting."
+            tooltip="Pig rooting area."
           />
-
           {data.includeChickens && <ReusableSlider
-            label="Chickens Hectares"
+            label="Chickens"
             value={data.chickensHectares}
             defaultValue={0}
             onChange={(v) => updateField('chickensHectares', v)}
@@ -249,11 +231,10 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={data.landSize}
             step={10}
             suffix="ha"
-            tooltip="Area allocated for chicken scratching."
+            tooltip="Chicken scratching area."
           />}
-
           <ReusableSlider
-            label="Crops Hectares"
+            label="Crops"
             value={data.cropsHectares}
             defaultValue={0}
             onChange={(v) => updateField('cropsHectares', v)}
@@ -261,42 +242,33 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             max={data.landSize}
             step={10}
             suffix="ha"
-            tooltip="Area allocated for crop cultivation."
+            tooltip="Crop cultivation area."
           />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Cattle Financials</h4>
+          <h4 className={styles.sectionTitle}>🐄 Cattle</h4>
           <ReusableSlider
-            label="Cattle per Hectare"
+            label="Density"
             value={data.cattlePerHectare}
             defaultValue={0.2}
             min={0} max={1} step={0.01}
             onChange={v => updateField('cattlePerHectare', v)}
             suffix="head/ha" tooltip="Number of cattle per hectare."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Market Price"
-              value={data.cattleMarketPrice[0]}
-              defaultValue={8000}
-              min={5000} max={20000} step={500}
-              onChange={v => updateRangeField('cattleMarketPrice', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum sale price per head."
-            />
-            <ReusableSlider
-              label=""
-              value={data.cattleMarketPrice[1]}
-              defaultValue={12000}
-              min={5000} max={20000} step={500}
-              onChange={v => updateRangeField('cattleMarketPrice', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum sale price per head."
-            />
-          </div>
+          <RangeSlider
+            label="Market Price"
+            valueMin={data.cattleMarketPrice[0]}
+            valueMax={data.cattleMarketPrice[1]}
+            defaultMin={8000}
+            defaultMax={12000}
+            min={5000} max={20000} step={500}
+            onChange={(min, max) => updateRangeField('cattleMarketPrice', min, max)}
+            suffix="ZAR"
+            tooltip="Sale price range per head."
+          />
           <ReusableSlider
-            label="Offtake Rate"
+            label="Offtake"
             value={data.cattleOfftakeRate}
             defaultValue={25}
             min={0} max={100} step={1}
@@ -304,80 +276,53 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             suffix="%"
             tooltip="Percentage of herd sold annually."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Hectare"
-              value={data.cattleCostPerHectare[0]}
-              defaultValue={100}
-              min={0} max={1000} step={50}
-              onChange={v => updateRangeField('cattleCostPerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per hectare for cattle."
-            />
-            <ReusableSlider
-              label=""
-              value={data.cattleCostPerHectare[1]}
-              defaultValue={200}
-              min={0} max={1000} step={50}
-              onChange={v => updateRangeField('cattleCostPerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per hectare for cattle."
-            />
-          </div>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Animal"
-              value={data.cattleCostPerAnimal[0]}
-              defaultValue={500}
-              min={0} max={2000} step={50}
-              onChange={v => updateRangeField('cattleCostPerAnimal', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per animal."
-            />
-            <ReusableSlider
-              label=""
-              value={data.cattleCostPerAnimal[1]}
-              defaultValue={800}
-              min={0} max={2000} step={50}
-              onChange={v => updateRangeField('cattleCostPerAnimal', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per animal."
-            />
-          </div>
+          <RangeSlider
+            label="Cost/ha"
+            valueMin={data.cattleCostPerHectare[0]}
+            valueMax={data.cattleCostPerHectare[1]}
+            defaultMin={100}
+            defaultMax={200}
+            min={0} max={1000} step={50}
+            onChange={(min, max) => updateRangeField('cattleCostPerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per hectare."
+          />
+          <RangeSlider
+            label="Cost/Animal"
+            valueMin={data.cattleCostPerAnimal[0]}
+            valueMax={data.cattleCostPerAnimal[1]}
+            defaultMin={500}
+            defaultMax={800}
+            min={0} max={2000} step={50}
+            onChange={(min, max) => updateRangeField('cattleCostPerAnimal', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per animal."
+          />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Goats Financials</h4>
+          <h4 className={styles.sectionTitle}>🐐 Goats</h4>
           <ReusableSlider
-            label="Goats per Hectare"
+            label="Density"
             value={data.goatsPerHectare}
             defaultValue={1}
             min={0} max={10} step={0.1}
             onChange={v => updateField('goatsPerHectare', v)}
             suffix="head/ha" tooltip="Number of goats per hectare."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Market Price"
-              value={data.goatsMarketPrice[0]}
-              defaultValue={1000}
-              min={500} max={3000} step={100}
-              onChange={v => updateRangeField('goatsMarketPrice', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum sale price per goat."
-            />
-            <ReusableSlider
-              label=""
-              value={data.goatsMarketPrice[1]}
-              defaultValue={1500}
-              min={500} max={3000} step={100}
-              onChange={v => updateRangeField('goatsMarketPrice', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum sale price per goat."
-            />
-          </div>
+          <RangeSlider
+            label="Market Price"
+            valueMin={data.goatsMarketPrice[0]}
+            valueMax={data.goatsMarketPrice[1]}
+            defaultMin={1000}
+            defaultMax={1500}
+            min={500} max={3000} step={100}
+            onChange={(min, max) => updateRangeField('goatsMarketPrice', min, max)}
+            suffix="ZAR"
+            tooltip="Sale price range per goat."
+          />
           <ReusableSlider
-            label="Offtake Rate"
+            label="Offtake"
             value={data.goatsOfftakeRate}
             defaultValue={50}
             min={0} max={100} step={1}
@@ -385,80 +330,53 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             suffix="%"
             tooltip="Percentage of herd sold annually."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Hectare"
-              value={data.goatsCostPerHectare[0]}
-              defaultValue={50}
-              min={0} max={500} step={25}
-              onChange={v => updateRangeField('goatsCostPerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per hectare for goats."
-            />
-            <ReusableSlider
-              label=""
-              value={data.goatsCostPerHectare[1]}
-              defaultValue={100}
-              min={0} max={500} step={25}
-              onChange={v => updateRangeField('goatsCostPerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per hectare for goats."
-            />
-          </div>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Animal"
-              value={data.goatsCostPerAnimal[0]}
-              defaultValue={100}
-              min={0} max={500} step={10}
-              onChange={v => updateRangeField('goatsCostPerAnimal', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per animal."
-            />
-            <ReusableSlider
-              label=""
-              value={data.goatsCostPerAnimal[1]}
-              defaultValue={150}
-              min={0} max={500} step={10}
-              onChange={v => updateRangeField('goatsCostPerAnimal', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per animal."
-            />
-          </div>
+          <RangeSlider
+            label="Cost/ha"
+            valueMin={data.goatsCostPerHectare[0]}
+            valueMax={data.goatsCostPerHectare[1]}
+            defaultMin={50}
+            defaultMax={100}
+            min={0} max={500} step={25}
+            onChange={(min, max) => updateRangeField('goatsCostPerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per hectare."
+          />
+          <RangeSlider
+            label="Cost/Animal"
+            valueMin={data.goatsCostPerAnimal[0]}
+            valueMax={data.goatsCostPerAnimal[1]}
+            defaultMin={100}
+            defaultMax={150}
+            min={0} max={500} step={10}
+            onChange={(min, max) => updateRangeField('goatsCostPerAnimal', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per animal."
+          />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Pigs Financials</h4>
+          <h4 className={styles.sectionTitle}>🐷 Pigs</h4>
           <ReusableSlider
-            label="Pigs per Hectare"
+            label="Density"
             value={data.pigsPerHectare}
             defaultValue={2}
             min={0} max={20} step={0.1}
             onChange={v => updateField('pigsPerHectare', v)}
             suffix="head/ha" tooltip="Number of pigs per hectare."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Market Price"
-              value={data.pigsMarketPrice[0]}
-              defaultValue={1500}
-              min={1000} max={4000} step={100}
-              onChange={v => updateRangeField('pigsMarketPrice', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum sale price per pig."
-            />
-            <ReusableSlider
-              label=""
-              value={data.pigsMarketPrice[1]}
-              defaultValue={2500}
-              min={1000} max={4000} step={100}
-              onChange={v => updateRangeField('pigsMarketPrice', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum sale price per pig."
-            />
-          </div>
+          <RangeSlider
+            label="Market Price"
+            valueMin={data.pigsMarketPrice[0]}
+            valueMax={data.pigsMarketPrice[1]}
+            defaultMin={1500}
+            defaultMax={2500}
+            min={1000} max={4000} step={100}
+            onChange={(min, max) => updateRangeField('pigsMarketPrice', min, max)}
+            suffix="ZAR"
+            tooltip="Sale price range per pig."
+          />
           <ReusableSlider
-            label="Offtake Rate"
+            label="Offtake"
             value={data.pigsOfftakeRate}
             defaultValue={80}
             min={0} max={200} step={5}
@@ -466,80 +384,53 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             suffix="%"
             tooltip="Percentage of herd sold annually."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Hectare"
-              value={data.pigsCostPerHectare[0]}
-              defaultValue={200}
-              min={0} max={1000} step={50}
-              onChange={v => updateRangeField('pigsCostPerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per hectare for pigs."
-            />
-            <ReusableSlider
-              label=""
-              value={data.pigsCostPerHectare[1]}
-              defaultValue={400}
-              min={0} max={1000} step={50}
-              onChange={v => updateRangeField('pigsCostPerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per hectare for pigs."
-            />
-          </div>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Animal"
-              value={data.pigsCostPerAnimal[0]}
-              defaultValue={300}
-              min={0} max={1000} step={25}
-              onChange={v => updateRangeField('pigsCostPerAnimal', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per animal."
-            />
-            <ReusableSlider
-              label=""
-              value={data.pigsCostPerAnimal[1]}
-              defaultValue={500}
-              min={0} max={1000} step={25}
-              onChange={v => updateRangeField('pigsCostPerAnimal', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per animal."
-            />
-          </div>
+          <RangeSlider
+            label="Cost/ha"
+            valueMin={data.pigsCostPerHectare[0]}
+            valueMax={data.pigsCostPerHectare[1]}
+            defaultMin={200}
+            defaultMax={400}
+            min={0} max={1000} step={50}
+            onChange={(min, max) => updateRangeField('pigsCostPerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per hectare."
+          />
+          <RangeSlider
+            label="Cost/Animal"
+            valueMin={data.pigsCostPerAnimal[0]}
+            valueMax={data.pigsCostPerAnimal[1]}
+            defaultMin={300}
+            defaultMax={500}
+            min={0} max={1000} step={25}
+            onChange={(min, max) => updateRangeField('pigsCostPerAnimal', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per animal."
+          />
         </div>
 
         {data.includeChickens && <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Chickens Financials</h4>
+          <h4 className={styles.sectionTitle}>🐔 Chickens</h4>
           <ReusableSlider
-            label="Chickens per Hectare"
+            label="Density"
             value={data.chickensPerHectare}
             defaultValue={10}
             min={0} max={50} step={1}
             onChange={v => updateField('chickensPerHectare', v)}
             suffix="birds/ha" tooltip="Number of chickens per hectare."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Market Price"
-              value={data.chickensMarketPrice[0]}
-              defaultValue={80}
-              min={50} max={200} step={5}
-              onChange={v => updateRangeField('chickensMarketPrice', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum sale price per chicken."
-            />
-            <ReusableSlider
-              label=""
-              value={data.chickensMarketPrice[1]}
-              defaultValue={120}
-              min={50} max={200} step={5}
-              onChange={v => updateRangeField('chickensMarketPrice', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum sale price per chicken."
-            />
-          </div>
+          <RangeSlider
+            label="Market Price"
+            valueMin={data.chickensMarketPrice[0]}
+            valueMax={data.chickensMarketPrice[1]}
+            defaultMin={80}
+            defaultMax={120}
+            min={50} max={200} step={5}
+            onChange={(min, max) => updateRangeField('chickensMarketPrice', min, max)}
+            suffix="ZAR"
+            tooltip="Sale price range per chicken."
+          />
           <ReusableSlider
-            label="Offtake Rate"
+            label="Offtake"
             value={data.chickensOfftakeRate}
             defaultValue={90}
             min={0} max={200} step={5}
@@ -547,222 +438,166 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
             suffix="%"
             tooltip="Percentage of flock sold annually."
           />
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Hectare"
-              value={data.chickensCostPerHectare[0]}
-              defaultValue={100}
-              min={0} max={500} step={10}
-              onChange={v => updateRangeField('chickensCostPerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per hectare for chickens."
-            />
-            <ReusableSlider
-              label=""
-              value={data.chickensCostPerHectare[1]}
-              defaultValue={200}
-              min={0} max={500} step={10}
-              onChange={v => updateRangeField('chickensCostPerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per hectare for chickens."
-            />
-          </div>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Animal"
-              value={data.chickensCostPerAnimal[0]}
-              defaultValue={20}
-              min={0} max={100} step={5}
-              onChange={v => updateRangeField('chickensCostPerAnimal', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per animal."
-            />
-            <ReusableSlider
-              label=""
-              value={data.chickensCostPerAnimal[1]}
-              defaultValue={40}
-              min={0} max={100} step={5}
-              onChange={v => updateRangeField('chickensCostPerAnimal', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per animal."
-            />
-          </div>
+          <RangeSlider
+            label="Cost/ha"
+            valueMin={data.chickensCostPerHectare[0]}
+            valueMax={data.chickensCostPerHectare[1]}
+            defaultMin={100}
+            defaultMax={200}
+            min={0} max={500} step={10}
+            onChange={(min, max) => updateRangeField('chickensCostPerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per hectare."
+          />
+          <RangeSlider
+            label="Cost/Animal"
+            valueMin={data.chickensCostPerAnimal[0]}
+            valueMax={data.chickensCostPerAnimal[1]}
+            defaultMin={20}
+            defaultMax={40}
+            min={0} max={100} step={5}
+            onChange={(min, max) => updateRangeField('chickensCostPerAnimal', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per animal."
+          />
         </div>}
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Crops Financials</h4>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Revenue per Hectare"
-              value={data.cropsRevenuePerHectare[0]}
-              defaultValue={2000}
-              min={0} max={10000} step={250}
-              onChange={v => updateRangeField('cropsRevenuePerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual revenue per hectare of crops."
-            />
-            <ReusableSlider
-              label=""
-              value={data.cropsRevenuePerHectare[1]}
-              defaultValue={5000}
-              min={0} max={10000} step={250}
-              onChange={v => updateRangeField('cropsRevenuePerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual revenue per hectare of crops."
-            />
-          </div>
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Cost per Hectare"
-              value={data.cropsCostPerHectare[0]}
-              defaultValue={1000}
-              min={0} max={5000} step={100}
-              onChange={v => updateRangeField('cropsCostPerHectare', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum annual cost per hectare of crops."
-            />
-            <ReusableSlider
-              label=""
-              value={data.cropsCostPerHectare[1]}
-              defaultValue={2000}
-              min={0} max={5000} step={100}
-              onChange={v => updateRangeField('cropsCostPerHectare', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum annual cost per hectare of crops."
-            />
-          </div>
+          <h4 className={styles.sectionTitle}>🌾 Crops</h4>
+          <RangeSlider
+            label="Revenue/ha"
+            valueMin={data.cropsRevenuePerHectare[0]}
+            valueMax={data.cropsRevenuePerHectare[1]}
+            defaultMin={2000}
+            defaultMax={5000}
+            min={0} max={10000} step={250}
+            onChange={(min, max) => updateRangeField('cropsRevenuePerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual revenue per hectare."
+          />
+          <RangeSlider
+            label="Cost/ha"
+            valueMin={data.cropsCostPerHectare[0]}
+            valueMax={data.cropsCostPerHectare[1]}
+            defaultMin={1000}
+            defaultMax={2000}
+            min={0} max={5000} step={100}
+            onChange={(min, max) => updateRangeField('cropsCostPerHectare', min, max)}
+            suffix="ZAR"
+            tooltip="Annual cost per hectare."
+          />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Hans's Investment</h4>
-
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Livestock Value"
-              value={data.hansLivestockValue[0]}
-              defaultValue={50000}
-              min={0} max={200000} step={1000}
-              onChange={v => updateRangeField('hansLivestockValue', 0, v)}
-              suffix="ZAR (min)"
-              tooltip="Minimum initial value of livestock invested by Hans."
-            />
-            <ReusableSlider
-              label=""
-              value={data.hansLivestockValue[1]}
-              defaultValue={100000}
-              min={0} max={200000} step={1000}
-              onChange={v => updateRangeField('hansLivestockValue', 1, v)}
-              suffix="ZAR (max)"
-              tooltip="Maximum initial value of livestock invested by Hans."
-            />
-          </div>
-
-          <div className={styles.rangeContainer}>
-            <ReusableSlider
-              label="Monthly Salary"
-              value={data.hansMonthlySalary[0]}
-              defaultValue={8000}
-              min={0} max={25000} step={500}
-              onChange={v => updateRangeField('hansMonthlySalary', 0, v)}
-              suffix="ZAR/month (min)"
-              tooltip="Minimum monthly salary for Hans."
-            />
-            <ReusableSlider
-              label=""
-              value={data.hansMonthlySalary[1]}
-              defaultValue={12000}
-              min={0} max={25000} step={500}
-              onChange={v => updateRangeField('hansMonthlySalary', 1, v)}
-              suffix="ZAR/month (max)"
-              tooltip="Maximum monthly salary for Hans."
-            />
-          </div>
+          <h4 className={styles.sectionTitle}>💼 Hans's Investment</h4>
+          <RangeSlider
+            label="Livestock Value"
+            valueMin={data.hansLivestockValue[0]}
+            valueMax={data.hansLivestockValue[1]}
+            defaultMin={50000}
+            defaultMax={100000}
+            min={0} max={200000} step={1000}
+            onChange={(min, max) => updateRangeField('hansLivestockValue', min, max)}
+            suffix="ZAR"
+            tooltip="Initial value of livestock."
+          />
+          <RangeSlider
+            label="Monthly Salary"
+            valueMin={data.hansMonthlySalary[0]}
+            valueMax={data.hansMonthlySalary[1]}
+            defaultMin={8000}
+            defaultMax={12000}
+            min={0} max={25000} step={500}
+            onChange={(min, max) => updateRangeField('hansMonthlySalary', min, max)}
+            suffix="ZAR/month"
+            tooltip="Monthly salary range."
+          />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Equity Structure - Year 1</h4>
-            <ReusableSlider
-              label="Oom Hein"
-              value={data.equityStructure[0].oomHein}
-              defaultValue={60}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[0] = { ...newEquity[0], oomHein: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Oom Hein's equity share in Year 1."
-            />
-            <ReusableSlider
-              label="Eben"
-              value={data.equityStructure[0].eben}
-              defaultValue={20}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[0] = { ...newEquity[0], eben: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Eben's equity share in Year 1."
-            />
-            <ReusableSlider
-              label="Hans"
-              value={data.equityStructure[0].hans}
-              defaultValue={20}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[0] = { ...newEquity[0], hans: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Hans's equity share in Year 1."
-            />
+          <h4 className={styles.sectionTitle}>📊 Equity Y1</h4>
+          <ReusableSlider
+            label="Oom Hein"
+            value={data.equityStructure[0].oomHein}
+            defaultValue={60}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], oomHein: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 1 equity."
+          />
+          <ReusableSlider
+            label="Eben"
+            value={data.equityStructure[0].eben}
+            defaultValue={20}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], eben: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 1 equity."
+          />
+          <ReusableSlider
+            label="Hans"
+            value={data.equityStructure[0].hans}
+            defaultValue={20}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[0] = { ...newEquity[0], hans: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 1 equity."
+          />
         </div>
 
         <div className={styles.section}>
-          <h4 className={styles.sectionTitle}>Equity Structure - Year 5</h4>
-            <ReusableSlider
-              label="Oom Hein"
-              value={data.equityStructure[4].oomHein}
-              defaultValue={50}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[4] = { ...newEquity[4], oomHein: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Oom Hein's equity share in Year 5."
-            />
-            <ReusableSlider
-              label="Eben"
-              value={data.equityStructure[4].eben}
-              defaultValue={25}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[4] = { ...newEquity[4], eben: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Eben's equity share in Year 5."
-            />
-            <ReusableSlider
-              label="Hans"
-              value={data.equityStructure[4].hans}
-              defaultValue={25}
-              min={0} max={100} step={1}
-              onChange={v => {
-                const newEquity = [...data.equityStructure];
-                newEquity[4] = { ...newEquity[4], hans: v };
-                updateField('equityStructure', newEquity);
-              }}
-              suffix="%"
-              tooltip="Hans's equity share in Year 5."
-            />
+          <h4 className={styles.sectionTitle}>📊 Equity Y5</h4>
+          <ReusableSlider
+            label="Oom Hein"
+            value={data.equityStructure[4].oomHein}
+            defaultValue={50}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], oomHein: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 5 equity."
+          />
+          <ReusableSlider
+            label="Eben"
+            value={data.equityStructure[4].eben}
+            defaultValue={25}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], eben: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 5 equity."
+          />
+          <ReusableSlider
+            label="Hans"
+            value={data.equityStructure[4].hans}
+            defaultValue={25}
+            min={0} max={100} step={1}
+            onChange={v => {
+              const newEquity = [...data.equityStructure];
+              newEquity[4] = { ...newEquity[4], hans: v };
+              updateField('equityStructure', newEquity);
+            }}
+            suffix="%"
+            tooltip="Year 5 equity."
+          />
         </div>
 
         <div>
