@@ -2,6 +2,7 @@
 
 import { Equity, PartnershipData, YearlyTarget } from './partnershipData';
 import { validateMinMaxRange } from './validation';
+import { TIME } from './constants';
 
 export interface YearlyFinancials {
   revenue: [number, number]; // min, max
@@ -108,12 +109,6 @@ function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [
       data.pigsMarketPrice,
       data.pigsOfftakeRate,
     ),
-    chickens: calculateLivestockRevenue(
-      data.chickensHectares,
-      data.chickensPerHectare,
-      data.chickensMarketPrice,
-      data.chickensOfftakeRate,
-    ),
     crops: calculateCropsRevenue(data.cropsHectares, data.cropsRevenuePerHectare),
   };
 
@@ -203,8 +198,6 @@ function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [nu
   return [minTotal, maxTotal];
 }
 
-import { MONTHS_IN_YEAR } from './config';
-
 function calculatePartnerIncomes(profit: [number, number], equity: Equity) {
   const oomHeinIncome = calculateEquityShare(profit, equity.oomHein);
   const ebenIncome = calculateEquityShare(profit, equity.eben);
@@ -216,7 +209,7 @@ function calculateHansTotalIncome(
   hansEquityIncome: [number, number],
   hansMonthlySalary: [number, number],
 ): { hansSalary: [number, number]; hansTotalIncome: [number, number] } {
-  const hansSalary: [number, number] = [hansMonthlySalary[0] * MONTHS_IN_YEAR, hansMonthlySalary[1] * MONTHS_IN_YEAR];
+  const hansSalary: [number, number] = [hansMonthlySalary[0] * TIME.MONTHS_IN_YEAR, hansMonthlySalary[1] * TIME.MONTHS_IN_YEAR];
   const hansTotalIncome: [number, number] = [hansEquityIncome[0] + hansSalary[0], hansEquityIncome[1] + hansSalary[1]];
   return { hansSalary, hansTotalIncome };
 }

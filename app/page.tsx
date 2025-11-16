@@ -262,7 +262,7 @@ export default function Home() {
             <div className={styles.partnerCard}>
               <div className={styles.partnerCardGreen}>
                 <div className={styles.partnerPercentage}>35%</div>
-                <div className={styles.partnerName}>Oom Willie</div>
+                <div className={styles.partnerName}>Oom Hein</div>
                 <div className={styles.partnerRole}>Land + Operations</div>
               </div>
             </div>
