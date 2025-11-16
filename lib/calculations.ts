@@ -351,6 +351,11 @@ export function calculateROI(investment: [number, number], netProfit: [number, n
   const minROI = (netProfit[0] / investment[1]) * 100;
   const maxROI = (netProfit[1] / investment[0]) * 100;
 
+  // Handle NaN or undefined values
+  if (isNaN(minROI) || isNaN(maxROI)) {
+    return 'N/A';
+  }
+
   return `${Math.round(minROI).toLocaleString()}-${Math.round(maxROI).toLocaleString()}%`;
 }
 
