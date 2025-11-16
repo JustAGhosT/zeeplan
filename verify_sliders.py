@@ -5,13 +5,14 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         page = await browser.new_page()
-        await page.goto("http://localhost:3000/financials")
+        await page.goto("http://localhost:3000/proposal")
 
         # Take a screenshot before clicking
         await page.screenshot(path="/home/jules/verification/verification_before_click.png")
 
-        # Click the button to open the modal
-        await page.click('button:has-text("Open Controls")')
+        # Wait for the button to be visible and then click it
+        await page.wait_for_selector('[data-testid="fab-open-controls"]', state='visible')
+        await page.click('[data-testid="fab-open-controls"]')
 
         # Wait for the modal to be visible
         await page.wait_for_selector('[role="dialog"]', state='visible')
