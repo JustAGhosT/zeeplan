@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <div className={styles.metricCard}>
               <div className={styles.metricValue}>+229%</div>
-              <div className={styles.metricLabel}>Revenue Growth (Eben & Willie)</div>
+              <div className={styles.metricLabel}>Revenue Growth (Eben & Hein)</div>
             </div>
             <div className={styles.metricCard}>
               <div className={styles.metricValue}>R1.8M</div>
