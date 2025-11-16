@@ -7,7 +7,7 @@ export interface YearlyFinancials {
   revenue: [number, number]; // min, max
   costs: [number, number];
   profit: [number, number];
-  oomWillieIncome: [number, number];
+  oomHeinIncome: [number, number];
   ebenIncome: [number, number];
   hansEquityIncome: [number, number];
   hansSalary: [number, number];
@@ -20,7 +20,7 @@ export interface FinancialSummary {
     revenue: [number, number];
     costs: [number, number];
     profit: [number, number];
-    oomWillie: [number, number];
+    oomHein: [number, number];
     eben: [number, number];
     hans: [number, number];
   };
@@ -206,10 +206,10 @@ function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [nu
 import { MONTHS_IN_YEAR } from './config';
 
 function calculatePartnerIncomes(profit: [number, number], equity: Equity) {
-  const oomWillieIncome = calculateEquityShare(profit, equity.oomWillie);
+  const oomHeinIncome = calculateEquityShare(profit, equity.oomHein);
   const ebenIncome = calculateEquityShare(profit, equity.eben);
   const hansEquityIncome = calculateEquityShare(profit, equity.hans);
-  return { oomWillieIncome, ebenIncome, hansEquityIncome };
+  return { oomHeinIncome, ebenIncome, hansEquityIncome };
 }
 
 function calculateHansTotalIncome(
@@ -232,7 +232,7 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
       revenue: zero,
       costs: zero,
       profit: zero,
-      oomWillieIncome: zero,
+      oomHeinIncome: zero,
       ebenIncome: zero,
       hansEquityIncome: zero,
       hansSalary: zero,
@@ -246,14 +246,14 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   const costs = calculateTotalCosts(data, yearData);
   const profit = calculateProfit(revenue, costs);
 
-  const { oomWillieIncome, ebenIncome, hansEquityIncome } = calculatePartnerIncomes(profit, equity);
+  const { oomHeinIncome, ebenIncome, hansEquityIncome } = calculatePartnerIncomes(profit, equity);
   const { hansSalary, hansTotalIncome } = calculateHansTotalIncome(hansEquityIncome, data.hansMonthlySalary);
 
   return {
     revenue,
     costs,
     profit,
-    oomWillieIncome,
+    oomHeinIncome,
     ebenIncome,
     hansEquityIncome,
     hansSalary,
@@ -274,7 +274,7 @@ export function calculateFinancialSummary(data: PartnershipData): FinancialSumma
     revenue: [0, 0] as [number, number],
     costs: [0, 0] as [number, number],
     profit: [0, 0] as [number, number],
-    oomWillie: [0, 0] as [number, number],
+    oomHein: [0, 0] as [number, number],
     eben: [0, 0] as [number, number],
     hans: [0, 0] as [number, number],
   };
@@ -297,8 +297,8 @@ function accumulateFinancials(yearlyFinancials: YearlyFinancials, cumulative: Fi
   cumulative.costs[1] += yearlyFinancials.costs[1];
   cumulative.profit[0] += yearlyFinancials.profit[0];
   cumulative.profit[1] += yearlyFinancials.profit[1];
-  cumulative.oomWillie[0] += yearlyFinancials.oomWillieIncome[0];
-  cumulative.oomWillie[1] += yearlyFinancials.oomWillieIncome[1];
+  cumulative.oomHein[0] += yearlyFinancials.oomHeinIncome[0];
+  cumulative.oomHein[1] += yearlyFinancials.oomHeinIncome[1];
   cumulative.eben[0] += yearlyFinancials.ebenIncome[0];
   cumulative.eben[1] += yearlyFinancials.ebenIncome[1];
   cumulative.hans[0] += yearlyFinancials.hansTotalIncome[0];

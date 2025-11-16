@@ -25,14 +25,14 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
       </div>
       <Card title="5-Year Cumulative Summary">
         <Table
-          headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Willie', 'Eben', 'Hans']}
+          headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Hein', 'Eben', 'Hans']}
           rows={[
             ...summary.yearly.map((year, i) => [
               `Year ${i + 1}`,
               formatRange(year.revenue),
               formatRange(year.costs),
               formatRange(year.profit),
-              formatRange(year.oomWillieIncome),
+              formatRange(year.oomHeinIncome),
               formatRange(year.ebenIncome),
               formatRange(year.hansTotalIncome),
             ]),
@@ -41,7 +41,7 @@ export function FinancialProjections({ data }: FinancialProjectionsProps) {
               <strong key="rev">{formatRange(summary.cumulative.revenue)}</strong>,
               <strong key="costs">{formatRange(summary.cumulative.costs)}</strong>,
               <strong key="profit">{formatRange(summary.cumulative.profit)}</strong>,
-              <strong key="oom">{formatRange(summary.cumulative.oomWillie)}</strong>,
+              <strong key="oom">{formatRange(summary.cumulative.oomHein)}</strong>,
               <strong key="eben">{formatRange(summary.cumulative.eben)}</strong>,
               <strong key="hans">{formatRange(summary.cumulative.hans)}</strong>,
             ],
