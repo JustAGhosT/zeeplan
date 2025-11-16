@@ -14,6 +14,8 @@ interface DataContextProps {
 const DataContext = createContext<DataContextProps | undefined>(undefined);
 
 const LOCAL_STORAGE_KEY = 'partnershipData';
+const VERSION_KEY = 'partnershipDataVersion';
+const CURRENT_VERSION = '2.0'; // Increment this to reset to defaults
 
 export function DataProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<PartnershipData>(() => {
@@ -21,6 +23,15 @@ export function DataProvider({ children }: { children: ReactNode }) {
       return defaultPartnershipData;
     }
     try {
+      const savedVersion = localStorage.getItem(VERSION_KEY);
+      
+      // If version doesn't match, clear old data and use defaults
+      if (savedVersion !== CURRENT_VERSION) {
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
+        return defaultPartnershipData;
+      }
+      
       const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
       return savedData ? JSON.parse(savedData) : defaultPartnershipData;
     } catch (error) {

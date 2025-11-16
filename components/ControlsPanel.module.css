@@ -2,38 +2,54 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--card-bg-light);
-  padding-bottom: 1rem;
-}
-
-.stickyCard.dark {
-  background-color: var(--card-bg-dark);
+  background-color: transparent;
+  padding-bottom: 0.5rem;
 }
 
 .controlsContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .section {
-  border-top: 1px solid var(--border-color-light);
-  padding-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.2s ease;
+}
+
+.section:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(229, 231, 235, 0.8);
 }
 
 .dark .section {
-  border-top-color: var(--border-color-dark);
+  background: rgba(31, 41, 55, 0.7);
+  border-color: rgba(75, 85, 99, 0.5);
+}
+
+.dark .section:hover {
+  background: rgba(31, 41, 55, 0.85);
+  border-color: rgba(75, 85, 99, 0.8);
 }
 
 .sectionTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-  color: var(--text-primary-light);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .dark .sectionTitle {
-  color: var(--text-primary-dark);
+  color: #f9fafb;
 }
 
 .subSectionTitle {

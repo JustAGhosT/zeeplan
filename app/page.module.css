@@ -1077,3 +1077,70 @@
 :global(.dark) .lightSection {
   background: #1f2937;
 }
+
+/* Sekelbos Section Specific Styles */
+.sekelbosSection {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+}
+
+:global(.dark) .sekelbosSection {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+}
+
+.sekelbosSectionHeading {
+  color: #065f46;
+}
+
+:global(.dark) .sekelbosSectionHeading {
+  color: #d1fae5;
+}
+
+.sekelbosSectionSubheading {
+  color: #047857;
+}
+
+:global(.dark) .sekelbosSectionSubheading {
+  color: #a7f3d0;
+}
+
+.sekelbosCheckIcon {
+  color: #059669;
+}
+
+:global(.dark) .sekelbosCheckIcon {
+  color: #6ee7b7;
+}
+
+.sekelbosCheckTitle {
+  color: #065f46;
+}
+
+:global(.dark) .sekelbosCheckTitle {
+  color: #d1fae5;
+}
+
+.sekelbosCheckDescription {
+  color: #047857;
+}
+
+:global(.dark) .sekelbosCheckDescription {
+  color: #a7f3d0;
+}
+
+.sekelbosRevenueBox {
+  background: #ffffff;
+  border: 2px solid #059669;
+}
+
+:global(.dark) .sekelbosRevenueBox {
+  background: #1f2937;
+  border-color: #6ee7b7;
+}
+
+.sekelbosRevenueTitle {
+  color: #065f46;
+}
+
+:global(.dark) .sekelbosRevenueTitle {
+  color: #d1fae5;
+}
