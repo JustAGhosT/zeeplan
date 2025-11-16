@@ -54,7 +54,8 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
               <strong>Current stocking:</strong> {data.currentLSU} LSU cattle
             </li>
             <li>
-              <strong>Sekelbos encroachment:</strong> {data.sekelbosEncroachment}% of land
+              <strong>Sekelbos encroachment:</strong> {data.sekelbosEncroachment - 10}-{data.sekelbosEncroachment}% of
+              land (360-420 ha heavy bush, some camps non-walkable)
             </li>
             <li>
               <strong>Current revenue:</strong> {formatRange(baseline.revenue)}/year
@@ -74,7 +75,7 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
               <strong>ROI:</strong> 1,870-3,400%
             </li>
             <li>
-              <strong>Target Stocking:</strong> {data.targetLSU} LSU (+
+              <strong>Target Stocking:</strong> ±{data.targetLSU} LSU (+
               {Math.round((data.targetLSU / data.currentLSU - 1) * 100)}%)
             </li>
             <li>

@@ -6,8 +6,7 @@ import { ControlsPanel } from './ControlsPanel';
 import styles from './FloatingControls.module.css';
 
 export function FloatingControls() {
-  const { data, updateData } = useData();
-  const [isOpen, setIsOpen] = useState(false);
+  const { data, updateData, isControlsOpen, openControls, closeControls } = useData();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -27,8 +26,9 @@ export function FloatingControls() {
     <>
       <button
         className={`${styles.floatingButton} ${isDark ? styles.dark : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={openControls}
         aria-label="Toggle controls panel"
+        data-testid="fab-open-controls"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,25 +44,21 @@ export function FloatingControls() {
         </svg>
       </button>
 
-      {isOpen && (
-        <div className={`${styles.modal} ${isDark ? styles.dark : ''}`}>
-          <div className={`${styles.modalContent} ${isDark ? styles.dark : ''}`}>
-            <div className={`${styles.modalHeader} ${isDark ? styles.dark : ''}`}>
-              <h3 className={styles.modalTitle}>Adjust Parameters</h3>
-              <button
-                onClick={() => setIsOpen(false)}
-                className={`${styles.closeButton} ${isDark ? styles.dark : ''}`}
-                aria-label="Close controls panel"
-              >
-                &times;
-              </button>
-            </div>
-            <div className={styles.modalBody}>
-              <ControlsPanel data={data} onUpdate={updateData} />
-            </div>
-          </div>
+      <div data-testid="controls-panel" className={`${styles.panel} ${isControlsOpen ? '' : styles.closed} ${isDark ? styles.dark : ''}`}>
+        <div className={`${styles.panelHeader} ${isDark ? styles.dark : ''}`}>
+          <h3 className={styles.panelTitle}>Adjust Parameters</h3>
+          <button
+            onClick={closeControls}
+            className={`${styles.closeButton} ${isDark ? styles.dark : ''}`}
+            aria-label="Close controls panel"
+          >
+            &times;
+          </button>
         </div>
-      )}
+        <div className={styles.panelBody}>
+          <ControlsPanel data={data} onUpdate={updateData} />
+        </div>
+      </div>
     </>
   );
 }

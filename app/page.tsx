@@ -86,10 +86,10 @@ export default function Home() {
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
                     <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
-                      240-360ha Affected
+                    360-420ha heavily affected
                     </h4>
                     <p className={styles.checklistDescription} style={{ color: '#047857' }}>
-                      40-60% of your property has sekelbos encroachment reducing grazing capacity
+                    60-70% of your property has heavy sekelbos encroachment reducing grazing capacity
                     </p>
                   </div>
                 </div>
@@ -119,10 +119,10 @@ export default function Home() {
                   <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
                   <div>
                     <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
-                      +44% Capacity Increase
+                    +50% Capacity Increase
                     </h4>
                     <p className={styles.checklistDescription} style={{ color: '#047857' }}>
-                      Expand from 72 LSU to 104 LSU as land is cleared
+                    Expand from 72 LSU to ±110 LSU as land is cleared
                     </p>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export default function Home() {
                   <div>
                     <h4 className={styles.checklistTitle}>Stocking Increase</h4>
                     <p className={styles.checklistDescription}>
-                      From 72 LSU to 104 LSU (+44% capacity) as Sekelbos is cleared
+                      From 72 LSU to ±110 LSU (+50% capacity) as Sekelbos is cleared
                     </p>
                   </div>
                 </div>

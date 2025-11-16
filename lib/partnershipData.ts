@@ -1,11 +1,16 @@
 // Data model for the Zeerust Partnership Proposal
 
 export interface PartnershipData {
+  // Livestock options
+  includeChickens: boolean;
+  includeRabbits: boolean;
+
   // Farm basics
   landSize: number; // hectares
   currentLSU: number; // Large Stock Units
   targetLSU: number; // Target LSU capacity
   sekelbosEncroachment: number; // percentage
+  sekelbosRevenuePerHectare: [number, number]; // min, max
   currentCarryingCapacity: number; // ha/LSU
   targetCarryingCapacity: number; // ha/LSU
 
@@ -43,6 +48,13 @@ export interface PartnershipData {
   chickensCostPerHectare: [number, number];
   chickensCostPerAnimal: [number, number];
 
+  rabbitsHectares: number;
+  rabbitsPerHectare: number;
+  rabbitsMarketPrice: [number, number];
+  rabbitsOfftakeRate: number;
+  rabbitsCostPerHectare: [number, number];
+  rabbitsCostPerAnimal: [number, number];
+
   // Crop financial parameters
   cropsRevenuePerHectare: [number, number];
   cropsCostPerHectare: [number, number];
@@ -55,6 +67,7 @@ export interface PartnershipData {
     chickens: [number, number];
     crops: [number, number];
     wood: [number, number];
+    rabbits: [number, number];
   };
 
   baselineCosts: [number, number]; // min, max range
@@ -82,9 +95,10 @@ export interface YearlyTarget {
   pigsRevenue: [number, number];
   chickensRevenue: [number, number];
   cropsRevenue: [number, number];
+  rabbitsRevenue: [number, number];
   costs: [number, number];
 }
 
 import partnershipData from './partnershipData.json';
 
-export const defaultPartnershipData: PartnershipData = partnershipData as PartnershipData;
+export const defaultPartnershipData: PartnershipData = partnershipData as unknown as PartnershipData;
