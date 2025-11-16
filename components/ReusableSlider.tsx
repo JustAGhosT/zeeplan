@@ -51,9 +51,11 @@ export function ReusableSlider({
     return unskewed;
   };
 
+  // Handle undefined or NaN values
+  const safeValue = value ?? defaultValue ?? 0;
   const minLog = toLog(min);
   const maxLog = toLog(max);
-  const valueLog = toLog(value);
+  const valueLog = toLog(safeValue);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const logValue = parseFloat(e.target.value);
@@ -76,7 +78,7 @@ export function ReusableSlider({
           )}
         </label>
         <span className={styles.valueDisplay}>
-          {value.toLocaleString()} {suffix}
+          {safeValue.toLocaleString()} {suffix}
         </span>
       </div>
       <div className={styles.sliderWrapper}>
