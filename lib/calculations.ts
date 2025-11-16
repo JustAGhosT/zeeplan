@@ -2,6 +2,7 @@
 
 import { Equity, PartnershipData, YearlyTarget } from './partnershipData';
 import { validateMinMaxRange } from './validation';
+import { TIME } from './constants';
 
 export interface YearlyFinancials {
   revenue: [number, number]; // min, max
@@ -26,6 +27,11 @@ export interface FinancialSummary {
   };
 }
 
+/**
+ * Sums all revenue streams into a single min-max range
+ * @param revenues - Object containing revenue ranges for each stream
+ * @returns [min, max] tuple of total revenue
+ */
 export function sumRevenue(revenues: Record<string, [number, number]>): [number, number] {
   let minTotal = 0;
   let maxTotal = 0;
@@ -38,12 +44,26 @@ export function sumRevenue(revenues: Record<string, [number, number]>): [number,
   return [minTotal, maxTotal];
 }
 
+/**
+ * Calculates profit by subtracting costs from revenue
+ * @param revenue - [min, max] revenue range
+ * @param costs - [min, max] costs range
+ * @returns [min, max] profit range
+ * @throws Error if ranges are invalid (negative values or min > max)
+ */
 export function calculateProfit(revenue: [number, number], costs: [number, number]): [number, number] {
   validateMinMaxRange(revenue, 'revenue');
   validateMinMaxRange(costs, 'costs');
   return [revenue[0] - costs[0], revenue[1] - costs[1]];
 }
 
+/**
+ * Calculates a partner's equity share of the profit
+ * @param profit - [min, max] profit range
+ * @param percentage - Equity percentage (0-100)
+ * @returns [min, max] equity income range, rounded to nearest rand
+ * @throws Error if percentage is outside 0-100 range
+ */
 export function calculateEquityShare(profit: [number, number], percentage: number): [number, number] {
   if (percentage < 0 || percentage > 100) {
     throw new Error(`Invalid percentage for equity share: ${percentage}`);
@@ -107,12 +127,6 @@ function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [
       data.pigsPerHectare,
       data.pigsMarketPrice,
       data.pigsOfftakeRate,
-    ),
-    chickens: calculateLivestockRevenue(
-      data.chickensHectares,
-      data.chickensPerHectare,
-      data.chickensMarketPrice,
-      data.chickensOfftakeRate,
     ),
     crops: calculateCropsRevenue(data.cropsHectares, data.cropsRevenuePerHectare),
   };
@@ -203,8 +217,6 @@ function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [nu
   return [minTotal, maxTotal];
 }
 
-import { MONTHS_IN_YEAR } from './config';
-
 function calculatePartnerIncomes(profit: [number, number], equity: Equity) {
   const oomHeinIncome = calculateEquityShare(profit, equity.oomHein);
   const ebenIncome = calculateEquityShare(profit, equity.eben);
@@ -216,7 +228,7 @@ function calculateHansTotalIncome(
   hansEquityIncome: [number, number],
   hansMonthlySalary: [number, number],
 ): { hansSalary: [number, number]; hansTotalIncome: [number, number] } {
-  const hansSalary: [number, number] = [hansMonthlySalary[0] * MONTHS_IN_YEAR, hansMonthlySalary[1] * MONTHS_IN_YEAR];
+  const hansSalary: [number, number] = [hansMonthlySalary[0] * TIME.MONTHS_IN_YEAR, hansMonthlySalary[1] * TIME.MONTHS_IN_YEAR];
   const hansTotalIncome: [number, number] = [hansEquityIncome[0] + hansSalary[0], hansEquityIncome[1] + hansSalary[1]];
   return { hansSalary, hansTotalIncome };
 }
@@ -306,6 +318,22 @@ function accumulateFinancials(yearlyFinancials: YearlyFinancials, cumulative: Fi
 }
 
 
+/**
+ * Calculates Return on Investment (ROI) as a percentage
+ * 
+ * The calculation uses cross-multiplication to provide the widest possible range:
+ * - minROI = minimum profit / maximum investment (most conservative scenario)
+ * - maxROI = maximum profit / minimum investment (most optimistic scenario)
+ * 
+ * This approach ensures that:
+ * 1. The ROI range accurately represents the best and worst case scenarios
+ * 2. Investors can see the full spectrum of potential returns
+ * 3. The range accounts for uncertainty in both investment and returns
+ * 
+ * @param investment - [min, max] range of investment amount
+ * @param netProfit - [min, max] range of net profit
+ * @returns Formatted ROI string (e.g., "1,870-3,400%") or special values
+ */
 export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
   // If the investment is zero, ROI can be considered infinite if there's a profit, otherwise it's not applicable.
   if (investment[0] === 0 && investment[1] === 0) {
@@ -313,11 +341,13 @@ export function calculateROI(investment: [number, number], netProfit: [number, n
   }
 
   // Avoid division by zero. If either investment bound is zero, ROI calculation is problematic.
-  // This simplistic check can be refined based on business logic for handling such cases.
   if (investment[0] === 0 || investment[1] === 0) {
     return 'Invalid Investment';
   }
 
+  // Cross-multiply to get the widest possible ROI range
+  // minROI: worst case (lowest profit with highest investment)
+  // maxROI: best case (highest profit with lowest investment)
   const minROI = (netProfit[0] / investment[1]) * 100;
   const maxROI = (netProfit[1] / investment[0]) * 100;
 

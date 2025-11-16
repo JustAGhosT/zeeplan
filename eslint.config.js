@@ -3,6 +3,9 @@ import tseslint from 'typescript-eslint';
 
 export default [
   {
+    ignores: ['.next/**', 'node_modules/**', 'out/**', 'build/**'],
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.browser,
