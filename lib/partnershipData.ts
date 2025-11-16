@@ -81,7 +81,7 @@ export interface PartnershipData {
 }
 
 export interface Equity {
-  oomWillie: number;
+  oomHein: number;
   eben: number;
   hans: number;
 }

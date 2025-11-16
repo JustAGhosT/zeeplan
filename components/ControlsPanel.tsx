@@ -682,17 +682,17 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Equity Structure - Year 1</h4>
             <ReusableSlider
-              label="Oom Willie"
-              value={data.equityStructure[0].oomWillie}
+              label="Oom Hein"
+              value={data.equityStructure[0].oomHein}
               defaultValue={60}
               min={0} max={100} step={1}
               onChange={v => {
                 const newEquity = [...data.equityStructure];
-                newEquity[0] = { ...newEquity[0], oomWillie: v };
+                newEquity[0] = { ...newEquity[0], oomHein: v };
                 updateField('equityStructure', newEquity);
               }}
               suffix="%"
-              tooltip="Oom Willie's equity share in Year 1."
+              tooltip="Oom Hein's equity share in Year 1."
             />
             <ReusableSlider
               label="Eben"
@@ -725,17 +725,17 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>Equity Structure - Year 5</h4>
             <ReusableSlider
-              label="Oom Willie"
-              value={data.equityStructure[4].oomWillie}
+              label="Oom Hein"
+              value={data.equityStructure[4].oomHein}
               defaultValue={50}
               min={0} max={100} step={1}
               onChange={v => {
                 const newEquity = [...data.equityStructure];
-                newEquity[4] = { ...newEquity[4], oomWillie: v };
+                newEquity[4] = { ...newEquity[4], oomHein: v };
                 updateField('equityStructure', newEquity);
               }}
               suffix="%"
-              tooltip="Oom Willie's equity share in Year 5."
+              tooltip="Oom Hein's equity share in Year 5."
             />
             <ReusableSlider
               label="Eben"

@@ -39,7 +39,7 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
   // Prepare partner income data
   const partnerIncomeData = summary.yearly.map((year, i) => ({
     year: `Year ${i + 1}`,
-    oomWillie: (year.oomWillieIncome[0] + year.oomWillieIncome[1]) / 2,
+    oomHein: (year.oomHeinIncome[0] + year.oomHeinIncome[1]) / 2,
     eben: (year.ebenIncome[0] + year.ebenIncome[1]) / 2,
     hans: (year.hansTotalIncome[0] + year.hansTotalIncome[1]) / 2,
   }));
@@ -110,7 +110,7 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend />
-            <Bar dataKey="oomWillie" fill="#f59e0b" name="Oom Willie" />
+            <Bar dataKey="oomHein" fill="#f59e0b" name="Oom Hein" />
             <Bar dataKey="eben" fill="#8b5cf6" name="Eben" />
             <Bar dataKey="hans" fill="#10b981" name="Hans" />
           </BarChart>

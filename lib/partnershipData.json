@@ -55,11 +55,11 @@
   "hansLivestockValue": [48000, 98000],
   "hansMonthlySalary": [10000, 15000],
   "equityStructure": [
-    { "oomWillie": 50, "eben": 50, "hans": 0 },
-    { "oomWillie": 42.5, "eben": 42.5, "hans": 15 },
-    { "oomWillie": 38.75, "eben": 38.75, "hans": 22.5 },
-    { "oomWillie": 35, "eben": 35, "hans": 30 },
-    { "oomWillie": 35, "eben": 35, "hans": 30 }
+    { "oomHein": 50, "eben": 50, "hans": 0 },
+    { "oomHein": 42.5, "eben": 42.5, "hans": 15 },
+    { "oomHein": 38.75, "eben": 38.75, "hans": 22.5 },
+    { "oomHein": 35, "eben": 35, "hans": 30 },
+    { "oomHein": 35, "eben": 35, "hans": 30 }
   ],
   "yearlyTargets": [
     {

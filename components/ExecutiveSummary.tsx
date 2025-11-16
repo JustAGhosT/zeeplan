@@ -48,7 +48,7 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
               <strong>Size:</strong> {data.landSize} hectares Bushveld
             </li>
             <li>
-              <strong>Current owners:</strong> Oom Willie (50%) + Eben (50%) - Family farm
+              <strong>Current owners:</strong> Oom Hein (50%) + Eben (50%) - Family farm
             </li>
             <li>
               <strong>Current stocking:</strong> {data.currentLSU} LSU cattle
@@ -119,7 +119,7 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
           ]}
         />
         <p className={styles.finalStructure}>
-          <strong>Final Structure:</strong> Oom Willie {data.equityStructure[4].oomWillie}%, Eben{' '}
+          <strong>Final Structure:</strong> Oom Hein {data.equityStructure[4].oomHein}%, Eben{' '}
           {data.equityStructure[4].eben}%, Hans {data.equityStructure[4].hans}%
         </p>
       </Card>
@@ -129,10 +129,10 @@ export function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
           headers={['Partner', 'Current Income (5yr)', 'Future Income (5yr)', 'Growth']}
           rows={[
             [
-              'Oom Willie',
+              'Oom Hein',
               formatRange([baseline.profit[0] * 2.5, baseline.profit[1] * 2.5]),
-              formatRange(summary.cumulative.oomWillie),
-              `+${Math.round((summary.cumulative.oomWillie[0] / (baseline.profit[0] * 2.5) - 1) * 100)}%`,
+              formatRange(summary.cumulative.oomHein),
+              `+${Math.round((summary.cumulative.oomHein[0] / (baseline.profit[0] * 2.5) - 1) * 100)}%`,
             ],
             [
               'Eben',

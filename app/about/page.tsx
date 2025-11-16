@@ -1,5 +1,7 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { Partners } from '@/components/Partners';
+import { WhyLowRisk } from '@/components/WhyLowRisk';
 import { Leaf, TrendingUp, Users, Award, Target, Shield } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -190,7 +192,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-gray-50 mb-2">Family First</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Oom Willie and Eben maintain 70% combined ownership, preserving family farm legacy.
+                  Oom Hein and Eben maintain 70% combined ownership, preserving family farm legacy.
                 </p>
               </div>
             </div>
@@ -217,7 +219,7 @@ export default function AboutPage() {
           <div className={styles.threeColumnGrid}>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-8 shadow-lg text-center">
               <div className="text-5xl font-bold mb-2">35%</div>
-              <h3 className="text-2xl font-semibold mb-3">Oom Willie</h3>
+              <h3 className="text-2xl font-semibold mb-3">Oom Hein</h3>
               <p className="text-lg opacity-90 mb-4">Land + Operations</p>
               <p className="text-sm opacity-75">
                 Provides land and operational oversight, maintaining the farm's agricultural heritage.
@@ -273,6 +275,12 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
+
+      {/* Detailed Partner Profiles */}
+      <Partners />
+
+      {/* Why Low-Risk Section */}
+      <WhyLowRisk />
 
       <Footer />
     </div>
