@@ -10,7 +10,7 @@
 
 - **Location:** Zeerust, North West Province, South Africa
 - **Size:** 600 hectares Bushveld
-- **Current owners:** Oom Willie (50%) + Eben (50%) - Family farm
+- **Current owners:** Oom Hein (50%) + Eben (50%) - Family farm
 - **Current state:** 60-80% sekelbos encroachment, 72 LSU cattle
 - **Current revenue:** R233K-297K/year (baseline)
 
@@ -32,7 +32,7 @@
 | **Year 3**   | 22.5% (Earned)     | Cumulative revenue ≥R1.3M          | R195K-369K (equity + salary)     |
 | **Year 4-5** | 30% (Full Partner) | Revenue ≥R943K-1.13M               | R247K-498K (Y4), R279K-474K (Y5) |
 
-**Final Structure:** Oom Willie 35%, Eben 35%, Hans 30%
+**Final Structure:** Oom Hein 35%, Eben 35%, Hans 30%
 
 ## What Hans Brings (No Cash Required)
 
@@ -71,7 +71,7 @@
 
 | Partner        | Current Income | Future Income (5-Year) | Growth            |
 | -------------- | -------------- | ---------------------- | ----------------- |
-| **Oom Willie** | R210K-245K     | R618K-1.41M            | +194-476%         |
+| **Oom Hein** | R210K-245K     | R618K-1.41M            | +194-476%         |
 | **Eben**       | R210K-245K     | R618K-1.41M            | +194-476%         |
 | **Hans**       | R0             | R995K-1.78M            | N/A (new partner) |
 
@@ -80,14 +80,14 @@
 ## Risk Mitigation
 
 - **Year 1 zero equity:** Hans proves value before earning ownership
-- **Family control:** Oom Willie + Eben maintain 70% combined (always majority)
+- **Family control:** Oom Hein + Eben maintain 70% combined (always majority)
 - **Performance-based:** Hans only earns equity by hitting revenue targets
 - **Exit clauses:** Clear buyout terms at Year 3 or Year 5
 - **Downside protection:** Hans's salary (R120K-180K/year) covers living expenses
 
 ## Next Steps
 
-1. **Week 1-2:** Schedule meeting with Oom Willie + Eben, present proposal
+1. **Week 1-2:** Schedule meeting with Oom Hein + Eben, present proposal
 2. **Week 3-4:** Land valuation, livestock count, infrastructure audit
 3. **Month 1-3:** Partnership agreement, legal setup, baseline assessment
 4. **Month 4+:** Begin Year 1 implementation (sekelbos clearing, livestock transfer, systems setup)

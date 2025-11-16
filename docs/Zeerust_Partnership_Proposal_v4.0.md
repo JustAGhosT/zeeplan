@@ -4,8 +4,8 @@
 
 **Location:** Zeerust, North West Province, South Africa  
 **Land Size:** 600 hectares  
-**Current Ownership:** Oom Willie (50%) + Eben (50%) - Family farm (Eben is son-in-law)  
-**Proposed Structure:** Oom Willie (35%) + Eben (35%) + Hans (30%)  
+**Current Ownership:** Oom Hein (50%) + Eben (50%) - Family farm (Eben is son-in-law)  
+**Proposed Structure:** Oom Hein (35%) + Eben (35%) + Hans (30%)  
 **Current State:** 60-80% sekelbos encroachment, 72 LSU stocked (8.33ha/LSU)  
 **Target State:** 85-100% cleared productive land, 104 LSU capacity (5.5ha/LSU)  
 **Timeline:** 5-year transformation plan  
@@ -20,7 +20,7 @@
 
 This partnership represents a **zero-capital-entry, high-return regenerative agriculture venture** that leverages:
 
-- **Family farm foundation:** 600ha Bushveld owned by Oom Willie + Eben (father-in-law/son-in-law)
+- **Family farm foundation:** 600ha Bushveld owned by Oom Hein + Eben (father-in-law/son-in-law)
 - **Current operation:** 72 LSU cattle, generating R233K-297K/year baseline revenue
 - **Hans's value-add:** Systems, planning, marketing, financial management + small livestock contribution
 - **Immediate revenue catalyst:** Sekelbos clearing generates R40K-410K/year (Years 1-4)
@@ -58,7 +58,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner        | Equity | Contribution                                  | Role                         | Year 1 Income               |
 | -------------- | ------ | --------------------------------------------- | ---------------------------- | --------------------------- |
-| **Oom Willie** | 50%    | Land + infrastructure + operational expertise | Day-to-day operations        | R0-199K equity + operations |
+| **Oom Hein** | 50%    | Land + infrastructure + operational expertise | Day-to-day operations        | R0-199K equity + operations |
 | **Eben**       | 50%    | Existing infrastructure + capital             | Passive investor + family    | R0-199K equity              |
 | **Hans**       | 0%     | Sweat equity + livestock                      | Systems, planning, marketing | R120K-180K salary only      |
 
@@ -76,7 +76,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner        | Equity | Contribution                                  | Role                         | Year 2-3 Income                        |
 | -------------- | ------ | --------------------------------------------- | ---------------------------- | -------------------------------------- |
-| **Oom Willie** | 42.5%  | Land + infrastructure + operational expertise | Day-to-day operations        | R27.2K-302.2K (Y2), R51.2K-403K (Y3)   |
+| **Oom Hein** | 42.5%  | Land + infrastructure + operational expertise | Day-to-day operations        | R27.2K-302.2K (Y2), R51.2K-403K (Y3)   |
 | **Eben**       | 42.5%  | Existing infrastructure + capital             | Passive investor + family    | R27.2K-302.2K (Y2), R51.2K-403K (Y3)   |
 | **Hans**       | 15%    | Sweat equity + livestock + proven results     | Systems, planning, marketing | R129.6K-286.7K (Y2), R149.7K-414K (Y3) |
 
@@ -95,7 +95,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner        | Equity | Contribution                                  | Role                         | Year 4-5 Income                          |
 | -------------- | ------ | --------------------------------------------- | ---------------------------- | ---------------------------------------- |
-| **Oom Willie** | 35%    | Land + infrastructure + operational expertise | Day-to-day operations        | R78.1K-439.3K (Y4), R114.8K-411.3K (Y5)  |
+| **Oom Hein** | 35%    | Land + infrastructure + operational expertise | Day-to-day operations        | R78.1K-439.3K (Y4), R114.8K-411.3K (Y5)  |
 | **Eben**       | 35%    | Existing infrastructure + capital             | Passive investor + family    | R78.1K-439.3K (Y4), R114.8K-411.3K (Y5)  |
 | **Hans**       | 30%    | Sweat equity + livestock + proven results     | Systems, planning, marketing | R186.9K-556.5K (Y4), R218.4K-532.5K (Y5) |
 
@@ -106,7 +106,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 - **Total Year 4:** R186.9K-556.5K
 - **Total Year 5:** R218.4K-532.5K
 
-**Final structure achieved:** 35%/35%/30% (Oom Willie/Eben/Hans)
+**Final structure achieved:** 35%/35%/30% (Oom Hein/Eben/Hans)
 
 ---
 
@@ -131,7 +131,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 ---
 
-## Part 1: Current State Analysis (Oom Willie + Eben Family Farm)
+## Part 1: Current State Analysis (Oom Hein + Eben Family Farm)
 
 ### Land & Carrying Capacity
 
@@ -158,7 +158,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 **Current Costs:** R150K-200K (feed, vet, labor, fuel)  
 **Current Net Profit:** R-107K-R147K (-46%-49% margin)
-**Current profit split:** Oom Willie R-53.5K-R73.5K (50%), Eben R-53.5K-R73.5K (50%)
+**Current profit split:** Oom Hein R-53.5K-R73.5K (50%), Eben R-53.5K-R73.5K (50%)
 
 ### Key Problems (Why Hans is Needed)
 
@@ -183,7 +183,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 **Net impact:** R233K-297K baseline → R1.13M-1.78M by Year 5 (380-500% growth)
 
-**Capital required from Hans:** R0 (all capital comes from reinvested profits + Oom Willie/Eben contributions)
+**Capital required from Hans:** R0 (all capital comes from reinvested profits + Oom Hein/Eben contributions)
 
 ---
 
@@ -216,7 +216,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Net Profit:** R0-398K (0%-64% margin)
 **Profit split:**
 
-- Oom Willie (50%): R0-199K
+- Oom Hein (50%): R0-199K
 - Eben (50%): R0-199K
 - Hans (0%): R0 equity, R120K-180K salary
 
@@ -238,7 +238,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 - Hans's livestock: R48K-98K (37-45% of total)
 - Reinvested profit: R30K-50K (23-23% of total)
-- Oom Willie/Eben: R52K-72K (40-33% of total)
+- Oom Hein/Eben: R52K-72K (40-33% of total)
 - **Hans cash contribution:** R0
 
 **Year 1 Performance Milestone:**
@@ -277,7 +277,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Net Profit:** R64K-711K (12%-69% margin)
 **Profit split:**
 
-- Oom Willie (42.5%): R27.2K-302.2K
+- Oom Hein (42.5%): R27.2K-302.2K
 - Eben (42.5%): R27.2K-302.2K
 - Hans (15%): R9.6K-106.7K
 
@@ -298,7 +298,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Funding sources (NO HANS CASH):**
 
 - Reinvested profit: R100K-150K (67-60% of total)
-- Oom Willie/Eben: R50K-100K (33-40% of total)
+- Oom Hein/Eben: R50K-100K (33-40% of total)
 - **Hans cash contribution:** R0
 
 ---
@@ -331,7 +331,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Net Profit:** R132K-1.04M (18%-71% margin)
 **Profit split:**
 
-- Oom Willie (38.75%): R51.2K-403K
+- Oom Hein (38.75%): R51.2K-403K
 - Eben (38.75%): R51.2K-403K
 - Hans (22.5%): R29.7K-234K
 
@@ -352,7 +352,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Funding sources (NO HANS CASH):**
 
 - Reinvested profit: R100K-150K (77-71% of total)
-- Oom Willie/Eben: R30K-60K (23-29% of total)
+- Oom Hein/Eben: R30K-60K (23-29% of total)
 - **Hans cash contribution:** R0
 
 **Year 3 Performance Milestone:**
@@ -390,7 +390,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Net Profit:** R223K-1.255M (24%-71% margin)
 **Profit split:**
 
-- Oom Willie (35%): R78.1K-439.3K
+- Oom Hein (35%): R78.1K-439.3K
 - Eben (35%): R78.1K-439.3K
 - Hans (30%): R66.9K-376.5K
 
@@ -410,7 +410,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Funding sources (NO HANS CASH):**
 
 - Reinvested profit: R100K-150K (83-83% of total)
-- Oom Willie/Eben: R20K-30K (17-17% of total)
+- Oom Hein/Eben: R20K-30K (17-17% of total)
 - **Hans cash contribution:** R0
 
 ---
@@ -442,7 +442,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 **Net Profit:** R328K-1.175M (29%-66% margin)
 **Profit split:**
 
-- Oom Willie (35%): R114.8K-411.3K
+- Oom Hein (35%): R114.8K-411.3K
 - Eben (35%): R114.8K-411.3K
 - Hans (30%): R98.4K-352.5K
 
@@ -469,7 +469,7 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 ### 5-Year Cumulative Summary
 
-| Year       | Gross Revenue    | Costs            | Net Profit      | Oom Willie            | Eben                  | Hans (Equity + Salary)                          |
+| Year       | Gross Revenue    | Costs            | Net Profit      | Oom Hein            | Eben                  | Hans (Equity + Salary)                          |
 | ---------- | ---------------- | ---------------- | --------------- | --------------------- | --------------------- | ----------------------------------------------- |
 | **Year 1** | R340K-618K       | R220K-340K       | R0-398K         | R0-199K (50%)         | R0-199K (50%)         | R0 + R120K-180K = **R120K-180K**                |
 | **Year 2** | R544K-1.03M      | R320K-480K       | R64K-711K       | R27.2K-302.2K (42.5%) | R27.2K-302.2K (42.5%) | R9.6K-106.7K + R120K-180K = **R129.6K-286.7K**  |
@@ -505,13 +505,13 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner        | Contribution             | 5-Year Income | Income Growth vs Baseline          |
 | -------------- | ------------------------ | ------------- | ---------------------------------- |
-| **Oom Willie** | Land + operations        | R271.3K-1.75M | +30%-615% (vs R210K-245K baseline) |
+| **Oom Hein** | Land + operations        | R271.3K-1.75M | +30%-615% (vs R210K-245K baseline) |
 | **Eben**       | Infrastructure + family  | R271.3K-1.75M | +30%-615% (vs R210K-245K baseline) |
 | **Hans**       | Sweat equity + livestock | R804.6K-1.97M | N/A (new partner)                  |
 
 **Win-Win-Win:**
 
-- **Oom Willie:** Income increases 194-476% (R42K-49K/year → R124K-282K/year average)
+- **Oom Hein:** Income increases 194-476% (R42K-49K/year → R124K-282K/year average)
 - **Eben:** Income increases 194-476% (R42K-49K/year → R124K-282K/year average)
 - **Hans:** Earns R995K-1.78M with ZERO cash investment (pure sweat equity)
 
@@ -523,48 +523,48 @@ This partnership represents a **zero-capital-entry, high-return regenerative agr
 
 | Partner        | Equity | Contribution                      | Role                      | Annual Income                     |
 | -------------- | ------ | --------------------------------- | ------------------------- | --------------------------------- |
-| **Oom Willie** | 50%    | Land + infrastructure + expertise | Full-time operations      | R42K-49K (50% of R83K-97K profit) |
+| **Oom Hein** | 50%    | Land + infrastructure + expertise | Full-time operations      | R42K-49K (50% of R83K-97K profit) |
 | **Eben**       | 50%    | Capital + infrastructure          | Passive investor + family | R42K-49K (50% of R83K-97K profit) |
 
-**Context:** Family farm (Eben is Oom Willie's son-in-law). Eben doesn't want to disinvest because of family ties.
+**Context:** Family farm (Eben is Oom Hein's son-in-law). Eben doesn't want to disinvest because of family ties.
 
 ### Proposed Situation (With Hans - Phased Equity)
 
 **Year 1 (Prove-It Phase):**
 | Partner | Equity | Role | Year 1 Income |
 |---------|--------|------|---------------|
-| **Oom Willie** | 50% | Full-time operations | R60K-139K |
+| **Oom Hein** | 50% | Full-time operations | R60K-139K |
 | **Eben** | 50% | Passive investor + family | R60K-139K |
 | **Hans** | 0% | Systems, planning, marketing | R120K-180K salary only |
 
 **Year 2 (Earn-In Phase):**
 | Partner | Equity | Role | Year 2 Income |
 |---------|--------|------|---------------|
-| **Oom Willie** | 42.5% | Full-time operations | R95K-234K |
+| **Oom Hein** | 42.5% | Full-time operations | R95K-234K |
 | **Eben** | 42.5% | Passive investor + family | R95K-234K |
 | **Hans** | 15% | Systems, planning, marketing | R154K-263K |
 
 **Year 3 (Transition Phase):**
 | Partner | Equity | Role | Year 3 Income |
 |---------|--------|------|---------------|
-| **Oom Willie** | 38.75% | Full-time operations | R129K-325K |
+| **Oom Hein** | 38.75% | Full-time operations | R129K-325K |
 | **Eben** | 38.75% | Passive investor + family | R129K-325K |
 | **Hans** | 22.5% | Systems, planning, marketing | R195K-369K |
 
 **Years 4-5 (Full Partnership):**
 | Partner | Equity | Role | Year 4-5 Income |
 |---------|--------|------|-----------------|
-| **Oom Willie** | 35% | Full-time operations | R148K-371K (Y4), R186K-343K (Y5) |
+| **Oom Hein** | 35% | Full-time operations | R148K-371K (Y4), R186K-343K (Y5) |
 | **Eben** | 35% | Passive investor + family | R148K-371K (Y4), R186K-343K (Y5) |
 | **Hans** | 30% | Systems, planning, marketing | R247K-498K (Y4), R279K-474K (Y5) |
 
 ---
 
-### Negotiation Strategy with Oom Willie + Eben
+### Negotiation Strategy with Oom Hein + Eben
 
 **Opening Pitch (Family-Friendly Approach):**
 
-_"Oom Willie, Eben - I've been analyzing the farm operation and I see massive untapped potential. You have 600ha of prime Bushveld, 72 LSU of cattle, and Oom Willie's decades of operational expertise. But you're leaving money on the table:_
+_"Oom Hein, Eben - I've been analyzing the farm operation and I see massive untapped potential. You have 600ha of prime Bushveld, 72 LSU of cattle, and Oom Hein's decades of operational expertise. But you're leaving money on the table:_
 
 - _60-80% of your land is unproductive (sekelbos encroachment)_
 - _You're 31% below carrying capacity (72 LSU vs 104 LSU potential)_
@@ -599,12 +599,12 @@ _I'm proposing a **zero-cash partnership** where I bring:_
 **Years 4-5 (Full Partnership):**
 
 - _I reach 30% equity (you both settle at 35% each)_
-- _Final structure: 35%/35%/30% (Oom Willie/Eben/Hans)_
+- _Final structure: 35%/35%/30% (Oom Hein/Eben/Hans)_
 - _Revenue target: R943K+ (Year 4), R1.13M+ (Year 5)_
 
 _Here's what this means for each of you:_
 
-**Oom Willie (50% → 35% equity):**
+**Oom Hein (50% → 35% equity):**
 
 - _Year 1 income: R60K-139K (vs R42K-49K now) = +43-184%_
 - _Year 5 income: R186K-343K (vs R42K-49K now) = +343-600%_
@@ -635,7 +635,7 @@ _"You're not giving it up - you're investing it in growth. Let me show you the m
 
 _You're trading 50% of a small pie for 35% of a much bigger pie. Your absolute income grows 194-476% over 5 years, even though your equity % decreases._
 
-_Plus, this is a **family farm** - you stay involved, Oom Willie stays involved, and we grow the legacy together."_
+_Plus, this is a **family farm** - you stay involved, Oom Hein stays involved, and we grow the legacy together."_
 
 ---
 
@@ -651,7 +651,7 @@ _This protects you while giving me skin in the game. I'm betting on myself - if 
 
 ---
 
-**Oom Willie: "How do I know you'll commit long-term?"**
+**Oom Hein: "How do I know you'll commit long-term?"**
 
 _"I'm putting R48K-98K of my own livestock into this (pigs, goats, chickens). I'm committing 20-30 hours/week for 5 years. And I'm tying my income to performance - if I don't deliver, I don't earn equity._
 
@@ -663,9 +663,9 @@ _Plus, I'm NOT asking for cash upfront. All capital comes from reinvested profit
 
 _"I completely respect that this is a **family farm**. Here's how we protect that:_
 
-1. _You + Oom Willie together hold 70% equity (35% + 35%) - you always have majority control_
-2. _Major decisions (land sales, large capital expenditures, partnership changes) require 66%+ approval - you + Oom Willie can always outvote me_
-3. _I'm here to support the family legacy, not take over. Oom Willie runs operations, I handle systems/marketing_
+1. _You + Oom Hein together hold 70% equity (35% + 35%) - you always have majority control_
+2. _Major decisions (land sales, large capital expenditures, partnership changes) require 66%+ approval - you + Oom Hein can always outvote me_
+3. _I'm here to support the family legacy, not take over. Oom Hein runs operations, I handle systems/marketing_
 4. _If it doesn't work out, I have an exit clause (Year 3 or Year 5) - you can buy me out at fair market value_
 
 _This is a **partnership**, not a takeover. We grow the family farm together."_
@@ -740,7 +740,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 | Risk                                  | Probability | Impact | Mitigation Strategy                                                                  |
 | ------------------------------------- | ----------- | ------ | ------------------------------------------------------------------------------------ |
 | **Hans underperforms Year 1**         | Low         | High   | Zero equity Year 1 (salary only), performance milestones, exit clause                |
-| **Family friction (Eben/Oom Willie)** | Medium      | High   | 70% family control (35% + 35%), major decision approval requires 66%+, clear roles   |
+| **Family friction (Eben/Oom Hein)** | Medium      | High   | 70% family control (35% + 35%), major decision approval requires 66%+, clear roles   |
 | **Drought**                           | High        | High   | Water infrastructure (boreholes, dams), drought-resistant breeds, fodder reserves    |
 | **Disease outbreak**                  | Medium      | High   | Vaccination protocols, biosecurity, vet partnerships, insurance                      |
 | **Market price volatility**           | High        | Medium | Diversification (6+ revenue streams), value-added products, direct-to-consumer sales |
@@ -783,7 +783,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 **Legal & Financial:**
 
 - [ ] Partnership agreement (phased equity earn-in, roles, profit-sharing, exit terms, performance milestones)
-- [ ] Eben/Oom Willie buy-in (family-friendly approach, 70% family control maintained)
+- [ ] Eben/Oom Hein buy-in (family-friendly approach, 70% family control maintained)
 - [ ] Land valuation & asset inventory (600ha + livestock + infrastructure)
 - [ ] Bank account setup (farm business account)
 - [ ] Tax registration (VAT, PAYE, UIF)
@@ -798,7 +798,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 **Capital:**
 
 - [ ] Hans's livestock transfer: R48K-98K (pigs, goats, chickens)
-- [ ] Equipment procurement: R50K-80K (chainsaw, trailer, PPE) - funded by Oom Willie/Eben + reinvested profit
+- [ ] Equipment procurement: R50K-80K (chainsaw, trailer, PPE) - funded by Oom Hein/Eben + reinvested profit
 - [ ] **Hans cash contribution:** R0
 
 ### Year 1 Milestones (Months 4-15) - PROVE-IT PHASE
@@ -862,7 +862,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 - Increase stocking to 98 LSU (+26 cumulative)
 - Establish distribution channels (farm shop, markets, wholesale)
 - Revenue target: R943K-1.78M
-- Final equity structure: 35%/35%/30% (Oom Willie/Eben/Hans)
+- Final equity structure: 35%/35%/30% (Oom Hein/Eben/Hans)
 
 **Year 5 (Steady State - Hans at full 30% equity):**
 
@@ -887,7 +887,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 **Option 2: Increase Equity Stake**
 
 - Buy out Eben's 35% (Year 5 valuation: R1.68M-3.15M)
-- Hans increases to 65% equity (majority partnership with Oom Willie 35%)
+- Hans increases to 65% equity (majority partnership with Oom Hein 35%)
 - Higher returns but higher capital requirement
 
 **Option 3: Sell Equity Stake**
@@ -929,7 +929,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 
 ### Must-Haves
 
-1. **Eben/Oom Willie buy-in:** Both agree to phased equity structure (35%/35%/30% eventually)
+1. **Eben/Oom Hein buy-in:** Both agree to phased equity structure (35%/35%/30% eventually)
 2. **Clear partnership agreement:** Phased equity earn-in, roles, profit-sharing, exit terms, performance milestones
 3. **Hans's livestock availability:** R48K-98K livestock ready to transfer (pigs, goats, chickens)
 4. **Year 1 performance:** Hans hits R340K+ revenue target (earns 15% equity starting Year 2)
@@ -950,7 +950,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 ### Immediate Actions (Week 1-2)
 
 1. **Hans prepares pitch deck:** This Master Plan + 1-page executive summary + financial projections
-2. **Schedule meeting with Oom Willie + Eben:** Present proposal, gauge interest
+2. **Schedule meeting with Oom Hein + Eben:** Present proposal, gauge interest
 3. **Land valuation:** Get professional valuation (600ha + improvements) - likely R4.8M-9M
 4. **Livestock count:** Verify 72 LSU + other animals (current baseline)
 5. **Infrastructure audit:** Fencing, water, buildings, equipment (current value)
@@ -961,7 +961,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 
 | Criterion                  | Target                                                   | Status     |
 | -------------------------- | -------------------------------------------------------- | ---------- |
-| **Eben/Oom Willie buy-in** | Both agree to phased equity structure                    | ⏳ Pending |
+| **Eben/Oom Hein buy-in** | Both agree to phased equity structure                    | ⏳ Pending |
 | **Partnership agreement**  | Phased equity, roles, exit terms, performance milestones | ⏳ Pending |
 | **Land valuation**         | R4.8M-9M (R8K-15K/ha)                                    | ⏳ Pending |
 | **Hans's livestock**       | R48K-98K livestock available                             | ⏳ Pending |
@@ -969,7 +969,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 
 **If all criteria met:** Proceed to partnership agreement drafting & livestock transfer (Month 1)
 
-**If Eben/Oom Willie hesitant:** Offer trial period (6 months consulting @ R10K/month, then renegotiate equity)
+**If Eben/Oom Hein hesitant:** Offer trial period (6 months consulting @ R10K/month, then renegotiate equity)
 
 **If family dynamic concerns:** Adjust equity structure (e.g., 40%/40%/20% or 37.5%/37.5%/25%)
 
@@ -998,7 +998,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 
 ### Appendix C: Capital Injection Schedule (NO HANS CASH)
 
-| Year       | Hans Livestock | Reinvested Profit | Oom Willie/Eben | Total          | Hans Cash |
+| Year       | Hans Livestock | Reinvested Profit | Oom Hein/Eben | Total          | Hans Cash |
 | ---------- | -------------- | ----------------- | --------------- | -------------- | --------- |
 | **Year 1** | R48K-98K       | R30K-50K          | R52K-72K        | R130K-220K     | **R0**    |
 | **Year 2** | -              | R100K-150K        | R50K-100K       | R150K-250K     | **R0**    |
@@ -1009,7 +1009,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 
 ### Appendix D: Comparison of Equity Structures
 
-| Structure                      | Oom Willie | Eben   | Hans  | Notes                                                |
+| Structure                      | Oom Hein | Eben   | Hans  | Notes                                                |
 | ------------------------------ | ---------- | ------ | ----- | ---------------------------------------------------- |
 | **Current (Pre-Hans)**         | 50%        | 50%    | 0%    | Baseline: R83K-97K profit, R42K-49K each             |
 | **Proposed Year 1**            | 50%        | 50%    | 0%    | Hans salary-only (R120K-180K), prove-it phase        |
@@ -1027,7 +1027,7 @@ _This is a **partnership**, not a takeover. We grow the family farm together."_
 **Date:** November 7, 2025  
 **Author:** Hans Jurgens Smit  
 **Status:** Draft for negotiation  
-**Next Review:** Post-Oom Willie/Eben meeting
+**Next Review:** Post-Oom Hein/Eben meeting
 
 **Change Log:**
 

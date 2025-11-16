@@ -77,7 +77,7 @@ A concise summary suitable for initial presentations and quick reference.
 
 **Partnership Structure:**
 
-- Oom Willie: 35% (land + operations)
+- Oom Hein: 35% (land + operations)
 - Eben: 35% (infrastructure + family)
 - Hans: 30% (sweat equity + livestock)
 
@@ -114,7 +114,7 @@ A concise summary suitable for initial presentations and quick reference.
 
 All partners benefit from the transformation:
 
-- **Oom Willie:** R210K-245K → R618K-1.41M (5-year total) = +194-476% growth
+- **Oom Hein:** R210K-245K → R618K-1.41M (5-year total) = +194-476% growth
 - **Eben:** R210K-245K → R618K-1.41M (5-year total) = +194-476% growth
 - **Hans:** R0 → R995K-1.78M (5-year total) with zero cash investment
 
@@ -130,7 +130,7 @@ All partners benefit from the transformation:
 
 1. Review the full Master Plan (docs/Zeerust_Partnership_Proposal_v4.0.md)
 2. Review the Executive Summary (docs/Executive_Summary.md) for quick reference
-3. Schedule meeting with Oom Willie + Eben
+3. Schedule meeting with Oom Hein + Eben
 4. Conduct land valuation and infrastructure audit
 5. Draft partnership agreement
 6. Begin Year 1 implementation
