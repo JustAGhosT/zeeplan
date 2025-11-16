@@ -67,61 +67,58 @@ export default function Home() {
       </section>
 
       {/* Sekelbos Clearance Featured Section */}
-      <section
-        className={styles.sectionPadding}
-        style={{ background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' }}
-      >
+      <section className={`${styles.sectionPadding} ${styles.sekelbosSection}`}>
         <div className={styles.mainContent}>
           <div className={styles.transformationGrid}>
             <div>
-              <h2 className={styles.sectionHeading} style={{ color: '#065f46' }}>
+              <h2 className={`${styles.sectionHeading} ${styles.sekelbosSectionHeading}`}>
                 Sekelbos Clearance: Immediate Value Generator
               </h2>
-              <p className={styles.sectionSubheading} style={{ color: '#047857' }}>
+              <p className={`${styles.sectionSubheading} ${styles.sekelbosSectionSubheading}`}>
                 Turn your sekelbos problem into profit while expanding grazing capacity
               </p>
 
               <div className={styles.checklistContainer}>
                 <div className={styles.checklistItem}>
-                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <CheckCircle className={`${styles.checklistIcon} ${styles.sekelbosCheckIcon}`} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                    <h4 className={`${styles.checklistTitle} ${styles.sekelbosCheckTitle}`}>
                     360-420ha heavily affected
                     </h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                    <p className={`${styles.checklistDescription} ${styles.sekelbosCheckDescription}`}>
                     60-70% of your property has heavy sekelbos encroachment reducing grazing capacity
                     </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
-                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <CheckCircle className={`${styles.checklistIcon} ${styles.sekelbosCheckIcon}`} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                    <h4 className={`${styles.checklistTitle} ${styles.sekelbosCheckTitle}`}>
                       R1.08M-3M Wood Revenue
                     </h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                    <p className={`${styles.checklistDescription} ${styles.sekelbosCheckDescription}`}>
                       Generate R150K-250K in Year 1 from firewood, braai wood, and poles
                     </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
-                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <CheckCircle className={`${styles.checklistIcon} ${styles.sekelbosCheckIcon}`} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                    <h4 className={`${styles.checklistTitle} ${styles.sekelbosCheckTitle}`}>
                       Biological Clearance System
                     </h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                    <p className={`${styles.checklistDescription} ${styles.sekelbosCheckDescription}`}>
                       Goats, pigs, and chickens do the work - sustainable and cost-effective
                     </p>
                   </div>
                 </div>
                 <div className={styles.checklistItem}>
-                  <CheckCircle className={styles.checklistIcon} style={{ color: '#059669' }} />
+                  <CheckCircle className={`${styles.checklistIcon} ${styles.sekelbosCheckIcon}`} />
                   <div>
-                    <h4 className={styles.checklistTitle} style={{ color: '#065f46' }}>
+                    <h4 className={`${styles.checklistTitle} ${styles.sekelbosCheckTitle}`}>
                     +50% Capacity Increase
                     </h4>
-                    <p className={styles.checklistDescription} style={{ color: '#047857' }}>
+                    <p className={`${styles.checklistDescription} ${styles.sekelbosCheckDescription}`}>
                     Expand from 72 LSU to ±110 LSU as land is cleared
                     </p>
                   </div>
@@ -136,8 +133,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.revenueBox} style={{ background: '#ffffff', border: '2px solid #059669' }}>
-              <h3 className={styles.revenueBoxTitle} style={{ color: '#065f46' }}>
+            <div className={`${styles.revenueBox} ${styles.sekelbosRevenueBox}`}>
+              <h3 className={`${styles.revenueBoxTitle} ${styles.sekelbosRevenueTitle}`}>
                 5-Year Sekelbos Revenue
               </h3>
               <div className={styles.revenueList}>
