@@ -2,12 +2,19 @@
 
 import { useData } from '@/app/contexts/DataContext';
 import { useDarkMode } from '@/lib/useDarkMode';
+import { optimizeLandAllocation } from '@/lib/optimizer';
 import { ControlsPanel } from './ControlsPanel';
 import styles from './FloatingControls.module.css';
+import { Sparkles } from 'lucide-react';
 
 export function FloatingControls() {
   const { data, updateData, isControlsOpen, openControls, closeControls } = useData();
   const isDark = useDarkMode();
+
+  const handleOptimize = () => {
+    const optimizedAllocation = optimizeLandAllocation(data);
+    updateData({ ...data, ...optimizedAllocation });
+  };
 
   return (
     <>
@@ -40,6 +47,16 @@ export function FloatingControls() {
             aria-label="Close controls panel"
           >
             &times;
+          </button>
+        </div>
+        <div className={styles.optimizeContainer}>
+          <button
+            onClick={handleOptimize}
+            className={`${styles.optimizeButton} ${isDark ? styles.dark : ''}`}
+            aria-label="Optimize land allocation"
+          >
+            <Sparkles size={16} className={styles.optimizeIcon} />
+            Optimize Allocation
           </button>
         </div>
         <div className={styles.panelBody}>

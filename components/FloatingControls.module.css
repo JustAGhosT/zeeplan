@@ -99,6 +99,65 @@
   color: #f9fafb;
 }
 
+.optimizeContainer {
+  padding: 0.75rem 1.25rem 0 1.25rem;
+  position: sticky;
+  top: 61px;
+  z-index: 9;
+  background: inherit;
+}
+
+.optimizeButton {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.optimizeButton:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+.optimizeButton:active {
+  transform: translateY(0);
+}
+
+.optimizeButton.dark {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  color: #111827;
+}
+
+.optimizeButton.dark:hover {
+  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+  box-shadow: 0 4px 8px rgba(52, 211, 153, 0.3);
+}
+
+.optimizeIcon {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+
 .closeButton {
   background: none;
   border: none;
