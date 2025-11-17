@@ -46,7 +46,7 @@ export function FloatingControls() {
 
       <div data-testid="controls-panel" className={`${styles.panel} ${isControlsOpen ? '' : styles.closed} ${isDark ? styles.dark : ''}`}>
         <div className={`${styles.panelHeader} ${isDark ? styles.dark : ''}`}>
-          <h3 className={styles.panelTitle}>Adjust Parameters</h3>
+          <h3 className={styles.panelTitle}>⚙️ Adjust Parameters</h3>
           <button
             onClick={closeControls}
             className={`${styles.closeButton} ${isDark ? styles.dark : ''}`}
