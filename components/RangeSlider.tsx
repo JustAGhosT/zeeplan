@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useDarkMode } from '@/lib/useDarkMode';
 import styles from './RangeSlider.module.css';
 
 interface RangeSliderProps {
@@ -30,20 +31,7 @@ export function RangeSlider({
   suffix = '',
   tooltip = '',
 }: RangeSliderProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   const toLog = (value: number) => Math.pow(value, 1 / 3);
   const fromLog = (value: number) => Math.pow(value, 3);
@@ -99,6 +87,11 @@ export function RangeSlider({
           value={valueMinLog}
           onChange={handleMinChange}
           className={`${styles.slider} ${styles.sliderMin}`}
+          aria-label={`${label} minimum slider`}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={safeValueMin}
+          aria-valuetext={`Minimum: ${safeValueMin.toLocaleString()} ${suffix}`}
         />
         <input
           type="range"
@@ -108,6 +101,11 @@ export function RangeSlider({
           value={valueMaxLog}
           onChange={handleMaxChange}
           className={`${styles.slider} ${styles.sliderMax}`}
+          aria-label={`${label} maximum slider`}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={safeValueMax}
+          aria-valuetext={`Maximum: ${safeValueMax.toLocaleString()} ${suffix}`}
         />
         <div className={styles.rangeTrack}>
           <div 

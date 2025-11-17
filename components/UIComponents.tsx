@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useDarkMode } from '@/lib/useDarkMode';
 import styles from './UIComponents.module.css';
 
 interface CardProps {
@@ -10,20 +11,7 @@ interface CardProps {
 }
 
 export function Card({ title, children, className = '' }: CardProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.card} ${isDark ? styles.dark : ''} ${className}`}>
@@ -44,20 +32,7 @@ interface SliderProps {
 }
 
 export function Slider({ label, value, onChange, min, max, step = 1, className = '' }: SliderProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.sliderGroup} ${className}`}>
@@ -84,20 +59,7 @@ interface SectionProps {
 }
 
 export function Section({ title, subtitle, children, className = '' }: SectionProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <section className={`${styles.section} ${className}`}>
@@ -115,20 +77,7 @@ interface TableProps {
 }
 
 export function Table({ headers, rows, className = '' }: TableProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.tableWrapper} ${className}`}>
@@ -166,20 +115,7 @@ interface MetricCardProps {
 }
 
 export function MetricCard({ label, value, change, className = '' }: MetricCardProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.metricCard} ${isDark ? styles.dark : ''} ${className}`}>
@@ -213,20 +149,7 @@ export function InputGroup({
   className = '',
   tooltip,
 }: InputGroupProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.inputGroup} ${className}`}>
@@ -278,20 +201,7 @@ export function RangeInputGroup({
   className = '',
   tooltip,
 }: RangeInputGroupProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.rangeInputGroup} ${className}`}>

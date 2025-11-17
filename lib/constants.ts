@@ -49,6 +49,17 @@ export const UI_LIMITS = {
 } as const;
 
 /**
+ * Livestock density limits (animals per hectare)
+ * Based on regenerative agriculture best practices
+ */
+export const LIVESTOCK_DENSITY = {
+  CATTLE_MAX: 1.0, // Maximum realistic cattle density
+  GOATS_MAX: 10.0, // Maximum realistic goat density
+  PIGS_MAX: 20.0, // Maximum realistic pig density
+  CHICKENS_MAX: 50.0, // Maximum realistic chicken density
+} as const;
+
+/**
  * Revenue growth targets (%)
  */
 export const GROWTH_TARGETS = {

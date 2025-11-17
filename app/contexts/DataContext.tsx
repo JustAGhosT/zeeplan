@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { PartnershipData, defaultPartnershipData } from '@/lib/partnershipData';
+import { getStorageItem, setStorageItem, removeStorageItem } from '@/lib/storage';
 
 interface DataContextProps {
   data: PartnershipData;
@@ -22,31 +23,25 @@ export function DataProvider({ children }: { children: ReactNode }) {
     if (typeof window === 'undefined') {
       return defaultPartnershipData;
     }
-    try {
-      const savedVersion = localStorage.getItem(VERSION_KEY);
-      
-      // If version doesn't match, clear old data and use defaults
-      if (savedVersion !== CURRENT_VERSION) {
-        localStorage.removeItem(LOCAL_STORAGE_KEY);
-        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
-        return defaultPartnershipData;
-      }
-      
-      const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-      return savedData ? JSON.parse(savedData) : defaultPartnershipData;
-    } catch (error) {
-      console.error('Error loading data from localStorage', error);
+    
+    const savedVersion = getStorageItem<string>(VERSION_KEY, '');
+    
+    // If version doesn't match, clear old data and use defaults
+    if (savedVersion !== CURRENT_VERSION) {
+      removeStorageItem(LOCAL_STORAGE_KEY);
+      setStorageItem(VERSION_KEY, CURRENT_VERSION);
       return defaultPartnershipData;
     }
+    
+    return getStorageItem<PartnershipData>(LOCAL_STORAGE_KEY, defaultPartnershipData);
   });
   const [isControlsOpen, setControlsOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      try {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
-      } catch (error) {
-        console.error('Error saving data to localStorage', error);
+      const success = setStorageItem(LOCAL_STORAGE_KEY, data);
+      if (!success) {
+        console.warn('Failed to save data to localStorage. Changes may not persist.');
       }
     }
   }, [data]);

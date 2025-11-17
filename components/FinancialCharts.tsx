@@ -13,6 +13,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { TooltipProps as RechartsTooltipProps } from 'recharts';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFinancialSummary } from '@/lib/calculations';
 import { formatCurrency } from '@/lib/formatting';
@@ -44,14 +45,14 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
     hans: (year.hansTotalIncome[0] + year.hansTotalIncome[1]) / 2,
   }));
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: RechartsTooltipProps<number, string> & { payload?: any[]; label?: string }) => {
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltipContainer}>
           <p className={styles.tooltipLabel}>{label}</p>
-          {payload.map((entry: any, index: number) => (
+          {payload.map((entry, index: number) => (
             <p key={index} className={styles.tooltipValue} style={{ color: entry.color }}>
-              {entry.name}: {formatCurrency(entry.value)}
+              {entry.name}: {formatCurrency(entry.value as number)}
             </p>
           ))}
         </div>

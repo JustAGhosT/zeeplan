@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { getStorageItem, setStorageItem } from '@/lib/storage';
 
 type Theme = 'light' | 'dark';
 
@@ -15,15 +16,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    try {
-      const storedTheme = window.localStorage.getItem('theme') as Theme | null;
-      if (storedTheme) {
-        setTheme(storedTheme);
-      }
-    } catch (error) {
-      // localStorage might be unavailable in some browser configurations
-      console.warn('Unable to access localStorage for theme preference:', error);
-    }
+    const storedTheme = getStorageItem<Theme>('theme', 'light');
+    setTheme(storedTheme);
   }, []);
 
   useEffect(() => {
@@ -32,12 +26,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       document.documentElement.classList.remove('dark');
     }
-    try {
-      window.localStorage.setItem('theme', theme);
-    } catch (error) {
-      // localStorage might be unavailable in some browser configurations
-      console.warn('Unable to save theme preference to localStorage:', error);
-    }
+    setStorageItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {

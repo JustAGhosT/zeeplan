@@ -27,6 +27,24 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+  
+  /* Text colors */
+  --text-primary-light: #111827;
+  --text-secondary-light: #4b5563;
+  --text-primary-dark: #f9fafb;
+  --text-secondary-dark: #9ca3af;
+  
+  /* Border colors */
+  --border-color-light: #e5e7eb;
+  --border-color-dark: #374151;
+  
+  /* Warning/Toast colors */
+  --warning-bg-light: #fef3c7;
+  --warning-text-light: #92400e;
+  --warning-border-light: #fbbf24;
+  --warning-bg-dark: #451a03;
+  --warning-text-dark: #fef3c7;
+  --warning-border-dark: #ca8a04;
 }
 
 @media (prefers-color-scheme: dark) {

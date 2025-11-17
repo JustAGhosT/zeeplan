@@ -273,7 +273,7 @@ export const LandUseMap: React.FC<LandUseMapProps> = ({
                   onMouseEnter={interactive ? () => setHoveredZone(zone.id) : undefined}
                   onMouseLeave={interactive ? () => setHoveredZone(null) : undefined}
                   onClick={() => handleZoneClick(zone)}
-                  onKeyDown={(e: any) => handleKeyPress(e, zone)}
+                  onKeyDown={(e: React.KeyboardEvent) => handleKeyPress(e, zone)}
                   tabIndex={interactive ? 0 : -1}
                   role="button"
                   aria-label={`${zone.name}: ${zone.area} (${zone.percentage}) - ${zone.use}. Click to learn more.`}

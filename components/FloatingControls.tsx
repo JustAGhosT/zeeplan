@@ -1,26 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { useData } from '@/app/contexts/DataContext';
+import { useDarkMode } from '@/lib/useDarkMode';
 import { ControlsPanel } from './ControlsPanel';
 import styles from './FloatingControls.module.css';
 
 export function FloatingControls() {
   const { data, updateData, isControlsOpen, openControls, closeControls } = useData();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <>
