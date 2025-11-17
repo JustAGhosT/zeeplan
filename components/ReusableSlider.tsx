@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useDarkMode } from '@/lib/useDarkMode';
 import styles from './ReusableSlider.module.css';
 
 interface ReusableSliderProps {
@@ -26,20 +27,7 @@ export function ReusableSlider({
   suffix = '',
   tooltip = '',
 }: ReusableSliderProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   const toLog = (value: number) => {
     const skewed = Math.pow(value, 1 / 3);
@@ -90,6 +78,11 @@ export function ReusableSlider({
           value={valueLog}
           onChange={handleSliderChange}
           className={styles.slider}
+          aria-label={`${label} slider`}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={safeValue}
+          aria-valuetext={`${safeValue.toLocaleString()} ${suffix}`}
         />
         <div className={styles.defaultValueIndicator} style={{ left: `${defaultPosition}%` }}>
           ▼
