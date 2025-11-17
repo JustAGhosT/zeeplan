@@ -28,13 +28,13 @@
 }
 
 .dark .section {
-  background: rgba(17, 24, 39, 0.85);
-  border-color: rgba(55, 65, 81, 0.6);
+  background: rgba(31, 41, 55, 0.95);
+  border-color: rgba(75, 85, 99, 0.7);
 }
 
 .dark .section:hover {
-  background: rgba(17, 24, 39, 0.95);
-  border-color: rgba(55, 65, 81, 0.8);
+  background: rgba(31, 41, 55, 1);
+  border-color: rgba(75, 85, 99, 0.9);
 }
 
 .sectionTitle {
