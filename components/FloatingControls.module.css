@@ -63,8 +63,9 @@
 }
 
 .panel.dark {
-  background-color: rgba(31, 41, 55, 0.75);
-  border-color: rgba(75, 85, 99, 0.3);
+  background-color: #111827;
+  border-color: rgba(75, 85, 99, 0.5);
+  backdrop-filter: none;
 }
 
 .panelHeader {
@@ -83,7 +84,8 @@
 
 .panelHeader.dark {
   border-bottom-color: rgba(75, 85, 99, 0.5);
-  background: linear-gradient(to bottom, rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.7));
+  background: #111827;
+  backdrop-filter: none;
 }
 
 .panelTitle {
@@ -119,6 +121,7 @@
 
 .panelBody {
   overflow-y: auto;
+  padding: 1rem 1.25rem 1.5rem 1.25rem;
 }
 
 /* Custom scrollbar styling */
