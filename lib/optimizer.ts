@@ -1,11 +1,33 @@
 import { PartnershipData } from './partnershipData';
 
 /**
- * Simple greedy optimization algorithm to maximize profit
- * by allocating land optimally across different livestock and crops
+ * Optimization algorithm with realistic farm constraints
+ * to maximize profit while maintaining operational sustainability
  */
 export function optimizeLandAllocation(data: PartnershipData): Partial<PartnershipData> {
   const availableLand = data.landSize;
+  
+  // Define realistic constraints based on farm context
+  const constraints = {
+    // Cattle is the foundation - must maintain minimum for core operation
+    cattleMin: Math.max(200, availableLand * 0.3), // At least 30% for cattle (foundation operation)
+    cattleMax: availableLand * 0.7, // Maximum 70% to allow diversification
+    
+    // Goats help with sekelbos clearance - important for regenerative model
+    goatsMin: data.sekelbosEncroachment > 50 ? 50 : 0, // Minimum if high sekelbos
+    goatsMax: availableLand * 0.25, // Maximum 25% to avoid overgrazing
+    
+    // Pigs and chickens are intensive operations - limited by infrastructure
+    pigsMax: 100, // Maximum 100ha for intensive pig operation
+    chickensMax: 50, // Maximum 50ha for chicken operation
+    
+    // Crops provide feed independence - important but limited by water/soil
+    cropsMin: 30, // Minimum 30ha for basic feed crops
+    cropsMax: availableLand * 0.2, // Maximum 20% for crops (water-dependent)
+    
+    // Diversification constraint - no single enterprise should dominate completely
+    maxSingleAllocation: availableLand * 0.6, // No more than 60% in any one enterprise
+  };
   
   // Calculate profit per hectare for each option
   const options = [
@@ -13,34 +35,52 @@ export function optimizeLandAllocation(data: PartnershipData): Partial<Partnersh
       name: 'cattle',
       profitPerHa: calculateCattleProfit(data),
       field: 'cattleHectares' as keyof PartnershipData,
+      min: constraints.cattleMin,
+      max: constraints.cattleMax,
+      priority: 10, // Highest priority - foundation of operation
     },
     {
       name: 'goats',
       profitPerHa: calculateGoatsProfit(data),
       field: 'goatsHectares' as keyof PartnershipData,
+      min: constraints.goatsMin,
+      max: constraints.goatsMax,
+      priority: 8, // High priority for sekelbos clearance
     },
     {
       name: 'pigs',
       profitPerHa: calculatePigsProfit(data),
       field: 'pigsHectares' as keyof PartnershipData,
+      min: 0,
+      max: constraints.pigsMax,
+      priority: 5, // Medium priority
     },
     {
       name: 'chickens',
       profitPerHa: data.includeChickens ? calculateChickensProfit(data) : -Infinity,
       field: 'chickensHectares' as keyof PartnershipData,
+      min: 0,
+      max: constraints.chickensMax,
+      priority: 4, // Medium priority
     },
     {
       name: 'crops',
       profitPerHa: calculateCropsProfit(data),
       field: 'cropsHectares' as keyof PartnershipData,
+      min: constraints.cropsMin,
+      max: constraints.cropsMax,
+      priority: 6, // Medium-high priority for feed independence
     },
   ];
 
-  // Sort by profit per hectare (descending)
-  options.sort((a, b) => b.profitPerHa - a.profitPerHa);
+  // Sort by priority first, then profit per hectare
+  options.sort((a, b) => {
+    if (Math.abs(a.profitPerHa - b.profitPerHa) < 100) {
+      return b.priority - a.priority;
+    }
+    return b.profitPerHa - a.profitPerHa;
+  });
 
-  // Allocate land greedily
-  let remainingLand = availableLand;
   const allocation: Partial<PartnershipData> = {
     cattleHectares: 0,
     goatsHectares: 0,
@@ -49,20 +89,54 @@ export function optimizeLandAllocation(data: PartnershipData): Partial<Partnersh
     cropsHectares: 0,
   };
 
-  // Allocate at least some land to each profitable option
-  const minAllocation = Math.min(50, availableLand / options.filter(o => o.profitPerHa > 0).length);
-  
+  let remainingLand = availableLand;
+
+  // Phase 1: Allocate minimum required land for each enterprise
   for (const option of options) {
-    if (option.profitPerHa > 0 && remainingLand >= minAllocation) {
-      const allocated = minAllocation;
+    if (option.profitPerHa > 0 && option.min > 0 && remainingLand >= option.min) {
+      const allocated = Math.min(option.min, remainingLand);
       (allocation as any)[option.field] = allocated;
       remainingLand -= allocated;
     }
   }
 
-  // Allocate remaining land to the most profitable option
-  if (remainingLand > 0 && options[0].profitPerHa > 0) {
-    (allocation as any)[options[0].field] = ((allocation as any)[options[0].field] || 0) + remainingLand;
+  // Phase 2: Allocate remaining land based on profitability while respecting constraints
+  // Sort again by profit for remaining allocation
+  const sortedByProfit = [...options].sort((a, b) => b.profitPerHa - a.profitPerHa);
+  
+  for (const option of sortedByProfit) {
+    if (option.profitPerHa > 0 && remainingLand > 0) {
+      const currentAllocation = (allocation as any)[option.field] || 0;
+      const maxAdditional = Math.min(
+        option.max - currentAllocation,
+        constraints.maxSingleAllocation - currentAllocation,
+        remainingLand
+      );
+      
+      if (maxAdditional > 0) {
+        const allocated = Math.min(maxAdditional, remainingLand * 0.4); // Allocate up to 40% of remaining
+        (allocation as any)[option.field] = currentAllocation + allocated;
+        remainingLand -= allocated;
+      }
+    }
+  }
+
+  // Phase 3: Distribute any remaining land to the most profitable viable option
+  if (remainingLand > 10) { // Only if significant land remains
+    for (const option of sortedByProfit) {
+      const currentAllocation = (allocation as any)[option.field] || 0;
+      const canTake = Math.min(
+        option.max - currentAllocation,
+        constraints.maxSingleAllocation - currentAllocation,
+        remainingLand
+      );
+      
+      if (canTake > 0) {
+        (allocation as any)[option.field] = currentAllocation + canTake;
+        remainingLand -= canTake;
+        break;
+      }
+    }
   }
 
   return allocation;
