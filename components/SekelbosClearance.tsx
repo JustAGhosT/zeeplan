@@ -449,7 +449,7 @@ export function SekelbosSection2() {
         />
 
         <div className={styles.tableSpacing}>
-          <h4 className="font-semibold text-sm mb-3">5-Year Revenue Projection:</h4>
+          <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>5-Year Revenue Projection:</h4>
           <Table
             headers={['Year', 'Ha Cleared', 'Wood Volume', 'Conservative', 'Optimistic']}
             rows={[
@@ -476,7 +476,7 @@ export function SekelbosSection3() {
       <Card title="3.1 Wood Harvesting Equipment">
         <div className={styles.spaceY4}>
           <div>
-            <h4 className="font-semibold text-sm mb-3">Essential Equipment (Year 1):</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Essential Equipment (Year 1):</h4>
             <Table
               headers={['Item', 'Specification', 'Cost', 'Lifespan']}
               rows={[
@@ -493,7 +493,7 @@ export function SekelbosSection3() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-3">Additional Equipment (Year 2+):</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Additional Equipment (Year 2+):</h4>
             <Table
               headers={['Item', 'Specification', 'Cost', 'Timeline']}
               rows={[
@@ -525,7 +525,7 @@ export function SekelbosSection3() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-sm mb-3">Annual Labor Costs:</h4>
+            <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Annual Labor Costs:</h4>
             <Table
               headers={['Year', 'Hectares', 'Labor Days', 'Cost']}
               rows={[
