@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { PartnershipData } from '@/lib/partnershipData';
 import styles from './ControlsPanel.module.css';
-import { Card } from './UIComponents';
 import { ReusableSlider } from './ReusableSlider';
 import { RangeSlider } from './RangeSlider';
 
@@ -93,8 +92,7 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
           </div>
         </div>
       )}
-      <Card title="⚙️ Adjustable Parameters" className={styles.stickyCard}>
-        <div className={styles.controlsContainer}>
+      <div className={styles.controlsContainer}>
         <div className={styles.section}>
           <h4 className={styles.sectionTitle}>🏞️ Farm Basics</h4>
           <ReusableSlider
@@ -613,7 +611,6 @@ export function ControlsPanel({ data, onUpdate }: ControlsPanelProps) {
           </button>
         </div>
       </div>
-    </Card>
     </>
   );
 }
