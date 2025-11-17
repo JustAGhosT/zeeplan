@@ -27,13 +27,13 @@
   border-color: rgba(229, 231, 235, 0.8);
 }
 
-.dark .section {
+:global(.dark) .section {
   background: #0f172a;
   border-color: rgba(55, 65, 81, 0.5);
   backdrop-filter: none;
 }
 
-.dark .section:hover {
+:global(.dark) .section:hover {
   background: #1e293b;
   border-color: rgba(55, 65, 81, 0.7);
 }
@@ -50,7 +50,7 @@
   gap: 0.5rem;
 }
 
-.dark .sectionTitle {
+:global(.dark) .sectionTitle {
   color: #f9fafb;
 }
 
@@ -64,7 +64,7 @@
   padding-bottom: 0.5rem;
 }
 
-.dark .subSectionTitle {
+:global(.dark) .subSectionTitle {
   color: var(--text-secondary-dark);
   border-bottom-color: var(--border-color-dark);
 }
@@ -84,7 +84,7 @@
   color: var(--text-primary-light);
 }
 
-.dark .checkboxLabel {
+:global(.dark) .checkboxLabel {
   color: var(--text-primary-dark);
 }
 
@@ -95,7 +95,7 @@
   accent-color: #10b981;
 }
 
-.dark .checkboxLabel input[type="checkbox"] {
+:global(.dark) .checkboxLabel input[type="checkbox"] {
   accent-color: #34d399;
 }
 
@@ -115,7 +115,7 @@
   animation: fadeInDown 0.3s ease-out;
 }
 
-.dark .toast {
+:global(.dark) .toast {
   background-color: var(--warning-bg-dark);
   color: var(--warning-text-dark);
   border-color: var(--warning-border-dark);
@@ -179,12 +179,12 @@
   background-color: #d1d5db;
 }
 
-.dark .resetButton {
+:global(.dark) .resetButton {
   background-color: #374151;
   color: #e5e7eb;
 }
 
-.dark .resetButton:hover {
+:global(.dark) .resetButton:hover {
   background-color: #4b5563;
 }
 
