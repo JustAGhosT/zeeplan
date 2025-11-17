@@ -104,7 +104,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className={styles.actionTitle}>Schedule a Meeting</h3>
                     <p className={styles.actionDescription}>
-                      Set up a meeting with Oom Willie, Eben, and Hans to discuss the partnership.
+                      Set up a meeting with Oom Hein, Eben, and Hans to discuss the partnership.
                     </p>
                     <a
                       href="mailto:hans@zeeplan.com?subject=Partnership%20Meeting%20Request"
@@ -155,7 +155,7 @@ export default function ContactPage() {
                 <span className={`${styles.timelineStepNumber} ${styles.timelineStepNumberBlue}`}>2</span>
               </div>
               <h3 className={styles.timelineStepTitle}>Initial Meeting</h3>
-              <p className={styles.profileDescription}>Schedule meeting with Oom Willie & Eben</p>
+              <p className={styles.profileDescription}>Schedule meeting with Oom Hein & Eben</p>
             </div>
             <div className={styles.timelineStep}>
               <div className={`${styles.timelineStepIcon} ${styles.timelineStepIconYellow}`}>

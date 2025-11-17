@@ -215,7 +215,7 @@ export default function Home() {
               </div>
               <h3 className={styles.featureCardTitle}>Family Control Maintained (70%)</h3>
               <p className={styles.featureCardText}>
-                Eben and Willie retain 70% ownership (35% each). Partnership equity starts at 0% and grows only when
+                Eben and Hein retain 70% ownership (35% each). Partnership equity starts at 0% and grows only when
                 revenue targets are met.
               </p>
             </div>
@@ -227,7 +227,7 @@ export default function Home() {
               </div>
               <h3 className={styles.featureCardTitle}>Zero Cash Risk</h3>
               <p className={styles.featureCardText}>
-                No money required from Eben or Willie. Hans brings R48K-98K in livestock and pure sweat equity. You risk
+                No money required from Eben or Hein. Hans brings R48K-98K in livestock and pure sweat equity. You risk
                 nothing financially.
               </p>
             </div>
