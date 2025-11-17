@@ -17,7 +17,7 @@
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 0.75rem;
-  padding: 1rem;
+  padding: 0;
   border: 1px solid rgba(229, 231, 235, 0.5);
   transition: all 0.2s ease;
 }
@@ -38,20 +38,71 @@
   border-color: rgba(55, 65, 81, 0.7);
 }
 
+.sectionHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.sectionHeader:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+:global(.dark) .sectionHeader:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+:global(.dark) .chevron {
+  color: #9ca3af;
+}
+
 .sectionTitle {
   font-size: 0.875rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin: 0;
   color: #111827;
   text-transform: uppercase;
   letter-spacing: 0.025em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 0 0 auto;
 }
 
 :global(.dark) .sectionTitle {
   color: #f9fafb;
+}
+
+.sectionSummary {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-left: auto;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:global(.dark) .sectionSummary {
+  color: #9ca3af;
+}
+
+.sectionContent {
+  padding: 0 1rem 1rem 1rem;
 }
 
 .subSectionTitle {
