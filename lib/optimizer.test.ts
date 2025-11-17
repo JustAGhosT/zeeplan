@@ -100,8 +100,7 @@ describe('optimizeLandAllocation', () => {
   test('should respect maximum constraints', () => {
     const result = optimizeLandAllocation(baseData);
     
-    // No single enterprise should exceed 60% of land (maxSingleAllocation)
-    const maxAllocation = baseData.landSize * 0.6;
+    // Each enterprise has specific maximum constraints
     expect(result.cattleHectares || 0).toBeLessThanOrEqual(baseData.landSize * 0.7);
     expect(result.goatsHectares || 0).toBeLessThanOrEqual(baseData.landSize * 0.25);
     expect(result.pigsHectares || 0).toBeLessThanOrEqual(100);
