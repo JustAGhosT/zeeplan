@@ -1,8 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './SekelbosClearance.module.css';
 import { Section, Card, Table } from './UIComponents';
+import { Info } from 'lucide-react';
+
+// Tooltip component
+function Tooltip({ text, children }: { text: string; children: React.ReactNode }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <span
+      className={styles.tooltipWrapper}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      {children}
+      {isVisible && <span className={styles.tooltipText}>{text}</span>}
+    </span>
+  );
+}
 
 export function SekelbosExecutiveSummary() {
   return (
@@ -435,6 +452,9 @@ export function SekelbosSection2() {
         <p className={`${styles.textSm} ${styles.mb4}`}>
           The Year 1 projection of 150-250 m³ is based on clearing 50 hectares with an estimated usable wood density of
           3-5 m³/ha.
+          <Tooltip text="This is a farm-wide average. Heavily encroached areas may yield 5-8 m³/ha, while lighter areas yield 2-4 m³/ha. These values can be adjusted in the floating controls panel.">
+            <Info className={styles.infoIcon} size={16} />
+          </Tooltip>
         </p>
         <Table
           headers={['Product', 'Volume', 'Price', 'Revenue']}
@@ -545,7 +565,12 @@ export function SekelbosSection3() {
           <div className={`${styles.phaseBox} ${styles.phaseGreen}`}>
             <h4 className={`${styles.sectionHeading}`}>Month 1-2: Site Selection & Preparation</h4>
             <ul className={styles.enhancedList}>
-              <li>Identify 50ha target area (Year 1)</li>
+              <li>
+                Identify 50ha target area (Year 1)
+                <Tooltip text="Choose areas with: easiest access near roads/water, moderate sekelbos density (not too thick), good soil potential for rapid grass recovery, and visibility from main areas to demonstrate progress.">
+                  <Info className={styles.infoIcon} size={16} />
+                </Tooltip>
+              </li>
               <li>Assess sekelbos density and accessibility</li>
               <li>Plan access routes for wood removal</li>
               <li>Deploy goats for initial browsing (2-4 weeks)</li>
@@ -616,7 +641,12 @@ export function SekelbosSection4() {
             </div>
 
             <div>
-              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>Livestock Deployment:</h4>
+              <h4 className={`${styles.fontSemibold} ${styles.textSm} ${styles.mb2}`}>
+                Livestock Deployment:
+                <Tooltip text="These numbers are linked to the floating controls panel. You can adjust livestock quantities to see how they affect clearance capacity and costs.">
+                  <Info className={styles.infoIcon} size={16} />
+                </Tooltip>
+              </h4>
               <ul className={`${styles.spaceY1} ${styles.textSm} ${styles.listDisc}`}>
                 <li>Goats: 20-30 (purchase 15-25 + existing 6)</li>
                 <li>Pigs: 10-15 (breed from existing 4)</li>
@@ -767,6 +797,9 @@ export function SekelbosSection4() {
         </p>
         <p className={`${styles.textSm} ${styles.mt4}`}>
           The interactive proposal uses a more conservative 420ha schedule for its financial projections. You can adjust the yearly clearance rates in the floating controls panel to model different scenarios.
+          <Tooltip text="Open the floating controls (gear icon) to adjust hectares cleared per year, wood density, and other parameters to see real-time updates to revenue and cost projections.">
+            <Info className={styles.infoIcon} size={16} />
+          </Tooltip>
         </p>
       </Card>
     </Section>
