@@ -63,8 +63,9 @@
 }
 
 .panel.dark {
-  background-color: rgba(17, 24, 39, 0.98);
+  background-color: #111827;
   border-color: rgba(75, 85, 99, 0.5);
+  backdrop-filter: none;
 }
 
 .panelHeader {
@@ -83,7 +84,8 @@
 
 .panelHeader.dark {
   border-bottom-color: rgba(75, 85, 99, 0.5);
-  background: linear-gradient(to bottom, rgba(17, 24, 39, 0.98), rgba(17, 24, 39, 0.95));
+  background: #111827;
+  backdrop-filter: none;
 }
 
 .panelTitle {
