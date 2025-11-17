@@ -28,14 +28,14 @@
 }
 
 .dark .section {
-  background: #1f2937;
-  border-color: rgba(75, 85, 99, 0.7);
+  background: #0f172a;
+  border-color: rgba(55, 65, 81, 0.5);
   backdrop-filter: none;
 }
 
 .dark .section:hover {
-  background: #374151;
-  border-color: rgba(75, 85, 99, 0.9);
+  background: #1e293b;
+  border-color: rgba(55, 65, 81, 0.7);
 }
 
 .sectionTitle {
