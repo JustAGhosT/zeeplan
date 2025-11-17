@@ -12,8 +12,8 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  TooltipProps,
 } from 'recharts';
+import { TooltipProps as RechartsTooltipProps } from 'recharts';
 import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFinancialSummary } from '@/lib/calculations';
 import { formatCurrency } from '@/lib/formatting';
@@ -45,7 +45,7 @@ export function FinancialCharts({ data }: FinancialChartsProps) {
     hans: (year.hansTotalIncome[0] + year.hansTotalIncome[1]) / 2,
   }));
 
-  const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+  const CustomTooltip = ({ active, payload, label }: RechartsTooltipProps<number, string> & { payload?: any[]; label?: string }) => {
     if (active && payload && payload.length) {
       return (
         <div className={styles.tooltipContainer}>

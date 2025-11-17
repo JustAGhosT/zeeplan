@@ -77,20 +77,7 @@ interface TableProps {
 }
 
 export function Table({ headers, rows, className = '' }: TableProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.tableWrapper} ${className}`}>
@@ -128,20 +115,7 @@ interface MetricCardProps {
 }
 
 export function MetricCard({ label, value, change, className = '' }: MetricCardProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.metricCard} ${isDark ? styles.dark : ''} ${className}`}>
@@ -175,20 +149,7 @@ export function InputGroup({
   className = '',
   tooltip,
 }: InputGroupProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.inputGroup} ${className}`}>
@@ -240,20 +201,7 @@ export function RangeInputGroup({
   className = '',
   tooltip,
 }: RangeInputGroupProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useDarkMode();
 
   return (
     <div className={`${styles.rangeInputGroup} ${className}`}>
