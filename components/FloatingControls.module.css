@@ -119,6 +119,7 @@
 
 .panelBody {
   overflow-y: auto;
+  padding: 1rem 1.25rem 1.5rem 1.25rem;
 }
 
 /* Custom scrollbar styling */
