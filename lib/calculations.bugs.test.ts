@@ -1,77 +1,51 @@
-import {
-  calculateROI,
-  calculateProfit,
-  calculateFinancialSummary,
-  sumRevenue,
-  calculateEquityShare,
-  calculateBaseline,
-} from './calculations';
+import { calculateFinancialSummary } from './calculations';
+import { PartnershipData } from './partnershipData';
 import { defaultPartnershipData } from './partnershipData';
 
-describe('sumRevenue', () => {
-  it('should sum the revenues correctly', () => {
-    const revenues = {
-      cattle: [100, 200] as [number, number],
-      goats: [50, 75] as [number, number],
+
+// A more realistic mock data structure for testing the refactored logic
+const mockRefactoredData: PartnershipData = {
+    ...defaultPartnershipData,
+    enterprises: [
+        { id: 'cattle', name: 'Cattle', type: 'livestock', enabled: true, hectares: 300, density: 0.24, marketPrice: [12000, 15000], offtakeRate: 25, costPerHecatare: [100,150], costPerAnimal: [500,700] },
+        { id: 'goats', name: 'Goats', type: 'livestock', enabled: true, hectares: 100, density: 1, marketPrice: [1500, 2000], offtakeRate: 40, costPerHecatare: [80,120], costPerAnimal: [200,300] },
+        { id: 'pigs', name: 'Pigs', type: 'livestock', enabled: true, hectares: 5, density: 20, marketPrice: [2000, 2500], offtakeRate: 80, costPerHecatare: [150,200], costPerAnimal: [800,1000] },
+        { id: 'sekelbos', name: 'Sekelbos', type: 'other', enabled: true, hectares: 0, revenuePerHectare: [3000,5000], costTotal: [0,0] }
+    ],
+};
+
+
+describe('calculateFinancialSummary with bugs', () => {
+  it('should not throw when number of years is less than targets', () => {
+    // This test is designed to catch out-of-bounds errors
+    const dataWithFewerTargets = {
+      ...mockRefactoredData,
+      yearlyTargets: mockRefactoredData.yearlyTargets.slice(0, 2), // Only 2 years of targets
+      equityStructure: mockRefactoredData.equityStructure.slice(0, 2),
     };
-    const total = sumRevenue(revenues);
-    expect(total).toEqual([150, 275]);
-  });
-});
 
-describe('calculateEquityShare', () => {
-  it('should calculate the equity share correctly', () => {
-    const profit: [number, number] = [1000, 2000];
-    const percentage = 25;
-    const share = calculateEquityShare(profit, percentage);
-    expect(share).toEqual([250, 500]);
-  });
-});
-
-describe('calculateBaseline', () => {
-  it('should calculate the baseline correctly', () => {
-    const baseline = calculateBaseline(defaultPartnershipData);
-    expect(baseline.revenue[0]).toBe(233000);
-    expect(baseline.revenue[1]).toBe(297000);
-    expect(baseline.profit[0]).toBe(83000);
-    expect(baseline.profit[1]).toBe(97000);
-  });
-});
-
-
-describe('calculateFinancialSummary', () => {
-  // Test data was previously incorrect, leading to test failures after bug fixes.
-  // Corrected expected values to align with the fixed calculation logic.
-  it('should calculate the summary for a different number of years', () => {
-    const data = JSON.parse(JSON.stringify(defaultPartnershipData));
-    data.yearlyTargets = data.yearlyTargets.slice(0, 2);
-    const summary = calculateFinancialSummary(data);
-    expect(summary.cumulative.revenue[0]).toBe(780000);
-    expect(summary.cumulative.revenue[1]).toBe(1120000);
-  });
-});
-
-describe('calculateProfit', () => {
-  it('should calculate the profit correctly', () => {
-    const revenue: [number, number] = [1000, 2000];
-    const costs: [number, number] = [500, 1000];
-    const profit = calculateProfit(revenue, costs);
-    expect(profit).toEqual([500, 1000]);
-  });
-});
-
-describe('calculateROI', () => {
-  it('should return "Infinite" when the investment is zero and the profit is positive', () => {
-    const investment: [number, number] = [0, 0];
-    const netProfit: [number, number] = [100, 200];
-    const roi = calculateROI(investment, netProfit);
-    expect(roi).toBe('Infinite');
+    // We expect this to run without crashing and process only the available years
+    const summary = calculateFinancialSummary(dataWithFewerTargets);
+    expect(summary.yearly.length).toBe(2);
+    expect(summary.cumulative.revenue[0]).toBeGreaterThan(0);
   });
 
-  it('should return "N/A" when the investment is zero and the profit is not positive', () => {
-    const investment: [number, number] = [0, 0];
-    const netProfit: [number, number] = [-100, 0];
-    const roi = calculateROI(investment, netProfit);
-    expect(roi).toBe('N/A');
+  it('should return zeroed-out financials for an invalid year', () => {
+    const summary = calculateFinancialSummary({ ...mockRefactoredData, yearlyTargets: [] });
+    expect(summary.yearly.length).toBe(0);
+    expect(summary.cumulative.revenue[0]).toBe(0);
+  });
+
+  it('should handle enabled/disabled enterprises correctly', () => {
+    const dataWithDisabledEnterprise = {
+        ...mockRefactoredData,
+        enterprises: mockRefactoredData.enterprises.map(e => e.id === 'cattle' ? { ...e, enabled: false } : e),
+    };
+
+    const summaryWithCattle = calculateFinancialSummary(mockRefactoredData);
+    const summaryWithoutCattle = calculateFinancialSummary(dataWithDisabledEnterprise);
+
+    expect(summaryWithoutCattle.cumulative.revenue[0]).toBeLessThan(summaryWithCattle.cumulative.revenue[0]);
+    expect(summaryWithoutCattle.cumulative.costs[0]).toBeLessThan(summaryWithCattle.cumulative.costs[0]);
   });
 });

@@ -1,6 +1,6 @@
 // Utility functions for financial calculations
 
-import { Equity, PartnershipData, YearlyTarget } from './partnershipData';
+import { Equity, PartnershipData, YearlyTarget, Enterprise } from './partnershipData';
 import { validateMinMaxRange } from './validation';
 import { TIME } from './constants';
 
@@ -71,150 +71,71 @@ export function calculateEquityShare(profit: [number, number], percentage: numbe
   return [Math.round(profit[0] * (percentage / 100)), Math.round(profit[1] * (percentage / 100))];
 }
 
-// New helper functions for dynamic calculations based on slider data
+export function calculateEnterpriseRevenue(enterprise: Enterprise, yearData: YearlyTarget): [number, number] {
+    if (!enterprise.enabled) return [0, 0];
 
-function calculateLivestockRevenue(
-  hectares: number,
-  density: number,
-  marketPrice: [number, number],
-  offtakeRate: number,
-): [number, number] {
-  const totalAnimals = hectares * density;
-  const animalsSold = totalAnimals * (offtakeRate / 100);
-  return [animalsSold * marketPrice[0], animalsSold * marketPrice[1]];
+    switch (enterprise.type) {
+        case 'livestock':
+            const totalAnimals = enterprise.hectares * (enterprise.density ?? 0);
+            const animalsSold = totalAnimals * ((enterprise.offtakeRate ?? 0) / 100);
+            return [animalsSold * (enterprise.marketPrice?.[0] ?? 0), animalsSold * (enterprise.marketPrice?.[1] ?? 0)];
+        case 'crop':
+            return [enterprise.hectares * (enterprise.revenuePerHectare?.[0] ?? 0), enterprise.hectares * (enterprise.revenuePerHectare?.[1] ?? 0)];
+        case 'other':
+             // Special handling for sekelbos based on yearly cleared amount
+            if (enterprise.id === 'sekelbos') {
+                // Assuming revenuePerHectare is stored for sekelbos
+                return [yearData.sekelbosCleared * (enterprise.revenuePerHectare?.[0] ?? 0), yearData.sekelbosCleared * (enterprise.revenuePerHectare?.[1] ?? 0)];
+            }
+            return enterprise.revenueTotal ?? [0, 0];
+        default:
+            return [0, 0];
+    }
 }
 
-function calculateLivestockCosts(
-  hectares: number,
-  density: number,
-  costPerHectare: [number, number],
-  costPerAnimal: [number, number],
-): [number, number] {
-  const totalAnimals = hectares * density;
-  const minCost = hectares * costPerHectare[0] + totalAnimals * costPerAnimal[0];
-  const maxCost = hectares * costPerHectare[1] + totalAnimals * costPerAnimal[1];
-  return [minCost, maxCost];
+export function calculateEnterpriseCosts(enterprise: Enterprise): [number, number] {
+    if (!enterprise.enabled) return [0, 0];
+
+    switch (enterprise.type) {
+        case 'livestock':
+            const totalAnimals = enterprise.hectares * (enterprise.density ?? 0);
+            const minCost = enterprise.hectares * (enterprise.costPerHecatare?.[0] ?? 0) + totalAnimals * (enterprise.costPerAnimal?.[0] ?? 0);
+            const maxCost = enterprise.hectares * (enterprise.costPerHecatare?.[1] ?? 0) + totalAnimals * (enterprise.costPerAnimal?.[1] ?? 0);
+            return [minCost, maxCost];
+        case 'crop':
+            return [enterprise.hectares * (enterprise.costPerHectare?.[0] ?? 0), enterprise.hectares * (enterprise.costPerHectare?.[1] ?? 0)];
+        case 'other':
+            return enterprise.costTotal ?? [0, 0];
+        default:
+            return [0, 0];
+    }
 }
 
-function calculateCropsRevenue(hectares: number, revenuePerHectare: [number, number]): [number, number] {
-  return [hectares * revenuePerHectare[0], hectares * revenuePerHectare[1]];
+export function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [number, number] {
+    const enterpriseRevenues = data.enterprises.reduce((acc, enterprise) => {
+        acc[enterprise.id] = calculateEnterpriseRevenue(enterprise, yearData);
+        return acc;
+    }, {} as Record<string, [number, number]>);
+
+    return sumRevenue(enterpriseRevenues);
 }
 
-function calculateCropsCosts(hectares: number, costPerHectare: [number, number]): [number, number] {
-  return [hectares * costPerHectare[0], hectares * costPerHectare[1]];
-}
+export function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [number, number] {
+    const enterpriseCosts = data.enterprises.map(enterprise => calculateEnterpriseCosts(enterprise));
 
-function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [number, number] {
-  const revenues: Record<string, [number, number]> = {
-    sekelbos: [
-      yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[0],
-      yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[1],
-    ],
-    cattle: calculateLivestockRevenue(
-      data.cattleHectares,
-      data.cattlePerHectare,
-      data.cattleMarketPrice,
-      data.cattleOfftakeRate,
-    ),
-    goats: calculateLivestockRevenue(
-      data.goatsHectares,
-      data.goatsPerHectare,
-      data.goatsMarketPrice,
-      data.goatsOfftakeRate,
-    ),
-    pigs: calculateLivestockRevenue(
-      data.pigsHectares,
-      data.pigsPerHectare,
-      data.pigsMarketPrice,
-      data.pigsOfftakeRate,
-    ),
-    crops: calculateCropsRevenue(data.cropsHectares, data.cropsRevenuePerHectare),
-  };
+    let minTotal = 0;
+    let maxTotal = 0;
 
-  if (data.includeChickens) {
-    revenues.chickens = calculateLivestockRevenue(
-      data.chickensHectares,
-      data.chickensPerHectare,
-      data.chickensMarketPrice,
-      data.chickensOfftakeRate,
-    );
-  } else {
-    revenues.chickens = [0, 0];
-  }
+    enterpriseCosts.forEach(([min, max]) => {
+        minTotal += min;
+        maxTotal += max;
+    });
 
-  if (data.includeRabbits) {
-    revenues.rabbits = calculateLivestockRevenue(
-      data.rabbitsHectares,
-      data.rabbitsPerHectare,
-      data.rabbitsMarketPrice,
-      data.rabbitsOfftakeRate,
-    );
-  } else {
-    revenues.rabbits = [0, 0];
-  }
+    // Add other yearly costs not associated with a specific enterprise
+    minTotal += yearData.costs[0];
+    maxTotal += yearData.costs[1];
 
-
-  return sumRevenue(revenues);
-}
-
-function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [number, number] {
-  const costs: [number, number][] = [];
-
-  costs.push(calculateLivestockCosts(
-    data.cattleHectares,
-    data.cattlePerHectare,
-    data.cattleCostPerHectare,
-    data.cattleCostPerAnimal,
-  ));
-
-  costs.push(calculateLivestockCosts(
-    data.goatsHectares,
-    data.goatsPerHectare,
-    data.goatsCostPerHectare,
-    data.goatsCostPerAnimal,
-  ));
-
-  costs.push(calculateLivestockCosts(
-    data.pigsHectares,
-    data.pigsPerHectare,
-    data.pigsCostPerHectare,
-    data.pigsCostPerAnimal,
-  ));
-
-  if (data.includeChickens) {
-    costs.push(calculateLivestockCosts(
-      data.chickensHectares,
-      data.chickensPerHectare,
-      data.chickensCostPerHectare,
-      data.chickensCostPerAnimal,
-    ));
-  }
-
-  if (data.includeRabbits) {
-    costs.push(calculateLivestockCosts(
-      data.rabbitsHectares,
-      data.rabbitsPerHectare,
-      data.rabbitsCostPerHectare,
-      data.rabbitsCostPerAnimal,
-    ));
-  }
-
-  costs.push(calculateCropsCosts(data.cropsHectares, data.cropsCostPerHectare));
-
-  let minTotal = 0;
-  let maxTotal = 0;
-
-  costs.forEach(([min, max]) => {
-    minTotal += min;
-    maxTotal += max;
-  });
-
-  // Assuming yearData.costs contains other costs like sekelbos clearing, baseline costs etc.
-  // This is a temporary solution until all costs are slider-driven.
-  minTotal += yearData.costs[0];
-  maxTotal += yearData.costs[1];
-
-  return [minTotal, maxTotal];
+    return [minTotal, maxTotal];
 }
 
 function calculatePartnerIncomes(profit: [number, number], equity: Equity) {
@@ -236,20 +157,8 @@ function calculateHansTotalIncome(
 export function calculateYearlyFinancials(year: number, data: PartnershipData): YearlyFinancials {
   const yearIndex = year - 1;
 
-  // Bounds checking to prevent accessing out of range data.
   if (yearIndex < 0 || yearIndex >= data.yearlyTargets.length || yearIndex >= data.equityStructure.length) {
-    // Returning a zeroed-out structure for invalid years.
-    const zero: [number, number] = [0, 0];
-    return {
-      revenue: zero,
-      costs: zero,
-      profit: zero,
-      oomHeinIncome: zero,
-      ebenIncome: zero,
-      hansEquityIncome: zero,
-      hansSalary: zero,
-      hansTotalIncome: zero,
-    };
+    throw new Error(`Invalid year: ${year}. Data only available for years 1-${data.yearlyTargets.length}.`);
   }
   const yearData = data.yearlyTargets[yearIndex];
   const equity = data.equityStructure[yearIndex];
@@ -273,13 +182,7 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   };
 }
 
-const summaryCache = new Map<string, FinancialSummary>();
-
 export function calculateFinancialSummary(data: PartnershipData): FinancialSummary {
-  const cacheKey = JSON.stringify(data);
-  if (summaryCache.has(cacheKey)) {
-    return summaryCache.get(cacheKey)!;
-  }
 
   const yearly: YearlyFinancials[] = [];
   const cumulative = {
@@ -298,7 +201,7 @@ export function calculateFinancialSummary(data: PartnershipData): FinancialSumma
   }
 
   const summary = { yearly, cumulative };
-  summaryCache.set(cacheKey, summary);
+  // summaryCache.set(cacheKey, summary);
   return summary;
 }
 
@@ -318,40 +221,18 @@ function accumulateFinancials(yearlyFinancials: YearlyFinancials, cumulative: Fi
 }
 
 
-/**
- * Calculates Return on Investment (ROI) as a percentage
- * 
- * The calculation uses cross-multiplication to provide the widest possible range:
- * - minROI = minimum profit / maximum investment (most conservative scenario)
- * - maxROI = maximum profit / minimum investment (most optimistic scenario)
- * 
- * This approach ensures that:
- * 1. The ROI range accurately represents the best and worst case scenarios
- * 2. Investors can see the full spectrum of potential returns
- * 3. The range accounts for uncertainty in both investment and returns
- * 
- * @param investment - [min, max] range of investment amount
- * @param netProfit - [min, max] range of net profit
- * @returns Formatted ROI string (e.g., "1,870-3,400%") or special values
- */
 export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
-  // If the investment is zero, ROI can be considered infinite if there's a profit, otherwise it's not applicable.
   if (investment[0] === 0 && investment[1] === 0) {
     return netProfit[0] > 0 || netProfit[1] > 0 ? 'Infinite' : 'N/A';
   }
 
-  // Avoid division by zero. If either investment bound is zero, ROI calculation is problematic.
   if (investment[0] === 0 || investment[1] === 0) {
     return 'Invalid Investment';
   }
 
-  // Cross-multiply to get the widest possible ROI range
-  // minROI: worst case (lowest profit with highest investment)
-  // maxROI: best case (highest profit with lowest investment)
   const minROI = (netProfit[0] / investment[1]) * 100;
   const maxROI = (netProfit[1] / investment[0]) * 100;
 
-  // Handle NaN or undefined values
   if (isNaN(minROI) || isNaN(maxROI)) {
     return 'N/A';
   }
