@@ -1,6 +1,7 @@
 // Utility functions for financial calculations, refactored for the new data model.
 
-import { Enterprise, Equity, PartnershipData, YearlyTarget } from './partnershipData';
+import { Enterprise, Equity, PartnershipData, YearlyTarget, Enterprise } from './partnershipData';
+import { validateMinMaxRange } from './validation';
 import { TIME } from './constants';
 
 export interface YearlyFinancials {
@@ -96,6 +97,18 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   const ebenIncome: [number, number] = [profit[0] * (equity.eben / 100), profit[1] * (equity.eben / 100)];
   const hansEquityIncome: [number, number] = [profit[0] * (equity.hans / 100), profit[1] * (equity.hans / 100)];
 
+export function calculateYearlyFinancials(year: number, data: PartnershipData): YearlyFinancials {
+  const yearIndex = year - 1;
+
+  if (yearIndex < 0 || yearIndex >= data.yearlyTargets.length || yearIndex >= data.equityStructure.length) {
+    throw new Error(`Invalid year: ${year}. Data only available for years 1-${data.yearlyTargets.length}.`);
+  }
+  const yearData = data.yearlyTargets[yearIndex];
+  const equity = data.equityStructure[yearIndex];
+
+  const revenue = calculateTotalRevenue(data, yearData);
+  const costs = calculateTotalCosts(data, yearData);
+  const profit = calculateProfit(revenue, costs);  
   const hansSalary: [number, number] = [data.hansMonthlySalary[0] * TIME.MONTHS_IN_YEAR, data.hansMonthlySalary[1] * TIME.MONTHS_IN_YEAR];
   const hansTotalIncome: [number, number] = [hansEquityIncome[0] + hansSalary[0], hansEquityIncome[1] + hansSalary[1]];
 
@@ -157,17 +170,32 @@ export function calculateFinancialSummary(data: PartnershipData): FinancialSumma
   }
 
   const summary = { yearly, cumulative };
-  summaryCache.set(cacheKey, summary);
+  // summaryCache.set(cacheKey, summary);
   return summary;
 }
 
-// Calculates ROI
+function accumulateFinancials(yearlyFinancials: YearlyFinancials, cumulative: FinancialSummary['cumulative']) {
+  cumulative.revenue[0] += yearlyFinancials.revenue[0];
+  cumulative.revenue[1] += yearlyFinancials.revenue[1];
+  cumulative.costs[0] += yearlyFinancials.costs[0];
+  cumulative.costs[1] += yearlyFinancials.costs[1];
+  cumulative.profit[0] += yearlyFinancials.profit[0];
+  cumulative.profit[1] += yearlyFinancials.profit[1];
+  cumulative.oomHein[0] += yearlyFinancials.oomHeinIncome[0];
+  cumulative.oomHein[1] += yearlyFinancials.oomHeinIncome[1];
+  cumulative.eben[0] += yearlyFinancials.ebenIncome[0];
+  cumulative.eben[1] += yearlyFinancials.ebenIncome[1];
+  cumulative.hans[0] += yearlyFinancials.hansTotalIncome[0];
+  cumulative.hans[1] += yearlyFinancials.hansTotalIncome[1];
+}
+
+
 export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
   if (investment[0] === 0 && investment[1] === 0) {
     return netProfit[0] > 0 || netProfit[1] > 0 ? 'Infinite' : 'N/A';
   }
 
-  if (investment[1] === 0) {
+  if (investment[0] === 0 || investment[1] === 0) {
     return 'Invalid Investment';
   }
 
@@ -179,4 +207,70 @@ export function calculateROI(investment: [number, number], netProfit: [number, n
   }
 
   return `${Math.round(minROI).toLocaleString()}-${Math.round(maxROI).toLocaleString()}%`;
+}
+  export function calculateEnterpriseRevenue(enterprise: Enterprise, yearData: YearlyTarget): [number, number] {
+    if (!enterprise.enabled) return [0, 0];
+
+    switch (enterprise.type) {
+        case 'livestock':
+            const totalAnimals = enterprise.hectares * (enterprise.density ?? 0);
+            const animalsSold = totalAnimals * ((enterprise.offtakeRate ?? 0) / 100);
+            return [animalsSold * (enterprise.marketPrice?.[0] ?? 0), animalsSold * (enterprise.marketPrice?.[1] ?? 0)];
+        case 'crop':
+            return [enterprise.hectares * (enterprise.revenuePerHectare?.[0] ?? 0), enterprise.hectares * (enterprise.revenuePerHectare?.[1] ?? 0)];
+        case 'other':
+             // Special handling for sekelbos based on yearly cleared amount
+            if (enterprise.id === 'sekelbos') {
+                // Assuming revenuePerHectare is stored for sekelbos
+                return [yearData.sekelbosCleared * (enterprise.revenuePerHectare?.[0] ?? 0), yearData.sekelbosCleared * (enterprise.revenuePerHectare?.[1] ?? 0)];
+            }
+            return enterprise.revenueTotal ?? [0, 0];
+        default:
+            return [0, 0];
+    }
+}
+
+export function calculateEnterpriseCosts(enterprise: Enterprise): [number, number] {
+    if (!enterprise.enabled) return [0, 0];
+
+    switch (enterprise.type) {
+        case 'livestock':
+            const totalAnimals = enterprise.hectares * (enterprise.density ?? 0);
+            const minCost = enterprise.hectares * (enterprise.costPerHecatare?.[0] ?? 0) + totalAnimals * (enterprise.costPerAnimal?.[0] ?? 0);
+            const maxCost = enterprise.hectares * (enterprise.costPerHecatare?.[1] ?? 0) + totalAnimals * (enterprise.costPerAnimal?.[1] ?? 0);
+            return [minCost, maxCost];
+        case 'crop':
+            return [enterprise.hectares * (enterprise.costPerHectare?.[0] ?? 0), enterprise.hectares * (enterprise.costPerHectare?.[1] ?? 0)];
+        case 'other':
+            return enterprise.costTotal ?? [0, 0];
+        default:
+            return [0, 0];
+    }
+}
+
+export function calculateTotalRevenue(data: PartnershipData, yearData: YearlyTarget): [number, number] {
+    const enterpriseRevenues = data.enterprises.reduce((acc, enterprise) => {
+        acc[enterprise.id] = calculateEnterpriseRevenue(enterprise, yearData);
+        return acc;
+    }, {} as Record<string, [number, number]>);
+
+    return sumRevenue(enterpriseRevenues);
+}
+
+export function calculateTotalCosts(data: PartnershipData, yearData: YearlyTarget): [number, number] {
+    const enterpriseCosts = data.enterprises.map(enterprise => calculateEnterpriseCosts(enterprise));
+
+    let minTotal = 0;
+    let maxTotal = 0;
+
+    enterpriseCosts.forEach(([min, max]) => {
+        minTotal += min;
+        maxTotal += max;
+    });
+
+    // Add other yearly costs not associated with a specific enterprise
+    minTotal += yearData.costs[0];
+    maxTotal += yearData.costs[1];
+
+    return [minTotal, maxTotal];
 }
