@@ -6,23 +6,15 @@ import { PartnershipData } from '@/lib/partnershipData';
 import React from 'react';
 import styles from './FinancialProjections.module.css';
 import { Card, Section, Table } from './UIComponents';
-import { useData } from '@/app/contexts/DataContext';
+import { useStore } from '@/lib/store';
 
-interface FinancialProjectionsProps {
-  data: PartnershipData;
-}
-
-export function FinancialProjections({ data }: FinancialProjectionsProps) {
+export function FinancialProjections() {
+  const data = useStore((state) => state.data);
   const summary = calculateFinancialSummary(data);
-  const { openControls } = useData();
 
   return (
     <Section title="Financial Projections" subtitle="5-year revenue, costs, and profit breakdown by partner">
-      <div className={styles.controlsHeader}>
-        <button className={styles.adjustButton} onClick={openControls}>
-          Adjust Values
-        </button>
-      </div>
+      {/* The button to open controls is now part of the FloatingControls component */}
       <Card title="5-Year Cumulative Summary">
         <Table
           headers={['Year', 'Revenue', 'Costs', 'Profit', 'Oom Hein', 'Eben', 'Hans']}
