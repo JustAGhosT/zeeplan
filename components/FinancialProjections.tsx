@@ -4,10 +4,11 @@ import { formatCurrency, formatRange } from '@/lib/formatting';
 import { PartnershipData } from '@/lib/partnershipData';
 import React from 'react';
 import { Card, Section, Table } from './UIComponents';
-import { useData } from '@/app/contexts/DataContext';
+import { useStore } from '@/lib/store';
 
 export function FinancialProjections({ data }: { data: PartnershipData }) {
   const { openControls } = useData();
+  const data = useStore((state) => state.data);
   const summary = calculateFinancialSummary(data);
 
   return (

@@ -25,8 +25,6 @@ export interface Enterprise {
 export interface PartnershipData {
   // Farm basics
   landSize: number; // hectares
-  currentLSU: number; // Large Stock Units
-  targetLSU: number; // Target LSU capacity
   sekelbosEncroachment: number; // percentage
   currentCarryingCapacity: number; // ha/LSU
   targetCarryingCapacity: number; // ha/LSU
@@ -56,6 +54,7 @@ export interface PartnershipData {
 }
 
 export interface Equity {
+  year: number;
   oomHein: number;
   eben: number;
   hans: number;
