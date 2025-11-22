@@ -15,11 +15,11 @@ import {
 } from '@/components/SekelbosClearance';
 import { ChickenModule } from '@/components/ChickenModule';
 import { RabbitModule } from '@/components/RabbitModule';
-import { useData } from '@/app/contexts/DataContext';
+import { useStore } from '@/lib/store';
 import styles from './page.module.css';
 
 export default function SekelbosPage() {
-  const { data } = useData();
+  const data = useStore((state) => state.data);
 
   return (
     <div className={styles.pageContainer}>
