@@ -1,104 +1,55 @@
 // Data model for the Zeerust Partnership Proposal
 
-export interface PartnershipData {
-  // Livestock options
-  includeChickens: boolean;
-  includeRabbits: boolean;
+// Defines a single agricultural enterprise (e.g., Cattle, Goats, Crops)
+export interface Enterprise {
+  id: string; // e.g., 'cattle', 'goats'
+  name: string; // e.g., 'Cattle', 'Goats'
+  type: 'livestock' | 'crop' | 'other';
+  enabled: boolean;
+  hectares: number; // Land allocated to this enterprise
+  // Livestock-specific parameters
+  density?: number; // animals per hectare
+  marketPrice?: [number, number];
+  offtakeRate?: number; // percentage
+  costPerHectare?: [number, number];
+  costPerAnimal?: [number, number];
+  // Crop-specific parameters
+  revenuePerHectare?: [number, number];
+}
 
-  // Farm basics
+export interface PartnershipData {
+  // Global farm parameters
   landSize: number; // hectares
-  currentLSU: number; // Large Stock Units
-  targetLSU: number; // Target LSU capacity
   sekelbosEncroachment: number; // percentage
   sekelbosRevenuePerHectare: [number, number]; // min, max
-  currentCarryingCapacity: number; // ha/LSU
-  targetCarryingCapacity: number; // ha/LSU
 
-  // Land allocation
-  cattleHectares: number;
-  goatsHectares: number;
-  pigsHectares: number;
-  chickensHectares: number;
-  cropsHectares: number;
+  // Array of all enterprises on the farm
+  enterprises: Enterprise[];
 
-  // Livestock density
-  cattlePerHectare: number;
-  goatsPerHectare: number;
-  pigsPerHectare: number;
-  chickensPerHectare: number;
-
-  // Livestock financial parameters
-  cattleMarketPrice: [number, number];
-  cattleOfftakeRate: number;
-  cattleCostPerHectare: [number, number];
-  cattleCostPerAnimal: [number, number];
-
-  goatsMarketPrice: [number, number];
-  goatsOfftakeRate: number;
-  goatsCostPerHectare: [number, number];
-  goatsCostPerAnimal: [number, number];
-
-  pigsMarketPrice: [number, number];
-  pigsOfftakeRate: number;
-  pigsCostPerHectare: [number, number];
-  pigsCostPerAnimal: [number, number];
-
-  chickensMarketPrice: [number, number];
-  chickensOfftakeRate: number;
-  chickensCostPerHectare: [number, number];
-  chickensCostPerAnimal: [number, number];
-
-  rabbitsHectares: number;
-  rabbitsPerHectare: number;
-  rabbitsMarketPrice: [number, number];
-  rabbitsOfftakeRate: number;
-  rabbitsCostPerHectare: [number, number];
-  rabbitsCostPerAnimal: [number, number];
-
-  // Crop financial parameters
-  cropsRevenuePerHectare: [number, number];
-  cropsCostPerHectare: [number, number];
-
-  // Baseline revenue (current state)
-  baselineRevenue: {
-    cattle: [number, number]; // min, max range
-    goats: [number, number];
-    pigs: [number, number];
-    chickens: [number, number];
-    crops: [number, number];
-    wood: [number, number];
-    rabbits: [number, number];
-  };
-
-  baselineCosts: [number, number]; // min, max range
-
-  // Hans's investment
+  // Financial and partnership structure
   hansLivestockValue: [number, number]; // min, max
   hansMonthlySalary: [number, number]; // min, max
-
   equityStructure: Equity[];
-  yearlyTargets: YearlyTarget[];
+  yearlyTargets: YearlyTarget[]; // This might also be refactored or calculated dynamically later
 }
 
 export interface Equity {
+  year: number;
   oomHein: number;
   eben: number;
   hans: number;
 }
 
 export interface YearlyTarget {
+  year: number;
   sekelbosCleared: number;
-  targetLSU: number;
-  sekelbosRevenue: [number, number];
-  cattleRevenue: [number, number];
-  goatsRevenue: [number, number];
-  pigsRevenue: [number, number];
-  chickensRevenue: [number, number];
-  cropsRevenue: [number, number];
-  rabbitsRevenue: [number, number];
-  costs: [number, number];
+  // Note: Detailed revenue/costs per enterprise will be calculated dynamically
+  // This can be simplified to hold high-level targets if needed
+  otherCosts: [number, number];
 }
 
-import partnershipData from './partnershipData.json';
+// The default data is now loaded from a separate, refactored JSON file.
+// We are no longer importing the old partnershipData.json here directly.
+import partnershipData from '../data/partnershipData-refactored.json';
 
 export const defaultPartnershipData: PartnershipData = partnershipData as unknown as PartnershipData;
