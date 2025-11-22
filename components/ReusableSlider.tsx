@@ -1,93 +1,70 @@
 'use client';
-
-import React from 'react';
-import { useDarkMode } from '@/lib/useDarkMode';
+import React, { useState, useEffect } from 'react';
 import styles from './ReusableSlider.module.css';
 
 interface ReusableSliderProps {
   label: string;
   min: number;
   max: number;
-  value: number;
-  defaultValue: number;
-  onChange: (value: number) => void;
-  step?: number;
-  suffix?: string;
-  tooltip?: string;
+  value: [number, number];
+  onChange: (value: [number, number] | number) => void;
+  isSingleValue?: boolean;
 }
 
-export function ReusableSlider({
-  label,
-  min,
-  max,
-  value,
-  defaultValue,
-  onChange,
-  step = 1,
-  suffix = '',
-  tooltip = '',
-}: ReusableSliderProps) {
-  const isDark = useDarkMode();
+const ReusableSlider: React.FC<ReusableSliderProps> = ({ label, min, max, value, onChange, isSingleValue }) => {
+  const [minVal, setMinVal] = useState(value[0]);
+  const [maxVal, setMaxVal] = useState(value[1]);
 
-  const toLog = (value: number) => {
-    const skewed = Math.pow(value, 1 / 3);
-    return skewed;
+  useEffect(() => {
+    setMinVal(value[0]);
+    setMaxVal(value[1]);
+  }, [value]);
+
+  const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMinVal = isSingleValue ? Number(e.target.value) : Math.min(Number(e.target.value), maxVal - 1);
+    setMinVal(newMinVal);
+    if (isSingleValue) {
+      onChange(newMinVal);
+    } else {
+      onChange([newMinVal, maxVal]);
+    }
   };
 
-  const fromLog = (value: number) => {
-    const unskewed = Math.pow(value, 3);
-    return unskewed;
+  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMaxVal = Math.max(Number(e.target.value), minVal + 1);
+    setMaxVal(newMaxVal);
+    onChange([minVal, newMaxVal]);
   };
-
-  // Handle undefined or NaN values
-  const safeValue = value ?? defaultValue ?? 0;
-  const minLog = toLog(min);
-  const maxLog = toLog(max);
-  const valueLog = toLog(safeValue);
-
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const logValue = parseFloat(e.target.value);
-    const linearValue = fromLog(logValue);
-    onChange(Math.round(linearValue / step) * step);
-  };
-
-  const defaultPosition = ((toLog(defaultValue) - minLog) / (maxLog - minLog)) * 100;
 
   return (
-    <div className={`${styles.sliderContainer} ${isDark ? styles.dark : ''}`} data-testid={`slider-${label}`}>
-      <div className={styles.labelContainer}>
-        <label className={styles.label}>
-          {label}
-          {tooltip && (
-            <span className={styles.tooltip}>
-              ?
-              <span className={styles.tooltiptext}>{tooltip}</span>
-            </span>
-          )}
-        </label>
-        <span className={styles.valueDisplay}>
-          {safeValue.toLocaleString()} {suffix}
-        </span>
+    <div className={styles.sliderContainer}>
+      <label>{label}</label>
+      <div className={styles.rangeValues}>
+        <span>{isSingleValue ? value[0] : minVal}</span>
+        {!isSingleValue && <span>{maxVal}</span>}
       </div>
-      <div className={styles.sliderWrapper}>
+      <div className={styles.slider}>
         <input
           type="range"
-          min={minLog}
-          max={maxLog}
-          step={(maxLog - minLog) / 100}
-          value={valueLog}
-          onChange={handleSliderChange}
-          className={styles.slider}
-          aria-label={`${label} slider`}
-          aria-valuemin={min}
-          aria-valuemax={max}
-          aria-valuenow={safeValue}
-          aria-valuetext={`${safeValue.toLocaleString()} ${suffix}`}
+          min={min}
+          max={max}
+          value={minVal}
+          onChange={handleMinChange}
+          className={styles.thumb}
         />
-        <div className={styles.defaultValueIndicator} style={{ left: `${defaultPosition}%` }}>
-          ▼
-        </div>
+        {!isSingleValue && (
+          <input
+            type="range"
+            min={min}
+            max={max}
+            value={maxVal}
+            onChange={handleMaxChange}
+            className={styles.thumb}
+          />
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default ReusableSlider;
