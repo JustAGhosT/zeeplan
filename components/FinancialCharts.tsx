@@ -20,14 +20,12 @@ import { formatCurrency } from '@/lib/formatting';
 import { useWindowSize } from '@/lib/hooks';
 import styles from './FinancialCharts.module.css';
 import commonStyles from '@/app/common.module.css';
+import { useStore } from '@/lib/store';
 
-interface FinancialChartsProps {
-  data: PartnershipData;
-}
-
-export function FinancialCharts({ data }: FinancialChartsProps) {
+export function FinancialCharts() {
   const { width } = useWindowSize();
   const isMobile = width ? width < 768 : false;
+  const data = useStore((state) => state.data);
   const summary = calculateFinancialSummary(data);
 
   // Prepare revenue growth data

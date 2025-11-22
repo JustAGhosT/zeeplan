@@ -9,11 +9,11 @@ import { FinancialCharts } from '@/components/FinancialCharts';
 import { Footer } from '@/components/Footer';
 import { ChickenModule } from '@/components/ChickenModule';
 import { RabbitModule } from '@/components/RabbitModule';
-import { useData } from '@/app/contexts/DataContext';
+import { useStore } from '@/lib/store';
 import styles from './page.module.css';
 
 export default function ProposalPage() {
-  const { data } = useData();
+  const data = useStore((state) => state.data);
 
   return (
     <div className={styles.pageContainer}>
@@ -35,11 +35,11 @@ export default function ProposalPage() {
             </div>
 
             <div id="financial-projections">
-              <FinancialProjections data={data} />
+              <FinancialProjections />
 
               {/* Enhanced Charts */}
               <div className={styles.chartsSection}>
-                <FinancialCharts data={data} />
+                <FinancialCharts />
               </div>
             </div>
 
