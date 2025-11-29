@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import { useStore } from '../lib/store';
 import { Enterprise } from '../lib/partnershipData';
-import styles from './ConsolidatedControls.module.css'; // We'll create a new CSS module
-import ReusableSlider from './ReusableSlider'; // Reuse existing slider component
+import styles from './ConsolidatedControls.module.css';
+import ReusableSlider from './ReusableSlider';
 import { ChevronDown, ChevronRight, Settings, Tractor, HelpCircle } from 'lucide-react';
 
 export function ConsolidatedControls() {
   const { data, updateGlobal, updateEnterprise, toggleEnterprise, resetData } = useStore();
-  const [activeTab, setActiveTab] = useState('global'); // 'global' or an enterprise id
+  const [activeTab, setActiveTab] = useState('global');
 
   const handleReset = () => {
     if (confirm('Are you sure you want to reset all values to their defaults? This action cannot be undone.')) {
@@ -32,7 +32,7 @@ export function ConsolidatedControls() {
       />
        <ReusableSlider
         label="Sekelbos Revenue per Ha"
-        value={data.sekelbosRevenuePerHectare[0]} // Simplified for POC
+        value={data.sekelbosRevenuePerHectare[0]}
         onChange={(v) => {
           const val = typeof v === 'number' ? v : v[0];
           updateGlobal('sekelbosRevenuePerHectare', [val, val + 2000]);
