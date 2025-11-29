@@ -14,7 +14,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { TooltipProps as RechartsTooltipProps } from 'recharts';
-import { PartnershipData } from '@/lib/partnershipData';
 import { calculateFinancialSummary } from '@/lib/calculations';
 import { formatCurrency } from '@/lib/formatting';
 import { useWindowSize } from '@/lib/hooks';

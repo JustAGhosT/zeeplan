@@ -2,7 +2,6 @@
 
 import { calculateFinancialSummary, calculateROI } from '@/lib/calculations';
 import { formatCurrency, formatRange } from '@/lib/formatting';
-import { PartnershipData } from '@/lib/partnershipData';
 import React from 'react';
 import styles from './FinancialProjections.module.css';
 import { Card, Section, Table } from './UIComponents';
