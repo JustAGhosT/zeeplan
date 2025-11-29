@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { useStore } from '../lib/store';
 import { Enterprise } from '../lib/partnershipData';
-import styles from './ConsolidatedControls.module.css';
-import ReusableSlider from './ReusableSlider';
+import styles from './ConsolidatedControls.module.css'; // We'll create a new CSS module
+import ReusableSlider from './ReusableSlider'; // Reuse existing slider component
+import { ChevronDown, ChevronRight, Settings, Tractor, HelpCircle } from 'lucide-react';
 import { Settings, Tractor } from 'lucide-react';
 
 export function ConsolidatedControls() {
