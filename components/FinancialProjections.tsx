@@ -1,6 +1,6 @@
 'use client';
 
-import { calculateFinancialSummary } from '@/lib/calculations';
+import { calculateFinancialSummary, calculateROI } from '@/lib/calculations';
 import { formatCurrency, formatRange } from '@/lib/formatting';
 import { PartnershipData } from '@/lib/partnershipData';
 import React from 'react';
@@ -11,6 +11,13 @@ import { useStore } from '@/lib/store';
 export function FinancialProjections() {
   const data = useStore((state) => state.data);
   const summary = calculateFinancialSummary(data);
+  
+  // Calculate net gain and ROI
+  const netGain: [number, number] = [
+    summary.cumulative.hans[0] - data.hansLivestockValue[1],
+    summary.cumulative.hans[1] - data.hansLivestockValue[0]
+  ];
+  const roi = calculateROI(data.hansLivestockValue, netGain);
 
   return (
     <Section title="Financial Projections" subtitle="5-year revenue, costs, and profit breakdown by partner">
@@ -63,14 +70,11 @@ export function FinancialProjections() {
             </div>
             <div className={styles.investmentItem}>
               <p className={styles.itemLabel}>Net Gain</p>
-              <p className={styles.itemValue}>
-                {formatCurrency(summary.cumulative.hans[0] - data.hansLivestockValue[1])}-
-                {formatCurrency(summary.cumulative.hans[1] - data.hansLivestockValue[0])}
-              </p>
+              <p className={styles.itemValue}>{formatRange(netGain)}</p>
             </div>
             <div className={styles.investmentItem}>
               <p className={styles.itemLabel}>ROI (5-year)</p>
-              <p className={styles.itemValueGreen}>1,870-3,400%</p>
+              <p className={styles.itemValueGreen}>{roi}</p>
             </div>
             <div className={styles.investmentItem}>
               <p className={styles.itemLabel}>Average Annual Income</p>

@@ -76,7 +76,7 @@ export function optimizeLandAllocation(data: PartnershipData): Partial<Partnersh
       pigs: 15,     // Intensive operation - daily feeding/cleaning
       chickens: 20, // Very intensive - daily management
       crops: 10,    // Seasonal peaks but spread over year
-    } as Record<string, number>,
+    },
     totalLaborDaysAvailable: 5000, // ~2-3 full-time workers year-round
     
     // NEW: Infrastructure capacity (animals or hectares that can be supported)
