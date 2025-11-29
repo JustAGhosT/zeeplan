@@ -6,11 +6,10 @@ import { Enterprise } from '../lib/partnershipData';
 import styles from './ConsolidatedControls.module.css'; // We'll create a new CSS module
 import ReusableSlider from './ReusableSlider'; // Reuse existing slider component
 import { ChevronDown, ChevronRight, Settings, Tractor, HelpCircle } from 'lucide-react';
-import { Settings, Tractor } from 'lucide-react';
 
 export function ConsolidatedControls() {
   const { data, updateGlobal, updateEnterprise, toggleEnterprise, resetData } = useStore();
-  const [activeTab, setActiveTab] = useState('global');
+  const [activeTab, setActiveTab] = useState('global'); // 'global' or an enterprise id
 
   const handleReset = () => {
     if (confirm('Are you sure you want to reset all values to their defaults? This action cannot be undone.')) {

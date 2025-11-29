@@ -1,5 +1,5 @@
 import { calculateYearlyFinancials } from './calculations';
-import { PartnershipData } from './partnershipData';
+import { PartnershipData, Enterprise } from './partnershipData';
 import { cloneDeep } from 'lodash';
 
 // A baseline dataset for testing, derived from the refactored JSON data.

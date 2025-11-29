@@ -1,6 +1,6 @@
 // Utility functions for financial calculations, refactored for the new data model.
 
-import { Enterprise, PartnershipData } from './partnershipData';
+import { Enterprise, Equity, PartnershipData, YearlyTarget } from './partnershipData';
 import { TIME } from './constants';
 
 export interface YearlyFinancials {
@@ -56,6 +56,7 @@ function calculateEnterpriseFinancials(enterprise: Enterprise): { revenue: [numb
 
 // Calculates the financial summary for a single year
 export function calculateYearlyFinancials(year: number, data: PartnershipData): YearlyFinancials {
+  const yearIndex = year - 1;
   const yearTarget = data.yearlyTargets.find(yt => yt.year === year);
   const equity = data.equityStructure.find(es => es.year === year);
 
@@ -64,8 +65,8 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
     return { year, revenue: zero, costs: zero, profit: zero, oomHeinIncome: zero, ebenIncome: zero, hansEquityIncome: zero, hansSalary: zero, hansTotalIncome: zero };
   }
 
-  const totalRevenue: [number, number] = [0, 0];
-  const totalCosts: [number, number] = [0, 0];
+  let totalRevenue: [number, number] = [0, 0];
+  let totalCosts: [number, number] = [0, 0];
 
   // Calculate financials for each enterprise and aggregate them
   data.enterprises.forEach(enterprise => {
@@ -88,11 +89,19 @@ export function calculateYearlyFinancials(year: number, data: PartnershipData): 
   totalCosts[0] += yearTarget.otherCosts[0];
   totalCosts[1] += yearTarget.otherCosts[1];
 
-  // Calculate Hans's salary (also a cost to the partnership)
+  const profit: [number, number] = [totalRevenue[0] - totalCosts[1], totalRevenue[1] - totalCosts[0]];
+
+  // Calculate partner incomes
+  const oomHeinIncome: [number, number] = [profit[0] * (equity.oomHein / 100), profit[1] * (equity.oomHein / 100)];
+  const ebenIncome: [number, number] = [profit[0] * (equity.eben / 100), profit[1] * (equity.eben / 100)];
+  const hansEquityIncome: [number, number] = [profit[0] * (equity.hans / 100), profit[1] * (equity.hans / 100)];
+
   const hansSalary: [number, number] = [data.hansMonthlySalary[0] * TIME.MONTHS_IN_YEAR, data.hansMonthlySalary[1] * TIME.MONTHS_IN_YEAR];
+  const hansTotalIncome: [number, number] = [hansEquityIncome[0] + hansSalary[0], hansEquityIncome[1] + hansSalary[1]];
+
+  // Hans' salary is also a cost to the partnership
   totalCosts[0] += hansSalary[0];
   totalCosts[1] += hansSalary[1];
-
   const finalProfit: [number, number] = [totalRevenue[0] - totalCosts[1], totalRevenue[1] - totalCosts[0]];
 
   return {
