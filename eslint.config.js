@@ -3,7 +3,7 @@ import tseslint from 'typescript-eslint';
 
 export default [
   {
-    ignores: ['.next/**', 'node_modules/**', 'out/**', 'build/**'],
+    ignores: ['.next/**', 'node_modules/**', 'out/**', 'build/**', '*.cjs'],
   },
   {
     languageOptions: {

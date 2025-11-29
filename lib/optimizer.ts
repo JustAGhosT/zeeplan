@@ -296,7 +296,7 @@ function calculateEnhancedMetrics(
   enterpriseType: 'cattle' | 'goats' | 'pigs' | 'chickens' | 'crops',
   constraints: any
 ): { riskAdjustedProfit: number; npv: number; laborPerHa: number; volatility: number } {
-  let baseProfit = calculateEnterpriseProfit(enterprise);
+  const baseProfit = calculateEnterpriseProfit(enterprise);
   let volatility: number; // Coefficient of variation for risk
   
   switch (enterpriseType) {
