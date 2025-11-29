@@ -1,77 +1,136 @@
-import {
-  calculateROI,
-  calculateProfit,
-  calculateFinancialSummary,
-  sumRevenue,
-  calculateEquityShare,
-  calculateBaseline,
-} from './calculations';
-import { defaultPartnershipData } from './partnershipData';
+import { calculateYearlyFinancials } from './calculations';
+import { PartnershipData, Enterprise } from './partnershipData';
+import { cloneDeep } from 'lodash';
 
-describe('sumRevenue', () => {
-  it('should sum the revenues correctly', () => {
-    const revenues = {
-      cattle: [100, 200] as [number, number],
-      goats: [50, 75] as [number, number],
-    };
-    const total = sumRevenue(revenues);
-    expect(total).toEqual([150, 275]);
+// A baseline dataset for testing, derived from the refactored JSON data.
+const baseTestData: PartnershipData = {
+  landSize: 600,
+  sekelbosEncroachment: 70,
+  sekelbosRevenuePerHectare: [3000, 5000],
+  enterprises: [
+    {
+      id: 'cattle',
+      name: 'Cattle',
+      type: 'livestock',
+      enabled: true,
+      hectares: 500,
+      density: 0.2,
+      marketPrice: [8000, 12000],
+      offtakeRate: 25,
+      costPerHectare: [100, 200],
+      costPerAnimal: [500, 800]
+    },
+    {
+      id: 'crops',
+      name: 'Crops',
+      type: 'crop',
+      enabled: true,
+      hectares: 20,
+      revenuePerHectare: [2000, 5000],
+      costPerHectare: [1000, 2000]
+    }
+  ],
+  hansLivestockValue: [48000, 98000],
+  hansMonthlySalary: [10000, 15000],
+  equityStructure: [
+    { "year": 1, "oomHein": 35, "eben": 35, "hans": 0 },
+    { "year": 2, "oomHein": 35, "eben": 35, "hans": 15 },
+    { "year": 3, "oomHein": 35, "eben": 35, "hans": 22.5 },
+    { "year": 4, "oomHein": 35, "eben": 35, "hans": 30 },
+    { "year": 5, "oomHein": 35, "eben": 35, "hans": 30 }
+  ],
+  yearlyTargets: [
+    { "year": 1, "sekelbosCleared": 50, "otherCosts": [50000, 75000] },
+    { "year": 2, "sekelbosCleared": 0, "otherCosts": [60000, 85000] }
+  ]
+};
+
+describe('Calculation Engine - Bug Fixes and Edge Cases', () => {
+
+  it('should calculate zero revenue and costs for an enterprise with zero hectares', () => {
+    const testData = cloneDeep(baseTestData);
+    // Set cattle hectares to zero
+    (testData.enterprises[0] as any).hectares = 0;
+
+    const year1Financials = calculateYearlyFinancials(1, testData);
+
+    // Revenue should only come from crops and sekelbos
+    const expectedMinRevenue = (20 * 2000) + (50 * 3000); // Crops + Sekelbos
+    const expectedMaxRevenue = (20 * 5000) + (50 * 5000);
+    expect(year1Financials.revenue[0]).toBe(expectedMinRevenue);
+    expect(year1Financials.revenue[1]).toBe(expectedMaxRevenue);
+
+    // Costs should include crops, other costs, and Hans's salary, but zero for cattle.
+    const expectedMinCosts = (20 * 1000) + 50000 + (12 * 10000); // Crops + Other + Hans Salary
+    const expectedMaxCosts = (20 * 2000) + 75000 + (12 * 15000);
+    expect(year1Financials.costs[0]).toBe(expectedMinCosts);
+    expect(year1Financials.costs[1]).toBe(expectedMaxCosts);
   });
-});
 
-describe('calculateEquityShare', () => {
-  it('should calculate the equity share correctly', () => {
-    const profit: [number, number] = [1000, 2000];
-    const percentage = 25;
-    const share = calculateEquityShare(profit, percentage);
-    expect(share).toEqual([250, 500]);
-  });
-});
+  it('should ignore a disabled enterprise completely', () => {
+    const testData = cloneDeep(baseTestData);
+    // Disable the cattle enterprise
+    (testData.enterprises[0] as any).enabled = false;
 
-describe('calculateBaseline', () => {
-  it('should calculate the baseline correctly', () => {
-    const baseline = calculateBaseline(defaultPartnershipData);
-    expect(baseline.revenue[0]).toBe(233000);
-    expect(baseline.revenue[1]).toBe(297000);
-    expect(baseline.profit[0]).toBe(83000);
-    expect(baseline.profit[1]).toBe(97000);
-  });
-});
+    const year1Financials = calculateYearlyFinancials(1, testData);
 
+    // Revenue should only come from crops and sekelbos (same as zero hectares test)
+    const expectedMinRevenue = (20 * 2000) + (50 * 3000);
+    const expectedMaxRevenue = (20 * 5000) + (50 * 5000);
+    expect(year1Financials.revenue[0]).toBe(expectedMinRevenue);
+    expect(year1Financials.revenue[1]).toBe(expectedMaxRevenue);
 
-describe('calculateFinancialSummary', () => {
-  // Test data was previously incorrect, leading to test failures after bug fixes.
-  // Corrected expected values to align with the fixed calculation logic.
-  it('should calculate the summary for a different number of years', () => {
-    const data = JSON.parse(JSON.stringify(defaultPartnershipData));
-    data.yearlyTargets = data.yearlyTargets.slice(0, 2);
-    const summary = calculateFinancialSummary(data);
-    expect(summary.cumulative.revenue[0]).toBe(780000);
-    expect(summary.cumulative.revenue[1]).toBe(1120000);
-  });
-});
-
-describe('calculateProfit', () => {
-  it('should calculate the profit correctly', () => {
-    const revenue: [number, number] = [1000, 2000];
-    const costs: [number, number] = [500, 1000];
-    const profit = calculateProfit(revenue, costs);
-    expect(profit).toEqual([500, 1000]);
-  });
-});
-
-describe('calculateROI', () => {
-  it('should return "Infinite" when the investment is zero and the profit is positive', () => {
-    const investment: [number, number] = [0, 0];
-    const netProfit: [number, number] = [100, 200];
-    const roi = calculateROI(investment, netProfit);
-    expect(roi).toBe('Infinite');
+    // Costs should also be the same as the zero hectares test
+    const expectedMinCosts = (20 * 1000) + 50000 + (12 * 10000);
+    const expectedMaxCosts = (20 * 2000) + 75000 + (12 * 15000);
+    expect(year1Financials.costs[0]).toBe(expectedMinCosts);
+    expect(year1Financials.costs[1]).toBe(expectedMaxCosts);
   });
 
-  it('should return "N/A" when the investment is zero and the profit is not positive', () => {
-    const investment: [number, number] = [0, 0];
-    const netProfit: [number, number] = [-100, 0];
-    const roi = calculateROI(investment, netProfit);
-    expect(roi).toBe('N/A');
+  it('should calculate zero revenue but still incur per-hectare costs for livestock with zero offtake', () => {
+    const testData = cloneDeep(baseTestData);
+    // Set cattle offtake rate to zero
+    (testData.enterprises[0] as any).offtakeRate = 0;
+
+    const year1Financials = calculateYearlyFinancials(1, testData);
+
+    // Revenue should only be from crops and sekelbos, as cattle revenue is now zero
+    const expectedMinRevenue = (20 * 2000) + (50 * 3000);
+    const expectedMaxRevenue = (20 * 5000) + (50 * 5000);
+    expect(year1Financials.revenue[0]).toBe(expectedMinRevenue);
+    expect(year1Financials.revenue[1]).toBe(expectedMaxRevenue);
+
+    // Costs should be the same as the base case, as per-hectare and per-animal costs still apply
+    const cattleMinCost = (500 * 100) + (500 * 0.2 * 500); // per ha + per animal
+    const cattleMaxCost = (500 * 200) + (500 * 0.2 * 800);
+    const cropsMinCost = 20 * 1000;
+    const cropsMaxCost = 20 * 2000;
+    const otherMinCost = 50000;
+    const otherMaxCost = 75000;
+    const hansMinSalary = 12 * 10000;
+    const hansMaxSalary = 12 * 15000;
+
+    const expectedMinCosts = cattleMinCost + cropsMinCost + otherMinCost + hansMinSalary;
+    const expectedMaxCosts = cattleMaxCost + cropsMaxCost + otherMaxCost + hansMaxSalary;
+
+    expect(year1Financials.costs[0]).toBe(expectedMinCosts);
+    expect(year1Financials.costs[1]).toBe(expectedMaxCosts);
+  });
+
+  it('should calculate zero sekelbos revenue if no sekelbos is cleared', () => {
+    const testData = cloneDeep(baseTestData);
+    const year2Financials = calculateYearlyFinancials(2, testData);
+
+    // Total revenue should only be from cattle and crops
+    const cattleMinRevenue = 500 * 0.2 * 0.25 * 8000;
+    const cattleMaxRevenue = 500 * 0.2 * 0.25 * 12000;
+    const cropsMinRevenue = 20 * 2000;
+    const cropsMaxRevenue = 20 * 5000;
+
+    const expectedMinRevenue = cattleMinRevenue + cropsMinRevenue;
+    const expectedMaxRevenue = cattleMaxRevenue + cropsMaxRevenue;
+
+    expect(year2Financials.revenue[0]).toBe(expectedMinRevenue);
+    expect(year2Financials.revenue[1]).toBe(expectedMaxRevenue);
   });
 });
