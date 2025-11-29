@@ -161,6 +161,32 @@ export function calculateFinancialSummary(data: PartnershipData): FinancialSumma
   return summary;
 }
 
+// Baseline interface for current state
+export interface Baseline {
+  revenue: [number, number];
+  costs: [number, number];
+  profit: [number, number];
+}
+
+// Calculates the baseline (current state) financials from enterprise data
+export function calculateBaseline(data: PartnershipData): Baseline {
+  const totalRevenue: [number, number] = [0, 0];
+  const totalCosts: [number, number] = [0, 0];
+
+  // Calculate baseline financials for each enabled enterprise
+  data.enterprises.forEach(enterprise => {
+    const { revenue, costs } = calculateEnterpriseFinancials(enterprise);
+    totalRevenue[0] += revenue[0];
+    totalRevenue[1] += revenue[1];
+    totalCosts[0] += costs[0];
+    totalCosts[1] += costs[1];
+  });
+
+  const profit: [number, number] = [totalRevenue[0] - totalCosts[1], totalRevenue[1] - totalCosts[0]];
+
+  return { revenue: totalRevenue, costs: totalCosts, profit };
+}
+
 // Calculates ROI
 export function calculateROI(investment: [number, number], netProfit: [number, number]): string {
   if (investment[0] === 0 && investment[1] === 0) {
