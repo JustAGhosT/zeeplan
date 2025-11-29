@@ -1,13 +1,39 @@
 'use client';
 
 import React from 'react';
-import { PartnershipData } from '@/lib/partnershipData';
+import { PartnershipData, Enterprise } from '@/lib/partnershipData';
 import { formatCurrency } from '@/lib/formatting';
 import { Section, Card } from './UIComponents';
 import styles from './TransformationPlan.module.css';
 
 interface TransformationPlanProps {
   data: PartnershipData;
+}
+
+// Helper function to calculate revenue for a single enterprise
+function calculateEnterpriseRevenue(enterprise: Enterprise): [number, number] {
+  if (!enterprise.enabled) return [0, 0];
+  
+  if (enterprise.type === 'livestock') {
+    const totalAnimals = enterprise.hectares * (enterprise.density ?? 0);
+    const animalsSold = totalAnimals * ((enterprise.offtakeRate ?? 0) / 100);
+    return [
+      animalsSold * (enterprise.marketPrice?.[0] ?? 0),
+      animalsSold * (enterprise.marketPrice?.[1] ?? 0)
+    ];
+  } else if (enterprise.type === 'crop') {
+    return [
+      enterprise.hectares * (enterprise.revenuePerHectare?.[0] ?? 0),
+      enterprise.hectares * (enterprise.revenuePerHectare?.[1] ?? 0)
+    ];
+  }
+  return [0, 0];
+}
+
+// Helper to get enterprise revenue by id
+function getEnterpriseRevenueById(enterprises: Enterprise[], id: string): [number, number] {
+  const enterprise = enterprises.find(e => e.id === id);
+  return enterprise ? calculateEnterpriseRevenue(enterprise) : [0, 0];
 }
 
 export function TransformationPlan({ data }: TransformationPlanProps) {
@@ -19,6 +45,13 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
     { index: 4, key: 'year5', title: 'Year 5: Steady State', phase: 'Full Partnership' },
   ];
 
+  // Calculate enterprise revenues
+  const cattleRevenue = getEnterpriseRevenueById(data.enterprises, 'cattle');
+  const goatsRevenue = getEnterpriseRevenueById(data.enterprises, 'goats');
+  const pigsRevenue = getEnterpriseRevenueById(data.enterprises, 'pigs');
+  const chickensRevenue = getEnterpriseRevenueById(data.enterprises, 'chickens');
+  const cropsRevenue = getEnterpriseRevenueById(data.enterprises, 'crops');
+
   return (
     <Section
       title="5-Year Transformation Plan"
@@ -28,6 +61,12 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
         {years.map(({ key, title, phase }, i) => {
           const yearData = data.yearlyTargets[i];
           const equity = data.equityStructure[i];
+          
+          // Calculate sekelbos revenue for this year
+          const sekelbosRevenue: [number, number] = [
+            yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[0],
+            yearData.sekelbosCleared * data.sekelbosRevenuePerHectare[1]
+          ];
 
           return (
             <Card key={key} title={title} className={styles.yearCard}>
@@ -41,10 +80,10 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                   <h5 className={styles.sectionTitle}>Key Objectives</h5>
                   <ul className={styles.objectivesList}>
                     <li>• Clear {yearData.sekelbosCleared}ha sekelbos</li>
-                    <li>• Target stocking: {yearData.targetLSU} LSU</li>
+                    <li>• Target stocking: {data.targetLSU} LSU</li>
                     <li>
-                      • Sekelbos revenue: {formatCurrency(yearData.sekelbosRevenue[0])}-
-                      {formatCurrency(yearData.sekelbosRevenue[1])}
+                      • Sekelbos revenue: {formatCurrency(sekelbosRevenue[0])}-
+                      {formatCurrency(sekelbosRevenue[1])}
                     </li>
                   </ul>
                 </div>
@@ -53,20 +92,20 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
                   <h5 className={styles.sectionTitle}>Revenue Streams</h5>
                   <ul className={styles.objectivesList}>
                     <li>
-                      • Cattle: {formatCurrency(yearData.cattleRevenue[0])}-{formatCurrency(yearData.cattleRevenue[1])}
+                      • Cattle: {formatCurrency(cattleRevenue[0])}-{formatCurrency(cattleRevenue[1])}
                     </li>
                     <li>
-                      • Goats: {formatCurrency(yearData.goatsRevenue[0])}-{formatCurrency(yearData.goatsRevenue[1])}
+                      • Goats: {formatCurrency(goatsRevenue[0])}-{formatCurrency(goatsRevenue[1])}
                     </li>
                     <li>
-                      • Pigs: {formatCurrency(yearData.pigsRevenue[0])}-{formatCurrency(yearData.pigsRevenue[1])}
+                      • Pigs: {formatCurrency(pigsRevenue[0])}-{formatCurrency(pigsRevenue[1])}
                     </li>
                     <li>
-                      • Chickens: {formatCurrency(yearData.chickensRevenue[0])}-
-                      {formatCurrency(yearData.chickensRevenue[1])}
+                      • Chickens: {formatCurrency(chickensRevenue[0])}-
+                      {formatCurrency(chickensRevenue[1])}
                     </li>
                     <li>
-                      • Crops: {formatCurrency(yearData.cropsRevenue[0])}-{formatCurrency(yearData.cropsRevenue[1])}
+                      • Crops: {formatCurrency(cropsRevenue[0])}-{formatCurrency(cropsRevenue[1])}
                     </li>
                   </ul>
                 </div>
@@ -74,7 +113,7 @@ export function TransformationPlan({ data }: TransformationPlanProps) {
 
               <div className={styles.costsBox}>
                 <p className={styles.costsText}>
-                  <strong>Costs:</strong> {formatCurrency(yearData.costs[0])}-{formatCurrency(yearData.costs[1])}
+                  <strong>Costs:</strong> {formatCurrency(yearData.otherCosts[0])}-{formatCurrency(yearData.otherCosts[1])}
                 </p>
               </div>
             </Card>

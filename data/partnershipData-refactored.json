@@ -2,6 +2,10 @@
   "landSize": 600,
   "sekelbosEncroachment": 70,
   "sekelbosRevenuePerHectare": [3000, 5000],
+  "currentLSU": 100,
+  "targetLSU": 200,
+  "includeChickens": true,
+  "includeRabbits": false,
   "enterprises": [
     {
       "id": "cattle",

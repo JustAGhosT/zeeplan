@@ -6,24 +6,34 @@ interface ReusableSliderProps {
   label: string;
   min: number;
   max: number;
-  value: [number, number];
+  value: number | [number, number];
   onChange: (value: [number, number] | number) => void;
+  step?: number;
+  suffix?: string;
+  tooltip?: string;
   isSingleValue?: boolean;
 }
 
-const ReusableSlider: React.FC<ReusableSliderProps> = ({ label, min, max, value, onChange, isSingleValue }) => {
-  const [minVal, setMinVal] = useState(value[0]);
-  const [maxVal, setMaxVal] = useState(value[1]);
+const ReusableSlider: React.FC<ReusableSliderProps> = ({ label, min, max, value, onChange, step = 1, suffix = '', tooltip, isSingleValue }) => {
+  // Determine if this is a single value slider
+  const isRange = Array.isArray(value);
+  const [minVal, setMinVal] = useState(isRange ? value[0] : value as number);
+  const [maxVal, setMaxVal] = useState(isRange ? value[1] : value as number);
 
   useEffect(() => {
-    setMinVal(value[0]);
-    setMaxVal(value[1]);
-  }, [value]);
+    if (isRange) {
+      setMinVal((value as [number, number])[0]);
+      setMaxVal((value as [number, number])[1]);
+    } else {
+      setMinVal(value as number);
+      setMaxVal(value as number);
+    }
+  }, [value, isRange]);
 
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newMinVal = isSingleValue ? Number(e.target.value) : Math.min(Number(e.target.value), maxVal - 1);
+    const newMinVal = isRange && !isSingleValue ? Math.min(Number(e.target.value), maxVal - 1) : Number(e.target.value);
     setMinVal(newMinVal);
-    if (isSingleValue) {
+    if (!isRange || isSingleValue) {
       onChange(newMinVal);
     } else {
       onChange([newMinVal, maxVal]);
@@ -38,25 +48,27 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ label, min, max, value,
 
   return (
     <div className={styles.sliderContainer}>
-      <label>{label}</label>
+      <label title={tooltip}>{label}{suffix && ` (${suffix})`}</label>
       <div className={styles.rangeValues}>
-        <span>{isSingleValue ? value[0] : minVal}</span>
-        {!isSingleValue && <span>{maxVal}</span>}
+        <span>{minVal}</span>
+        {isRange && !isSingleValue && <span>{maxVal}</span>}
       </div>
       <div className={styles.slider}>
         <input
           type="range"
           min={min}
           max={max}
+          step={step}
           value={minVal}
           onChange={handleMinChange}
           className={styles.thumb}
         />
-        {!isSingleValue && (
+        {isRange && !isSingleValue && (
           <input
             type="range"
             min={min}
             max={max}
+            step={step}
             value={maxVal}
             onChange={handleMaxChange}
             className={styles.thumb}

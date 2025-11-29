@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useStore } from '../lib/store';
 import { Enterprise } from '../lib/partnershipData';
 import styles from './ConsolidatedControls.module.css'; // We'll create a new CSS module
-import { ReusableSlider } from './ReusableSlider'; // Reuse existing slider component
+import ReusableSlider from './ReusableSlider'; // Reuse existing slider component
 import { ChevronDown, ChevronRight, Settings, Tractor, HelpCircle } from 'lucide-react';
 
 export function ConsolidatedControls() {
@@ -23,7 +23,7 @@ export function ConsolidatedControls() {
       <ReusableSlider
         label="Total Land Size"
         value={data.landSize}
-        onChange={(v) => updateGlobal('landSize', v)}
+        onChange={(v) => updateGlobal('landSize', typeof v === 'number' ? v : v[0])}
         min={100}
         max={2000}
         step={50}
@@ -33,7 +33,10 @@ export function ConsolidatedControls() {
        <ReusableSlider
         label="Sekelbos Revenue per Ha"
         value={data.sekelbosRevenuePerHectare[0]} // Simplified for POC
-        onChange={(v) => updateGlobal('sekelbosRevenuePerHectare', [v, v + 2000])}
+        onChange={(v) => {
+          const val = typeof v === 'number' ? v : v[0];
+          updateGlobal('sekelbosRevenuePerHectare', [val, val + 2000]);
+        }}
         min={1000}
         max={10000}
         step={500}
@@ -57,7 +60,7 @@ export function ConsolidatedControls() {
           <ReusableSlider
               label="Allocated Land"
               value={enterprise.hectares}
-              onChange={(v) => updateEnterprise(enterprise.id, { hectares: v })}
+              onChange={(v) => updateEnterprise(enterprise.id, { hectares: typeof v === 'number' ? v : v[0] })}
               min={0}
               max={data.landSize}
               step={10}
@@ -67,20 +70,23 @@ export function ConsolidatedControls() {
             <>
               <ReusableSlider
                 label="Density"
-                value={enterprise.density}
-                onChange={(v) => updateEnterprise(enterprise.id, { density: v })}
+                value={enterprise.density ?? 0}
+                onChange={(v) => updateEnterprise(enterprise.id, { density: typeof v === 'number' ? v : v[0] })}
                 min={0} max={50} step={0.1} suffix="head/ha"
               />
                <ReusableSlider
                 label="Market Price (Min)"
-                value={enterprise.marketPrice[0]}
-                onChange={(v) => updateEnterprise(enterprise.id, { marketPrice: [v, enterprise.marketPrice[1]] })}
+                value={enterprise.marketPrice?.[0] ?? 0}
+                onChange={(v) => {
+                  const val = typeof v === 'number' ? v : v[0];
+                  updateEnterprise(enterprise.id, { marketPrice: [val, enterprise.marketPrice?.[1] ?? val] });
+                }}
                 min={0} max={20000} step={100} suffix="ZAR"
               />
                <ReusableSlider
                 label="Offtake Rate"
-                value={enterprise.offtakeRate}
-                onChange={(v) => updateEnterprise(enterprise.id, { offtakeRate: v })}
+                value={enterprise.offtakeRate ?? 0}
+                onChange={(v) => updateEnterprise(enterprise.id, { offtakeRate: typeof v === 'number' ? v : v[0] })}
                 min={0} max={200} step={1} suffix="%"
               />
             </>
@@ -88,8 +94,11 @@ export function ConsolidatedControls() {
           {enterprise.type === 'crop' && (
              <ReusableSlider
                 label="Revenue per Ha (Min)"
-                value={enterprise.revenuePerHectare[0]}
-                onChange={(v) => updateEnterprise(enterprise.id, { revenuePerHectare: [v, enterprise.revenuePerHectare[1]] })}
+                value={enterprise.revenuePerHectare?.[0] ?? 0}
+                onChange={(v) => {
+                  const val = typeof v === 'number' ? v : v[0];
+                  updateEnterprise(enterprise.id, { revenuePerHectare: [val, enterprise.revenuePerHectare?.[1] ?? val] });
+                }}
                 min={0} max={10000} step={250} suffix="ZAR/ha"
               />
           )}

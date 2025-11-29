@@ -1,56 +1,42 @@
 // Data model for the Zeerust Partnership Proposal
 
-// Represents a single revenue-generating enterprise (e.g., Cattle, Goats, Sekelbos)
+// Defines a single agricultural enterprise (e.g., Cattle, Goats, Crops)
 export interface Enterprise {
-  id: string; // e.g., 'cattle', 'sekelbos'
-  name: string; // e.g., 'Cattle', 'Sekelbos Clearance'
+  id: string; // e.g., 'cattle', 'goats'
+  name: string; // e.g., 'Cattle', 'Goats'
   type: 'livestock' | 'crop' | 'other';
   enabled: boolean;
-  hectares: number;
-  // Livestock-specific
+  hectares: number; // Land allocated to this enterprise
+  // Livestock-specific parameters
   density?: number; // animals per hectare
   marketPrice?: [number, number];
-  offtakeRate?: number;
-  costPerHecatare?: [number, number];
-  costPerAnimal?: [number, number];
-  // Crop-specific
-  revenuePerHectare?: [number, number];
+  offtakeRate?: number; // percentage
   costPerHectare?: [number, number];
-  // Other (e.g., Sekelbos)
-  revenueTotal?: [number, number];
-  costTotal?: [number, number];
+  costPerAnimal?: [number, number];
+  // Crop-specific parameters
+  revenuePerHectare?: [number, number];
 }
 
-
 export interface PartnershipData {
-  // Farm basics
+  // Global farm parameters
   landSize: number; // hectares
   sekelbosEncroachment: number; // percentage
-  currentCarryingCapacity: number; // ha/LSU
-  targetCarryingCapacity: number; // ha/LSU
+  sekelbosRevenuePerHectare: [number, number]; // min, max
+  currentLSU: number; // Current livestock stocking units
+  targetLSU: number; // Target livestock stocking units
 
-  // All enterprises associated with the farm
+  // Feature toggles for optional modules
+  includeChickens: boolean;
+  includeRabbits: boolean;
+
+  // Array of all enterprises on the farm
   enterprises: Enterprise[];
 
-  // Baseline revenue (current state) - Can be refactored to use Enterprise model as well
-  baselineRevenue: {
-    cattle: [number, number];
-    goats: [number, number];
-    pigs: [number, number];
-    chickens: [number, number];
-    crops: [number, number];
-    wood: [number, number];
-    rabbits: [number, number];
-  };
-
-  baselineCosts: [number, number];
-
-  // Hans's investment
-  hansLivestockValue: [number, number];
-  hansMonthlySalary: [number, number];
-
+  // Financial and partnership structure
+  hansLivestockValue: [number, number]; // min, max
+  hansMonthlySalary: [number, number]; // min, max
   equityStructure: Equity[];
-  yearlyTargets: YearlyTarget[]; // This will also be refactored to be more dynamic
+  yearlyTargets: YearlyTarget[]; // This might also be refactored or calculated dynamically later
 }
 
 export interface Equity {
@@ -62,12 +48,14 @@ export interface Equity {
 
 export interface YearlyTarget {
   year: number;
-  // This structure will be simplified as calculations become more dynamic
-  sekelbosCleared: number; // Example field, will be driven by enterprise data
-  costs: [number, number];
+  sekelbosCleared: number;
+  // Note: Detailed revenue/costs per enterprise will be calculated dynamically
+  // This can be simplified to hold high-level targets if needed
+  otherCosts: [number, number];
 }
 
-// The default data will now be constructed in a more structured way
-import partnershipData from './partnershipData-refactored.json';
+// The default data is now loaded from a separate, refactored JSON file.
+// We are no longer importing the old partnershipData.json here directly.
+import partnershipData from '../data/partnershipData-refactored.json';
 
-export const defaultPartnershipData: PartnershipData = partnershipData;
+export const defaultPartnershipData: PartnershipData = partnershipData as unknown as PartnershipData;

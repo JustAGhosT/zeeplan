@@ -10,14 +10,6 @@ export function FloatingControls() {
   const [isOpen, setIsOpen] = useState(false);
   const data = useStore((state) => state.data);
 
-  // This is a workaround to ensure the component re-renders when data changes.
-  // Zustand provides more elegant ways to handle this, but for a quick POC this is fine.
-  const [, setForceRender] = useState({});
-  useEffect(() => {
-    const unsubscribe = useStore.subscribe(() => setForceRender({}));
-    return () => unsubscribe();
-  }, []);
-
   return (
     <>
       <button
