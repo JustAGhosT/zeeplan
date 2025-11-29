@@ -7,8 +7,6 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from './contexts/ThemeContext';
-import { DataProvider } from './contexts/DataContext';
-import { FloatingControls } from '@/components/FloatingControls';
 import './print.css';
 
 export default function RootLayout({
@@ -20,10 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <ThemeProvider>
-          <DataProvider>
-            <main>{children}</main>
-            <FloatingControls />
-          </DataProvider>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
