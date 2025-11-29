@@ -1,277 +1,78 @@
 # Contributing to Zeeplan
 
-Thank you for your interest in the Zeeplan project! This guide will help you get started with development.
+We're excited that you're interested in contributing to the Zeeplan project! Your contributions are essential for making this tool a success. This guide will help you get started.
 
-## 📋 Prerequisites
+## Project Philosophy
 
-Before you begin, ensure you have the following installed:
+Zeeplan is a financial modeling tool designed for a specific regenerative agriculture proposal. Our development philosophy prioritizes:
+- **Clarity and Simplicity:** Code should be easy to understand and maintain.
+- **Accuracy:** The financial calculations are the core of the application and must be correct and thoroughly tested.
+- **Interactivity:** The user experience should be fluid and allow for real-time exploration of financial scenarios.
 
-- **Node.js** 18.x or higher
-- **npm** 8.x or higher
-- **Git** for version control
+## Getting Started
 
-## 🚀 Getting Started
+1.  **Fork & Clone:** Fork the repository on GitHub and clone your fork locally.
+2.  **Install Dependencies:** We use `npm` for package management.
+    ```bash
+    npm install
+    ```
+3.  **Run the Development Server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:3000`.
 
-### 1. Clone the Repository
+## Key Development Tasks
 
-```bash
-git clone https://github.com/JustAGhosT/zeeplan.git
-cd zeeplan
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Run the Development Server
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-## 📁 Project Structure
-
-```
-zeeplan/
-├── app/                    # Next.js app directory (pages and routes)
-│   ├── contexts/          # React contexts (Theme, Data)
-│   ├── cattle/            # Cattle enterprise page
-│   ├── chicken/           # Chicken enterprise page
-│   ├── crops/             # Crop production pages
-│   ├── financials/        # Financial projections page
-│   ├── goats/             # Goat dairy enterprise page
-│   ├── pigs/              # Pig enterprise page
-│   ├── operations/        # Operations dashboard
-│   ├── proposal/          # Full proposal page
-│   ├── sekelbos/          # Sekelbos clearance plan
-│   └── page.tsx           # Home page
-├── components/            # Reusable React components
-├── lib/                   # Utility functions and business logic
-│   ├── calculations.ts    # Financial calculations
-│   ├── constants.ts       # Business constants
-│   ├── formatting.ts      # Currency and number formatting
-│   ├── hooks.ts           # Custom React hooks
-│   ├── validation.ts      # Input validation
-│   └── partnershipData.ts # Data model definitions
-├── docs/                  # Documentation files
-│   ├── CODE_ANALYSIS.md   # Code analysis and bug report
-│   └── *.md               # Business plan documents
-└── data/                  # Financial data files
-```
-
-## 🧪 Testing
-
-### Run Tests
-
+### Running Tests
+We use Jest for unit testing. It's crucial that all tests pass before you submit a pull request.
 ```bash
 npm test
 ```
 
-### Run Tests in Watch Mode
-
+### Formatting and Linting
+We use Prettier for code formatting and ESLint for identifying potential issues.
 ```bash
-npm run test:watch
-```
-
-### Generate Coverage Report
-
-```bash
-npm run test:coverage
-```
-
-### Test Files
-
-- `lib/calculations.test.ts` - Financial calculation tests
-- `lib/formatting.test.ts` - Formatting utility tests
-- `lib/validation.test.ts` - Validation function tests
-
-## 🎨 Code Style
-
-This project uses:
-
-- **ESLint** for JavaScript/TypeScript linting
-- **Prettier** for code formatting
-- **TypeScript** for type safety
-
-### Format Code
-
-```bash
+# To format all files
 npm run format
-```
 
-### Lint Code
-
-```bash
+# To run the linter
 npm run lint
 ```
 
-## 🏗️ Building
+## Project Structure Overview
 
-### Create Production Build
+The repository is organized to separate concerns and make the codebase easy to navigate.
 
-```bash
-npm run build
+```
+/
+├── app/                # Next.js App Router pages and layouts
+├── components/         # Reusable React components
+├── data/               # Static data files (e.g., partnershipData-refactored.json)
+├── docs/               # Project documentation (architecture, design system)
+├── lib/                # Core application logic, types, and utilities
+│   ├── calculations.ts   # Core financial calculation engine (pure functions)
+│   ├── partnershipData.ts# TypeScript types for our data model
+│   ├── store.ts          # Zustand store for global state management
+│   └── ...               # Other utilities (formatting, validation, etc.)
+├── tests/              # Test files (Jest configuration)
+├── public/             # Static assets
+└── ...                 # Configuration files
 ```
 
-### Start Production Server
+## Architectural Principles
 
-```bash
-npm start
-```
+-   **Stateless Logic:** All core financial logic resides in `lib/calculations.ts`. These functions are pure, stateless, and have no side effects, which makes them easy to test and reason about.
+-   **Centralized State:** Global application state is managed by a Zustand store in `lib/store.ts`. UI components should subscribe to this store for data and use its actions to update state. Avoid local state (`useState`) for complex, shared data.
+-   **Data Model:** The primary data structure is an array of `Enterprise` objects, defined in `lib/partnershipData.ts`. This model is designed to be flexible and scalable to new types of agricultural enterprises.
+-   **Component-Based UI:** The user interface is built with React components in the `components/` directory. We use CSS Modules for styling to keep styles scoped to their respective components.
 
-## 🔧 Development Guidelines
+## Submitting a Pull Request
 
-### Code Standards
+1.  Create a new branch for your feature or bug fix.
+2.  Make your changes, adhering to the architectural principles above.
+3.  Add or update tests in the `tests/` directory to cover your changes.
+4.  Ensure all tests and lint checks pass.
+5.  Push your branch and open a pull request with a clear title and a detailed description of your changes.
 
-1. **TypeScript**: Use TypeScript for all new code. Add proper type annotations.
-2. **Components**: Use functional components with hooks.
-3. **Styling**: Use CSS Modules for component-specific styles.
-4. **Constants**: Extract magic numbers to `lib/constants.ts`.
-5. **Testing**: Write tests for all business logic functions.
-
-### File Naming
-
-- **Components**: PascalCase (e.g., `Header.tsx`, `FinancialProjections.tsx`)
-- **Utilities**: camelCase (e.g., `calculations.ts`, `formatting.ts`)
-- **Styles**: Match component name (e.g., `Header.module.css`)
-- **Tests**: Same name as file being tested with `.test.ts` extension
-
-### Component Structure
-
-```typescript
-'use client'; // If using client-side features
-
-import React from 'react';
-import styles from './ComponentName.module.css';
-
-interface ComponentProps {
-  // Define props with TypeScript
-}
-
-export function ComponentName({ prop1, prop2 }: ComponentProps) {
-  // Component logic
-  return (
-    <div className={styles.container}>
-      {/* JSX */}
-    </div>
-  );
-}
-```
-
-### Git Workflow
-
-1. Create a feature branch: `git checkout -b feature/your-feature-name`
-2. Make your changes
-3. Run tests: `npm test`
-4. Run linter: `npm run lint`
-5. Format code: `npm run format`
-6. Commit changes: `git commit -m "Description of changes"`
-7. Push to GitHub: `git push origin feature/your-feature-name`
-8. Create a Pull Request
-
-## 📚 Key Concepts
-
-### Partnership Structure
-
-The application models a three-way partnership:
-- **Oom Hein**: 35% equity (Land + Operations)
-- **Eben**: 35% equity (Infrastructure + Family)
-- **Hans**: 30% equity (Sweat Equity + Livestock)
-
-### Financial Calculations
-
-All financial calculations use min-max ranges:
-```typescript
-type Range = [number, number]; // [min, max]
-```
-
-This allows for conservative (min) and optimistic (max) projections.
-
-### Data Flow
-
-1. `partnershipData.json` contains baseline data
-2. `DataContext` provides global state management
-3. Components use `useData()` hook to access/update data
-4. `calculations.ts` performs all financial computations
-5. Results are cached for performance
-
-## 🐛 Reporting Issues
-
-Please refer to `docs/CODE_ANALYSIS.md` for known issues and improvement opportunities.
-
-When reporting new issues, include:
-- Description of the problem
-- Steps to reproduce
-- Expected vs actual behavior
-- Screenshots (if applicable)
-- Browser/OS information
-
-## 💡 Adding Features
-
-### Before Adding a Feature
-
-1. Check if it aligns with the project goals
-2. Review existing code for similar patterns
-3. Consider impact on financial calculations
-4. Plan for mobile responsiveness
-5. Consider dark mode compatibility
-
-### Feature Checklist
-
-- [ ] TypeScript types defined
-- [ ] Component created with CSS module
-- [ ] Dark mode styles added
-- [ ] Mobile responsive
-- [ ] Tests written
-- [ ] Documentation updated
-- [ ] Accessibility considered (ARIA labels, keyboard navigation)
-
-## 🎯 Performance
-
-### Best Practices
-
-1. Use `React.memo()` for expensive components
-2. Use `useMemo()` for expensive calculations
-3. Use `useCallback()` for event handlers passed to children
-4. Lazy load images and heavy components
-5. Keep bundle size small
-
-### Caching
-
-The financial summary calculation is cached:
-```typescript
-const summaryCache = new Map<string, FinancialSummary>();
-```
-
-## 🔒 Security
-
-- Never commit sensitive data (API keys, passwords, etc.)
-- Keep dependencies updated: `npm audit` and `npm audit fix`
-- Validate all user inputs
-- Sanitize data before display
-
-## 📖 Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-
-## 🤝 Support
-
-For questions or support:
-- Check existing documentation in `/docs`
-- Review the code analysis: `docs/CODE_ANALYSIS.md`
-- Contact the project maintainer
-
-## 📄 License
-
-This project is intended for the Zeerust farm partnership. For licensing inquiries, please contact the repository owner.
-
----
-
-Thank you for contributing to Zeeplan! 🌱
+Thank you for your contributions!
