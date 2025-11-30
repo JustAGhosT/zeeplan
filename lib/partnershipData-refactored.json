@@ -1,0 +1,37 @@
+{
+    "landSize": 600,
+    "currentLSU": 72,
+    "targetLSU": 104,
+    "sekelbosEncroachment": 70,
+    "currentCarryingCapacity": 8.3,
+    "targetCarryingCapacity": 5.7,
+    "enterprises": [
+        { "id": "sekelbos", "name": "Sekelbos Clearance", "type": "other", "enabled": true, "hectares": 0, "revenuePerHectare": [3000, 5000] },
+        { "id": "cattle", "name": "Cattle", "type": "livestock", "enabled": true, "hectares": 450, "density": 0.23, "marketPrice": [12000, 15000], "offtakeRate": 25, "costPerHecatare": [100, 150], "costPerAnimal": [500, 700] },
+        { "id": "goats", "name": "Goats", "type": "livestock", "enabled": true, "hectares": 100, "density": 1, "marketPrice": [1500, 2000], "offtakeRate": 40, "costPerHecatare": [80, 120], "costPerAnimal": [200, 300] },
+        { "id": "pigs", "name": "Pigs", "type": "livestock", "enabled": true, "hectares": 5, "density": 20, "marketPrice": [2000, 2500], "offtakeRate": 80, "costPerHecatare": [150, 200], "costPerAnimal": [800, 1000] },
+        { "id": "chickens", "name": "Chickens", "type": "livestock", "enabled": false, "hectares": 1, "density": 500, "marketPrice": [80, 120], "offtakeRate": 90, "costPerHecatare": [50, 80], "costPerAnimal": [40, 60] },
+        { "id": "rabbits", "name": "Rabbits", "type": "livestock", "enabled": false, "hectares": 1, "density": 100, "marketPrice": [100, 150], "offtakeRate": 100, "costPerHecatare": [100, 150], "costPerAnimal": [50, 70] },
+        { "id": "crops", "name": "Crops", "type": "crop", "enabled": true, "hectares": 44, "revenuePerHectare": [4000, 6000], "costPerHectare": [1500, 2500] }
+    ],
+    "baselineRevenue": {
+        "cattle": [233000, 297000], "goats": [0, 0], "pigs": [0, 0], "chickens": [0, 0], "crops": [0, 0], "wood": [0, 0], "rabbits": [0, 0]
+    },
+    "baselineCosts": [120000, 150000],
+    "hansLivestockValue": [48000, 98000],
+    "hansMonthlySalary": [10000, 15000],
+    "equityStructure": [
+        { "oomHein": 35, "eben": 35, "hans": 0 },
+        { "oomHein": 35, "eben": 35, "hans": 15 },
+        { "oomHein": 35, "eben": 35, "hans": 22.5 },
+        { "oomHein": 35, "eben": 35, "hans": 30 },
+        { "oomHein": 35, "eben": 35, "hans": 30 }
+    ],
+    "yearlyTargets": [
+        { "year": 1, "sekelbosCleared": 50, "costs": [100000, 150000] },
+        { "year": 2, "sekelbosCleared": 50, "costs": [120000, 170000] },
+        { "year": 3, "sekelbosCleared": 50, "costs": [140000, 190000] },
+        { "year": 4, "sekelbosCleared": 50, "costs": [160000, 210000] },
+        { "year": 5, "sekelbosCleared": 50, "costs": [180000, 230000] }
+    ]
+}

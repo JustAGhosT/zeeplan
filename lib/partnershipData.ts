@@ -22,6 +22,12 @@ export interface PartnershipData {
   landSize: number; // hectares
   sekelbosEncroachment: number; // percentage
   sekelbosRevenuePerHectare: [number, number]; // min, max
+  currentLSU: number; // Current livestock stocking units
+  targetLSU: number; // Target livestock stocking units
+
+  // Feature toggles for optional modules
+  includeChickens: boolean;
+  includeRabbits: boolean;
 
   // Array of all enterprises on the farm
   enterprises: Enterprise[];
