@@ -1,11 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Settings, X } from 'lucide-react';
 import styles from './FloatingControls.module.css';
 import { ConsolidatedControls } from './ConsolidatedControls';
+import { useStore } from '../lib/store';
+import { PartnershipData } from '@/lib/partnershipData';
 
 export function FloatingControls() {
   const [isOpen, setIsOpen] = useState(false);
+  const data = useStore((state) => state.data);
 
   return (
     <>

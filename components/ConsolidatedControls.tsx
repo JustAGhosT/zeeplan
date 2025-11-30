@@ -23,7 +23,7 @@ export function ConsolidatedControls() {
       <ReusableSlider
         label="Total Land Size"
         value={data.landSize}
-        onChange={(v) => updateGlobal('landSize', typeof v === 'number' ? v : v[0])}
+        onChange={(v) => updateGlobal('landSize', v)}
         min={100}
         max={2000}
         step={50}

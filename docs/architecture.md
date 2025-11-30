@@ -12,7 +12,7 @@ This document outlines the software architecture of the Zeeplan application afte
 
 The application's data flow is unidirectional and managed by a central state store.
 
-1.  **Initialization:** On application load, the default partnership data is loaded from `data/partnershipData-refactored.json` into the Zustand store (`lib/store.ts`).
+1.  **Initialization:** On application load, the default partnership data is loaded from `data/partnershipData.json` into the Zustand store (`lib/store.ts`).
 2.  **User Interaction:** The user interacts with the `ConsolidatedControls` component. When a value is changed (e.g., a slider is moved), an action is called from the Zustand store.
 3.  **State Update:** The Zustand store updates its state. For example, the `updateEnterprise` action finds the correct enterprise in the `enterprises` array and modifies its properties.
 4.  **Re-render:** Components that subscribe to the Zustand store (like the financial projection pages) are automatically re-rendered with the new data.
@@ -30,5 +30,5 @@ The application's data flow is unidirectional and managed by a central state sto
 
 To add a new "Sheep" enterprise, a developer would:
 
-1.  Add a new `Enterprise` object for sheep to the `data/partnershipData-refactored.json` file.
+1.  Add a new `Enterprise` object for sheep to the `data/partnershipData.json` file.
 2.  No other code changes are required. The `ConsolidatedControls` will automatically render a new tab for "Sheep", and the calculation functions will automatically include it in the financial summary.

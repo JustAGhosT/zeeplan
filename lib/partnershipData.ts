@@ -56,6 +56,6 @@ export interface YearlyTarget {
 
 // The default data is now loaded from a separate, refactored JSON file.
 // We are no longer importing the old partnershipData.json here directly.
-import partnershipData from '../data/partnershipData-refactored.json';
+import partnershipData from '../data/partnershipData.json';
 
 export const defaultPartnershipData: PartnershipData = partnershipData as unknown as PartnershipData;

@@ -48,7 +48,7 @@ The repository is organized to separate concerns and make the codebase easy to n
 /
 ├── app/                # Next.js App Router pages and layouts
 ├── components/         # Reusable React components
-├── data/               # Static data files (e.g., partnershipData-refactored.json)
+├── data/               # Static data files (e.g., partnershipData.json)
 ├── docs/               # Project documentation (architecture, design system)
 ├── lib/                # Core application logic, types, and utilities
 │   ├── calculations.ts   # Core financial calculation engine (pure functions)
