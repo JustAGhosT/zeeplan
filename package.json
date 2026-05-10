@@ -1,6 +1,7 @@
 {
   "name": "zeeplan",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.30.3",
   "description": "This repository contains the comprehensive business partnership proposal for a regenerative agriculture venture in Zeerust, North West Province, South Africa.",
   "main": "index.js",
   "type": "module",
